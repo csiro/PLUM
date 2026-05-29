@@ -1,0 +1,4 @@
+#!/bin/bash
+
+res=${1:- "out.res"}
+getcol -H flux_fn sd_vec numused sumflux biomass_flux dummy_flux $res

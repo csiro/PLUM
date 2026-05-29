@@ -1,0 +1,10 @@
+gapfill
+*.lp
+*.log
+*.dig
+*.out
+*.sol
+out
+overlap
+res
+jobs

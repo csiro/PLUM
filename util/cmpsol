@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$2" == "" ]
+then
+    echo "Two solutions required"
+    exit 1
+fi
+tmp1="/tmp/cmpsol1"
+tmp2="/tmp/cmpsol2"
+gawk '!/^#/ {print $1, $2}' $1 | sort > $tmp1
+gawk '!/^#/ {print $1, $2}' $2 | sort > $tmp2
+
+kjoin -a1 -a2 $tmp1 $tmp2 | gawk '
+NF < 4   {print "?", $0; next}
+$2 < $4  {print "<", $0}
+$2 > $4  {print ">", $0}
+$2 = $4  {print "=", $0}
+'
+#sdiff -b $tmp1 $tmp2

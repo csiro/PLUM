@@ -1,0 +1,41 @@
+#!/bin/bash
+
+extra_fn="extra0.5.dat"
+if [ "$2" == "" ]
+then
+    echo "Usage: makeextra <numgaps> <numextras>"
+    echo "    Make a plum data file"
+    echo "    Using extra reactions from $extra_fn"
+    exit 1
+fi
+gaps=$1
+extras=$2
+
+dat="Paeruginosa-${gaps}-${extras}.dat"
+
+echo "# Created by makeextra with $gaps gaps and $extras extras" > $dat
+echo "# on `date`" >> $dat
+
+tmp="/tmp/makeextra.tmp"
+tmp2="/tmp/makeextra2.tmp"
+# Make a list of reactions that are used for glucose
+grep -v '^#' out.sd-glc__D.dat |  gawk '$3 > 0 && $2 > 0.01 {print $1}' | shuffle > $tmp
+num_reacts=`wc -l < $tmp`
+num_keep=$((num_reacts - gaps))
+# Choose all but 'gaps' of them to have low cost - save in tmp2
+# So tmp2 has all reactions that will have low cost
+echo -n "# Excluded reactions are: " >> $dat
+tail +$((num_keep+1)) $tmp | myfold >> $dat
+echo >> $dat
+head -$num_keep $tmp > $tmp2
+
+# Grab the non-cheap reactions (plus everything else) 
+kjoin Paeruginosa.dat -j1 2 $tmp2 -o1 -r | gawk '/^MET/ {print} /^REACT/ && $3 > 0 {$3 = 100; print $0, " # From orig file"}' >> $dat
+# Grab "extras" reactions from extra0.5.dat
+shuffle $extra_fn | grep ^REACTION | head -$extras | gawk '{$3 = 100; print}' >> $dat
+# Grab the cheap reactions, make their cost 1, and append
+kjoin Paeruginosa.dat -j1 2 $tmp2 -o1 | gawk '{$3 = 1; print}' >> $dat
+# Finally, add biomass from Paeruginosa.dat
+gawk '$1 == "REACTION" && $3 < 0' Paeruginosa.dat >> $dat
+
+echo "Done. Output in $dat"

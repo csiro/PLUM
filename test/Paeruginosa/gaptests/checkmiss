@@ -1,0 +1,27 @@
+#!/bin/bash
+
+miss="missing_reactions_by_pair.orig"
+newmiss="missing_reactions_by_pair.dat"
+refsol="refsol.out"
+
+if [ -f $newmiss ]
+then
+    rm -v $newmiss
+fi
+
+tmp="/tmp/checkmiss.tmp"
+tmp2="/tmp/checkmiss2.tmp"
+
+for dat in pair*-ALL.dat
+do
+    echo $dat
+    grep $dat $miss | mycol 2- | unfold > $tmp
+    
+    kjoin $tmp $refsol  | getcol 1 > $tmp2
+    echo -n "$dat " >> $newmiss
+    myfold $tmp2 >> $newmiss
+    oldcount=`wc -l < $tmp`
+    newcount=`wc -l < $tmp2`
+    echo "$dat old $oldcount new $newcount"
+done
+echo "Done. Output in $newmiss"

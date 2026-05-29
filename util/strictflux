@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Create a strict flux file that fixes to 0 all other fluxes
+# Do this by prepending the 0 fluxes
+in="toyflux.dat"
+out="strictflux.dat"
+echo "Using $in for known flux"
+
+echo "# Strict flux file" > $out
+for compart in O C P E
+do
+    for r in `gawk '$2 > 0 {print $1}' $in`
+    do
+        echo "$r 0.0 0.0 $compart" >> $out
+    done
+done
+cat $in >> $out
+echo "Done. Output in $out"

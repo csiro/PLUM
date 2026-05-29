@@ -1,0 +1,107 @@
+#!/bin/bash
+
+summary=""
+if [ "$1" == "-O" ]
+then
+    shift
+    summary="$1"
+    shift
+fi
+
+if [ "$2" == "" ]
+then
+    echo "compare1 [-O <summary>] <dat-fn> <out-fn> [<orig-solution>]"
+    exit 1
+fi
+
+all_excl="missing_reactions_by_pair.dat"
+all_added="added_reactions_by_pair.dat"
+
+dat=$1
+out=$2
+orig=$3
+
+excl="/tmp/compare1-excl.tmp"
+added="/tmp/compare1-added.tmp"
+
+grep $dat $all_excl | mycol 2- | unfold > $excl
+grep $dat $all_added | mycol 2- | unfold > $added
+
+tmp="/tmp/compare1-1.tmp"
+tmp2="/tmp/compare1-2.tmp"
+tmp3="/tmp/compare1-3.tmp"
+
+num_excluded=`wc -l < $excl`
+echo "Num excluded is $num_excluded"
+num_added=`wc -l < $added`
+
+found=0
+not_found=0
+for name in `cat $excl`
+do
+    count=`grep "^$name " $out | wc -l`
+    echo "$name: $count"
+    if [ $count -eq 0 ]
+    then
+        echo "Reaction $name NOT replaced"
+        not_found=$((not_found+1))
+    else
+        echo "Reaction $name FOUND"
+        found=$((found+1))
+    fi
+done
+
+echo "$found of $num_excluded found"
+echo "$not_found of $num_excluded not found"
+
+echo ""
+echo "Reactions from added"
+grep -v '^#' $out | kjoin - $added -o1 > $tmp2
+cat $tmp2
+from_added=`wc -l < $tmp2`
+echo ""
+
+if [ "$orig" == "" ]
+then
+    exit 0
+fi
+grep -v '^#' $out > $tmp2
+grep -v '^#' $orig > $tmp3
+
+echo ""
+echo "Change in flux (old to new)"
+kjoin $excl $tmp3 | getcol 2 3 | kjoin - $tmp2 | gawk '{printf ("%-20s %8.4f %8.4f %+5.1f%%\n", $1, $2, $4, ($4 - $2) * 100.0 / $4)}'
+
+echo ""
+echo "Reactions in new sol not in orig sol (with flux):"
+kjoin $tmp2 $tmp3 -r | sort -g -r -k 2,2 > $tmp
+cat $tmp
+num_new=`wc -l < $tmp`
+
+echo "" 
+echo "Reactions in orig sol not in new sol (with flux):"
+kjoin $tmp3 $tmp2 -r | sort -g -r -k 2,2 > $tmp
+cat $tmp
+num_lost=`wc -l < $tmp`
+
+biomass=`grep "R_PA_Biomass6_DM" < $out | getcol 2`
+summary_line=`grep "^# seed" < $out | head -1`
+cpu=`echo $summary_line | getcol cpu`
+solver=`echo $summary_line | getcol solver`
+data="`echo $dat | sed 's/-ALL.dat//'`"
+
+title="#data method num_added num_excluded num_found num_not_found num_lost num_new from_added biomass cpu"
+str="$data $solver $num_added $num_excluded $found $not_found $num_lost $num_new $from_added $biomass $cpu"
+echo ""
+echo $title
+echo $str
+
+if [ "$summary" != "" ]
+then
+    if [ ! -f $summary ]
+    then
+        echo "$title" > $summary
+    fi
+    echo "$str" >> $summary
+fi
+    

@@ -1,0 +1,481 @@
+# Produced by plum Version of Sep 19 2023 19:06:37 2d70ef3d Linux Release on 25/09/2023 16:19:16
+# datafile data/PA01.dat
+# seed 1 data data/PA01.dat mets 2022 reactions 2877 orig-reactions 2877 numused 477 sumflux 1257.95 obj -8778.16 relobj 5773.24 absobj 915 status int_optimal biomass_flux 0.986079 biomass_obj -9693.16 dummy_flux 0 soldepth 2878 depth 2878 noreach_react 2781 noreach_mets 1948 noreach_resid 3 numselected 2877 calc_biomass_mult 9830.0 biomass_search_iters 8 used_biomass_mult 9830.0 mipgap_pc 0.9 rounding_iters 0 cpu 11.592 config biomass_iters 20 biomass_mult 100.000000 biomass_mult_int 10.000000 comb_extra 0 cycle_met_fn "" data data/PA01.dat flux_fn none max_mh_iters 100 min_cost 0.000000 react_cost_fn none react_cost_min_fn none sd_fn data/sd-cit.dat sd_vec "" seed 1 solver INT threads 8 timelimit 0 use_abs 1 use_dummy 0 use_error 0 which_exp 0 wiggle 0.000000 build 2d70ef3d
+# <reaction> <flux> <obj-coeff> {<metabolite> <coeff>}...
+R_2MBCOATA 0.0677405  1  M_2mbcoa_c -1 M_ACP_c -1 M_2mbutACP_c 1 M_coa_c 1
+R_2MEBCOADH_rev 0.0677405  2  M_2mbcoa_c 1 M_dhlam_c 1 M_HC01376_c -1 M_coa_c -1
+R_2OMMBOX 0.00782917  1  M_2ommb_c -1 M_nadph_c -1 M_o2_c -1 M_h2o_c 1 M_nadp_c 1 M_ocmhmxbq_c 1
+R_2OMPHH 0.00782917  1  M_2omph_c -1 M_o2_c -1 M_2ombz_c 1 M_h2o_c 1
+R_2S6HCC 0.0156583  5  M_akg_c -1 M_h_c -1 M_ichor_c -1 M_2shchc_c 1 M_co2_c 1 M_pyr_c 1
+R_3HAD100 0.33934  5  M_3hdecACP_c -1 M_h2o_c 1 M_tdec2eACP_c 1
+R_3HAD10M12 0.0677405  5  M_10m3hddcaACP_c -1 M_10mtddec2eACP_c 1 M_h2o_c 1
+R_3HAD11M12 0.0677405  5  M_11m3hddcaACP_c -1 M_11mtddec2eACP_c 1 M_h2o_c 1
+R_3HAD120 0.33934  5  M_3hddecACP_c -1 M_h2o_c 1 M_tddec2eACP_c 1
+R_3HAD12M14 0.0677405  5  M_12m3hmyrsACP_c -1 M_12mtmrs2eACP_c 1 M_h2o_c 1
+R_3HAD13M14 0.0677405  5  M_13m3hmyrsACP_c -1 M_13mtmrs2eACP_c 1 M_h2o_c 1
+R_3HAD140 0.0924309  5  M_3hmrsACP_c -1 M_h2o_c 1 M_tmrs2eACP_c 1
+R_3HAD14M16 0.0677405  5  M_14m3hpalmACP_c -1 M_14mtpalm2eACP_c 1 M_h2o_c 1
+R_3HAD15M16 0.0677405  5  M_15m3hpalmACP_c -1 M_15mtpalm2eACP_c 1 M_h2o_c 1
+R_3HAD180 0.0677405  5  M_3hoctaACP_c -1 M_h2o_c 1 M_toctd2eACP_c 1
+R_3HAD40 0.33934  5  M_3haACP_c -1 M_but2eACP_c 1 M_h2o_c 1
+R_3HAD4M6 0.0677405  5  M_4m3hhexACP_c -1 M_4mthex2eACP_c 1 M_h2o_c 1
+R_3HAD5M6 0.0677405  5  M_5m3hhexACP_c -1 M_5mthex2eACP_c 1 M_h2o_c 1
+R_3HAD60 0.33934  5  M_3hhexACP_c -1 M_h2o_c 1 M_thex2eACP_c 1
+R_3HAD6M8 0.0677405  5  M_6m3hocACP_c -1 M_6mtoct2eACP_c 1 M_h2o_c 1
+R_3HAD7M8 0.0677405  5  M_7m3hocACP_c -1 M_7mtoct2eACP_c 1 M_h2o_c 1
+R_3HAD80 0.33934  5  M_3hoctACP_c -1 M_h2o_c 1 M_toct2eACP_c 1
+R_3HAD8M10 0.0677405  5  M_8m3hdcaACP_c -1 M_8mtdec2eACP_c 1 M_h2o_c 1
+R_3HAD9M10 0.0677405  5  M_9m3hdcaACP_c -1 M_9mtdec2eACP_c 1 M_h2o_c 1
+R_3MEBCOADH 0.0677405  1  M_dhlam_c -1 M_ivcoa_c -1 M_HC01376_c 1 M_coa_c 1
+R_3MOBS_rev 0.478104  2  M_3c3hmp_c 1 M_coa_c 1 M_h_c 1 M_3mob_c -1 M_accoa_c -1 M_h2o_c -1
+R_3OAR100 0.33934  1  M_3odecACP_c -1 M_h_c -1 M_nadph_c -1 M_3hdecACP_c 1 M_nadp_c 1
+R_3OAR10M12 0.0677405  1  M_10m3oddcaACP_c -1 M_h_c -1 M_nadph_c -1 M_10m3hddcaACP_c 1 M_nadp_c 1
+R_3OAR11M12 0.0677405  1  M_11m3oddcaACP_c -1 M_h_c -1 M_nadph_c -1 M_11m3hddcaACP_c 1 M_nadp_c 1
+R_3OAR120 0.33934  1  M_3oddecACP_c -1 M_h_c -1 M_nadph_c -1 M_3hddecACP_c 1 M_nadp_c 1
+R_3OAR12M14 0.0677405  1  M_12m3omyrsACP_c -1 M_h_c -1 M_nadph_c -1 M_12m3hmyrsACP_c 1 M_nadp_c 1
+R_3OAR13M14 0.0677405  1  M_13m3omyrsACP_c -1 M_h_c -1 M_nadph_c -1 M_13m3hmyrsACP_c 1 M_nadp_c 1
+R_3OAR140 0.289958  1  M_3omrsACP_c -1 M_h_c -1 M_nadph_c -1 M_3hmrsACP_c 1 M_nadp_c 1
+R_3OAR14M16 0.0677405  1  M_14m3opalmACP_c -1 M_h_c -1 M_nadph_c -1 M_14m3hpalmACP_c 1 M_nadp_c 1
+R_3OAR15M16 0.0677405  1  M_15m3opalmACP_c -1 M_h_c -1 M_nadph_c -1 M_15m3hpalmACP_c 1 M_nadp_c 1
+R_3OAR180 0.0677405  1  M_3ooctdACP_c -1 M_h_c -1 M_nadph_c -1 M_3hoctaACP_c 1 M_nadp_c 1
+R_3OAR40 0.33934  1  M_actACP_c -1 M_h_c -1 M_nadph_c -1 M_3haACP_c 1 M_nadp_c 1
+R_3OAR4M6 0.0677405  1  M_4m3ohexACP_c -1 M_h_c -1 M_nadph_c -1 M_4m3hhexACP_c 1 M_nadp_c 1
+R_3OAR5M6 0.0677405  1  M_5m3ohexACP_c -1 M_h_c -1 M_nadph_c -1 M_5m3hhexACP_c 1 M_nadp_c 1
+R_3OAR60 0.33934  1  M_3ohexACP_c -1 M_h_c -1 M_nadph_c -1 M_3hhexACP_c 1 M_nadp_c 1
+R_3OAR6M8 0.0677405  1  M_6m3oocACP_c -1 M_h_c -1 M_nadph_c -1 M_6m3hocACP_c 1 M_nadp_c 1
+R_3OAR7M8 0.0677405  1  M_7m3oocACP_c -1 M_h_c -1 M_nadph_c -1 M_7m3hocACP_c 1 M_nadp_c 1
+R_3OAR80 0.33934  1  M_3ooctACP_c -1 M_h_c -1 M_nadph_c -1 M_3hoctACP_c 1 M_nadp_c 1
+R_3OAR8M10 0.0677405  1  M_8m3odcaACP_c -1 M_h_c -1 M_nadph_c -1 M_8m3hdcaACP_c 1 M_nadp_c 1
+R_3OAR9M10 0.0677405  1  M_9m3odcaACP_c -1 M_h_c -1 M_nadph_c -1 M_9m3hdcaACP_c 1 M_nadp_c 1
+R_3OAS100 0.33934  1  M_h_c -1 M_malACP_c -1 M_ocACP_c -1 M_3odecACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS10M12 0.0677405  1  M_10mddcaACP_c -1 M_h_c -1 M_malACP_c -1 M_12m3omyrsACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS11M12 0.0677405  1  M_11mddcaACP_c -1 M_h_c -1 M_malACP_c -1 M_13m3omyrsACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS120 0.33934  1  M_dcaACP_c -1 M_h_c -1 M_malACP_c -1 M_3oddecACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS12M14 0.0677405  1  M_12mmyrsACP_c -1 M_h_c -1 M_malACP_c -1 M_14m3opalmACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS13M14 0.0677405  1  M_13mmyrsACP_c -1 M_h_c -1 M_malACP_c -1 M_15m3opalmACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS140 0.289958  1  M_ddcaACP_c -1 M_h_c -1 M_malACP_c -1 M_3omrsACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS180 0.0677405  1  M_h_c -1 M_malACP_c -1 M_palmACP_c -1 M_3ooctdACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS3M4 0.0677405  1  M_3mbutACP_c -1 M_h_c -1 M_malACP_c -1 M_5m3ohexACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS4M3O6 0.0677405  1  M_2mbutACP_c -1 M_h_c -1 M_malACP_c -1 M_4m3ohexACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS4M6 0.0677405  1  M_4mhexACP_c -1 M_h_c -1 M_malACP_c -1 M_6m3oocACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS5M6 0.0677405  1  M_5mhexACP_c -1 M_h_c -1 M_malACP_c -1 M_7m3oocACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS60 0.33934  1  M_butACP_c -1 M_h_c -1 M_malACP_c -1 M_3ohexACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS6M8 0.0677405  1  M_6mocACP_c -1 M_h_c -1 M_malACP_c -1 M_8m3odcaACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS7M8 0.0677405  1  M_7mocACP_c -1 M_h_c -1 M_malACP_c -1 M_9m3odcaACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS80 0.33934  1  M_h_c -1 M_hexACP_c -1 M_malACP_c -1 M_3ooctACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS8M10 0.0677405  1  M_8mdcaACP_c -1 M_h_c -1 M_malACP_c -1 M_10m3oddcaACP_c 1 M_ACP_c 1 M_co2_c 1
+R_3OAS9M10 0.0677405  1  M_9mdcaACP_c -1 M_h_c -1 M_malACP_c -1 M_11m3oddcaACP_c 1 M_ACP_c 1 M_co2_c 1
+R_4HTHDR 0.320975  1  M_4hthdp_c -1 M_h_c -1 M_nadh_c -1 M_h2o_c 1 M_nad_c 1 M_thdp_c 1
+R_4HTHDS 0.320975  1  M_aspsa_c -1 M_pyr_c -1 M_4hthdp_c 1 M_h2o_c 1 M_h_c 1
+R_5MTAtepp_rev 0.00782917  6  M_5mta_p 1 M_5mta_c -1
+R_5MTAtex_rev 0.00782917  6  M_5mta_e 1 M_5mta_p -1
+R_A5PISO 0.123454  1  M_ru5p_D_c -1 M_ara5p_c 1
+R_ACACT7r 0.0677405  1  M_accoa_c -1 M_tdcoa_c -1 M_3ohdcoa_c 1 M_coa_c 1
+R_ACALD 2.01051  1  M_acald_c -1 M_coa_c -1 M_nad_c -1 M_accoa_c 1 M_h_c 1 M_nadh_c 1
+R_ACBIPGT 0.00782917  1  M_adocbip_c -1 M_gtp_c -1 M_h_c -1 M_agdpcbi_c 1 M_ppi_c 1
+R_ACCOAC 10.7824  1  M_accoa_c -1 M_atp_c -1 M_hco3_c -1 M_adp_c 1 M_h_c 1 M_malcoa_c 1 M_pi_c 1
+R_ACGK 0.365154  1  M_acglu_c -1 M_atp_c -1 M_acg5p_c 1 M_adp_c 1
+R_ACHBS 0.266665  1  M_2obut_c -1 M_h_c -1 M_pyr_c -1 M_2ahbut_c 1 M_co2_c 1
+R_ACLS 0.797199  1  M_h_c -1 M_pyr_c -2 M_alac_S_c 1 M_co2_c 1
+R_ACOAAGPATAI17 0.0338702  1  M_1aihpdecg3p_c -1 M_aihpdcoa_c -1 M_coa_c 1 M_paai17_c 1
+R_ACOAAGPATI17 0.0338702  1  M_1ihpdecg3p_c -1 M_ihpdcoa_c -1 M_coa_c 1 M_pai17_c 1
+R_ACOAD7i 0.0677405  1  M_h_c -1 M_hdd2coa_c -1 M_nadh_c -1 M_nad_c 1 M_pmtcoa_c 1
+R_ACOATA 0.33934  1  M_ACP_c -1 M_accoa_c -1 M_acACP_c 1 M_coa_c 1
+R_ACONTa 8.19894  1  M_cit_c -1 M_acon_C_c 1 M_h2o_c 1
+R_ACONTb 8.19894  1  M_acon_C_c -1 M_h2o_c -1 M_icit_c 1
+R_ACOTA_rev 0.365154  2  M_acorn_c 1 M_akg_c 1 M_acg5sa_c -1 M_glu_L_c -1
+R_ACPS1 0.00782917  5  M_apoACP_c -1 M_coa_c -1 M_ACP_c 1 M_h_c 1 M_pap_c 1
+R_ACS 1.37599  1  M_ac_c -1 M_atp_c -1 M_coa_c -1 M_accoa_c 1 M_amp_c 1 M_ppi_c 1
+R_ACYP_2 5.39148  1  M_actp_c -1 M_h2o_c -1 M_ac_c 1 M_h_c 1 M_pi_c 1
+R_ADCL 0.0234875  1  M_4adcho_c -1 M_4abz_c 1 M_h_c 1 M_pyr_c 1
+R_ADCS 0.0234875  1  M_chor_c -1 M_gln_L_c -1 M_4adcho_c 1 M_glu_L_c 1
+R_ADK1 7.27331  1  M_amp_c -1 M_atp_c -1 M_adp_c 2
+R_ADK2 0.00782917  1  M_amp_c -1 M_pppi_c -1 M_adp_c 1 M_ppi_c 1
+R_ADMDC 0.00782917  1  M_amet_c -1 M_h_c -1 M_ametam_c 1 M_co2_c 1
+R_ADNK1 0.046975  1  M_adn_c -1 M_atp_c -1 M_adp_c 1 M_amp_c 1 M_h_c 1
+R_ADOCBIK 0.00782917  5  M_adocbi_c -1 M_atp_c -1 M_adocbip_c 1 M_adp_c 1 M_h_c 1
+R_ADOCBLS 0.00782917  1  M_agdpcbi_c -1 M_rdmbzi_c -1 M_adocbl_c 1 M_gmp_c 1 M_h_c 1
+R_ADSK 0.215056  1  M_aps_c -1 M_atp_c -1 M_adp_c 1 M_h_c 1 M_paps_c 1
+R_ADSL1r 0.178435  1  M_dcamp_c -1 M_amp_c 1 M_fum_c 1
+R_ADSL2r 0.196179  1  M_25aics_c -1 M_aicar_c 1 M_fum_c 1
+R_ADSS 0.178435  1  M_asp_L_c -1 M_gtp_c -1 M_imp_c -1 M_dcamp_c 1 M_gdp_c 1 M_h_c 2 M_pi_c 1
+R_AGMHE 0.0987618  1  M_adphep_DD_c -1 M_adphep_LD_c 1
+R_AGPAT180 0.0338702  1  M_1odecg3p_c -1 M_ocdcaACP_c -1 M_ACP_c 1 M_pa180_c 1
+R_AGPR_rev 0.365154  2  M_acg5sa_c 1 M_nadp_c 1 M_pi_c 1 M_acg5p_c -1 M_h_c -1 M_nadph_c -1
+R_AHC 0.046975  1  M_ahcys_c -1 M_h2o_c -1 M_adn_c 1 M_hcys_L_c 1
+R_AICART 0.276986  1  M_10fthf_c -1 M_aicar_c -1 M_fprica_c 1 M_thf_c 1
+R_AIHPDCOATA 0.0677405  1  M_14mpalmACP_c -1 M_coa_c -1 M_ACP_c 1 M_aihpdcoa_c 1
+R_AIRC4 0.196179  1  M_air_c -1 M_atp_c -1 M_hco3_c -1 M_5aizc_c 1 M_adp_c 1 M_h_c 1 M_pi_c 1
+R_AKP1 0.0234875  1  M_ahdt_c -1 M_h2o_c -3 M_dhnpt_c 1 M_h_c 2 M_pi_c 3
+R_ALAALA 0.00178096  5  M_ala_D_c -2 M_atp_c -1 M_adp_c 1 M_alaala_c 1 M_h_c 1 M_pi_c 1
+R_ALAR 0.00356192  1  M_ala_L_c -1 M_ala_D_c 1
+R_ALATA_L 5.55092  1  M_akg_c -1 M_ala_L_c -1 M_glu_L_c 1 M_pyr_c 1
+R_AMMQLT8 0.0156583  5  M_2dmmql8_c -1 M_amet_c -1 M_ahcys_c 1 M_h_c 1 M_mql8_c 1
+R_AMMQT8r_rev 0.00782917  2  M_2dmmq8_c 1 M_amet_c 1 M_ahcys_c -1 M_h_c -1 M_mqn8_c -1
+R_AMPMS2 0.00782917  5  M_air_c -1 M_h2o_c -1 M_nad_c -1 M_4ampm_c 1 M_for_c 2 M_h_c 3 M_nadh_c 1
+R_ANPRT 0.0537374  1  M_anth_c -1 M_prpp_c -1 M_ppi_c 1 M_pran_c 1
+R_ANS 0.0537374  1  M_chor_c -1 M_gln_L_c -1 M_anth_c 1 M_glu_L_c 1 M_h_c 1 M_pyr_c 1
+R_APATr 5.81227  1  M_ala_B_c -1 M_pyr_c -1 M_ala_L_c 1 M_msa_c 1
+R_APRAUR 0.0156583  1  M_5apru_c -1 M_h_c -1 M_nadph_c -1 M_5aprbu_c 1 M_nadp_c 1
+R_ARGSL 0.190708  1  M_argsuc_c -1 M_arg_L_c 1 M_fum_c 1
+R_ARGSS 0.190708  1  M_asp_L_c -1 M_atp_c -1 M_citr_L_c -1 M_amp_c 1 M_argsuc_c 1 M_h_c 1 M_ppi_c 1
+R_AROH 0.173737  1  M_Largn_c -1 M_h_c -1 M_co2_c 1 M_h2o_c 1 M_phe_L_c 1
+R_ASAD_rev 2.90996  2  M_aspsa_c 1 M_nadp_c 1 M_pi_c 1 M_4pasp_c -1 M_h_c -1 M_nadph_c -1
+R_ASNS1 0.146265  1  M_asp_L_c -1 M_atp_c -1 M_gln_L_c -1 M_h2o_c -1 M_amp_c 1 M_asn_L_c 1 M_glu_L_c 1 M_h_c 1 M_ppi_c 1
+R_ASP1DC 5.82793  1  M_asp_L_c -1 M_h_c -1 M_ala_B_c 1 M_co2_c 1
+R_ASPCT 0.104779  1  M_asp_L_c -1 M_cbp_c -1 M_cbasp_c 1 M_h_c 1 M_pi_c 1
+R_ASPKi 2.90996  1  M_asp_L_c -1 M_atp_c -1 M_4pasp_c 1 M_adp_c 1
+R_ASPO6 0.0156583  1  M_asp_L_c -1 M_o2_c -1 M_h2o2_c 1 M_h_c 1 M_iasp_c 1
+R_ASPTA_rev 10.0072  2  M_akg_c 1 M_asp_L_c 1 M_glu_L_c -1 M_oaa_c -1
+R_ATPPRT 0.0808072  1  M_atp_c -1 M_prpp_c -1 M_ppi_c 1 M_prbatp_c 1
+R_ATPS4pp 88.5537  5  M_adp_c -1 M_h_p -4 M_pi_c -1 M_atp_c 1 M_h2o_c 1 M_h_c 3
+R_BPNT 0.00782917  1  M_h2o_c -1 M_pap_c -1 M_amp_c 1 M_pi_c 1
+R_CA2tex 0.00782917  5  M_ca2_e -1 M_ca2_p 1
+R_CAt4ipp 0.00782917  5  M_ca2_p -1 M_h_c -1 M_ca2_c 1 M_h_p 1
+R_CBIAT 0.00782917  1  M_atp_c -1 M_cbi_c -1 M_h_c -1 M_adocbi_c 1 M_pppi_c 1
+R_CBMKr 0.295486  1  M_atp_c -1 M_co2_c -1 M_nh4_c -1 M_adp_c 1 M_cbp_c 1 M_h_c 2
+R_CDOSKT 0.0493819  5  M_ckdo_c -1 M_kdolipid4_c -1 M_cmp_c 1 M_h_c 1 M_kdo2lipid4_c 1
+R_CDPMEK 0.207491  1  M_4c2me_c -1 M_atp_c -1 M_2p4c2me_c 1 M_adp_c 1 M_h_c 1
+R_CHORM 0.291061  1  M_chor_c -1 M_pphn_c 1
+R_CHORS 0.391773  1  M_3psme_c -1 M_chor_c 1 M_pi_c 1
+R_CHRPL 0.00782917  1  M_chor_c -1 M_4hbz_c 1 M_pyr_c 1
+R_CITt2pp 10  5  M_cit_p -1 M_h_p -1 M_cit_c 1 M_h_c 1
+R_CITtex 10  5  M_cit_e -1 M_cit_p 1
+R_CLPNS180 0.00846756  1  M_pg180_c -2 M_clpn180_c 1 M_glyc_c 1
+R_CLPNSAI17 0.00846756  1  M_pgai17_c -2 M_clpnai17_c 1 M_glyc_c 1
+R_CLPNSI17 0.00846756  1  M_pgi17_c -2 M_clpni17_c 1 M_glyc_c 1
+R_CLtex 0.00782917  5  M_cl_e -1 M_cl_p 1
+R_CO2tex_rev 22.987  6  M_co2_e 1 M_co2_p -1
+R_CO2tpp_rev 22.987  6  M_co2_p 1 M_co2_c -1
+R_COBALT2tex 0.00782917  5  M_cobalt2_e -1 M_cobalt2_p 1
+R_COBALTt5pp_rev 0.00782917  6  M_cobalt2_c 1 M_cobalt2_p -1
+R_CPPPGO 0.00782917  1  M_cpppg3_c -1 M_h_c -2 M_o2_c -1 M_co2_c 2 M_h2o_c 2 M_pppg9_c 1
+R_CTPS1 0.043353  1  M_atp_c -1 M_nh4_c -1 M_utp_c -1 M_adp_c 1 M_ctp_c 1 M_h_c 2 M_pi_c 1
+R_CU2tex 0.00782917  5  M_cu2_e -1 M_cu2_p 1
+R_CYSTS2 0.0874779  1  M_h2s_c -1 M_ser_L_c -1 M_cys_L_c 1 M_h2o_c 1
+R_CYTBD2pp 7.28896  5  M_h_c -2 M_mql8_c -1 M_o2_c -0.5 M_h2o_c 1 M_h_p 2 M_mqn8_c 1
+R_CYTK1 0.448214  1  M_atp_c -1 M_cmp_c -1 M_adp_c 1 M_cdp_c 1
+R_Cuabcpp 0.00782917  5  M_atp_c -1 M_cu2_p -1 M_h2o_c -1 M_adp_c 1 M_cu2_c 1 M_h_c 1 M_pi_c 1
+R_DAPDC 0.319194  1  M_26dap_M_c -1 M_h_c -1 M_co2_c 1 M_lys_L_c 1
+R_DAPE 0.320975  1  M_26dap_LL_c -1 M_26dap_M_c 1
+R_DASYN180 0.0338702  1  M_ctp_c -1 M_h_c -1 M_pa180_c -1 M_cdpdodecg_c 1 M_ppi_c 1
+R_DASYNAI17 0.0338702  1  M_ctp_c -1 M_h_c -1 M_paai17_c -1 M_cdpdaihpdecg_c 1 M_ppi_c 1
+R_DASYNI17 0.0338702  1  M_ctp_c -1 M_h_c -1 M_pai17_c -1 M_cdpdihpdecg_c 1 M_ppi_c 1
+R_DB4PS 0.0313167  1  M_ru5p_D_c -1 M_db4p_c 1 M_for_c 1 M_h_c 1
+R_DDPA 0.391773  1  M_e4p_c -1 M_h2o_c -1 M_pep_c -1 M_2dda7p_c 1 M_pi_c 1
+R_DHAD1 0.797199  1  M_23dhmb_c -1 M_3mob_c 1 M_h2o_c 1
+R_DHAD2 0.266665  1  M_23dhmp_c -1 M_3mop_c 1 M_h2o_c 1
+R_DHFR 0.0570812  1  M_dhf_c -1 M_h_c -1 M_nadph_c -1 M_nadp_c 1 M_thf_c 1
+R_DHFS 0.0234875  1  M_atp_c -1 M_dhpt_c -1 M_glu_L_c -1 M_adp_c 1 M_dhf_c 1 M_h_c 1 M_pi_c 1
+R_DHNAOT4 0.0156583  5  M_dhna_c -1 M_h_c -1 M_octdp_c -1 M_2dmmql8_c 1 M_co2_c 1 M_ppi_c 1
+R_DHNAS 0.0156583  1  M_h_c -1 M_sbzcoa_c -1 M_dhnacoa_c 1 M_h2o_c 1
+R_DHNPA 0.0234875  1  M_dhnpt_c -1 M_2ahhmp_c 1 M_gcald_c 1
+R_DHORD5 0.104779  1  M_dhor_S_c -1 M_mqn8_c -1 M_mql8_c 1 M_orot_c 1
+R_DHORTS_rev 0.104779  2  M_dhor_S_c 1 M_h2o_c 1 M_cbasp_c -1 M_h_c -1
+R_DHPPDA 0.0156583  1  M_25dhpp_c -1 M_h2o_c -1 M_h_c -1 M_5apru_c 1 M_nh4_c 1
+R_DHPS 0.0234875  1  M_2ahhmp_c -1 M_4abz_c -1 M_dhpt_c 1 M_h2o_c 1
+R_DHQS 0.391773  1  M_2dda7p_c -1 M_3dhq_c 1 M_pi_c 1
+R_DHQTi 0.391773  1  M_3dhq_c -1 M_3dhsk_c 1 M_h2o_c 1
+R_DMATT 0.0252685  5  M_dmpp_c -1 M_ipdp_c -1 M_grdp_c 1 M_ppi_c 1
+R_DMPPS 0.0252685  1  M_h2mb4p_c -1 M_h_c -1 M_nadh_c -1 M_dmpp_c 1 M_h2o_c 1 M_nad_c 1
+R_DMQMT2 0.00782917  1  M_amet_c -1 M_ocmhmxbq_c -1 M_ahcys_c 1 M_q8_c 1
+R_DPCOAK 0.0156583  1  M_atp_c -1 M_dpcoa_c -1 M_adp_c 1 M_coa_c 1 M_h_c 1
+R_DPR 0.0156583  1  M_2dhp_c -1 M_h_c -1 M_nadph_c -1 M_nadp_c 1 M_pant_R_c 1
+R_DTMPK 0.0335937  1  M_atp_c -1 M_dtmp_c -1 M_adp_c 1 M_dtdp_c 1
+R_DUTPDP 0.0335937  1  M_dutp_c -1 M_h2o_c -1 M_dump_c 1 M_h_c 1 M_ppi_c 1
+R_DXPRIr 0.207491  1  M_dxyl5p_c -1 M_h_c -1 M_nadph_c -1 M_2me4p_c 1 M_nadp_c 1
+R_DXPS 0.223149  1  M_g3p_c -1 M_h_c -1 M_pyr_c -1 M_co2_c 1 M_dxyl5p_c 1
+R_E4PD 0.00782917  1  M_e4p_c -1 M_h2o_c -1 M_nad_c -1 M_4per_c 1 M_h_c 2 M_nadh_c 1
+R_EAR100x 0.33934  1  M_h_c -1 M_nadh_c -1 M_tdec2eACP_c -1 M_dcaACP_c 1 M_nad_c 1
+R_EAR10M12x 0.0677405  1  M_10mtddec2eACP_c -1 M_h_c -1 M_nadh_c -1 M_10mddcaACP_c 1 M_nad_c 1
+R_EAR11M12x 0.0677405  1  M_11mtddec2eACP_c -1 M_h_c -1 M_nadh_c -1 M_11mddcaACP_c 1 M_nad_c 1
+R_EAR120x 0.33934  1  M_h_c -1 M_nadh_c -1 M_tddec2eACP_c -1 M_ddcaACP_c 1 M_nad_c 1
+R_EAR12M14x 0.0677405  1  M_12mtmrs2eACP_c -1 M_h_c -1 M_nadh_c -1 M_12mmyrsACP_c 1 M_nad_c 1
+R_EAR13M14x 0.0677405  1  M_13mtmrs2eACP_c -1 M_h_c -1 M_nadh_c -1 M_13mmyrsACP_c 1 M_nad_c 1
+R_EAR140x 0.0924309  1  M_h_c -1 M_nadh_c -1 M_tmrs2eACP_c -1 M_myrsACP_c 1 M_nad_c 1
+R_EAR14M16x 0.0677405  1  M_14mtpalm2eACP_c -1 M_h_c -1 M_nadh_c -1 M_14mpalmACP_c 1 M_nad_c 1
+R_EAR15M16x 0.0677405  1  M_15mtpalm2eACP_c -1 M_h_c -1 M_nadh_c -1 M_15mpalmACP_c 1 M_nad_c 1
+R_EAR180x 0.0677405  1  M_h_c -1 M_nadh_c -1 M_toctd2eACP_c -1 M_nad_c 1 M_ocdcaACP_c 1
+R_EAR40x 0.33934  1  M_but2eACP_c -1 M_h_c -1 M_nadh_c -1 M_butACP_c 1 M_nad_c 1
+R_EAR4M6x 0.0677405  1  M_4mthex2eACP_c -1 M_h_c -1 M_nadh_c -1 M_4mhexACP_c 1 M_nad_c 1
+R_EAR5M6x 0.0677405  1  M_5mthex2eACP_c -1 M_h_c -1 M_nadh_c -1 M_5mhexACP_c 1 M_nad_c 1
+R_EAR60x 0.33934  1  M_h_c -1 M_nadh_c -1 M_thex2eACP_c -1 M_hexACP_c 1 M_nad_c 1
+R_EAR6M8x 0.0677405  1  M_6mtoct2eACP_c -1 M_h_c -1 M_nadh_c -1 M_6mocACP_c 1 M_nad_c 1
+R_EAR7M8x 0.0677405  1  M_7mtoct2eACP_c -1 M_h_c -1 M_nadh_c -1 M_7mocACP_c 1 M_nad_c 1
+R_EAR80x 0.33934  1  M_h_c -1 M_nadh_c -1 M_toct2eACP_c -1 M_nad_c 1 M_ocACP_c 1
+R_EAR8M10x 0.0677405  1  M_8mtdec2eACP_c -1 M_h_c -1 M_nadh_c -1 M_8mdcaACP_c 1 M_nad_c 1
+R_EAR9M10x 0.0677405  1  M_9mtdec2eACP_c -1 M_h_c -1 M_nadh_c -1 M_9mdcaACP_c 1 M_nad_c 1
+R_ECOAH7 0.0677405  1  M_3hhdcoa_c -1 M_h2o_c 1 M_hdd2coa_c 1
+R_EDTXS1 0.0493819  1  M_ddcaACP_c -1 M_kdo2lipid4_c -1 M_ACP_c 1 M_kdo2lipid4L_c 1
+R_EDTXS2 0.0246904  5  M_kdo2lipid4L_c -1 M_myrsACP_c -1 M_ACP_c 1 M_lipa_c 1
+R_ENO_rev 3.46565  2  M_2pg_c 1 M_h2o_c -1 M_pep_c -1
+R_F6PE4PL 0.965183  1  M_f6p_c -1 M_pi_c -1 M_actp_c 1 M_e4p_c 1 M_h2o_c 1
+R_FBA3_rev 1.78123  2  M_s17bp_c 1 M_dhap_c -1 M_e4p_c -1
+R_FCLTc 0.00782917  5  M_fe2_c -1 M_ppp9_c -1 M_h_c 2 M_pheme_c 1
+R_FE2DH 0.00391459  1  M_fe2_c -2 M_h_c -1 M_nad_c -1 M_fe3_c 2 M_nadh_c 1
+R_FE2abcpp 0.0313167  5  M_atp_c -1 M_fe2_p -1 M_h2o_c -1 M_adp_c 1 M_fe2_c 1 M_h_c 1 M_pi_c 1
+R_FE2tex 0.0313167  5  M_fe2_e -1 M_fe2_p 1
+R_FMNAT 0.00782917  1  M_atp_c -1 M_fmn_c -1 M_h_c -1 M_fad_c 1 M_ppi_c 1
+R_FUM 7.71036  1  M_fum_c -1 M_h2o_c -1 M_mal_L_c 1
+R_G1PACT 0.102326  1  M_accoa_c -1 M_gam1p_c -1 M_acgam1p_c 1 M_coa_c 1 M_h_c 1
+R_G1PTT 0.0493819  1  M_dttp_c -1 M_g1p_c -1 M_h_c -1 M_dtdpglu_c 1 M_ppi_c 1
+R_G1SAT 0.125267  1  M_glu1sa_c -1 M_5aop_c 1
+R_G3PAT180 0.0338702  1  M_glyc3p_c -1 M_ocdcaACP_c -1 M_1odecg3p_c 1 M_ACP_c 1
+R_G3PATAI17 0.0338702  1  M_aihpdcoa_c -1 M_glyc3p_c -1 M_1aihpdecg3p_c 1 M_coa_c 1
+R_G3PATI17 0.0338702  1  M_glyc3p_c -1 M_ihpdcoa_c -1 M_1ihpdecg3p_c 1 M_coa_c 1
+R_G3PD1_rev 8.19146  2  M_glyc3p_c 1 M_nad_c 1 M_dhap_c -1 M_h_c -1 M_nadh_c -1
+R_G3PD2 8.03904  1  M_glyc3p_c -1 M_nadp_c -1 M_dhap_c 1 M_h_c 1 M_nadph_c 1
+R_G5SADs 0.158788  5  M_glu5sa_c -1 M_1pyr5c_c 1 M_h2o_c 1 M_h_c 1
+R_GALT1 0.0246904  5  M_gicolipa_c -1 M_udpg_c -1 M_gagicolipa_c 1 M_h_c 1 M_udp_c 1
+R_GALU 0.0987618  1  M_g1p_c -1 M_h_c -1 M_utp_c -1 M_ppi_c 1 M_udpg_c 1
+R_GAPD_NADP_rev 3.48914  2  M_g3p_c 1 M_nadp_c 1 M_pi_c 1 M_13dpg_c -1 M_h_c -1 M_nadph_c -1
+R_GARFTi 0.117887  1  M_10fthf_c -1 M_gar_c -1 M_fgam_c 1 M_h_c 1 M_thf_c 1
+R_GART 0.0861209  1  M_atp_c -1 M_for_c -1 M_gar_c -1 M_adp_c 1 M_fgam_c 1 M_h_c 1 M_pi_c 1
+R_GCALDL 0.0234875  1  M_co2_c -1 M_gcald_c -1 M_h_c 1 M_hpyr_c 1
+R_GF6PTA 0.102326  1  M_f6p_c -1 M_gln_L_c -1 M_gam6p_c 1 M_glu_L_c 1
+R_GHMT2r_rev 0.380351  2  M_ser_L_c 1 M_thf_c 1 M_gly_c -1 M_h2o_c -1 M_mlthf_c -1
+R_GK1 0.10638  1  M_atp_c -1 M_gmp_c -1 M_adp_c 1 M_gdp_c 1
+R_GLCTR1 0.0246904  1  M_icolipa_c -1 M_udpg_c -1 M_gicolipa_c 1 M_h_c 1 M_udp_c 1
+R_GLCTR2 0.0246904  5  M_gagicolipa_c -1 M_udpg_c -1 M_ggagicolipa_c 1 M_h_c 1 M_udp_c 1
+R_GLCTR3 0.0246904  5  M_ggagicolipa_c -1 M_udpg_c -1 M_gggagicolipa_c 1 M_h_c 1 M_udp_c 1
+R_GLNS 8.20949  1  M_atp_c -1 M_glu_L_c -1 M_nh4_c -1 M_adp_c 1 M_gln_L_c 1 M_h_c 1 M_pi_c 1
+R_GLUCYS 0.00782917  1  M_atp_c -1 M_cys_L_c -1 M_glu_L_c -1 M_adp_c 1 M_glucys_c 1 M_h_c 1 M_pi_c 1
+R_GLUPRT 0.204008  1  M_gln_L_c -1 M_h2o_c -1 M_prpp_c -1 M_glu_L_c 1 M_ppi_c 1 M_pram_c 1
+R_GLUR_rev 0.00178096  2  M_glu_D_c 1 M_glu_L_c -1
+R_GLUSx 7.02328  1  M_akg_c -1 M_gln_L_c -1 M_h_c -1 M_nadh_c -1 M_glu_L_c 2 M_nad_c 1
+R_GLUTRR 0.125267  1  M_glutrna_c -1 M_h_c -1 M_nadph_c -1 M_glu1sa_c 1 M_nadp_c 1 M_trnaglu_c 1
+R_GLUTRS 0.125267  1  M_atp_c -1 M_glu_L_c -1 M_trnaglu_c -1 M_amp_c 1 M_glutrna_c 1 M_ppi_c 1
+R_GLXS_rev 7.14503  2  M_coa_c 1 M_h_c 1 M_mal_L_c 1 M_accoa_c -1 M_glx_c -1 M_h2o_c -1
+R_GLYCL 1.01469  1  M_gly_c -1 M_nad_c -1 M_thf_c -1 M_co2_c 1 M_mlthf_c 1 M_nadh_c 1 M_nh4_c 1
+R_GLYDy 0.0234875  1  M_h_c -1 M_hpyr_c -1 M_nadph_c -1 M_glyc_R_c 1 M_nadp_c 1
+R_GLYK 0.0254027  1  M_atp_c -1 M_glyc_c -1 M_adp_c 1 M_glyc3p_c 1 M_h_c 1
+R_GMHEPAT 0.0987618  5  M_atp_c -1 M_gmhep1p_c -1 M_h_c -1 M_adphep_DD_c 1 M_ppi_c 1
+R_GMHEPK 0.0987618  5  M_atp_c -1 M_gmhep7p_c -1 M_adp_c 1 M_gmhep17bp_c 1 M_h_c 1
+R_GMHEPPA 0.0987618  5  M_gmhep17bp_c -1 M_h2o_c -1 M_gmhep1p_c 1 M_pi_c 1
+R_GMPS2 0.0985512  1  M_atp_c -1 M_gln_L_c -1 M_h2o_c -1 M_xmp_c -1 M_amp_c 1 M_glu_L_c 1 M_gmp_c 1 M_h_c 2 M_ppi_c 1
+R_GRTT 0.0252685  5  M_grdp_c -1 M_ipdp_c -1 M_frdp_c 1 M_ppi_c 1
+R_GTHS 0.00782917  1  M_atp_c -1 M_glucys_c -1 M_gly_c -1 M_adp_c 1 M_gthrd_c 1 M_h_c 1 M_pi_c 1
+R_GTPCI 0.0234875  1  M_gtp_c -1 M_h2o_c -1 M_ahdt_c 1 M_for_c 1 M_h_c 1
+R_GTPCII 0.0156583  1  M_gtp_c -1 M_h2o_c -3 M_25dhpp_c 1 M_for_c 1 M_h_c 2 M_ppi_c 1
+R_H2CO3D 10.9786  1  M_co2_c -1 M_h2o_c -1 M_h_c 1 M_hco3_c 1
+R_H2Otex_rev 103.103  6  M_h2o_e 1 M_h2o_p -1
+R_H2Otpp_rev 103.103  6  M_h2o_p 1 M_h2o_c -1
+R_HACD7 0.0677405  1  M_3ohdcoa_c -1 M_h_c -1 M_nadh_c -1 M_3hhdcoa_c 1 M_nad_c 1
+R_HBZOPT 0.00782917  1  M_4hbz_c -1 M_octdp_c -1 M_3ophb_c 1 M_ppi_c 1
+R_HEPK1 0.0246904  1  M_atp_c -1 M_hhlipa_c -1 M_adp_c 1 M_h_c 1 M_phhlipa_c 1
+R_HEPK2 0.0246904  5  M_atp_c -1 M_hphhlipa_c -1 M_adp_c 1 M_h_c 1 M_phphhlipa_c 1
+R_HEPT1 0.0246904  5  M_adphep_LD_c -1 M_lipa_c -1 M_adp_c 1 M_h_c 1 M_hlipa_c 1
+R_HEPT2 0.0246904  1  M_adphep_LD_c -1 M_hlipa_c -1 M_adp_c 1 M_h_c 1 M_hhlipa_c 1
+R_HEPT3 0.0246904  5  M_adphep_LD_c -1 M_phhlipa_c -1 M_adp_c 1 M_h_c 1 M_hphhlipa_c 1
+R_HEPT4 0.0246904  5  M_adphep_LD_c -1 M_gggagicolipa_c -1 M_adp_c 1 M_colipa_c 1 M_h_c 1
+R_HETT 0.0234875  5  M_hepdp_c -1 M_ipdp_c -1 M_octdp_c 1 M_ppi_c 1
+R_HEXTT 0.0234875  5  M_hexdp_c -1 M_ipdp_c -1 M_hepdp_c 1 M_ppi_c 1
+R_HISTD 0.0808072  1  M_h2o_c -1 M_histd_c -1 M_nad_c -2 M_h_c 3 M_his_L_c 1 M_nadh_c 2
+R_HISTP 0.0808072  1  M_h2o_c -1 M_hisp_c -1 M_histd_c 1 M_pi_c 1
+R_HMBS 0.0156583  1  M_h2o_c -1 M_ppbng_c -4 M_hmbil_c 1 M_nh4_c 4
+R_HSDy_rev 2.58899  2  M_hom_L_c 1 M_nadp_c 1 M_aspsa_c -1 M_h_c -1 M_nadph_c -1
+R_HSK 2.46141  1  M_atp_c -1 M_hom_L_c -1 M_adp_c 1 M_h_c 1 M_phom_c 1
+R_HSST 0.127578  1  M_hom_L_c -1 M_succoa_c -1 M_coa_c 1 M_suchms_c 1
+R_HSTPTr_rev 0.0808072  2  M_akg_c 1 M_hisp_c 1 M_glu_L_c -1 M_imacp_c -1
+R_Htex 104.966  5  M_h_e -1 M_h_p 1
+R_ICDHy 1.05391  1  M_icit_c -1 M_nadp_c -1 M_akg_c 1 M_co2_c 1 M_nadph_c 1
+R_ICHORS 0.0156583  1  M_chor_c -1 M_ichor_c 1
+R_ICL 7.14503  1  M_icit_c -1 M_glx_c 1 M_succ_c 1
+R_IG3PS 0.0808072  1  M_gln_L_c -1 M_prlp_c -1 M_aicar_c 1 M_eig3p_c 1 M_glu_L_c 1 M_h_c 1
+R_IGPDH 0.0808072  1  M_eig3p_c -1 M_h2o_c 1 M_imacp_c 1
+R_IGPS 0.0537374  1  M_2cpr5p_c -1 M_h_c -1 M_3ig3p_c 1 M_co2_c 1 M_h2o_c 1
+R_IHPDCOATA 0.0677405  1  M_15mpalmACP_c -1 M_coa_c -1 M_ACP_c 1 M_ihpdcoa_c 1
+R_ILETA_rev 0.266665  2  M_akg_c 1 M_ile_L_c 1 M_3mop_c -1 M_glu_L_c -1
+R_IMPC_rev 0.276986  2  M_h2o_c 1 M_imp_c 1 M_fprica_c -1
+R_IMPD 0.0985512  1  M_h2o_c -1 M_imp_c -1 M_nad_c -1 M_h_c 1 M_nadh_c 1 M_xmp_c 1
+R_IPDPS 0.182222  1  M_h2mb4p_c -1 M_h_c -1 M_nadh_c -1 M_h2o_c 1 M_ipdp_c 1 M_nad_c 1
+R_IPFPHS 0.0234875  5  M_frdp_c -1 M_ipdp_c -3 M_hexdp_c 1 M_ppi_c 3
+R_IPMDr 0.478104  1  M_3c2hmp_c -1 M_nad_c -1 M_3c4mop_c 1 M_h_c 1 M_nadh_c 1
+R_IPPMIa_rev 0.478104  2  M_3c2hmp_c 1 M_2ippm_c -1 M_h2o_c -1
+R_IPPMIb_rev 0.478104  2  M_2ippm_c 1 M_h2o_c 1 M_3c3hmp_c -1
+R_IVCOATA 0.0677405  1  M_ACP_c -1 M_ivcoa_c -1 M_3mbutACP_c 1 M_coa_c 1
+R_KARA1_rev 0.797199  2  M_23dhmb_c 1 M_nadp_c 1 M_alac_S_c -1 M_h_c -1 M_nadph_c -1
+R_KARA2 0.266665  1  M_2ahbut_c -1 M_h_c -1 M_nadph_c -1 M_23dhmp_c 1 M_nadp_c 1
+R_KAS14 0.33934  1  M_acACP_c -1 M_h_c -1 M_malACP_c -1 M_ACP_c 1 M_actACP_c 1 M_co2_c 1
+R_KDOCT2 0.123454  1  M_ctp_c -1 M_kdo_c -1 M_ckdo_c 1 M_ppi_c 1
+R_KDOPP 0.123454  1  M_h2o_c -1 M_kdo8p_c -1 M_kdo_c 1 M_pi_c 1
+R_KDOPSr 0.123454  1  M_ara5p_c -1 M_h2o_c -1 M_pep_c -1 M_kdo8p_c 1 M_pi_c 1
+R_Kt1rpp 0.00782917  5  M_k_p -1 M_k_c 1
+R_Ktex 0.00782917  5  M_k_e -1 M_k_p 1
+R_LARGNAT_rev 0.291061  2  M_Largn_c 1 M_oaa_c 1 M_asp_L_c -1 M_pphn_c -1
+R_LEUTA_rev 0.342623  2  M_akg_c 1 M_leu_L_c 1 M_4mop_c -1 M_glu_L_c -1
+R_LPADSS 0.0493819  1  M_lipidX_c -1 M_u23ga_c -1 M_h_c 1 M_lipidAds_c 1 M_udp_c 1
+R_L_AROND 0.117323  1  M_Largn_c -1 M_nad_c -1 M_co2_c 1 M_nadh_c 1 M_tyr_L_c 1
+R_MALCOAPYRCT 7.91513  1  M_malcoa_c -1 M_pyr_c -1 M_accoa_c 1 M_oaa_c 1
+R_MCOATA 2.86729  1  M_ACP_c -1 M_malcoa_c -1 M_coa_c 1 M_malACP_c 1
+R_ME1 14.8554  1  M_mal_L_c -1 M_nad_c -1 M_co2_c 1 M_nadh_c 1 M_pyr_c 1
+R_MECDPDH2 0.207491  1  M_2mecdp_c -1 M_nadh_c -1 M_h2mb4p_c 1 M_h2o_c 1 M_nad_c 1
+R_MECDPS 0.207491  1  M_2p4c2me_c -1 M_2mecdp_c 1 M_cmp_c 1
+R_MEPCT 0.207491  1  M_2me4p_c -1 M_ctp_c -1 M_h_c -1 M_4c2me_c 1 M_ppi_c 1
+R_METAT 0.0626334  1  M_atp_c -1 M_h2o_c -1 M_met_L_c -1 M_amet_c 1 M_pi_c 1 M_ppi_c 1
+R_METFR_rev 0.182383  2  M_5mthf_c 1 M_nadp_c 1 M_h_c -2 M_mlthf_c -1 M_nadph_c -1
+R_METS 0.174553  1  M_5mthf_c -1 M_hcys_L_c -1 M_h_c 1 M_met_L_c 1 M_thf_c 1
+R_MG2abcpp 0.00782917  5  M_atp_c -1 M_h2o_c -1 M_mg2_p -1 M_adp_c 1 M_h_c 1 M_mg2_c 1 M_pi_c 1
+R_MG2tex 0.00782917  5  M_mg2_e -1 M_mg2_p 1
+R_MMSAD4i 5.81227  1  M_coa_c -1 M_msa_c -1 M_nadp_c -1 M_accoa_c 1 M_co2_c 1 M_nadph_c 1
+R_MN2tex 0.00782917  5  M_mn2_e -1 M_mn2_p 1
+R_MNt2pp 0.00782917  5  M_h_p -1 M_mn2_p -1 M_h_c 1 M_mn2_c 1
+R_MOAT 0.0493819  5  M_ckdo_c -1 M_lipidA_c -1 M_cmp_c 1 M_h_c 1 M_kdolipid4_c 1
+R_MOAT3C 0.0246904  5  M_ckdo_c -1 M_phphhlipa_c -1 M_cmp_c 1 M_h_c 1 M_kphphhlipa_c 1
+R_MOHMT 0.0156583  1  M_3mob_c -1 M_h2o_c -1 M_mlthf_c -1 M_2dhp_c 1 M_thf_c 1
+R_MTHFC 0.402702  1  M_h2o_c -1 M_methf_c -1 M_10fthf_c 1 M_h_c 1
+R_MTHFD 0.402702  1  M_mlthf_c -1 M_nadp_c -1 M_methf_c 1 M_nadph_c 1
+R_NA1tex 246.725  5  M_na1_e -1 M_na1_p 1
+R_NADK 0.00782917  1  M_atp_c -1 M_nad_c -1 M_adp_c 1 M_h_c 1 M_nadp_c 1
+R_NADS2 0.0156583  1  M_atp_c -1 M_dnad_c -1 M_gln_L_c -1 M_h2o_c -1 M_amp_c 1 M_glu_L_c 1 M_h_c 1 M_nad_c 1 M_ppi_c 1
+R_NAPRT 0.00782917  1  M_h_c -1 M_nac_c -1 M_prpp_c -1 M_nicrnt_c 1 M_ppi_c 1
+R_NAt3_1pp_rev 244.894  6  M_h_p 1 M_na1_c 1 M_h_c -1 M_na1_p -1
+R_NCOAH 0.0156583  1  M_dhnacoa_c -1 M_h2o_c -1 M_coa_c 1 M_dhna_c 1 M_h_c 1
+R_NDPK1 0.284815  1  M_atp_c -1 M_gdp_c -1 M_adp_c 1 M_gtp_c 1
+R_NDPK2 0.305866  1  M_atp_c -1 M_udp_c -1 M_adp_c 1 M_utp_c 1
+R_NDPK3 0.448214  1  M_atp_c -1 M_cdp_c -1 M_adp_c 1 M_ctp_c 1
+R_NDPK4 0.0582841  1  M_atp_c -1 M_dtdp_c -1 M_adp_c 1 M_dttp_c 1
+R_NH4tbpp 7.18869  5  M_nh4_p -1 M_nh4_c 1
+R_NH4tex 7.18869  5  M_nh4_e -1 M_nh4_p 1
+R_NNATr 0.0156583  1  M_atp_c -1 M_h_c -1 M_nicrnt_c -1 M_dnad_c 1 M_ppi_c 1
+R_NNDMBRT 0.00782917  5  M_dmbzid_c -1 M_nicrnt_c -1 M_5prdmbz_c 1 M_h_c 1 M_nac_c 1
+R_NNDPR 0.0156583  1  M_h_c -2 M_prpp_c -1 M_quln_c -1 M_co2_c 1 M_nicrnt_c 1 M_ppi_c 1
+R_NOPHMO 0.00782917  1  M_2oph_c -1 M_h_c -1 M_nadph_c -1 M_o2_c -1 M_2ohph_c 1 M_h2o_c 1 M_nadp_c 1
+R_O2t5ipp 3.68754  5  M_o2_p -1 M_o2_c 1
+R_O2tex 3.68754  5  M_o2_e -1 M_o2_p 1
+R_OAASr 1.80106  1  M_cit_c -1 M_coa_c -1 M_h_c -1 M_accoa_c 1 M_h2o_c 1 M_oaa_c 1
+R_OCBT 0.190708  1  M_cbp_c -1 M_orn_c -1 M_citr_L_c 1 M_h_c 1 M_pi_c 1
+R_OHPBAT 0.00782917  1  M_glu_L_c -1 M_ohpb_c -1 M_akg_c 1 M_phthr_c 1
+R_OHPHM 0.00782917  1  M_2ohph_c -1 M_amet_c -1 M_2omph_c 1 M_ahcys_c 1 M_h_c 1
+R_OIVD1r 0.135481  5  M_4mop_c -1 M_coa_c -1 M_nad_c -1 M_co2_c 1 M_ivcoa_c 1 M_nadh_c 1
+R_OMCDC 0.478104  5  M_3c4mop_c -1 M_h_c -1 M_4mop_c 1 M_co2_c 1
+R_OMPDC 0.104779  1  M_h_c -1 M_orot5p_c -1 M_co2_c 1 M_ump_c 1
+R_OPHBDC 0.00782917  1  M_3ophb_c -1 M_h_c -1 M_2oph_c 1 M_co2_c 1
+R_ORNDC 0.0156583  1  M_h_c -1 M_orn_c -1 M_co2_c 1 M_ptrc_c 1
+R_ORNTA 0.158788  1  M_akg_c -1 M_orn_c -1 M_glu5sa_c 1 M_glu_L_c 1
+R_ORNTAC 0.365154  1  M_acorn_c -1 M_glu_L_c -1 M_acglu_c 1 M_orn_c 1
+R_OROTPT 0.104779  1  M_orot_c -1 M_prpp_c -1 M_orot5p_c 1 M_ppi_c 1
+R_P1CM 0.00782917  1  M_amet_c -1 M_pre1_c -1 M_ahcys_c 1 M_dscl_c 1
+R_PAAMOR 0.215056  1  M_h2o_c -1 M_paps_c -1 M_trdrd_c -1 M_amp_c 1 M_h_c 2 M_pi_c 1 M_so3_c 1 M_trdox_c 1
+R_PANTS 0.0156583  1  M_ala_B_c -1 M_atp_c -1 M_pant_R_c -1 M_amp_c 1 M_h_c 1 M_pnto_R_c 1 M_ppi_c 1
+R_PAPPT3 0.00178096  1  M_udcpp_c -1 M_ugmda_c -1 M_uagmda_c 1 M_ump_c 1
+R_PDX5PO 0.00782917  1  M_o2_c -1 M_pdx5p_c -1 M_h2o2_c 1 M_pydx5p_c 1
+R_PDX5PSYN 0.00782917  1  M_3a2opp_c -1 M_dxyl5p_c -1 M_h2o_c 2 M_h_c 1 M_pdx5p_c 1 M_pi_c 1
+R_PEPGLY 0.00178096  1  M_PGPm1_c -1 M_h_c -1 M_uaagmda_c -1 M_PGP_c 1 M_co2_c 1 M_udcpdp_c 1
+R_PERD 0.00782917  1  M_4per_c -1 M_nad_c -1 M_h_c 1 M_nadh_c 1 M_ohpb_c 1
+R_PGAMT_rev 0.102326  2  M_gam1p_c 1 M_gam6p_c -1
+R_PGI_rev 0.148144  2  M_g6p_c 1 M_f6p_c -1
+R_PGK 3.48914  1  M_3pg_c -1 M_atp_c -1 M_13dpg_c 1 M_adp_c 1
+R_PGM 3.46565  1  M_2pg_c -1 M_3pg_c 1
+R_PGMT_rev 0.148144  2  M_g1p_c 1 M_g6p_c -1
+R_PGPP180 0.0254027  1  M_h2o_c -1 M_pgp180_c -1 M_pg180_c 1 M_pi_c 1
+R_PGPPAI17 0.0254027  1  M_h2o_c -1 M_pgpai17_c -1 M_pgai17_c 1 M_pi_c 1
+R_PGPPI17 0.0254027  1  M_h2o_c -1 M_pgpi17_c -1 M_pgi17_c 1 M_pi_c 1
+R_PGSA180 0.0254027  1  M_cdpdodecg_c -1 M_glyc3p_c -1 M_cmp_c 1 M_h_c 1 M_pgp180_c 1
+R_PGSAAI17 0.0254027  1  M_cdpdaihpdecg_c -1 M_glyc3p_c -1 M_cmp_c 1 M_h_c 1 M_pgpai17_c 1
+R_PGSAI17 0.0254027  1  M_cdpdihpdecg_c -1 M_glyc3p_c -1 M_cmp_c 1 M_h_c 1 M_pgpi17_c 1
+R_PIt7irpp 0.610263  5  M_na1_p -3 M_pi_p -1 M_na1_c 3 M_pi_c 1
+R_PItex 0.610263  5  M_pi_e -1 M_pi_p 1
+R_PMDPHT 0.0156583  5  M_5aprbu_c -1 M_h2o_c -1 M_4r5au_c 1 M_pi_c 1
+R_PMPK 0.00782917  1  M_4ampm_c -1 M_atp_c -1 M_2mahmp_c 1 M_adp_c 1
+R_PMTCOATA_rev 0.0677405  2  M_coa_c 1 M_palmACP_c 1 M_ACP_c -1 M_pmtcoa_c -1
+R_PNTK 0.0156583  1  M_atp_c -1 M_pnto_R_c -1 M_4ppan_c 1 M_adp_c 1 M_h_c 1
+R_POTOR 0.00782917  1  M_nad_c -1 M_phthr_c -1 M_3a2opp_c 1 M_co2_c 1 M_nadh_c 1
+R_PPBNGS 0.0626334  1  M_5aop_c -2 M_h2o_c 2 M_h_c 1 M_ppbng_c 1
+R_PPCDC 0.0156583  1  M_4ppcys_c -1 M_h_c -1 M_co2_c 1 M_pan4p_c 1
+R_PPIACPT 4.11425  1  M_ac_c -1 M_ppi_c -1 M_actp_c 1 M_pi_c 1
+R_PPPGO3 0.00782917  5  M_fum_c -3 M_pppg9_c -1 M_ppp9_c 1 M_succ_c 3
+R_PPS 4.37444  1  M_atp_c -1 M_h2o_c -1 M_pyr_c -1 M_amp_c 1 M_h_c 2 M_pep_c 1 M_pi_c 1
+R_PRAGS 0.204008  1  M_atp_c -1 M_gly_c -1 M_pram_c -1 M_adp_c 1 M_gar_c 1 M_h_c 1 M_pi_c 1
+R_PRAI 0.0537374  1  M_pran_c -1 M_2cpr5p_c 1
+R_PRAIS 0.204008  1  M_atp_c -1 M_fpram_c -1 M_adp_c 1 M_air_c 1 M_h_c 2 M_pi_c 1
+R_PRAMPC 0.0808072  1  M_h2o_c -1 M_prbamp_c -1 M_prfp_c 1
+R_PRASCSi 0.196179  1  M_5aizc_c -1 M_asp_L_c -1 M_atp_c -1 M_25aics_c 1 M_adp_c 1 M_h_c 1 M_pi_c 1
+R_PRATPP 0.0808072  1  M_h2o_c -1 M_prbatp_c -1 M_h_c 1 M_ppi_c 1 M_prbamp_c 1
+R_PRFGS 0.204008  1  M_atp_c -1 M_fgam_c -1 M_gln_L_c -1 M_h2o_c -1 M_adp_c 1 M_fpram_c 1 M_glu_L_c 1 M_h_c 1 M_pi_c 1
+R_PRMICI 0.0808072  1  M_prfp_c -1 M_prlp_c 1
+R_PRO1xr_rev 0.158788  2  M_nad_c 1 M_pro_L_c 1 M_1pyr5c_c -1 M_h_c -2 M_nadh_c -1
+R_PRPPS 0.466819  1  M_atp_c -1 M_r5p_c -1 M_amp_c 1 M_h_c 1 M_prpp_c 1
+R_PSCVT 0.391773  1  M_pep_c -1 M_skm5p_c -1 M_3psme_c 1 M_pi_c 1
+R_PSD180 0.00846756  1  M_h_c -1 M_ps180_c -1 M_co2_c 1 M_pe180_c 1
+R_PSDAI17 0.00846756  1  M_h_c -1 M_psai17_c -1 M_co2_c 1 M_peai17_c 1
+R_PSDI17 0.00846756  1  M_h_c -1 M_psi17_c -1 M_co2_c 1 M_pei17_c 1
+R_PSSA180 0.00846756  1  M_cdpdodecg_c -1 M_ser_L_c -1 M_cmp_c 1 M_h_c 1 M_ps180_c 1
+R_PSSAAI17 0.00846756  1  M_cdpdaihpdecg_c -1 M_ser_L_c -1 M_cmp_c 1 M_h_c 1 M_psai17_c 1
+R_PSSAI17 0.00846756  1  M_cdpdihpdecg_c -1 M_ser_L_c -1 M_cmp_c 1 M_h_c 1 M_psi17_c 1
+R_PTPAT 0.0156583  1  M_atp_c -1 M_h_c -1 M_pan4p_c -1 M_dpcoa_c 1 M_ppi_c 1
+R_QULNS 0.0156583  1  M_dhap_c -1 M_iasp_c -1 M_h2o_c 2 M_pi_c 1 M_quln_c 1
+R_RBFK 0.00782917  1  M_atp_c -1 M_ribflv_c -1 M_adp_c 1 M_fmn_c 1 M_h_c 1
+R_RBFSa 0.0313167  1  M_4r5au_c -1 M_db4p_c -1 M_dmlz_c 1 M_h2o_c 2 M_pi_c 1
+R_RBFSb 0.0156583  1  M_dmlz_c -2 M_4r5au_c 1 M_ribflv_c 1
+R_RHAT1 0.0246904  5  M_dtdprmn_c -1 M_kphphhlipa_c -1 M_dtdp_c 1 M_h_c 1 M_icolipa_c 1
+R_RNTR1 0.00890223  1  M_atp_c -1 M_trdrd_c -1 M_datp_c 1 M_h2o_c 1 M_trdox_c 1
+R_RNTR2 0.0175926  1  M_gtp_c -1 M_trdrd_c -1 M_dgtp_c 1 M_h2o_c 1 M_trdox_c 1
+R_RNTR3 0.0175926  1  M_ctp_c -1 M_trdrd_c -1 M_dctp_c 1 M_h2o_c 1 M_trdox_c 1
+R_RNTR4 0.0335937  1  M_trdrd_c -1 M_utp_c -1 M_dutp_c 1 M_h2o_c 1 M_trdox_c 1
+R_RPE_rev 0.154771  2  M_ru5p_D_c 1 M_xu5p_D_c -1
+R_RZ5PP 0.00782917  5  M_5prdmbz_c -1 M_h2o_c -1 M_pi_c 1 M_rdmbzi_c 1
+R_S17BPH 1.78123  1  M_h2o_c -1 M_s17bp_c -1 M_pi_c 1 M_s7p_c 1
+R_S7PIr 0.0987618  5  M_s7p_c -1 M_gmhep7p_c 1
+R_SADT 0.215056  1  M_atp_c -1 M_h_c -1 M_so4_c -1 M_aps_c 1 M_ppi_c 1
+R_SDPDS 0.320975  1  M_h2o_c -1 M_sl26da_c -1 M_26dap_LL_c 1 M_succ_c 1
+R_SDPTA_rev 0.320975  2  M_akg_c 1 M_sl26da_c 1 M_glu_L_c -1 M_sl2a6o_c -1
+R_SHCHD2 0.00782917  1  M_dscl_c -1 M_nad_c -1 M_h_c 1 M_nadh_c 1 M_scl_c 1
+R_SHCHF 0.00782917  1  M_fe2_c -1 M_scl_c -1 M_h_c 3 M_sheme_c 1
+R_SHK3Dr 0.391773  1  M_3dhsk_c -1 M_h_c -1 M_nadph_c -1 M_nadp_c 1 M_skm_c 1
+R_SHKK 0.391773  1  M_atp_c -1 M_skm_c -1 M_adp_c 1 M_h_c 1 M_skm5p_c 1
+R_SHSL2 0.127578  1  M_h2s_c -1 M_suchms_c -1 M_h_c 1 M_hcys_L_c 1 M_succ_c 1
+R_SO4t2pp 0.222885  5  M_h_p -1 M_so4_p -1 M_h_c 1 M_so4_c 1
+R_SO4tex 0.222885  5  M_so4_e -1 M_so4_p 1
+R_SPMS 0.00782917  1  M_ametam_c -1 M_ptrc_c -1 M_5mta_c 1 M_h_c 1 M_spmd_c 1
+R_SUCBZL 0.0156583  5  M_atp_c -1 M_coa_c -1 M_sucbz_c -1 M_amp_c 1 M_ppi_c 1 M_sbzcoa_c 1
+R_SUCBZS 0.0156583  5  M_2shchc_c -1 M_h2o_c 1 M_sucbz_c 1
+R_SUCDimq 7.16852  1  M_mqn8_c -1 M_succ_c -1 M_fum_c 1 M_mql8_c 1
+R_SUCOAS 0.448553  1  M_atp_c -1 M_coa_c -1 M_succ_c -1 M_adp_c 1 M_pi_c 1 M_succoa_c 1
+R_SULRi 0.215056  1  M_h_c -5 M_nadph_c -3 M_so3_c -1 M_h2o_c 3 M_h2s_c 1 M_nadp_c 3
+R_TALA 1.21565  1  M_g3p_c -1 M_s7p_c -1 M_e4p_c 1 M_f6p_c 1
+R_TDCOATA 0.0677405  1  M_coa_c -1 M_myrsACP_c -1 M_ACP_c 1 M_tdcoa_c 1
+R_TDPDRE 0.0493819  1  M_dtdp4d6dg_c -1 M_dtdp4d6dm_c 1
+R_TDPDRRr 0.0493819  1  M_dtdp4d6dm_c -1 M_h_c -1 M_nadph_c -1 M_dtdprmn_c 1 M_nadp_c 1
+R_TDPGDH 0.0493819  1  M_dtdpglu_c -1 M_dtdp4d6dg_c 1 M_h2o_c 1
+R_TDSK 0.0493819  1  M_atp_c -1 M_lipidAds_c -1 M_adp_c 1 M_h_c 1 M_lipidA_c 1
+R_THDPS 0.320975  1  M_h2o_c -1 M_succoa_c -1 M_thdp_c -1 M_coa_c 1 M_sl2a6o_c 1
+R_THRAr 2.01051  1  M_thr_L_c -1 M_acald_c 1 M_gly_c 1
+R_THRD_L 0.266665  1  M_thr_L_c -1 M_2obut_c 1 M_nh4_c 1
+R_THRS 2.46141  1  M_h2o_c -1 M_phom_c -1 M_pi_c 1 M_thr_L_c 1
+R_THZPSN 0.00782917  1  M_atp_c -1 M_cys_L_c -1 M_dxyl5p_c -1 M_tyr_L_c -1 M_4hba_c 1 M_4mpetz_c 1 M_ala_L_c 1 M_amp_c 1 M_co2_c 1 M_h2o_c 1 M_h_c 1 M_ppi_c 1
+R_TKT1_rev 0.466819  2  M_r5p_c 1 M_xu5p_D_c 1 M_g3p_c -1 M_s7p_c -1
+R_TMDS 0.0335937  1  M_dump_c -1 M_mlthf_c -1 M_dhf_c 1 M_dtmp_c 1
+R_TMPK 0.00782917  5  M_atp_c -1 M_thmmp_c -1 M_adp_c 1 M_thmpp_c 1
+R_TMPPP 0.00782917  5  M_2mahmp_c -1 M_4mpetz_c -1 M_h_c -1 M_ppi_c 1 M_thmmp_c 1
+R_TPI_rev 1.94931  2  M_dhap_c 1 M_g3p_c -1
+R_TRDRr 0.292737  1  M_h_c -1 M_nadph_c -1 M_trdox_c -1 M_nadp_c 1 M_trdrd_c 1
+R_TRPS1 0.0537374  1  M_3ig3p_c -1 M_ser_L_c -1 M_g3p_c 1 M_h2o_c 1 M_trp_L_c 1
+R_U23GAAT 0.0987637  1  M_3hmrsACP_c -1 M_u3hga_c -1 M_ACP_c 1 M_h_c 1 M_u23ga_c 1
+R_UAAGDS 0.00178096  1  M_26dap_M_c -1 M_atp_c -1 M_uamag_c -1 M_adp_c 1 M_h_c 1 M_pi_c 1 M_ugmd_c 1
+R_UAGAAT 0.0987637  1  M_3hmrsACP_c -1 M_uacgam_c -1 M_ACP_c 1 M_u3aga_c 1
+R_UAGCVT_r 0.00178096  1  M_pep_c -1 M_uacgam_c -1 M_pi_c 1 M_uaccg_c 1
+R_UAGDP 0.102326  1  M_acgam1p_c -1 M_h_c -1 M_utp_c -1 M_ppi_c 1 M_uacgam_c 1
+R_UAGPT3 0.00178096  1  M_uacgam_c -1 M_uagmda_c -1 M_h_c 1 M_uaagmda_c 1 M_udp_c 1
+R_UAMAGS 0.00178096  1  M_atp_c -1 M_glu_D_c -1 M_uama_c -1 M_adp_c 1 M_h_c 1 M_pi_c 1 M_uamag_c 1
+R_UAMAS 0.00178096  1  M_ala_L_c -1 M_atp_c -1 M_uamr_c -1 M_adp_c 1 M_h_c 1 M_pi_c 1 M_uama_c 1
+R_UAPGR 0.00178096  1  M_h_c -1 M_nadph_c -1 M_uaccg_c -1 M_nadp_c 1 M_uamr_c 1
+R_UDCPDP 0.00178096  1  M_h2o_c -1 M_udcpdp_c -1 M_h_c 1 M_pi_c 1 M_udcpp_c 1
+R_UDCPDPS 0.00178096  1  M_frdp_c -1 M_ipdp_c -8 M_ppi_c 8 M_udcpdp_c 1
+R_UGMDDS 0.00178096  5  M_alaala_c -1 M_atp_c -1 M_ugmd_c -1 M_adp_c 1 M_h_c 1 M_pi_c 1 M_ugmda_c 1
+R_UHGADA 0.0987637  1  M_h2o_c -1 M_u3aga_c -1 M_ac_c 1 M_u3hga_c 1
+R_UMPK 0.155942  1  M_atp_c -1 M_ump_c -1 M_adp_c 1 M_udp_c 1
+R_UPP3MT3 0.00782917  1  M_amet_c -1 M_uppg3_c -1 M_ahcys_c 1 M_h_c 1 M_pre1_c 1
+R_UPP3S 0.0156583  1  M_hmbil_c -1 M_h2o_c 1 M_uppg3_c 1
+R_UPPDC1 0.00782917  1  M_h_c -4 M_uppg3_c -1 M_co2_c 4 M_cpppg3_c 1
+R_URFGTT 0.00782917  1  M_2ombz_c -1 M_amet_c -1 M_2ommb_c 1 M_ahcys_c 1 M_h_c 1
+R_USHD 0.0493819  1  M_h2o_c -1 M_u23ga_c -1 M_h_c 2 M_lipidX_c 1 M_ump_c 1
+R_VALTA_rev 0.303436  2  M_akg_c 1 M_val_L_c 1 M_3mob_c -1 M_glu_L_c -1
+R_XU5PG3PL 0.312048  1  M_pi_c -1 M_xu5p_D_c -1 M_actp_c 1 M_g3p_c 1 M_h2o_c 1
+R_ZN2tex 0.00782917  5  M_zn2_e -1 M_zn2_p 1
+R_ZNabcpp 0.00782917  5  M_atp_c -1 M_h2o_c -1 M_zn2_p -1 M_adp_c 1 M_h_c 1 M_pi_c 1 M_zn2_c 1
+R_r0010 0.0117438  1  M_h2o2_c -2 M_h2o_c 2 M_o2_c 1
+R_r0339 0.0234875  1  M_atp_c -1 M_glyc_R_c -1 M_3pg_c 1 M_adp_c 1 M_h_c 1
+R_r0671 0.0156583  1  M_4ppan_c -1 M_ctp_c -1 M_cys_L_c -1 M_4ppcys_c 1 M_cmp_c 1 M_h_c 1 M_ppi_c 1
+R_r2137pp 0.00782917  5  M_cl_p -1 M_cl_c 1
+R_bio1 0.986079  -1  M_10fthf_c -0.0079397 M_2dmmq8_c -0.0079397 M_5mthf_c -0.0079397 M_ACP_c -0.0079397 M_PGP_c -0.0018061 M_adocbl_c -0.0079397 M_ala_L_c -0.26756 M_amet_c -0.0079397 M_arg_L_c -0.1934 M_asn_L_c -0.14833 M_asp_L_c -0.14833 M_atp_c -41.2914 M_ca2_c -0.0079397 M_cl_c -0.0079397 M_clpn180_c -0.0085871 M_clpnai17_c -0.0085871 M_clpni17_c -0.0085871 M_coa_c -0.0079397 M_cobalt2_c -0.0079397 M_colipa_c -0.025039 M_ctp_c -0.026124 M_cu2_c -0.0079397 M_cys_L_c -0.056954 M_datp_c -0.0090279 M_dctp_c -0.017841 M_dgtp_c -0.017841 M_dtdprmn_c -0.02504 M_dttp_c -0.0090279 M_fad_c -0.0079397 M_fe2_c -0.0079397 M_fe3_c -0.0079397 M_gln_L_c -0.261 M_glu_L_c -0.261 M_gly_c -0.40933 M_gthrd_c -0.0079397 M_gtp_c -0.042403 M_h_c -41.257 M_his_L_c -0.081948 M_ile_L_c -0.27043 M_k_c -0.0079397 M_kdo2lipid4L_c -0.02504 M_leu_L_c -0.34746 M_lys_L_c -0.3237 M_met_L_c -0.1135 M_mg2_c -0.0079397 M_mn2_c -0.0079397 M_mqn8_c -0.0079397 M_nad_c -0.0079397 M_nadp_c -0.0079397 M_pe180_c -0.0085871 M_peai17_c -0.0085871 M_pei17_c -0.0085871 M_pg180_c -0.0085871 M_pgai17_c -0.0085871 M_pgi17_c -0.0085871 M_phe_L_c -0.17619 M_pheme_c -0.0079397 M_pro_L_c -0.16103 M_ptrc_c -0.0079397 M_pydx5p_c -0.0079397 M_q8_c -0.0079397 M_ribflv_c -0.0079397 M_ser_L_c -0.21675 M_sheme_c -0.0079397 M_so4_c -0.0079397 M_spmd_c -0.0079397 M_thf_c -0.0079397 M_thmpp_c -0.0079397 M_thr_L_c -0.18684 M_trp_L_c -0.054496 M_tyr_L_c -0.11104 M_udcpdp_c -0.0018061 M_utp_c -0.028225 M_val_L_c -0.30772 M_zn2_c -0.0079397 M_PGPm1_c 0.0072242 M_adp_c 41.257 M_apoACP_c 0.0079397 M_cbi_c 0.0079397 M_dmbzid_c 0.0079397 M_h2o_c 45.354 M_pi_c 41.2491 M_ppi_c 0.18488

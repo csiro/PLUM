@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DIR="${JHOME}/projects/mmint/src"
+echo "Using dir ${DIR}"
+java -cp ${DIR}/classes:${DIR} Mmint $*

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+outdir="out"
+if [ "$1" != "" ]
+then
+    outdir="$1"
+fi
+
+source ~/bin/pjklib.sh
+
+tmp="/tmp/compare.tmp"
+tmp2="/tmp/compare2.tmp"
+ref="refsol.out"
+comp="comp.out"
+if [ -f $comp ]
+then
+    rm -v $comp
+fi
+for dat in `cat all.lis`
+do
+    echo "Process $dat"
+
+    for solver in CTS INT
+    do
+        out="${outdir}/out-${dat}-${solver}-1"
+
+        if [ -f $out ]
+        then
+            run ./compare1 -O $comp $dat $out $ref
+        else
+            echo "  Expected output file $out not found"
+        fi
+    done
+done
+csv="comp.csv"
+sort -sr -k2,2 $comp > $csv
+cat $csv
+echo "Output in $comp, $csv"

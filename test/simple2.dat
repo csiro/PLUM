@@ -1,0 +1,25 @@
+MET met1_e "Met 1 Ext"
+MET met1_c "Met 1 Cyto"
+MET met2_e "Met 2 Ext"
+MET met2_c "Met 2 Cyto"
+MET met3_e "Met 3 Ext"
+MET met3_c "Met 3 Cyto"
+MET met4_e "Met 4 Ext"
+MET met4_c "Met 4 Cyto"
+
+REACTION ex_1 1 1 met1_e 1
+REACTION ex_2 1 2 met2_e 1
+REACTION dm_3 1 1 met3_c -1
+REACTION dm_4 1 2 met4_c -1
+
+REACTION react13 -1 10 met1_e -1 met3_e 1
+REACTION react24 1  10 met2_e -1 met4_e 1
+
+REACTION react12 10 10 met1_e -1 met2_e 1
+REACTION react23 10 10 met2_e -1 met3_e 1
+REACTION react34 10 10 met3_e -1 met4_e 1
+
+REACTION transp1 1  10 met1_e -1 met1_c 1
+REACTION transp2 1  10 met2_e -1 met2_c 1
+REACTION transp3 1  10 met3_e -1 met3_c 1
+REACTION transp4 1  10 met4_e -1 met4_c 1

@@ -1,0 +1,6 @@
+[submodule "lime"]
+	path = lime
+	url = https://bitbucket.csiro.au/scm/~kil070/lime.git
+[submodule "scissor"]
+	path = scissor
+	url = https://bitbucket.csiro.au/scm/~kil070/scissor.git

@@ -1,0 +1,69 @@
+Reaction,Stoichiometry,Imbalance
+GLCP3,glycogen[c] + h[c] + pi[c] <=> g1p[c] + glycogenb[c],"{'H': -1.0, 'X': 1.0}"
+GLCS3,adpglc[c] + glycogenb[c] <=> adp[c] + glycogen[c],"{'H': -1.0, 'X': -1.0}"
+TECA4S,h2o[c] + 30.0 udpacgal[c] + 30.0 udpg[c] <=> tcam[c] + 30.0 udp[c] + 30.0 ump[c],"{'H': -752.0, 'O': -391.0, 'C': -420.0, 'N': -30.0, 'P': -30.0, 'X': 1.0}"
+TECAAE,PGPm1[c] + prl45tcaala[c] <=> glyc45tcaala_D[c] + udcpp[c],"{'C': -286.0, 'H': -477.0, 'N': -47.0, 'O': -238.0, 'P': -46.0}"
+TECAGE,PGPm1[c] + prl45tcaglc[c] <=> glyc45tcaglc[c] + udcpp[c],"{'C': -421.0, 'H': -747.0, 'N': -2.0, 'O': -463.0, 'P': -46.0}"
+TECAUE,PGPm1[c] + prl45tca[c] <=> glyc45tca[c] + udcpp[c],"{'C': -151.0, 'H': -297.0, 'N': -2.0, 'O': -238.0, 'P': -46.0}"
+TEICH45,45.0 udpacgal[c] + 45.0 udpglcur[c] <=> 45.0 h[c] + teich_45_BS[c] + 45.0 udp[c] + 45.0 ump[c],"{'C': -630.0, 'H': -945.0, 'N': -45.0, 'O': -630.0, 'P': -45.0, 'X': 1.0}"
+bio1,0.0030965 10fthf[c] + 0.0030965 2dmmq8[c] + 0.0030965 5mthf[c] + 0.0030965 ACP[c] + 0.025011 PGP[c] + 0.0030965 adocbl[c] + 0.42793 ala_L[c] + 0.0030965 amet[c] + 0.2467 arg_L[c] + 0.20083 asn_L[c] + 0.20083 asp_L[c] + 40.1102 atp[c] + 0.0030965 ca2[c] + 0.0030965 cl[c] + 0.010648 clpn180[c] + 0.010648 clpnai17[c] + 0.010648 clpni17[c] + 0.0030965 coa[c] + 0.0030965 cobalt2[c] + 0.084104 ctp[c] + 0.0030965 cu2[c] + 0.076147 cys_L[c] + 0.012078 datp[c] + 0.019959 dctp[c] + 0.019959 dgtp[c] + dnarep[c] + 0.012078 dttp[c] + 0.0030965 fad[c] + 0.0030965 fe2[c] + 0.0030965 fe3[c] + 0.21909 gln_L[c] + 0.21909 glu_L[c] + 0.50987 gly[c] + 0.001806 glyc45tca[c] + 0.001806 glyc45tcaala_D[c] + 0.001806 glyc45tcaglc[c] + 0.0030965 gthrd[c] + 0.13541 gtp[c] + 35.5403 h2o[c] + 0.079264 his_L[c] + 0.2418 ile_L[c] + 0.0030965 k[c] + 0.37539 leu_L[c] + 0.28544 lys_L[c] + 0.1278 met_L[c] + 0.0030965 mg2[c] + 0.0030965 mn2[c] + 0.0030965 mqn8[c] + 0.0030965 nad[c] + 0.0030965 nadp[c] + 0.010648 pe180[c] + 0.010648 peai17[c] + 0.010648 pei17[c] + 0.010648 pg180[c] + 0.010648 pgai17[c] + 0.010648 pgi17[c] + 0.15452 phe_L[c] + 0.0030965 pheme[c] + 0.18435 pro_L[c] + proteinsynth[c] + 0.0030965 ptrc[c] + 0.0030965 pydx5p[c] + 0.0030965 q8[c] + 0.0030965 ribflv[c] + rnatrans[c] + 0.17946 ser_L[c] + 0.0030965 sheme[c] + 0.0030965 so4[c] + 0.0030965 spmd[c] + 0.001885 tcam[c] + 0.0030965 thf[c] + 0.0030965 thmpp[c] + 0.21107 thr_L[c] + 0.047202 trp_L[c] + 0.12068 tyr_L[c] + 0.025011 udcpdp[c] + 0.090832 utp[c] + 0.35223 val_L[c] + 0.0030965 zn2[c] --> 0.025011 PGPm1[c] + 40.0 adp[c] + 0.0030965 apoACP[c] + biomass[c] + 0.0030965 cbi[c] + 0.0030965 dmbzid[c] + 40.0 h[c] + 39.9969 pi[c] + 0.48459 ppi[c],"{'C': -34.94018500000008, 'H': -55.201585500000405, 'N': -8.524747499999936, 'O': -11.809737000000334, 'P': -0.7120255000000043, 'S': -0.222526, 'X': -2.007303, 'Co': -0.0030965, 'Ca': -0.0030965, 'Cl': -0.0030965, 'Cu': -0.0030965, 'Fe': -0.012386, 'K': -0.0030965, 'Mg': -0.0030965, 'Mn': -0.0030965, 'Zn': -0.0030965}"
+CHLOROPHAOR1,chlphyllide[c] + nadp[c] <=> h[c] + nadph[c] + protochloroph[c],{'H': -1.0}
+CHLPHYLLOR,dvchlphyllide[c] + nadp[c] <=> dvprotochloroph[c] + h[c] + nadph[c],{'H': -1.0}
+DVPROTOCHLOROPH3,nad[c] + oxomppp9mme[c] --> dvprotochloroph[c] + h[c] + nadh[c],{'H': -1.0}
+MPPP9MMEOR3,h[c] + nadph[c] + o2[c] + oxomppp9mme[c] --> dvprotochloroph[c] + 2.0 h2o[c] + nadp[c],{'H': -1.0}
+NADH8pp,2dmmq8[c] + 3.8 h[c] + nadh[c] --> 2dmmql8[c] + 2.8 h[p] + nad[c],{'H': 3.552713678800501e-15}
+CBL2D,2.0 cbl1[c] + h[c] + nad[c] <=> 2.0 cbl2[c] + nadh[c],{'H': 8.0}
+N2Ormqpp,mqn8[c] + n2o[p] --> h2o[p] + mql8[c] + n2[p],{'H': 4.0}
+NADH8,2dmmq8[c] + 3.8 h[c] + nadh[c] --> 2dmmql8[c] + 2.8 h[e] + nad[c],{'H': 3.552713678800501e-15}
+AICAMPRT,5a4icamide[c] + prpp[c] --> aicar[c] + h[c] + ppi[c],{'H': 1.0}
+ALAAH,aclamna[c] + h2o[c] <=> Rtotal[c] + h[c] + l2amna[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+AMDH,amd[c] + h2o[c] <=> Rtotal[c] + nh4[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+GD2S,M00064[c] + cmpacna[c] <=> cmp[c] + gd2_hs[c] + h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+GQ1S,cmpacna[c] + gt1a_hs[c] <=> cmp[c] + gq1[c] + h[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+HMR_6975,amet[c] + peplys[c] --> M00213[c] + ahcys[c],"{'C': 7.0, 'H': 11.0, 'N': 3.0, 'O': 2.0, 'X': -1.0, 'R': 2.0}"
+HMR_6976,M00213[c] + amet[c] --> Ndmelys[c] + ahcys[c],"{'C': -7.0, 'H': -11.0, 'N': -3.0, 'O': -2.0, 'R': -2.0, 'X': 1.0}"
+HMR_9522,M02626[c] + h2o[c] --> M02625[c] + M03083[c],"{'H': 1.0, 'O': 2.0, 'C': 3.0, 'N': 1.0, 'R': 2.0}"
+LPCHOL23AM,M00535[c] <=> lpchol_hs[c],"{'H': -1.0, 'F': 1.0, 'U': 1.0, 'L': 2.0}"
+PARGIH,M02339[c] + h2o[c] + h[c] <=> nh4[c] + plcitr[c],"{'H': 1.0, 'O': -1.0, 'N': 1.0}"
+HMR_9520,M03062[c] + ahcys[c] + h[c] <=> M03084[c] + amet[c],"{'C': 1.0, 'H': 2.0}"
+HMR_7271,dolp_L[c] + gdpmann[c] --> dolmanp_L[c] + gdp[c],"{'C': 54.0, 'H': 99.0, 'O': 45.0}"
+DABGGAH,dgaldagl[c] + 2.0 h2o[c] <=> HC01444[c] + 2.0 Rtotal[c] + 2.0 h[c],"{'F': 2.0, 'U': 2.0, 'L': 4.0}"
+HMR_9498,M00200[c] + M01719[c] <=> M00216[c] + M01720[c],"{'C': 2.0, 'H': 3.0, 'N': 1.0, 'O': 1.0, 'R': 2.0}"
+BGBGCGH,C01290[c] + h2o[c] <=> gal[c] + gluside_hs[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+BGSLGCGH,C01290[c] + h2o[c] <=> gal_bD[c] + gluside_hs[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+GAGDGGCGH,gm1_hs[c] + h2o[c] <=> M00064[c] + gal[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+R00915,ala_B[c] <=> quln[c],"{'C': 4.0, 'H': -4.0, 'O': 2.0}"
+ACAH,h2o[c] + oacrntn[c] <=> Rtotal[c] + crn[c] + h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+AGAGGCERH,M00064[c] + h2o[c] <=> acnam[c] + ga2_hs[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+ANH,acnam[c] + gt1b_hs[c] <=> gq1[c] + h2o[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+ANMNLH,acnam[c] + galside_hs[c] + h[c] <=> M03160[c] + h2o[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+DGALGCH,C01290[c] + acnam[c] <=> gm3_hs[c] + h2o[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+UACPT,M03087[c] + amet[c] <=> 5mta[c] + 5.0 h[c] + trna3acpu[c],"{'C': 19.0, 'H': 29.0, 'N': 2.0, 'O': 21.0, 'P': 3.0, 'R': 2.0}"
+ACOAH,acoa[c] + h2o[c] <=> Rtotal[c] + coa[c] + 2.0 h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+ALDOR,aldh[c] + h2o[c] + o2[c] --> Rtotal[c] + h2o2[c] + h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+MECDPDH3,2mecdp[c] + 2.0 fdxrd[c] + 2.0 h[c] --> 2.0 fdxox[c] + h2mb4p[c] + h2o[c],{'H': -5.0}
+PCLNAH,h2o[c] + pncln[c] <=> 6apclnt[c] + Rtotal[c] + h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+r1314,HC02097[c] + h[c] + nadph[c] --> HC02098[c] + nadp[c],"{'X': -1.0, 'H': 33.0, 'C': 18.0, 'O': 2.0, 'S': 1.0, 'R': 1.0}"
+ASAEPT,cmp2amep[c] + crm_hs[c] <=> cmp[c] + crmdc[c] + 2.0 h[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+DAGEAPT,cdpea[c] + crm_hs[c] --> cmp[c] + h[c] + pe_cer[c],"{'F': -1.0, 'U': -1.0, 'L': -2.0}"
+GLYCPCHOLAH,M00535[c] + h2o[c] --> Rtotal[c] + g3pc[c] + h[c],"{'H': -1.0, 'F': 1.0, 'U': 1.0, 'L': 2.0}"
+LPEAAH,M00027[c] + h2o[c] <=> Rtotal[c] + g3pe[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+HMR_7168,M00194[c] + amet[c] --> M00195[c] + ahcys[c] + h[c],"{'C': -1.0, 'H': -2.0}"
+TRNAGN1MT,M03084[c] + amet[c] <=> ahcys[c] + 4.0 h[c] + trnan1mgn[c],"{'C': 20.0, 'H': 30.0, 'N': 5.0, 'O': 20.0, 'P': 3.0, 'R': 2.0}"
+DPPT,dgtp[c] + dptddna[c] + 4.0 h[c] <=> M01720[c] + dortp[c],"{'C': -20.0, 'H': -30.0, 'N': -5.0, 'O': -17.0, 'P': -3.0, 'R': -2.0}"
+r2514c, <=> crn[c] + hdcea[c],"{'C': 23.0, 'H': 44.0, 'N': 1.0, 'O': 5.0}"
+ARTFR52,hexccoa[c] --> 1.625 R5coa_hs[c],"{'C': -11.25, 'H': -31.625, 'N': 4.375, 'O': 10.625, 'P': 1.875, 'S': 0.625, 'X': 1.625}"
+ARTPLM2,Rtotal2coa[c] --> pmtcoa[c],"{'C': 15.0, 'F': -1.0, 'U': -1.0, 'L': -2.0, 'R': -2.0, 'H': 31.0}"
+CHOLESACATc,Rtotalcoa[c] + chsterol[c] --> coa[c] + xolest2_hs[c],{'R': 1.0}
+RTOT5,R5coa_hs[c] --> Rtotalcoa[c],"{'X': -1.0, 'F': 1.0, 'U': 1.0, 'L': 2.0, 'R': 1.0}"
+ACOAANAT,acoa[c] + sphgn[c] <=> coa[c] + dhcrm_hs[c] + 2.0 h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+ACOAAT,acoa[c] + sphings[c] <=> coa[c] + crm_hs[c] + 2.0 h[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+ACOANAT,acoa[c] + spc_hs[c] <=> coa[c] + 2.0 h[c] + sphmyln_hs[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+NAH,2.0 h2o[c] + ntl[c] <=> Rtotal[c] + nh4[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+STDSH,M02948[c] + h2o[c] <=> galside_hs[c] + 2.0 h[c] + so4[c],"{'F': 1.0, 'U': 1.0, 'L': 2.0}"
+TRNAGMT,M03084[c] + amet[c] <=> ahcys[c] + 4.0 h[c] + trna2omgsn[c],"{'C': 20.0, 'H': 30.0, 'N': 5.0, 'O': 20.0, 'P': 3.0, 'R': 2.0}"
+N2Ormq,mqn8[c] + n2o[e] --> h2o[e] + mql8[c] + n2[e],{'H': 4.0}
+PTRNAPT,aatrna[c] + 2.0 h[c] + ptdtrna[c] <=> M03083[c] + ptdaatrna[c],"{'C': -15.0, 'H': -25.0, 'O': -16.0, 'P': -2.0, 'R': -3.0}"
+RETPALMPH,M02837[c] + h2o[c] --> h[c] + hdca[c] + retinol[c],"{'H': 2.0, 'O': -1.0}"
+MDZGLC_GLCAASEe,h2o[e] + mdzglc[e] --> glcur[e] + mdz[e],{'H': -1.0}
+MDZGLC_GLCAASEepp,h2o[p] + mdzglc[p] --> glcur[p] + mdz[p],{'H': -1.0}

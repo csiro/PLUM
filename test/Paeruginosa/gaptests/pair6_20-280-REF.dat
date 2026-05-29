@@ -1,0 +1,935 @@
+# Created 09/04/2023 00:00:00 from pair6_20-280REF.xml
+MET M_atp_c	"ATP"
+MET M_gly_c	"Glycine"
+MET M_pram_c	"5-Phospho-beta-D-ribosylamine"
+MET M_adp_c	"ADP"
+MET M_gar_c	"N1-(5-Phospho-D-ribosyl)glycinamide"
+MET M_h_c	"H+"
+MET M_pi_c	"Phosphate"
+MET M_3hdeACP_c	"(3R)-3-Hydroxydecanoyl-[acyl-carrier protein]"
+MET M_uacgam_c	"UDP-N-acetyl-D-glucosamine"
+MET M_ACP_c	"acyl carrier protein"
+MET M_PA_u3aga_c	"UDP-3-O-(3OH-C10:0)-N-acetylglucosamine"
+MET M_h2o_c	"H2O"
+MET M_kdo8p_c	"3-Deoxy-D-manno-octulosonate 8-phosphate"
+MET M_kdo_c	"3-Deoxy-D-manno-2-octulosonate"
+MET M_dhpt_c	"Dihydropteroate"
+MET M_glu__L_c	"L-Glutamate"
+MET M_dhf_c	"7,8-Dihydrofolate"
+MET M_adphep__D_COMMA_D_c	"ADP-D-glycero-D-manno-heptose"
+MET M_adphep__L_COMMA_D_c	"ADP-L-glycero-D-manno-heptose"
+MET M_26dap__LL_c	"LL-2,6-Diaminoheptanedioate"
+MET M_26dap__M_c	"meso-2,6-Diaminoheptanedioate"
+MET M_3hocACP_c	"(R)-3-Hydroxyoctanoyl-[acyl-carrier protein]"
+MET M_2toceACP_c	"trans-Oct-2-enoyl-[acp]"
+MET M_imp_c	"IMP"
+MET M_fprica_c	"5-Formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide"
+MET M_PA_core7_lipidA_c	"Pseudomonas aeruginosa LPS core precursor 7 + KDO2-lipidA"
+MET M_ala__L_c	"L-Alanine"
+MET M_cbp_c	"Carbamoyl phosphate"
+MET M_PA_core_lipidA_c	"Pseudomonas aeruginosa LPS core + KDO2-lipidA"
+MET M_nad_c	"Nicotinamide adenine dinucleotide"
+MET M_palmACP_c	"Palmitoyl-ACP (n-C16:0ACP)"
+MET M_hdeACP_c	"Hexadecenoyl-ACP (n-C16:1ACP)"
+MET M_nadh_c	"Nicotinamide adenine dinucleotide - reduced"
+MET M_3hocdacp_c	"(3R)-3-Hydroxyoctadecanoyl-[acyl-carrier protein]"
+MET M_2tocdACP_c	"trans-Octadec-2-enoyl-[acyl-carrier-protein]"
+MET M_malcoa_c	"Malonyl-CoA"
+MET M_coa_c	"Coenzyme A"
+MET M_malACP_c	"Malonyl-[acyl-carrier protein]"
+MET M_nadph_c	"Nicotinamide adenine dinucleotide phosphate - reduced"
+MET M_uaccg_c	"UDP-N-acetyl-3-O-(1-carboxyvinyl)-D-glucosamine"
+MET M_nadp_c	"Nicotinamide adenine dinucleotide phosphate"
+MET M_uamr_c	"UDP-N-acetylmuramate"
+MET M_glu__D_c	"D-Glutamate"
+MET M_3oxocdacp_c	"3-Oxooctadecanoyl-[acp]"
+MET M_cdpdag_PA_c	"CDPdiacylglycerol"
+MET M_glyc3p_c	"sn-Glycerol 3-phosphate"
+MET M_cmp_c	"CMP"
+MET M_pglyp_PA_c	"phosphatidylglycerophosphate"
+MET M_2ahbut_c	"(S)-2-Aceto-2-hydroxybutanoate"
+MET M_23dhmp_c	"(R)-2,3-Dihydroxy-3-methylpentanoate"
+MET M_pran_c	"N-(5-Phospho-D-ribosyl)anthranilate"
+MET M_2cpr5p_c	"1-(2-Carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate"
+MET M_so4_e	"Sulfate"
+MET M_so4_c	"Sulfate"
+MET M_prpp_c	"5-Phospho-alpha-D-ribose 1-diphosphate"
+MET M_ppi_c	"Diphosphate"
+MET M_prbatp_c	"1-(5-Phosphoribosyl)-ATP"
+MET M_dhap_c	"Dihydroxyacetone phosphate"
+MET M_iasp_c	"Iminoaspartate"
+MET M_quln_c	"Quinolinate"
+MET M_12dgr205n3204n6_c	"1,2-Diacyl-sn-glycerol(20:5(5Z,8Z,11Z,14Z,17Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_pa205n3204n6_c	"1-5,8,11,14,17-eicosapentaenoyl-2-5,8,11,14-eicosatetraenoyl-sn-glycerol-3-phosphate"
+MET M_12dgr1801819Z_c	"1,2-Diacyl-sn-glycerol (1-octadecanoyl,2-(9Z)-octadecenoyl, 18:0/18:1(9Z))"
+MET M_cacoa_c	"Coniferonyl-coa"
+MET M_tag1801819Z1845Z9Z12Z15Z_c	"Triacylglycerol (18:0/18:1(9Z)/18:4(5Z,9Z,12Z,15Z))"
+MET M_4ppcys_c	"N-((R)-4-Phosphopantothenoyl)-L-cysteine"
+MET M_co2_c	"CO2 CO2"
+MET M_pan4p_c	"Pantetheine 4'-phosphate"
+MET M_3hdcscoa_c	"3-hydroxydocosanoyl-CoA"
+MET M_docos2coa_c	"(2E)-docosenoyl-CoA"
+MET M_thm_c	"Thiamin"
+MET M_thmmp_c	"Thiamin monophosphate"
+MET M_ahcys_c	"S-Adenosyl-L-homocysteine"
+MET M_amet_c	"S-Adenosyl-L-methionine"
+MET M_dna5mtc_c	"DNA 5-methylcytosine"
+MET M_dna_c	"DNA"
+MET M_3hbcoa__R_c	"(R)-3-Hydroxybutyryl-CoA"
+MET M_bhb_c	"(R)-3-Hydroxybutanoate"
+MET M_ppa_c	"Propionate (n-C3:0)"
+MET M_ppcoa_c	"Propanoyl-CoA"
+MET M_succ_c	"Succinate"
+MET M_succoa_c	"Succinyl-CoA"
+MET M_crn_c	"L-Carnitine"
+MET M_hexccoa_c	"Hexacosanoyl CoA  n C260CoA  C47H82N7O17P3S"
+MET M_hexccrn_c	"Hexacosanoyl carnitine"
+MET M_1agpc205_c	"1-20:5(5Z,8Z,11Z,14Z,17Z)-2-lysophosphatidylcholine"
+MET M_pc205n3184n3_c	"Phosphatidylcholine(20:5(5Z,8Z,11Z,14Z,17Z)/18:4(6Z,9Z,12Z,15Z))"
+MET M_strdnc_c	"Stearidonic acid C18:4, n-3"
+MET M_12dgr226n3205n3_c	"1,2-Diacyl-sn-glycerol(22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_1agpe182_c	"1-18:2(9Z,12Z)-2-lysophosphatidylethanolamine"
+MET M_pe182n6204n6_c	"Phosphatidylethanolamine(18:2(9Z,12Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_tag226n3205n3204n6_c	"Triacylglycerol (22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:5(5Z,8Z,11Z,14Z,17Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_leuktrD4_c	"Leukotriene D4 ER"
+MET M_leuktrE4_c	"Leukotriene E4 cytosol"
+MET M_andrstandn_c	"5alpha-androstane-3,17-dione"
+MET M_andrstrn_c	"Andrstrn c"
+MET M_1agpe180_c	"1-Acyl-sn-glycero-3-phosphoethanolamine (n-C18:0)"
+MET M_arachdcoa_c	"C20:4-CoA"
+MET M_pe180204n6_c	"Phosphatidylethanolamine(18:0/20:4(5Z,8Z,11Z,14Z))"
+MET M_hmpscoa_c	"(Hydroxymethylphenyl)succinyl-CoA"
+MET M_sbzcoa_c	"O-Succinylbenzoyl-CoA"
+MET M_lneldccoa_c	"Linoelaidyl coenzyme A"
+MET M_o2_c	"O2 O2"
+MET M_vacccoa_c	"Vaccenyl coenzyme A"
+MET M_cdp12dgr1619Z205n3_c	"CDP-1,2-diacyl-sn-glycerol(16:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_ctp_c	"CTP C9H12N3O14P3"
+MET M_pa1619Z205n3_c	"1-9-hexadecenoyl-2-5,8,11,14,17-eicosapentaenoyl-sn-glycerol-3-phosphate"
+MET M_lnlnca_c	"Alpha-Linolenic acid, C18:3, n-3"
+MET M_pe180183n3_c	"Phosphatidylethanolamine(18:0/18:3(9Z,12Z,15Z))"
+MET M_akg_c	"2-Oxoglutarate"
+MET M_ala_B_c	"Beta-Alanine"
+MET M_msa_c	"Malonate semialdehyde"
+MET M_2dr1p_c	"2-Deoxy-D-ribose 1-phosphate"
+MET M_ade_c	"Adenine"
+MET M_dad_2_c	"Deoxyadenosine"
+MET M_dcaACP_c	"Decanoyl-ACP (n-C10:0ACP)"
+MET M_ocACP_c	"Octanoyl-ACP (n-C8:0ACP)"
+MET M_CE4854_c	"All-cis-10,13,16,19-docosatetraenoyl-CoA"
+MET M_M00260_c	"10Z,13Z,16Z,19Z-Docosatetraenoic Acid"
+MET M_dedoldp_c	"Dehydrodolichol diphosphate"
+MET M_dedolp_c	"Dehydrodolichol phosphate"
+MET M_3_rhma13unaga_c	"3n Rhamnosyl alfa 1  3   N acetyl glucosamine undecaprenyl diphosphate"
+MET M_gdpdrhmn_c	"GDP D rhamnose"
+MET M_gmp_c	"GMP C10H12N5O8P"
+MET M_rhma13unaga_c	"Rhamnosyl alpha 1  3  N acetyl glucosamine undecaprenyl diphosphate"
+MET M_amp_c	"AMP C10H12N5O7P"
+MET M_gln__L_c	"L-Glutamine"
+MET M_glntrna_c	"L-Glutaminyl-tRNA(Gln)"
+MET M_trnagln_c	"TRNA(Gln)"
+MET M_CE6252_c	"Urate Radical"
+MET M_oh1_c	"Hydroxide ion HO"
+MET M_urate_c	"Urate C5H4N4O3"
+MET M_fgam_c	"N2-Formyl-N1-(5-phospho-D-ribosyl)glycinamide"
+MET M_methf_c	"5,10-Methenyltetrahydrofolate"
+MET M_thf_c	"5,6,7,8-Tetrahydrofolate"
+MET M_12dgr160205n3_c	"1,2-Diacyl-sn-glycerol(16:0/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_hdca_c	"Hexadecanoate (n-C16:0)"
+MET M_tag160205n3160_c	"Triacylglycerol (16:0/20:5(5Z,8Z,11Z,14Z,17Z)/16:0)"
+MET M_12dgr161_c	"1,2-Diacyl-sn-glycerol (dihexadec-9-enoyl, n-C16:1)"
+MET M_pc205n3182n6_c	"Phosphatidylcholine(20:5(5Z,8Z,11Z,14Z,17Z)/18:2(9Z,12Z))"
+MET M_tag1619Z1619Z182n6_c	"Triacylglycerol (16:1(9Z)/16:1(9Z)/18:2(9Z,12Z))"
+MET M_CE4848_c	"3(S)-hydroxy-docosa-10,13,16,19-all-cis-tetraenoyl-CoA"
+MET M_CE4850_c	"3-oxo-docosa-10,13,16,19-all-cis-tetraenoyl-CoA"
+MET M_3ononacoa_c	"3 Oxononanoyl CoA"
+MET M_R_3hnonacoa_c	" 3 Hydroxynonanoyl CoA"
+MET M_1tdecg3p_c	"1-tetradecanoyl-sn-glycerol 3-phosphate"
+MET M_pa140205n3_c	"1-tetradecanoyl-2-5,8,11,14,17-eicosapentaenoyl-sn-glycerol-3-phosphate"
+MET M_tmndnccoa_c	"Timnodonyl coenzyme A"
+MET M_cholp_c	"Choline phosphate C5H13NO4P"
+MET M_dag_pf_16_0_18_1_c	"Diacylglycerol(plasmodium,C16:0,C18:1)"
+MET M_pchol_pf_16_0_18_1_c	"Phosphatidyl choline(plasmodium,C16:0,C18:1)"
+MET M_1eicos58111417eg3p_c	"1-(5Z,8Z,11Z,14Z,17Z)-Eicosapentaenoyl-sn-glycerol-3-phosphate"
+MET M_pa205n3183n3_c	"1-5,8,11,14,17-eicosapentaenoyl-2-9,12,15-octadecatrienoyl-sn-glycerol-3-phosphate"
+MET M_3aib_c	"L-3-Amino-isobutanoate"
+MET M_mmtsa_c	"(S)-Methylmalonate semialdehyde"
+MET M_pyr_c	"Pyruvate"
+MET M_M01077_c	"5Beta-Cholestan-3Alpha,7Alpha,12Alpha,24(S)-Tetrol"
+MET M_M01081_c	"7Alpha,24-Dihydroxy-5Beta-Cholestan-3-One"
+MET M_C120aPHA_c	"C120 Medium chain length Polyhydroxyalkanoate"
+MET M_PHAg_c	"Pre existent Polyhydroxyalkanoate granule"
+MET M_R_3hdda_c	" 3 Hydroxydodecanoic acid"
+MET M_pail45p_hs_16_0_18_2_c	"Phosphatidylinositol 4,5-bisphosphate (homo sapiens, C16:0, C18:2)"
+MET M_pail4p_hs_16_0_18_2_c	"1-Phosphatidyl-1D-myo-inositol 4-phosphate (homo sapiens, C16:0, C18:2)"
+MET M_uaagtmda_c	"Undecaprenyl-diphospho-N-acetylmuramoyl-(N-acetylglucosamine)-L-alanyl-D-glutaminyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine"
+MET M_uagmda_c	"Undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine"
+MET M_chol4en3one_c	"Cholest-4-en-3-one"
+MET M_chsterol_c	"Chsterol c"
+MET M_h2o2_c	"Hydrogen peroxide"
+MET M_Ac1PIM2_c	"Acyl phosphatidylinositol mannoside di-mannose (tuberculosis)"
+MET M_Ac2PIM2_c	"Di-acyl phosphatidylinositol mannoside di-mannose (tuberculosis)"
+MET M_pmtcoa_c	"Palmitoyl-CoA (n-C16:0CoA)"
+MET M_gal_c	"D-Galactose"
+MET M_galt_c	"Galactitol"
+MET M_cytd_c	"Cytidine"
+MET M_dadp_c	"DADP C10H12N5O9P2"
+MET M_datp_c	"DATP C10H12N5O12P3"
+MET M_acon_C_c	"Cis-Aconitate"
+MET M_q8_c	"Ubiquinone-8"
+MET M_q8h2_c	"Ubiquinol-8"
+MET M_tcb_c	"Tricarballylate"
+MET M_xan_c	"Xanthine"
+MET M_mdhdhf_c	"(2R,4S)-2-methyl-2,4-dihydroxydihydrofuran-3-one"
+MET M_mththf_c	"(2R,4S)-2-methyl-2,3,3,4-tetrahydroxytetrahydrofuran"
+MET M_arg__L_c	"L-Arginine"
+MET M_arggluglu_c	"Arginyl-Glutamyl-Glutamate"
+MET M_mshfald_c	"Mycothiol conjugated methanol"
+MET M_mshfaldox_c	"Mycothiol conjugated aldehyde"
+MET M_cdpdodec11eg_c	"CDP-1,2-dioctadec-11-enoylglycerol"
+MET M_pgp181_c	"Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)"
+MET M_1agpc140_c	"1-14:0-2-lysophosphatidylcholine"
+MET M_g3pc_c	"Sn-Glycero-3-phosphocholine"
+MET M_ttdca_c	"Tetradecanoate (n-C14:0)"
+MET M_4hoxpacd_c	"4-Hydroxyphenylacetaldehyde"
+MET M_hmn4_c	"S)-4-Hydroxymandelonitrile"
+MET M_leu__L_c	"L-Leucine"
+MET M_tyr__L_c	"L-Tyrosine"
+MET M_tyrleuarg_c	"Tyrosyl-Leucyl-Arginine"
+MET M_accoa_c	"Acetyl-CoA"
+MET M_hacon_T_c	"Trans-homoaconitate"
+MET M_am6sa_c	"2-Aminomuconate 6-semialdehyde"
+MET M_amuco_c	"2-Aminomuconate"
+MET M_12dgr1619Z205n3_c	"1,2-Diacyl-sn-glycerol(16:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_pc205n3160_c	"Phosphatidylcholine(20:5(5Z,8Z,11Z,14Z,17Z)/16:0)"
+MET M_tag1619Z205n3160_c	"Triacylglycerol (16:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z)/16:0)"
+MET M_crm_hs_c	"Ceramide (homo sapiens)"
+MET M_dag_hs_c	"Diacylglycerol (homo sapiens)"
+MET M_pchol_hs_c	"Phosphatidylcholine (homo sapiens)"
+MET M_sphmyln_hs_c	"Sphingomyelin (homo sapiens)"
+MET M_crm_cho_c	"N-acylsphingosine"
+MET M_dhcrm_cho_c	"Dihydroceramide"
+MET M_fad_c	"Flavin adenine dinucleotide oxidized"
+MET M_fadh2_c	"Flavin adenine dinucleotide reduced"
+MET M_R_3hddcoa_c	"(R)-3-Hydroxydodecanoyl-CoA"
+MET M_3m4hpga_c	"3-Methoxy-4-hydroxyphenylglycolaldehyde"
+MET M_nh4_c	"Ammonium"
+MET M_normete__L_c	"L-Normetanephrine"
+MET M_12dgr140205n3_c	"1,2-Diacyl-sn-glycerol(14:0/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_1agpe160_c	"1-Acyl-sn-glycero-3-phosphoethanolamine (n-C16:0)"
+MET M_pe160182n6_c	"Phosphatidylethanolamine(16:0/18:2(9Z,12Z))"
+MET M_tag140205n3182n6_c	"Triacylglycerol (14:0/20:5(5Z,8Z,11Z,14Z,17Z)/18:2(9Z,12Z))"
+MET M_HC02129_c	"THF-hexaglutamate"
+MET M_cdpdag_hs_16_0_18_0_c	"Cdpdag hs 16 0 18 0[c]"
+MET M_pa_hs_16_0_18_0_c	"Pa hs 16 0 18 0[c]"
+MET M_elecacceptoxi_c	"Oxidized electron acceptor"
+MET M_elecacceptred_c	"Reduced electron acceptor"
+MET M_trdox_c	"Oxidized thioredoxin"
+MET M_trdrd_c	"Reduced thioredoxin"
+MET M_12dgr1819Z205n3_c	"1,2-Diacyl-sn-glycerol(18:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_1agpc180_c	"1-18:0-2-lysophosphatidylcholine"
+MET M_pc180226n3_c	"Phosphatidylcholine(18:0/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_tag1819Z205n3226n3_c	"Triacylglycerol (18:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_chol_c	"Choline C5H14NO"
+MET M_pa1619Z180_c	"1-9-hexadecenoyl-2-octadecanoyl-sn-glycerol-3-phosphate"
+MET M_pc1619Z180_c	"Phosphatidylcholine(16:1(9Z)/18:0)"
+MET M_mi13456p_c	"1D myo Inositol 1 3 4 5 6 pentakisphosphate C6H7O21P5"
+MET M_ppmi1346p_c	"Diphosphoinositol tetrakisphosphate C6H7O24P6"
+MET M_3opoctacoa_c	"3 Oxophenyloctanoyl CoA"
+MET M_R_3hpoctacoa_c	" 3 Hydroxyphenyloctanoyl CoA"
+MET M_1agpe226_c	"1-22:6(4Z,7Z,10Z,13Z,16Z,19Z)-2-lysophosphatidylethanolamine"
+MET M_pe226n3205n3_c	"Phosphatidylethanolamine(22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_tag1819Z205n3205n3_c	"Triacylglycerol (18:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_23doguln_c	"2,3-Dioxo-L-gulonate"
+MET M_oxa_c	"Oxalate"
+MET M_thrnt_c	"L-Threonate"
+MET M_C60atPHA_c	"C60 Medium chain length acetylthio Polyhydroxyalkanoate"
+MET M_R_3h6atha_c	" 3 Hydroxy 6acetylthiohexanoic acid"
+MET M_dag_hs_18_1_20_4_c	"Dag hs 18 1 20 4[c]"
+MET M_mi1p__D_c	"1D-myo-Inositol 1-phosphate"
+MET M_pail_hs_18_1_20_4_c	"Pail hs 18 1 20 4[c]"
+MET M_pe180160_c	"Phosphatidylethanolamine(18:0/16:0)"
+MET M_btn_c	"Biotin"
+MET M_btnso_c	"D-biotin d-sulfoxide"
+MET M_cys__L_c	"L-Cysteine"
+MET M_cysglnmet_c	"Cystyl-Glutaminyl-Methionine"
+MET M_met__L_c	"L-Methionine"
+MET M_cdpdag_EC_c	"CDPdiacylglycerol (E coli)"
+MET M_pa_EC_c	"Phosphatidate  (E.coli)"
+MET M_dag_hs_16_0_18_2_c	"Diacylglycerol (homo sapiens, C16:0, C18:2)"
+MET M_pail_hs_16_0_18_2_c	"Phosphatidylinositol (homo sapiens, C16:0, C18:2)"
+MET M_CE5236_c	"O2'-4a-cyclic-tetrahydrobiopterin"
+MET M_thbpt4acam_c	"Tetrahydrobiopterin-4a-carbinolamine"
+MET M_ser__L_c	"L-Serine"
+MET M_gthrd_c	"Reduced glutathione"
+MET M_gtspmd_c	"Glutathionylspermidine"
+MET M_trprd_c	"Reduced trypanothione C27H47N9O10S2"
+MET M_apep_c	"Nalpha Acetylpeptide C6H7N2O4R2"
+MET M_pepd_c	"Peptide C2H4NO2RC2H2NOR"
+MET M_tag1801819Z160_c	"Triacylglycerol (18:0/18:1(9Z)/16:0)"
+MET M_HC01118_c	"Presqualene Diphosphate"
+MET M_frdp_c	"Farnesyl diphosphate"
+MET M_CE1617_c	"9-cis-retinoate"
+MET M_retn_c	"Retinoate"
+MET M_12mgdg160_c	"3-D-glucosyl-1,2-Diacylglycerol (n-C16)"
+MET M_mgdg160_c	"1,2-Diacyl-3-beta-D-galactosyl-sn-glycerol (n-C16)"
+MET M_gbdp_c	"Guanosine 3,5-bis(diphosphate)"
+MET M_gdptp_c	"Guanosine 3'-diphosphate 5'-triphosphate"
+MET M_fe2_c	"Fe2+ mitochondria"
+MET M_feroxE_c	"Ferrioxamine-E"
+MET M_feroxEfe_c	"Ferrioxamine-E-fe"
+MET M_dha_c	"Dihydroxyacetone"
+MET M_nrvnccoa_c	"Nervonyl coenzyme A"
+MET M_nrvnccrn_c	"Nervonyl carnitine"
+MET M_12dgr182n6205n3_c	"1,2-Diacyl-sn-glycerol(18:2(9Z,12Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_tag182n6205n3182n6_c	"Triacylglycerol (18:2(9Z,12Z)/20:5(5Z,8Z,11Z,14Z,17Z)/18:2(9Z,12Z))"
+MET M_cital_c	"Citalopram"
+MET M_citalald_c	"Citalopram aldehyde"
+MET M_dma_c	"Dimethylamine"
+MET M_myelin_hs_c	"Myelin Sheath"
+MET M_pail_hs_c	"Phosphatidylinositol (homo sapiens)"
+MET M_pe_hs_c	"Phosphatidylethanolamine (homo sapiens)"
+MET M_ps_hs_c	"Phosphatidylserine (homo sapiens)"
+MET M_sgalside_hs_c	"Sulfatide galactocerebroside (homo sapiens)"
+MET M_R_3hpocta_c	" 3 Hydroxy 8 phenyloctanoic acid"
+MET M_ac_c	"Acetate"
+MET M_mql7_c	"Menaquinol 7 C46H66O2"
+MET M_mqn7_c	"Menaquinone 7 C46H64O2"
+MET M_1agpe181_c	"1-Acyl-sn-glycero-3-phosphoethanolamine (n-C18:1)"
+MET M_pe1819Z205n3_c	"Phosphatidylethanolamine(18:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_tag1619Z205n3205n3_c	"Triacylglycerol (16:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_1hdecg3p_c	"1-hexadecanoyl-sn-glycerol 3-phosphate"
+MET M_odecoa_c	"Octadecenoyl-CoA (n-C18:1CoA)"
+MET M_pa1601819Z_c	"1-hexadecanoyl,2-(9Z)-octadecenoyl-sn-glycerol 3-phosphate"
+MET M_dag_hs_18_1_18_1_c	"Diacylglycerol (homo sapiens, C18:1, C18:1)"
+MET M_mi14p_c	"1D-myo-Inositol 1,4-bisphosphate"
+MET M_pail4p_hs_18_1_18_1_c	"1-Phosphatidyl-1D-myo-inositol 4-phosphate (homo sapiens, C18:1, C18:1)"
+MET M_12dgr205n31619Z_c	"1,2-Diacyl-sn-glycerol(20:5(5Z,8Z,11Z,14Z,17Z)/16:1(9Z))"
+MET M_mgdg205n31619Z_c	"1,2-Diacyl-3-O-galactosyl-sn-glycerol(20:5(5Z,8Z,11Z,14Z,17Z)/16:1(9Z))"
+MET M_udp_c	"UDP C9H11N2O12P2"
+MET M_udpgal_c	"UDPgalactose"
+MET M_M00116_c	"7Z-Octadecenoyl Coenzyme A"
+MET M_stcoa_c	"Stearoyl-CoA (n-C18:0CoA)"
+MET M_udcp_c	"Undecaprenol"
+MET M_udcpp_c	"Undecaprenyl phosphate"
+MET M_pail4p_pf_18_0_18_1_c	"1-Phosphatidyl-1D-myo-inositol4-phosphate(plasmodium,C18:0,C18:1)"
+MET M_pail_pf_18_0_18_1_c	"Phosphatidyl inositol(plasmodium,C18:0,C18:1)"
+MET M_cpe180_c	"Cyclopropane phosphatidylethanolamine (dioctadec-11,12-cyclo-anoyl, n-C18:0 cyclo)"
+MET M_pe181_c	"Phosphatidylethanolamine (dioctadec-11-enoyl, n-C18:1)"
+MET M_his__L_c	"L-Histidine"
+MET M_hisglugln_c	"Histidyl-Glutamyl-Glutamine"
+MET M_met_L_tyr__L_c	"Met Tyr C14H20N2O4S"
+MET M_1agpc226_c	"1-22:6(4Z,7Z,10Z,13Z,16Z,19Z)-2-lysophosphatidylcholine"
+MET M_arachd_c	"Arachidonic acid"
+MET M_pc226n3204n6_c	"Phosphatidylcholine(22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_23ccmp_c	"2',3'-Cyclic CMP"
+MET M_3cmp_c	"3  CMP C9H12N3O8P"
+MET M_cbflll_c	"Cobalt-factor III"
+MET M_cbshclin_c	"Cobalt-sirohydrochlorin"
+MET M_citr__L_c	"L-Citrulline"
+MET M_nh3_c	"Ammonia"
+MET M_5mcsn_c	"5-Methylcytosine"
+MET M_thym_c	"Thymine C5H6N2O2"
+MET M_12dgr1619Z140_c	"1,2-Diacyl-sn-glycerol(16:1(9Z)/14:0)"
+MET M_pe1819Z183n6_c	"Phosphatidylethanolamine(18:1(9Z)/18:3(6Z,9Z,12Z))"
+MET M_tag1619Z140183n6_c	"Triacylglycerol (16:1(9Z)/14:0/18:3(6Z,9Z,12Z))"
+MET M_6hnac_c	"6-Hydroxynicotinate"
+MET M_nac_c	"Nicotinate"
+MET M_tdm3_c	"Trehalose dimycolate (alpha mycolate + ketomycolate)"
+MET M_tre6mm_c	"Alpha,alpha-Trehalose 6-mycolate"
+MET M_tre_c	"Trehalose"
+MET M_imgly_c	"Iminoglycine"
+MET M_phe__L_c	"L-Phenylalanine"
+MET M_trp__L_c	"L-Tryptophan"
+MET M_val__L_c	"L-Valine"
+MET M_valtrpphe_c	"Valyl-Tryptophanyl-Phenylalanine"
+MET M_hacp_c	"Holo[acp]"
+MET M_myrstacp_c	"Myristoyl-[acp]"
+MET M_myrstcoa_c	"Myristoyl-CoA"
+MET M_cholcoa_c	"Choloyl-CoA(4-)"
+MET M_gchola_c	"Glycocholate"
+MET M_nwharg_c	"N-(omega)-Hydroxyarginine"
+MET M_leuktrF4_c	"Leukotriene F4 cytosol"
+MET M_pep_c	"Phosphoenolpyruvate"
+MET M_13_cis_oretn_c	"13-cis-oxo-retinoic acid"
+MET M_13_cis_retn_c	"13-cis-retinoate"
+MET M_12dgr1601619Z_c	"1,2-Diacyl-sn-glycerol(16:0/16:1(9Z))"
+MET M_hdcoa_c	"Hexadecenoyl-CoA (n-C16:1CoA)"
+MET M_tag1601619Z1619Z_c	"Triacylglycerol (16:0/16:1(9Z)/16:1(9Z))"
+MET M_C03693_c	"D-Mannose 1,6-bisphosphate"
+MET M_man1p_c	"D-Mannose 1-phosphate"
+MET M_hd2coa_c	"(E)-hexadec-2-enoyl-CoA"
+MET M_ala_leu_c	"Ala-Leu"
+MET M_12dgr140180_c	"1,2-Diacyl-sn-glycerol(14:0/18:0)"
+MET M_cdpchol_c	"CDPcholine C14H25N4O11P2"
+MET M_pc140180_c	"Phosphatidylcholine(14:0/18:0)"
+MET M_12dgr16018111Z_c	"1,2-Diacyl-sn-glycerol (1-hexadecanoyl,2-(11Z)-octadecenoyl, 16:0/18:1(11Z))"
+MET M_1odec11eg3p_c	"1-octadec-11-enoyl-sn-glycerol 3-phosphate"
+MET M_pa18111Z18111Z_c	"1-(11Z)-octadecenoyl,2-(11Z)-octadecenoyl-sn-glycerol 3-phosphate"
+MET M_tag16018111Z18111Z_c	"Triacylglycerol (16:0/18:1(11Z)/18:1(11Z))"
+MET M_ocdcyaACP_c	"Octadecynoyl ACP  n C182ACP  C29H51N2O8PRS"
+MET M_ocdcya_c	"Octadecadienoate  n C182  C18H31O2"
+MET M_HC00718_c	"N-methylethanolaminium phosphate(1-)"
+MET M_HC01842_c	"Phosphodimethylethanolamine"
+MET M_etha_c	"Ethanolamine"
+MET M_pa1819Z1619Z_c	"1-(9Z)-octadecenoyl,2-(9Z)-hexadecenoyl-sn-glycerol 3-phosphate"
+MET M_pe1819Z1619Z_c	"Phosphatidylethanolamine(18:1(9Z)/16:1(9Z))"
+MET M_1agpc181_c	"1-18:1(9Z)-2-lysophosphatidylcholine"
+MET M_pc1819Z1619Z_c	"Phosphatidylcholine(18:1(9Z)/16:1(9Z))"
+MET M_2odecg3p_c	"2-octadecanoyl-sn-glycerol 3-phosphate"
+MET M_ocdca_c	"Octadecanoate (n-C18:0)"
+MET M_4hoxoh_c	"4-Hydroxy-2-oxohexanoic acid"
+MET M_hhd_c	"(2Z,4Z)-2-Hydroxyhexa-2,4-dienoic acid"
+MET M_no3_c	"Nitrate"
+MET M_no_c	"Nitric oxide"
+MET M_o2s_c	"Superoxide anion"
+MET M_glu5p_c	"L-Glutamate 5-phosphate"
+MET M_glu5sa_c	"L-Glutamate 5-semialdehyde"
+MET M_alpha_hs_18_2_c	"Alpha hs 18 2[c]"
+MET M_lnlccoa_c	"Linoleic coenzyme A"
+MET M_so3_c	"Sulfite"
+MET M_argalathr_c	"Arginyl-Alanyl-Threonine"
+MET M_thr__L_c	"L-Threonine"
+MET M_M01389_c	"Beta-D-Glucose-6-Phosphate"
+MET M_g6p_c	"D-Glucose 6-phosphate"
+MET M_pa140183n3_c	"1-tetradecanoyl-2-9,12,15-octadecatrienoyl-sn-glycerol-3-phosphate"
+MET M_pe140183n3_c	"Phosphatidylethanolamine(14:0/18:3(9Z,12Z,15Z))"
+MET M_gmhep17bp_c	"D-Glycero-D-manno-heptose 1,7-bisphosphate"
+MET M_gmhep7p_c	"D-Glycero-D-manno-heptose 7-phosphate"
+MET M_ile__L_c	"L-Isoleucine"
+MET M_iletrna_c	"L-Isoleucyl-tRNA(Ile)"
+MET M_trnaile_c	"TRNA(Ile)"
+MET M_gdp_c	"GDP C10H12N5O11P2"
+MET M_gdpmann_c	"GDP-D-mannose"
+MET M_m3mpdol__L_c	"(alpha-D-mannosyl)3-beta-D-mannosyl-diacetylchitodiphosphodolichol, human liver homolog"
+MET M_m4mpdol__L_c	"(alpha-D-Mannosyl)4-beta-D-mannosyl-diacetylchitobiosyldiphosphodolichol, human liver homolog"
+MET M_12dgr160_c	"1,2-Diacyl-sn-glycerol (dihexadecanoyl, n-C16:0)"
+MET M_tag160160182n6_c	"Triacylglycerol (16:0/16:0/18:2(9Z,12Z))"
+MET M_pail205n3182n6_c	"Phosphatidylinositol(20:5(5Z,8Z,11Z,14Z,17Z)/18:2(9Z,12Z))"
+MET M_pail4p205n3182n6_c	"1-Phosphatidyl-1D-myo-inositol 4-phosphate(20:5(5Z,8Z,11Z,14Z,17Z)/18:2(9Z,12Z))"
+MET M_pa226n3205n3_c	"1-4,7,10,13,16,19-docosahexaenoyl-2-5,8,11,14,17-eicosapentaenoyl-sn-glycerol-3-phosphate"
+MET M_pc226n3205n3_c	"Phosphatidylcholine(22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_12dgr205n3140_c	"1,2-Diacyl-sn-glycerol(20:5(5Z,8Z,11Z,14Z,17Z)/14:0)"
+MET M_pc205n3140_c	"Phosphatidylcholine(20:5(5Z,8Z,11Z,14Z,17Z)/14:0)"
+MET M_valarggly_c	"Valyl-Arginyl-Glycine"
+MET M_gluthr_c	"Glutamyl-Threonine"
+MET M_pail34p_hs_16_0_16_0_c	"Pail34p hs 16 0 16 0[c]"
+MET M_pail4p_hs_16_0_16_0_c	"1-Phosphatidyl-1D-myo-inositol 4-phosphate (homo sapiens, C16:0, C16:0)"
+MET M_pc140204n6_c	"Phosphatidylcholine(14:0/20:4(5Z,8Z,11Z,14Z))"
+MET M_tag140205n3204n6_c	"Triacylglycerol (14:0/20:5(5Z,8Z,11Z,14Z,17Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_lys__L_c	"L-Lysine"
+MET M_mcbts_c	"Mycobactin S"
+MET M_salc_c	"Salicylate"
+MET M_CN0009_c	"Benzo[a]pyrene-2,3-diol"
+MET M_CN0012_c	"Benzo[a]pyrene-2,3-oxide"
+MET M_hmtria_c	"Hexa-methyl triacontanoic acid (C30:0, plus 6 methyl branches)"
+MET M_mmcoa__S_c	"(S)-Methylmalonyl-CoA"
+MET M_pmocta_c	"Penta-methyl octacosanoate"
+MET M_1agpc161_c	"1-16:1(9Z)-2-lysophosphatidylcholine"
+MET M_crvnc_c	"Cervonic acid, C22:6 n-3"
+MET M_pc1619Z226n3_c	"Phosphatidylcholine(16:1(9Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_pa226n3180_c	"1-4,7,10,13,16,19-docosahexaenoyl-2-octadecanoyl-sn-glycerol-3-phosphate"
+MET M_pe226n3180_c	"Phosphatidylethanolamine(22:6(4Z,7Z,10Z,13Z,16Z,19Z)/18:0)"
+MET M_gicolipamin_c	"Glucosyl-inner-core-oligosaccharide-lipid-A min"
+MET M_icolipamin_c	"Inner-core-oligosaccharide-lipid-A-E-coli min"
+MET M_udpg_c	"UDPglucose"
+MET M_utp_c	"UTP C9H11N2O15P3"
+MET M_ppt2coa_c	"Phenyl pent 2 enoyl CoA"
+MET M_pptcoa_c	"Phenyl Pentanoyl CoA Phe C50CoA"
+MET M_C02528_c	"Chenodeoxycholate"
+MET M_dcholcoa_c	"Chenodeoxycholoyl coenzyme a"
+MET M_pail45p_hs_16_0_16_0_c	"Phosphatidylinositol 4,5-bisphosphate (homo sapiens, C16:0, C16:0)"
+MET M_dolmanp_c	"Dolichyl phosphate D mannose C21H38O9P"
+MET M_dolp_c	"Dolichol phosphate C15H27O4P"
+MET M_m4mpdol_c	"(alpha-D-Mannosyl)4-beta-D-mannosyl-diacetylchitobiosyldiphosphodolichol"
+MET M_m5mpdol_c	"(alpha-D-Mannosyl)5-beta-D-mannosyl-diacetylchitobiosyldiphosphodolichol"
+MET M_R_3hhdca_c	" 3 Hydroxyhexadecanoic acid"
+MET M_R_3hhdcoa_c	" 3 Hydroxyhexadecanoyl CoA"
+MET M_M00085_c	"(3S)-Hydroxy-Docasa-Cis,Cis-13,16-Dienoyl Coenzyme A"
+MET M_M03008_c	"Trans,Cis,Cis-2,13,16-Docasatrienoyl Coenzyme A"
+MET M_gdpddman_c	"GDP-4-dehydro-6-deoxy-D-mannose"
+MET M_gdpfuc_c	"GDP-L-fucose"
+MET M_3hmop_c	"(R)-3-Hydroxy-3-methyl-2-oxopentanoate"
+MET M_cdpdag_hs_c	"CDP diacylglycerol (homo sapiens)"
+MET M_inost_c	"Myo-Inositol"
+MET M_12dgr1619Z204n6_c	"1,2-Diacyl-sn-glycerol(16:1(9Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_mag1619Z_c	"1-acylglycerol (16:1(9Z))"
+MET M_12dgr1819Z204n6_c	"1,2-Diacyl-sn-glycerol(18:1(9Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_cdpea_c	"CDPethanolamine C11H19N4O11P2"
+MET M_pe1819Z204n6_c	"Phosphatidylethanolamine(18:1(9Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_dtdp_c	"DTDP C10H13N2O11P2"
+MET M_dtdprmn_c	"DTDP-L-rhamnose"
+MET M_rppdima_c	"Rhamnose phenol phthiocerol dimycocerosate (Mtb)"
+MET M_rrppdima_c	"Rhamnose rhamnose phenol phthiocerol dimycocerosate (Mtb)"
+MET M_CE5304_c	"15-deoxy-PGD2"
+MET M_prostgd2_c	"Prostaglandin D2"
+MET M_1agpc182_c	"1-18:2(9Z,12Z)-2-lysophosphatidylcholine"
+MET M_pc182n6226n3_c	"Phosphatidylcholine(18:2(9Z,12Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_tag226n3205n3226n3_c	"Triacylglycerol (22:6(4Z,7Z,10Z,13Z,16Z,19Z)/20:5(5Z,8Z,11Z,14Z,17Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_CE4816_c	"2-trans-9,12,15,18,21-all-cis-tetracosahexaenoyl-CoA"
+MET M_CE4824_c	"Tetracosa-9,12,15,18,21-all-cis-pentaenoyl-CoA"
+MET M_pc180205n3_c	"Phosphatidylcholine(18:0/20:5(5Z,8Z,11Z,14Z,17Z))"
+MET M_nndccoa_c	"Nonanoyl-CoA"
+MET M_undcoa_c	"Undecanoyl Coenzyme A"
+MET M_pa140_c	"1,2-ditetradecanoyl-sn-glycerol 3-phosphate"
+MET M_pc140_c	"Phosphatidylcholine(14:0/14:0)"
+MET M_1agpe140_c	"1-Acyl-sn-glycero-3-phosphoethanolamine (n-C14:0)"
+MET M_pe140160_c	"Phosphatidylethanolamine(14:0/16:0)"
+MET M_1agpe205_c	"1-20:5(5Z,8Z,11Z,14Z,17Z)-2-lysophosphatidylethanolamine"
+MET M_pe205n3204n6_c	"Phosphatidylethanolamine(20:5(5Z,8Z,11Z,14Z,17Z)/20:4(5Z,8Z,11Z,14Z))"
+MET M_pc140183n6_c	"Phosphatidylcholine(14:0/18:3(6Z,9Z,12Z))"
+MET M_tag1619Z1619Z183n6_c	"Triacylglycerol (16:1(9Z)/16:1(9Z)/18:3(6Z,9Z,12Z))"
+MET M_M02637_c	"Octadecatrienoylcarnitine"
+MET M_lnlncacoa_c	"Alpha-Linolenoyl-CoA"
+MET M_CE4818_c	"3(S)-hydroxy-tetracosa-9,12,15,18,21-all-cis-pentaenoyl-CoA"
+MET M_CE4820_c	"3-oxo-all-cis-6,9,12,15,18-tetracosapentaenoyl-CoA"
+MET M_idp_c	"IDP C10H11N4O11P2"
+MET M_itp_c	"ITP C10H11N4O14P3"
+MET M_ump_c	"UMP C9H11N2O9P"
+MET M_uri_c	"Uridine"
+MET M_cpe160_c	"Cyclopropane phosphatidylethanolamine (dihexadec-9,10-cyclo-anoyl, n-C16:0 cyclo)"
+MET M_pe161_c	"Phosphatidylethanolamine (dihexadec-9enoyl, n-C16:1)"
+MET M_HC02228_c	"Hexadecenal"
+MET M_ethamp_c	"Ethanolamine phosphate C2H7NO4P"
+MET M_sphs1p_c	"Sphingosine 1-phosphate"
+MET M_1agpc160_c	"1-16:0-2-lysophosphatidylcholine"
+MET M_pc160226n3_c	"Phosphatidylcholine(16:0/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_tag140205n3226n3_c	"Triacylglycerol (14:0/20:5(5Z,8Z,11Z,14Z,17Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))"
+MET M_R3coa_hs_c	"R group 3 Coenzyme A homo sapiens"
+MET M_xylt_c	"Xylitol C5H12O5"
+MET M_xylu__L_c	"L-Xylulose"
+MET M_2obut_c	"2-Oxobutanoate"
+MET M_selcys_c	"Selenocysteine"
+MET M_selcyst_c	"Selenocystathionine"
+MET M_Largn_c	"L-Arogenate"
+MET M_asp__L_c	"L-Aspartate"
+MET M_oaa_c	"Oxaloacetate"
+MET M_pphn_c	"Prephenate"
+MET M_glyc2p_c	"Glycerol 2-phosphate"
+MET M_thrp_c	"L-Threonine O-3-phosphate"
+MET M_dag_pf_20_4_20_4_c	"Diacylglycerol(plasmodium,C20:4,C20:4)"
+MET M_pa_pf_20_4_20_4_c	"Phosphatidic acid(plasmodium,C20:4,C20:4)"
+MET M_lgnccoa_c	"Lignocericyl coenzyme A"
+MET M_lgnccrn_c	"Lignoceryl carnitine"
+MET M_17ahprgnlone_c	"17alpha-Hydroxypregnenolone"
+MET M_prgnlone_c	"Prgnlone c"
+MET M_34hpp_c	"3-(4-Hydroxyphenyl)pyruvate"
+MET M_fdxo_42_c	"Ferredoxin (oxidized form 4:2)"
+MET M_fdxr_42_c	"Ferredoxin (reduced form 4:2)"
+MET M_hphaccoa_c	"4 Hydroxyphenylacetyl CoA C29H42N7O18P3S"
+MET M_M02197_c	"N-Acetyl-D-galactosaminyl-N-Acetyl-D-galactosaminyl-1,3-D-galactosyl-1,4-D-galactosyl-1,4-D-glucosylceramide"
+MET M_gbside_hs_c	"Globoside (homo sapiens)"
+MET M_udpacgal_c	"UDP-N-acetyl-D-galactosamine"
+MET M_dtdp4aaddg_c	"DTDP-4-acetamido-4,6-dideoxy-D-galactose"
+MET M_unagamu_c	"Undecaprenyl-diphospho-N-acetylglucosamine-N-acetylmannosaminuronate"
+MET M_unagamuf_c	"Undecaprenyl-diphospho N-acetylglucosamine-N-acetylmannosaminuronate-N-acetamido-4,6-dideoxy-D-galactose"
+MET M_pa18111Z1819Z_c	"1-(11Z)-octadecenoyl,2-(9Z)-octadecenoyl-sn-glycerol 3-phosphate"
+MET M_tag16018111Z1819Z_c	"Triacylglycerol (16:0/18:1(11Z)/18:1(9Z))"
+MET M_12dgr205n3160_c	"1,2-Diacyl-sn-glycerol(20:5(5Z,8Z,11Z,14Z,17Z)/16:0)"
+MET M_mi145p_c	"1D myo Inositol 1 4 5 trisphosphate C6H9O15P3"
+MET M_pail45p205n3160_c	"1-Phosphatidyl-1D-myo-inositol 4,5-bisphosphate(20:5(5Z,8Z,11Z,14Z,17Z)/16:0)"
+MET M_ribl5p_c	"D-ribitol 5-phosphate"
+MET M_ru5p__D_c	"D-Ribulose 5-phosphate"
+MET M_12dgr1819Z140_c	"1,2-Diacyl-sn-glycerol(18:1(9Z)/14:0)"
+MET M_mag1819Z_c	"1-monoacylglycerol (18:1(9Z))"
+MET M_44mzym_c	"4 4 dimethylzymosterol C29H48O"
+MET M_4mzym_int1_c	"4 Methylzymosterol intermediate 1 C29H46O3"
+MET M_1odec9eg3p_c	"1-octadec-9-enoyl-sn-glycerol 3-phosphate"
+MET M_ocdce9coa_c	"(9Z)-octadecenoyl-coa"
+MET M_pa1819Z1819Z_c	"1,2-di-(9Z)-octadecenoyl-sn-glycerol 3-phosphate"
+MET M_pa1819Z160_c	"1-(9Z)-octadecenoyl,2-hexadecanoyl-sn-glycerol 3-phosphate"
+MET M_gglusem_c	"Gamma-gamma-se-methylselenocysteine"
+MET M_glu5pept_c	"5-l-glutamyl-peptide"
+MET M_peptide_c	"TRNA charged with amino acids for peptide synthesis"
+MET M_smscys_c	"Se-methylselenocysteine"
+MET M_2kmb_c	"2-keto-4-methylthiobutyrate"
+MET M_mthb_c	"2-hydroxy-4-methylthiobutyrate"
+MET M_apoC_Lys_c	"Apocarboxylase (Lys residue)"
+MET M_apoC_c	"Apocarboxlase (no lys residue)"
+MET M_R_3hpdecacoa_c	" 3 Hydroxyphenyldecanoyl CoA"
+MET M_pdca2coa_c	"Phenyl deca 2 enoyl CoA"
+MET M_5hxkyn_c	"5-Hydroxykynurenine"
+MET M_5hxkynam_c	"5-Hydroxykynurenamine"
+MET M_3ohpcoa_c	"3 oxoheptanoyl CoA"
+MET M_R_3hhpcoa_c	" 3 Hydroxyheptanoyl CoA"
+MET M_dag_pf_16_0_18_2_c	"Diacylglycerol(plasmodium,C16:0,C18:2)"
+MET M_pe_pf_16_0_18_2_c	"Phosphatidyl ethanolamine(plasmodium,C16:0,C18:2)"
+MET M_pa1819Z140_c	"1-9-octadecenoyl-2-tetradecanoyl-sn-glycerol-3-phosphate"
+MET M_CE4888_c	"Dopaminochrome"
+MET M_ind56qn_c	"Indole-5,6-Quinone"
+MET M_acgam_c	"N-Acetyl-D-glucosamine"
+MET M_n2m2nm_c	"N2m2nmasn (w/o peptide linkage)"
+MET M_n2m2nmn_c	"Reducing GlcNAc removed form of n2m2nmasn (w/o peptide)"
+MET M_gtp_c	"GTP C10H12N5O14P3"
+MET M_25dhpp_c	"2 5 Diamino 6 hydroxy 4  5  phosphoribosylamino  pyrimidine C9H14N5O8P"
+MET M_for_c	"Formate"
+MET M_pail4p_hs_18_0_18_0_c	"Pail4p hs 18 0 18 0[c]"
+MET M_pail_hs_18_0_18_0_c	"Pail hs 18 0 18 0[c]"
+MET M_pail160_c	"Phosphatidylinositol(16:0/16:0)"
+MET M_pail3p160_c	"1-Phosphatidyl-1D-myo-inositol 3-phosphate(16:0/16:0)"
+MET M_dsbdox_c	"Fused thiol:disulfide interchange protein (oxidized)"
+MET M_dsbdrd_c	"Fused thiol:disulfide interchange protein (reduced)"
+MET M_fe3_c	"Iron (Fe3+)"
+MET M_ala_L_his__L_c	"Ala His C9H14N4O3"
+MET M_4hbz_c	"4-Hydroxybenzoate"
+MET M_pphos_c	"Phenylphosphate"
+MET M_phaccoa_c	"Phenylacetyl-CoA"
+MET M_rephaccoa_c	"Ring 1,2-epoxyphenylacetyl-CoA"
+MET M_pe_hs_16_0_18_2_c	"Phosphatidylethanolamine (homo sapiens, C16:0, C18:2)"
+MET M_ps_hs_16_0_18_2_c	"Ps hs 16 0 18 2[c]"
+MET M_12dgr1401619Z_c	"1,2-Diacyl-sn-glycerol(14:0/16:1(9Z))"
+MET M_pe205n31619Z_c	"Phosphatidylethanolamine(20:5(5Z,8Z,11Z,14Z,17Z)/16:1(9Z))"
+MET M_tag1401619Z1619Z_c	"Triacylglycerol (14:0/16:1(9Z)/16:1(9Z))"
+MET M_5caiz_c	"5-phosphoribosyl-5-carboxyaminoimidazole"
+MET M_air_c	"5-amino-1-(5-phospho-D-ribosyl)imidazole"
+MET M_hco3_c	"Bicarbonate"
+MET M_CE2417_c	"3(S)-hydroxy-5Z,8Z-tetradecadienoyl-CoA"
+MET M_CE2424_c	"3-oxo-cis,cis-5,8-tetradecadienoyl-CoA"
+MET M_M00067_c	"(2E)-Tricosenoyl Coenzyme A"
+MET M_M03047_c	"Tricosanoyl Coenzyme A"
+MET M_C14770_c	"11,12-EET"
+MET M_fdxox_c	"Oxidized ferredoxin"
+MET M_fdxrd_c	"Reduced ferredoxin"
+MET M_mhpglu_c	"5 Methyltetrahydropteroyltri L glutamate C25H36N8O12"
+MET M_cro2_c	"Chromite"
+MET M_cro4_c	"Chromate"
+MET M_M00049_c	"(2E)-Hexacosenoyl Coenzyme A"
+MET M_3meacmp_c	"3-methoxy-acetaminophen"
+MET M_pap_c	"Adenosine 3',5'-bisphosphate"
+MET M_paps_c	"3'-Phosphoadenylyl sulfate"
+MET M_s3meacmp_c	"Sulphate-conjugate-3-methoxy-acetaminophen"
+MET M_pcollg5hlys_c	"Procollagen 5-hydroxy-L-lysine"
+MET M_pcollglys_c	"Procollagen L-lysine"
+MET M_HC02050_c	"Phosphatidate-Ld-Pc-Pool"
+MET M_HC02056_c	"1,2-Diacylglycerol-Ld-Pc-Pool"
+MET M_2agpe141_c	"2-Acyl-sn-glycero-3-phosphoethanolamine (n-C14:1)"
+MET M_pe141_c	"Phosphatidylethanolamine (ditetradec-7-enoyl, n-C14:1)"
+MET M_ttdcea_c	"Tetradecenoate (n-C14:1)"
+MET M_6dhf_c	"Haxglutamyl folate (DHF)"
+MET M_7dhf_c	"Heptaglutamyl folate (DHF)"
+MET M_mag182n6_c	"1-acylglycerol (18:2(9Z,12Z))"
+MET M_tmndnc_c	"Timnodonic acid C20:5, n-3"
+MET M_HC02202_c	"Prostaglandin A1(1-)"
+MET M_HC02206_c	"Prostaglandin C1(1-)"
+MET M_3hdpgpe_c	"2-O-(3'-hydroxy)phytanyl-3-O-phytanyl-sn-glycero-l-phosphoethanolamine"
+MET M_3hdpgps_c	"2-O-(3'-hydroxy)phytanyl-3-O-phytanyl-sn-glycero-l-phosphoserine"
+MET M_octdececoa_c	"Octadecenoyl Coenzyme A"
+MET M_octdececrn_c	"Octadecenoyl Carnitine (Hypothetical, Position Of Double Bond Unknown)"
+MET M_2hetdp_c	"2-(alpha-Hydroxyethyl)thiamine diphosphate"
+MET M_thmpp_c	"Thiamine diphosphate"
+MET M_uLa4n_c	"Undecaprenyl phosphate-4-amino-4-deoxy-L-arabinose"
+MET M_udpLa4n_c	"Uridine 5''-diphospho--4-deoxy-4-amino-L-arabinose"
+MET M_CE5536_c	"Adrenochrome"
+MET M_CE5541_c	"Adrenochrome o-semiquinone"
+MET M_hcholc5coa_c	"CoA-22-hydroxy-cholest-4-en-3-one C5 side chain"
+MET M_ocholc5coa_c	"CoA-22-one-cholest-4-en-3-one C5 side chain"
+MET M_acald_c	"Acetaldehyde"
+MET M_actn__R_c	" R  Acetoin C4H8O2"
+MET M_octACP_c	"Octodecanoyl-ACP"
+MET M_to2eACP_c	"Trans-Octodec-2-enoyl-ACP"
+MET M_lipamp_c	"Lipoyl-adenylate"
+MET M_lipoate_c	"Lipoate"
+MET M_lnlncgcoa_c	"Gamma-linolenoyl-CoA"
+MET M_R4coa_cho_c	"R group 4 Coenzyme A"
+MET M_Rtotalcoa_c	"Rtotalcoa c"
+MET M_4cml_c	"4-Carboxymuconolactone"
+MET M_5odhf2a_c	"5-Oxo-4,5-dihydrofuran-2-acetate"
+MET M_M00010_c	"11Z,14Z,17Z-Eicosatrienoic Acid"
+MET M_M00012_c	"11Z,14Z,17Z-Eicosatrienoyl Coenzyme A"
+MET M_L2aadp6sa_c	"L 2 Aminoadipate 6 semialdehyde C6H11NO3"
+MET M_L2aadp_c	"L 2 Aminoadipate C6H10NO4"
+MET M_oc2coa_c	"Trans-Oct-2-enoyl-CoA"
+MET M_occoa_c	"Octanoyl-CoA (n-C8:0CoA)"
+MET M_phdca_c	"Phenol palmitic acid"
+MET M_phdcacoa_c	"Phenol palmitic coenzyme A"
+MET M_12dgr180182n6_c	"1,2-Diacyl-sn-glycerol(18:0/18:2(9Z,12Z))"
+MET M_pe180182n6_c	"Phosphatidylethanolamine(18:0/18:2(9Z,12Z))"
+MET M_pe1819Z182n6_c	"Phosphatidylethanolamine(18:1(9Z)/18:2(9Z,12Z))"
+REACTION R_PRAGSr 10.0 M_atp_c -1.0 M_gly_c -1.0 M_pram_c -1.0 M_adp_c 1.0 M_gar_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_PRAGSr_rev 10.0 M_atp_c 1.0 M_gly_c 1.0 M_pram_c 1.0 M_adp_c -1.0 M_gar_c -1.0 M_h_c -1.0 M_pi_c -1.0 
+REACTION R_PA_UACAT 10.0 M_3hdeACP_c -1.0 M_uacgam_c -1.0 M_ACP_c 1.0 M_PA_u3aga_c 1.0 
+REACTION R_KDOPP 10.0 M_h2o_c -1.0 M_kdo8p_c -1.0 M_kdo_c 1.0 M_pi_c 1.0 
+REACTION R_DHFS 10.0 M_dhpt_c -1.0 M_glu__L_c -1.0 M_atp_c -1.0 M_dhf_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_AGMHE 10.0 M_adphep__D_COMMA_D_c -1.0 M_adphep__L_COMMA_D_c 1.0 
+REACTION R_DAPE 10.0 M_26dap__LL_c -1.0 M_26dap__M_c 1.0 
+REACTION R_DAPE_rev 10.0 M_26dap__LL_c 1.0 M_26dap__M_c -1.0 
+REACTION R_HOCHL3 10.0 M_3hocACP_c -1.0 M_2toceACP_c 1.0 M_h2o_c 1.0 
+REACTION R_IMPC 10.0 M_imp_c -1.0 M_h2o_c -1.0 M_fprica_c 1.0 
+REACTION R_IMPC_rev 10.0 M_imp_c 1.0 M_h2o_c 1.0 M_fprica_c -1.0 
+REACTION R_PA_COREs 10.0 M_PA_core7_lipidA_c -1.0 M_ala__L_c -1.0 M_cbp_c -1.0 M_PA_core_lipidA_c 1.0 M_h2o_c 1.0 M_pi_c 1.0 
+REACTION R_HDMAT7 10.0 M_nad_c -1.0 M_palmACP_c -1.0 M_hdeACP_c 1.0 M_nadh_c 1.0 M_h_c 1.0 
+REACTION R_HDMAT7_rev 10.0 M_nad_c 1.0 M_palmACP_c 1.0 M_hdeACP_c -1.0 M_nadh_c -1.0 M_h_c -1.0 
+REACTION R_HODHL8 10.0 M_3hocdacp_c -1.0 M_2tocdACP_c 1.0 M_h2o_c 1.0 
+REACTION R_MCOATA 10.0 M_malcoa_c -1.0 M_ACP_c -1.0 M_coa_c 1.0 M_malACP_c 1.0 
+REACTION R_MCOATA_rev 10.0 M_malcoa_c 1.0 M_ACP_c 1.0 M_coa_c -1.0 M_malACP_c -1.0 
+REACTION R_UAPGR 10.0 M_nadph_c -1.0 M_uaccg_c -1.0 M_h_c -1.0 M_nadp_c 1.0 M_uamr_c 1.0 
+REACTION R_GLUR 10.0 M_glu__D_c -1.0 M_glu__L_c 1.0 
+REACTION R_GLUR_rev 10.0 M_glu__D_c 1.0 M_glu__L_c -1.0 
+REACTION R_HODR8 10.0 M_3oxocdacp_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_3hocdacp_c 1.0 M_nadp_c 1.0 
+REACTION R_CDGPTr_PA 10.0 M_cdpdag_PA_c -0.02 M_glyc3p_c -1.0 M_cmp_c 1.0 M_pglyp_PA_c 0.02 M_h_c 1.0 
+REACTION R_CDGPTr_PA_rev 10.0 M_cdpdag_PA_c 0.02 M_glyc3p_c 1.0 M_cmp_c -1.0 M_pglyp_PA_c -0.02 M_h_c -1.0 
+REACTION R_KARA2i 10.0 M_2ahbut_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_23dhmp_c 1.0 M_nadp_c 1.0 
+REACTION R_PRAI 10.0 M_pran_c -1.0 M_2cpr5p_c 1.0 
+REACTION R_PRAI_rev 10.0 M_pran_c 1.0 M_2cpr5p_c -1.0 
+REACTION R_SULabc 10.0 M_so4_e -1.0 M_atp_c -1.0 M_h2o_c -1.0 M_so4_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_ATPPRT 10.0 M_prpp_c -1.0 M_atp_c -1.0 M_ppi_c 1.0 M_prbatp_c 1.0 
+REACTION R_QULNS_1 10.0 M_dhap_c -1.0 M_iasp_c -1.0 M_quln_c 1.0 M_h2o_c 2.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_PAPA_EPA_ARA_c 10.0 M_pa205n3204n6_c -1.0 M_h2o_c -1.0 M_12dgr205n3204n6_c 1.0 M_pi_c 1.0 
+REACTION R_ACOADAGAT1801819Z1845Z9Z12Z15Z 10.0 M_12dgr1801819Z_c -1.0 M_cacoa_c -1.0 M_tag1801819Z1845Z9Z12Z15Z_c 1.0 M_coa_c 1.0 
+REACTION R_PPCDC 10.0 M_4ppcys_c -1.0 M_h_c -1.0 M_co2_c 1.0 M_pan4p_c 1.0 
+REACTION R_3HAD220_c 10.0 M_3hdcscoa_c -1.0 M_docos2coa_c 1.0 M_h2o_c 1.0 
+REACTION R_TMK 10.0 M_thm_c -1.0 M_atp_c -1.0 M_thmmp_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_DNAMTn2r 10.0 M_amet_c -1.0 M_dna_c -1.0 M_ahcys_c 1.0 M_dna5mtc_c 1.0 M_h_c 1.0 
+REACTION R_HBRCH 10.0 M_3hbcoa__R_c -1.0 M_h2o_c -1.0 M_bhb_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_PPCSCT 10.0 M_ppcoa_c -1.0 M_succ_c -1.0 M_ppa_c 1.0 M_succoa_c 1.0 
+REACTION R_HEXCCPT1 10.0 M_crn_c -1.0 M_hexccoa_c -1.0 M_hexccrn_c 1.0 M_coa_c 1.0 
+REACTION R_PLA2PC_EPA_STA_c 10.0 M_pc205n3184n3_c -1.0 M_h2o_c -1.0 M_1agpc205_c 1.0 M_strdnc_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_DHA_EPA_ARA_PE_13_c 10.0 M_12dgr226n3205n3_c -1.0 M_pe182n6204n6_c -1.0 M_1agpe182_c 1.0 M_tag226n3205n3204n6_c 1.0 
+REACTION R_LTD4DP 10.0 M_leuktrD4_c -1.0 M_h2o_c -1.0 M_leuktrE4_c 1.0 M_gly_c 1.0 
+REACTION R_HMR_2018 10.0 M_andrstandn_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_andrstrn_c 1.0 M_nadp_c 1.0 
+REACTION R_LPEAT_STC_ARA_sn2_c 10.0 M_1agpe180_c -1.0 M_arachdcoa_c -1.0 M_pe180204n6_c 1.0 M_coa_c 1.0 
+REACTION R_HMPSCD 10.0 M_hmpscoa_c -1.0 M_nad_c -1.0 M_sbzcoa_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_DESAT18_7 10.0 M_o2_c -1.0 M_vacccoa_c -1.0 M_h_c -1.0 M_nadh_c -1.0 M_lneldccoa_c 1.0 M_h2o_c 2.0 M_nad_c 1.0 
+REACTION R_CDPDAGS_HDE_EPA_c 10.0 M_ctp_c -1.0 M_pa1619Z205n3_c -1.0 M_h_c -1.0 M_cdp12dgr1619Z205n3_c 1.0 M_ppi_c 1.0 
+REACTION R_PLA2PE_STC_ALNA_c 10.0 M_pe180183n3_c -1.0 M_h2o_c -1.0 M_lnlnca_c 1.0 M_1agpe180_c 1.0 M_h_c 1.0 
+REACTION R_3A2OA 10.0 M_akg_c -1.0 M_ala_B_c -1.0 M_msa_c 1.0 M_glu__L_c 1.0 
+REACTION R_PUNP2 10.0 M_dad_2_c -1.0 M_pi_c -1.0 M_2dr1p_c 1.0 M_ade_c 1.0 
+REACTION R_FAS100ACP 10.0 M_ocACP_c -1.0 M_h_c -3.0 M_malcoa_c -1.0 M_nadph_c -2.0 M_dcaACP_c 1.0 M_co2_c 1.0 M_coa_c 1.0 M_h2o_c 1.0 M_nadp_c 2.0 
+REACTION R_HMR_0390 10.0 M_CE4854_c -1.0 M_h2o_c -1.0 M_M00260_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_DEDOLP1 10.0 M_dedoldp_c -1.0 M_h2o_c -1.0 M_dedolp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_RHMNT2 10.0 M_gdpdrhmn_c -2.0 M_rhma13unaga_c -1.0 M_3_rhma13unaga_c 1.0 M_gmp_c 2.0 
+REACTION R_GLNTRS 10.0 M_gln__L_c -1.0 M_trnagln_c -1.0 M_atp_c -1.0 M_amp_c 1.0 M_glntrna_c 1.0 M_ppi_c 1.0 
+REACTION R_HMR_6607 10.0 M_CE6252_c -1.0 M_h2o_c -1.0 M_oh1_c 1.0 M_urate_c 1.0 
+REACTION R_FGFT_1 10.0 M_methf_c -1.0 M_gar_c -1.0 M_h2o_c -1.0 M_fgam_c 1.0 M_thf_c 1.0 M_h_c 2.0 
+REACTION R_TAGAH_PALM_EPA_PALM_c 10.0 M_tag160205n3160_c -1.0 M_h2o_c -1.0 M_12dgr160205n3_c 1.0 M_hdca_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_HDE_HDE_LNA_PC_7_c 10.0 M_12dgr161_c -1.0 M_pc205n3182n6_c -1.0 M_tag1619Z1619Z182n6_c 1.0 M_1agpc205_c 1.0 
+REACTION R_RE3171C 10.0 M_CE4850_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_CE4848_c 1.0 M_nadp_c 1.0 
+REACTION R_RHACOAR90 10.0 M_3ononacoa_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_R_3hnonacoa_c 1.0 M_nadp_c 1.0 
+REACTION R_AGPATCOA_MYRS_EPA_c 10.0 M_1tdecg3p_c -1.0 M_tmndnccoa_c -1.0 M_pa140205n3_c 1.0 M_coa_c 1.0 
+REACTION R_PCPLC_16_0_18_1 10.0 M_pchol_pf_16_0_18_1_c -1.0 M_h2o_c -1.0 M_cholp_c 1.0 M_dag_pf_16_0_18_1_c 1.0 M_h_c 1.0 
+REACTION R_PLA2PA_EPA_ALNA_c 10.0 M_pa205n3183n3_c -1.0 M_h2o_c -1.0 M_1eicos58111417eg3p_c 1.0 M_h_c 1.0 M_lnlnca_c 1.0 
+REACTION R_3AIBT2 10.0 M_mmtsa_c -1.0 M_ala__L_c -1.0 M_3aib_c 1.0 M_pyr_c 1.0 
+REACTION R_HMR_1742 10.0 M_M01081_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_M01077_c 1.0 M_nadp_c 1.0 
+REACTION R_PHADPC120 10.0 M_C120aPHA_c -1.0 M_h2o_c -1.0 M_PHAg_c 1.0 M_R_3hdda_c 1.0 M_h_c 1.0 
+REACTION R_PI45P5P_16_0_18_2 10.0 M_pail45p_hs_16_0_18_2_c -1.0 M_h2o_c -1.0 M_pail4p_hs_16_0_18_2_c 1.0 M_pi_c 1.0 
+REACTION R_LADMA6 10.0 M_uagmda_c -1.0 M_gly_c -5.0 M_uaagtmda_c 1.0 
+REACTION R_CHOD 10.0 M_chsterol_c -1.0 M_o2_c -1.0 M_chol4en3one_c 1.0 M_h2o2_c 1.0 
+REACTION R_MANAT3 10.0 M_Ac1PIM2_c -1.0 M_pmtcoa_c -1.0 M_Ac2PIM2_c 1.0 M_coa_c 1.0 
+REACTION R_GALOR 10.0 M_gal_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_galt_c 1.0 M_nadp_c 1.0 
+REACTION R_DACTPP 10.0 M_cytd_c -1.0 M_datp_c -1.0 M_dadp_c 1.0 M_cmp_c 1.0 
+REACTION R_TCBO 10.0 M_q8_c -1.0 M_tcb_c -1.0 M_acon_C_c 1.0 M_q8h2_c 1.0 
+REACTION R_XAO 10.0 M_xan_c -1.0 M_h2o_c -1.0 M_o2_c -1.0 M_h2o2_c 1.0 M_urate_c 1.0 
+REACTION R_MTHTHFSs 10.0 M_mdhdhf_c -1.0 M_h2o_c -1.0 M_mththf_c 1.0 
+REACTION R_ARGGLUGLUr 10.0 M_arggluglu_c -1.0 M_h2o_c -2.0 M_arg__L_c 1.0 M_glu__L_c 2.0 
+REACTION R_MDFDH 10.0 M_mshfald_c -1.0 M_nad_c -1.0 M_mshfaldox_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_PGSA181 10.0 M_cdpdodec11eg_c -1.0 M_glyc3p_c -1.0 M_pgp181_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_LPCH140_sn1_c 10.0 M_1agpc140_c -1.0 M_h2o_c -1.0 M_g3pc_c 1.0 M_ttdca_c 1.0 M_h_c 1.0 
+REACTION R_FBFM3 10.0 M_4hoxpacd_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_hmn4_c 1.0 M_nadp_c 1.0 
+REACTION R_TYRLEUARGr 10.0 M_tyrleuarg_c -1.0 M_h2o_c -2.0 M_leu__L_c 1.0 M_tyr__L_c 1.0 M_arg__L_c 1.0 
+REACTION R_AKGCAL 10.0 M_accoa_c -1.0 M_akg_c -1.0 M_hacon_T_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_AM6SAD 10.0 M_am6sa_c -1.0 M_h2o_c -1.0 M_nad_c -1.0 M_amuco_c 1.0 M_h_c 2.0 M_nadh_c 1.0 
+REACTION R_PLDAGAT_HDE_EPA_PALM_PC_6_c 10.0 M_12dgr1619Z205n3_c -1.0 M_pc205n3160_c -1.0 M_tag1619Z205n3160_c 1.0 M_1agpc205_c 1.0 
+REACTION R_SMS 10.0 M_crm_hs_c -1.0 M_pchol_hs_c -1.0 M_dag_hs_c 1.0 M_sphmyln_hs_c 1.0 
+REACTION R_DHCRD2_cho 10.0 M_dhcrm_cho_c -1.0 M_fad_c -1.0 M_crm_cho_c 1.0 M_fadh2_c 1.0 
+REACTION R_ACSPHAC120 10.0 M_R_3hdda_c -1.0 M_atp_c -1.0 M_coa_c -1.0 M_R_3hddcoa_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_MAOLNOR 10.0 M_normete__L_c -1.0 M_h2o_c -1.0 M_o2_c -1.0 M_3m4hpga_c 1.0 M_nh4_c 1.0 M_h2o2_c 1.0 
+REACTION R_PLDAGAT_MYRS_EPA_LNA_PE_10_c 10.0 M_12dgr140205n3_c -1.0 M_pe160182n6_c -1.0 M_1agpe160_c 1.0 M_tag140205n3182n6_c 1.0 
+REACTION R_r1383 10.0 M_HC02129_c -1.0 M_glu__L_c 6.0 M_thf_c 1.0 
+REACTION R_CDS_16_0_18_0 10.0 M_pa_hs_16_0_18_0_c -1.0 M_ctp_c -1.0 M_h_c -1.0 M_cdpdag_hs_16_0_18_0_c 1.0 M_ppi_c 1.0 
+REACTION R_THIELEC 10.0 M_elecacceptoxi_c -1.0 M_trdrd_c -1.0 M_elecacceptred_c 1.0 M_trdox_c 1.0 M_h_c 2.0 
+REACTION R_PLDAGAT_OLE_EPA_DHA_PC_4_c 10.0 M_12dgr1819Z205n3_c -1.0 M_pc180226n3_c -1.0 M_1agpc180_c 1.0 M_tag1819Z205n3226n3_c 1.0 
+REACTION R_PLDPC_HDE_STC_c 10.0 M_pc1619Z180_c -1.0 M_h2o_c -1.0 M_chol_c 1.0 M_pa1619Z180_c 1.0 M_h_c 1.0 
+REACTION R_PMI1346PS 10.0 M_mi13456p_c -1.0 M_atp_c -1.0 M_ppmi1346p_c 1.0 M_adp_c 1.0 
+REACTION R_RHACOARP80 10.0 M_3opoctacoa_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_R_3hpoctacoa_c 1.0 M_nadp_c 1.0 
+REACTION R_PLDAGAT_OLE_EPA_EPA_PE_15_c 10.0 M_pe226n3205n3_c -1.0 M_12dgr1819Z205n3_c -1.0 M_1agpe226_c 1.0 M_tag1819Z205n3205n3_c 1.0 
+REACTION R_DOGULNO1 10.0 M_23doguln_c -1.0 M_h2o2_c -1.0 M_oxa_c 1.0 M_thrnt_c 1.0 M_h_c 2.0 
+REACTION R_PHADPCT60 10.0 M_C60atPHA_c -1.0 M_h2o_c -1.0 M_R_3h6atha_c 1.0 M_PHAg_c 1.0 M_h_c 1.0 
+REACTION R_PIPLC_18_1_20_4 10.0 M_pail_hs_18_1_20_4_c -1.0 M_h2o_c -1.0 M_dag_hs_18_1_20_4_c 1.0 M_mi1p__D_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_PALM_EPA_PALM_PE_12_c 10.0 M_pe180160_c -1.0 M_12dgr160205n3_c -1.0 M_1agpe180_c 1.0 M_tag160205n3160_c 1.0 
+REACTION R_BSORy 10.0 M_btnso_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_btn_c 1.0 M_h2o_c 1.0 M_nadp_c 1.0 
+REACTION R_CYSGLNMETr 10.0 M_cysglnmet_c -1.0 M_h2o_c -2.0 M_cys__L_c 1.0 M_met__L_c 1.0 M_gln__L_c 1.0 
+REACTION R_DASYN_EC 10.0 M_pa_EC_c -0.02 M_ctp_c -1.0 M_h_c -1.0 M_cdpdag_EC_c 0.02 M_ppi_c 1.0 
+REACTION R_PIPLC_16_0_18_2 10.0 M_pail_hs_16_0_18_2_c -1.0 M_h2o_c -1.0 M_dag_hs_16_0_18_2_c 1.0 M_h_c 1.0 M_mi1p__D_c 1.0 
+REACTION R_RE1709C 10.0 M_thbpt4acam_c -1.0 M_CE5236_c 1.0 M_h2o_c 1.0 
+REACTION R_SERD_L 10.0 M_ser__L_c -1.0 M_nh4_c 1.0 M_pyr_c 1.0 
+REACTION R_TRYS 10.0 M_gthrd_c -1.0 M_gtspmd_c -1.0 M_atp_c -1.0 M_trprd_c 1.0 M_adp_c 1.0 M_pi_c 1.0 
+REACTION R_PEPAT 10.0 M_pepd_c -1.0 M_accoa_c -1.0 M_apep_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_TAGAH1801819Z160 10.0 M_tag1801819Z160_c -1.0 M_h2o_c -1.0 M_12dgr1801819Z_c 1.0 M_h_c 1.0 M_hdca_c 1.0 
+REACTION R_HMR_1465 10.0 M_HC01118_c -1.0 M_ppi_c -1.0 M_frdp_c 2.0 
+REACTION R_RE2658C 10.0 M_retn_c -1.0 M_CE1617_c 1.0 
+REACTION R_MGDGE160 10.0 M_12mgdg160_c -1.0 M_mgdg160_c 1.0 
+REACTION R_PPPPH 10.0 M_gbdp_c -1.0 M_h_c -1.0 M_pi_c -1.0 M_gdptp_c 1.0 M_h2o_c 1.0 
+REACTION R_FEROXEFER1 10.0 M_feroxEfe_c -2.0 M_fadh2_c -1.0 M_fe2_c 2.0 M_feroxE_c 2.0 M_fad_c 1.0 M_h_c 2.0 
+REACTION R_ALKP 10.0 M_dhap_c -1.0 M_h2o_c -1.0 M_dha_c 1.0 M_pi_c 1.0 
+REACTION R_NRVNCCPT1 10.0 M_nrvnccoa_c -1.0 M_crn_c -1.0 M_nrvnccrn_c 1.0 M_coa_c 1.0 
+REACTION R_PLDAGAT_LNA_EPA_LNA_PC_7_c 10.0 M_12dgr182n6205n3_c -1.0 M_pc205n3182n6_c -1.0 M_tag182n6205n3182n6_c 1.0 M_1agpc205_c 1.0 
+REACTION R_CITALOR 10.0 M_cital_c -1.0 M_h2o_c -1.0 M_o2_c -1.0 M_citalald_c 1.0 M_dma_c 1.0 M_h2o2_c 1.0 
+REACTION R_MYELIN_HSSYN 10.0 M_pail_hs_c -1.0 M_pe_hs_c -1.0 M_ps_hs_c -1.0 M_sgalside_hs_c -1.0 M_chsterol_c -1.0 M_pchol_hs_c -1.0 M_sphmyln_hs_c -1.0 M_myelin_hs_c 1.0 
+REACTION R_ACSPHACP80 10.0 M_R_3hpocta_c -1.0 M_atp_c -1.0 M_coa_c -1.0 M_R_3hpoctacoa_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_SK_met__L_c 10.0 M_met__L_c -1.0 
+REACTION R_POX3 10.0 M_mqn7_c -1.0 M_h2o_c -1.0 M_pyr_c -1.0 M_ac_c 1.0 M_mql7_c 1.0 M_co2_c 1.0 
+REACTION R_PLDAGAT_HDE_EPA_EPA_PE_13_c 10.0 M_pe1819Z205n3_c -1.0 M_12dgr1619Z205n3_c -1.0 M_1agpe181_c 1.0 M_tag1619Z205n3205n3_c 1.0 
+REACTION R_AGPATCOA_PALM_OLE_c 10.0 M_1hdecg3p_c -1.0 M_odecoa_c -1.0 M_pa1601819Z_c 1.0 M_coa_c 1.0 
+REACTION R_PI4PLC_18_1_18_1 10.0 M_pail4p_hs_18_1_18_1_c -1.0 M_h2o_c -1.0 M_dag_hs_18_1_18_1_c 1.0 M_mi14p_c 1.0 M_h_c 1.0 
+REACTION R_MGDGS_EPA_HDE_c 10.0 M_12dgr205n31619Z_c -1.0 M_udpgal_c -1.0 M_mgdg205n31619Z_c 1.0 M_udp_c 1.0 M_h_c 1.0 
+REACTION R_HMR_2296 10.0 M_stcoa_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_M00116_c 1.0 M_h2o_c 2.0 M_nadp_c 1.0 
+REACTION R_UDCPKr 10.0 M_udcp_c -1.0 M_atp_c -1.0 M_udcpp_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_PIK4_18_0_18_3 10.0 M_pail_pf_18_0_18_1_c -1.0 M_atp_c -1.0 M_pail4p_pf_18_0_18_1_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_CFAS180E 10.0 M_pe181_c -1.0 M_amet_c -2.0 M_cpe180_c 1.0 M_ahcys_c 2.0 M_h_c 2.0 
+REACTION R_HISGLUGLNr 10.0 M_hisglugln_c -1.0 M_h2o_c -2.0 M_his__L_c 1.0 M_gln__L_c 1.0 M_glu__L_c 1.0 
+REACTION R_LAAL32 10.0 M_atp_c -1.0 M_met__L_c -1.0 M_tyr__L_c -1.0 M_met_L_tyr__L_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_PLA2PC_DHA_ARA_c 10.0 M_pc226n3204n6_c -1.0 M_h2o_c -1.0 M_1agpc226_c 1.0 M_arachd_c 1.0 M_h_c 1.0 
+REACTION R_23CN2P3 10.0 M_23ccmp_c -1.0 M_h2o_c -1.0 M_3cmp_c 1.0 M_h_c 1.0 
+REACTION R_CPC2MTE 10.0 M_cbshclin_c -1.0 M_amet_c -1.0 M_cbflll_c 1.0 M_ahcys_c 1.0 M_h_c 1.0 
+REACTION R_ARGDI_1 10.0 M_arg__L_c -1.0 M_h2o_c -1.0 M_citr__L_c 1.0 M_nh3_c 1.0 M_h_c 1.0 
+REACTION R_MCSNAH 10.0 M_5mcsn_c -1.0 M_h2o_c -1.0 M_h_c -1.0 M_thym_c 1.0 M_nh4_c 1.0 
+REACTION R_PLDAGAT_HDE_MYRS_GLNA_PE_14_c 10.0 M_12dgr1619Z140_c -1.0 M_pe1819Z183n6_c -1.0 M_tag1619Z140183n6_c 1.0 M_1agpe181_c 1.0 
+REACTION R_NACHY 10.0 M_nac_c -1.0 M_o2_c -0.5 M_6hnac_c 1.0 
+REACTION R_FBPA 10.0 M_tre6mm_c -2.0 M_h2o_c -1.0 M_tdm3_c 1.0 M_tre_c 1.0 M_h_c 2.0 
+REACTION R_GLYCOX1 10.0 M_gly_c -1.0 M_o2_c -1.0 M_imgly_c 1.0 M_h2o2_c 1.0 
+REACTION R_VALTRPPHEr 10.0 M_valtrpphe_c -1.0 M_h2o_c -2.0 M_phe__L_c 1.0 M_trp__L_c 1.0 M_val__L_c 1.0 
+REACTION R_MCOAH 10.0 M_myrstacp_c -1.0 M_coa_c -1.0 M_hacp_c 1.0 M_myrstcoa_c 1.0 
+REACTION R_r0629 10.0 M_cholcoa_c -1.0 M_gly_c -1.0 M_gchola_c 1.0 M_coa_c 1.0 
+REACTION R_AMPD2 10.0 M_amp_c -1.0 M_h2o_c -1.0 M_imp_c 1.0 M_nh3_c 1.0 
+REACTION R_NOS1 10.0 M_arg__L_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_nwharg_c 1.0 M_h2o_c 1.0 M_nadp_c 1.0 
+REACTION R_GGT6 10.0 M_glu__L_c -1.0 M_leuktrE4_c -1.0 M_leuktrF4_c 1.0 M_h2o_c 1.0 
+REACTION R_PYK 10.0 M_pep_c -1.0 M_adp_c -1.0 M_h_c -1.0 M_atp_c 1.0 M_pyr_c 1.0 
+REACTION R_ORETNF2_cho 10.0 M_13_cis_retn_c -1.0 M_o2_c -1.0 M_13_cis_oretn_c 1.0 M_h2o_c 1.0 
+REACTION R_ACOADAGAT_PALM_HDE_HDE_c 10.0 M_12dgr1601619Z_c -1.0 M_hdcoa_c -1.0 M_tag1601619Z1619Z_c 1.0 M_coa_c 1.0 
+REACTION R_RE1508C 10.0 M_man1p_c -1.0 M_atp_c -1.0 M_C03693_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_ACOAD23f 10.0 M_fad_c -1.0 M_hdcoa_c -1.0 M_hd2coa_c 1.0 M_fadh2_c 1.0 
+REACTION R_AMPEP6 10.0 M_ala_leu_c -1.0 M_h2o_c -1.0 M_ala__L_c 1.0 M_leu__L_c 1.0 
+REACTION R_CHOPT_MYRS_STC_c 10.0 M_12dgr140180_c -1.0 M_cdpchol_c -1.0 M_pc140180_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT16018111Z18111Z2 10.0 M_12dgr16018111Z_c -1.0 M_pa18111Z18111Z_c -1.0 M_1odec11eg3p_c 1.0 M_tag16018111Z18111Z_c 1.0 
+REACTION R_FA182ACPH 10.0 M_ocdcyaACP_c -1.0 M_h2o_c -1.0 M_ocdcya_c 1.0 M_ACP_c 1.0 M_h_c 1.0 
+REACTION R_r0788 10.0 M_HC00718_c -1.0 M_amet_c -1.0 M_HC01842_c 1.0 M_ahcys_c 1.0 M_h_c 2.0 
+REACTION R_PLDPE_OLE_HDE_c 10.0 M_pe1819Z1619Z_c -1.0 M_h2o_c -1.0 M_etha_c 1.0 M_pa1819Z1619Z_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_PALM_HDE_HDE_PC_5_c 10.0 M_pc1819Z1619Z_c -1.0 M_12dgr1601619Z_c -1.0 M_1agpc181_c 1.0 M_tag1601619Z1619Z_c 1.0 
+REACTION R_LPLIPAL2A180 10.0 M_2odecg3p_c -1.0 M_h2o_c -1.0 M_ocdca_c 1.0 M_glyc3p_c 1.0 M_h_c 2.0 
+REACTION R_HSAE 10.0 M_hhd_c -1.0 M_h2o_c -1.0 M_4hoxoh_c 1.0 M_h_c 1.0 
+REACTION R_NO 10.0 M_no_c -1.0 M_o2s_c -1.0 M_no3_c 1.0 
+REACTION R_G5SD 10.0 M_glu5p_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_glu5sa_c 1.0 M_nadp_c 1.0 M_pi_c 1.0 
+REACTION R_GPAM_hs_18_2 10.0 M_lnlccoa_c -1.0 M_glyc3p_c -1.0 M_alpha_hs_18_2_c 1.0 M_coa_c 1.0 
+REACTION R_SULO 10.0 M_so3_c -1.0 M_h2o_c -1.0 M_o2_c -1.0 M_h2o2_c 1.0 M_h_c 1.0 M_so4_c 1.0 
+REACTION R_ARGALATHRr 10.0 M_argalathr_c -1.0 M_h2o_c -2.0 M_thr__L_c 1.0 M_ala__L_c 1.0 M_arg__L_c 1.0 
+REACTION R_HMR_7748 10.0 M_M01389_c -1.0 M_g6p_c 1.0 
+REACTION R_PLDPE_MYRS_ALNA_c 10.0 M_pe140183n3_c -1.0 M_h2o_c -1.0 M_pa140183n3_c 1.0 M_etha_c 1.0 M_h_c 1.0 
+REACTION R_GMHEPK 10.0 M_gmhep7p_c -1.0 M_atp_c -1.0 M_gmhep17bp_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_ILETRS 10.0 M_ile__L_c -1.0 M_trnaile_c -1.0 M_atp_c -1.0 M_iletrna_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_G12MT2_L 10.0 M_gdpmann_c -1.0 M_m3mpdol__L_c -0.1 M_gdp_c 1.0 M_m4mpdol__L_c 0.1 M_h_c 1.0 
+REACTION R_ACOADAGAT_PALM_PALM_LNA_c 10.0 M_12dgr160_c -1.0 M_lnlccoa_c -1.0 M_tag160160182n6_c 1.0 M_coa_c 1.0 
+REACTION R_PIP4K_EPA_LNA_c 10.0 M_pail205n3182n6_c -1.0 M_atp_c -1.0 M_pail4p205n3182n6_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_PLDPC_DHA_EPA_c 10.0 M_pc226n3205n3_c -1.0 M_h2o_c -1.0 M_pa226n3205n3_c 1.0 M_chol_c 1.0 M_h_c 1.0 
+REACTION R_CHOPT_EPA_MYRS_c 10.0 M_12dgr205n3140_c -1.0 M_cdpchol_c -1.0 M_pc205n3140_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_VALARGGLYr 10.0 M_valarggly_c -1.0 M_h2o_c -2.0 M_arg__L_c 1.0 M_gly_c 1.0 M_val__L_c 1.0 
+REACTION R_GLUTHRr 10.0 M_gluthr_c -1.0 M_h2o_c -1.0 M_glu__L_c 1.0 M_thr__L_c 1.0 
+REACTION R_PI4P3K_16_0_16_0 10.0 M_pail4p_hs_16_0_16_0_c -1.0 M_atp_c -1.0 M_pail34p_hs_16_0_16_0_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_MYRS_EPA_ARA_PC_1_c 10.0 M_pc140204n6_c -1.0 M_12dgr140205n3_c -1.0 M_tag140205n3204n6_c 1.0 M_1agpc140_c 1.0 
+REACTION R_MCBTS 10.0 M_lys__L_c -2.0 M_salc_c -1.0 M_atp_c -1.0 M_bhb_c -1.0 M_h_c -1.0 M_o2_c -2.0 M_odecoa_c -1.0 M_thr__L_c -1.0 M_mcbts_c 1.0 M_adp_c 1.0 M_co2_c 1.0 M_coa_c 1.0 M_h2o_c 5.0 M_pi_c 1.0 
+REACTION R_RN0021C 10.0 M_CN0012_c -1.0 M_h2o_c -1.0 M_CN0009_c 1.0 
+REACTION R_FASm300 10.0 M_mmcoa__S_c -1.0 M_pmocta_c -1.0 M_h_c -3.0 M_nadph_c -2.0 M_hmtria_c 1.0 M_co2_c 1.0 M_coa_c 1.0 M_h2o_c 1.0 M_nadp_c 2.0 
+REACTION R_PLA2PC_HDE_DHA_c 10.0 M_pc1619Z226n3_c -1.0 M_h2o_c -1.0 M_1agpc161_c 1.0 M_crvnc_c 1.0 M_h_c 1.0 
+REACTION R_PLDPE_DHA_STC_c 10.0 M_pe226n3180_c -1.0 M_h2o_c -1.0 M_pa226n3180_c 1.0 M_etha_c 1.0 M_h_c 1.0 
+REACTION R_GLCTR1min 10.0 M_icolipamin_c -1.0 M_udpg_c -1.0 M_gicolipamin_c 1.0 M_h_c 1.0 M_udp_c 1.0 
+REACTION R_UTCY 10.0 M_utp_c -1.0 M_cytd_c -1.0 M_cmp_c 1.0 M_h_c 1.0 M_udp_c 1.0 
+REACTION R_ACOAD17f 10.0 M_pptcoa_c -1.0 M_fad_c -1.0 M_ppt2coa_c 1.0 M_fadh2_c 1.0 
+REACTION R_RE1835C 10.0 M_dcholcoa_c -1.0 M_h2o_c -1.0 M_C02528_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_PI4P5K_16_0_16_1 10.0 M_atp_c -1.0 M_pail4p_hs_16_0_16_0_c -1.0 M_pail45p_hs_16_0_16_0_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_DOLPMT1_c 10.0 M_dolmanp_c -1.0 M_m4mpdol_c -1.0 M_dolp_c 1.0 M_m5mpdol_c 1.0 M_h_c 1.0 
+REACTION R_RHACOAE160 10.0 M_R_3hhdcoa_c -1.0 M_h2o_c -1.0 M_R_3hhdca_c 1.0 M_coa_c 1.0 M_h_c 1.0 
+REACTION R_HMR_2435 10.0 M_M00085_c -1.0 M_M03008_c 1.0 M_h2o_c 1.0 
+REACTION R_r0782 10.0 M_gdpddman_c -1.0 M_h_c -1.0 M_nadh_c -1.0 M_gdpfuc_c 1.0 M_nad_c 1.0 
+REACTION R_KARI_23dhmp_1 10.0 M_3hmop_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_23dhmp_c 1.0 M_nadp_c 1.0 
+REACTION R_CDIPTr 10.0 M_cdpdag_hs_c -1.0 M_inost_c -1.0 M_cmp_c 1.0 M_h_c 1.0 M_pail_hs_c 1.0 
+REACTION R_DAGAH_HDE_ARA_c 10.0 M_12dgr1619Z204n6_c -1.0 M_h2o_c -1.0 M_mag1619Z_c 1.0 M_arachd_c 1.0 M_h_c 1.0 
+REACTION R_ETHAPT_OLE_ARA_c 10.0 M_12dgr1819Z204n6_c -1.0 M_cdpea_c -1.0 M_pe1819Z204n6_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_RRPPDIMAS 10.0 M_dtdprmn_c -1.0 M_rppdima_c -1.0 M_dtdp_c 1.0 M_rrppdima_c 1.0 M_h_c 1.0 
+REACTION R_RE3422C 10.0 M_prostgd2_c -1.0 M_CE5304_c 1.0 M_h2o_c 1.0 
+REACTION R_PLDAGAT_DHA_EPA_DHA_PC_8_c 10.0 M_pc182n6226n3_c -1.0 M_12dgr226n3205n3_c -1.0 M_1agpc182_c 1.0 M_tag226n3205n3226n3_c 1.0 
+REACTION R_RE3123C 10.0 M_CE4816_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_CE4824_c 1.0 M_nadp_c 1.0 
+REACTION R_PLDAGAT_HDE_EPA_EPA_PC_4_c 10.0 M_pc180205n3_c -1.0 M_12dgr1619Z205n3_c -1.0 M_1agpc180_c 1.0 M_tag1619Z205n3205n3_c 1.0 
+REACTION R_FAD_24 10.0 M_undcoa_c -1.0 M_coa_c -1.0 M_fad_c -1.0 M_nad_c -1.0 M_nndccoa_c 1.0 M_accoa_c 1.0 M_fadh2_c 1.0 M_nadh_c 1.0 
+REACTION R_PLDPC_MYRS_MYRS_c 10.0 M_pc140_c -1.0 M_h2o_c -1.0 M_pa140_c 1.0 M_chol_c 1.0 M_h_c 1.0 
+REACTION R_LPEAT_MYRS_PALM_sn2_c 10.0 M_1agpe140_c -1.0 M_pmtcoa_c -1.0 M_pe140160_c 1.0 M_coa_c 1.0 
+REACTION R_LPEAT_EPA_ARA_sn2_c 10.0 M_1agpe205_c -1.0 M_arachdcoa_c -1.0 M_pe205n3204n6_c 1.0 M_coa_c 1.0 
+REACTION R_PLDAGAT_HDE_HDE_GLNA_PC_1_c 10.0 M_pc140183n6_c -1.0 M_12dgr161_c -1.0 M_tag1619Z1619Z183n6_c 1.0 M_1agpc140_c 1.0 
+REACTION R_HMR_2711 10.0 M_M02637_c -1.0 M_coa_c -1.0 M_lnlncacoa_c 1.0 M_crn_c 1.0 
+REACTION R_RE3125C 10.0 M_CE4820_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_CE4818_c 1.0 M_nadp_c 1.0 
+REACTION R_URIK3 10.0 M_itp_c -1.0 M_uri_c -1.0 M_idp_c 1.0 M_ump_c 1.0 M_h_c 1.0 
+REACTION R_CFAS160E 10.0 M_pe161_c -1.0 M_amet_c -2.0 M_cpe160_c 1.0 M_ahcys_c 2.0 M_h_c 2.0 
+REACTION R_r0786 10.0 M_sphs1p_c -1.0 M_HC02228_c 1.0 M_ethamp_c 1.0 
+REACTION R_PLDAGAT_MYRS_EPA_DHA_PC_2_c 10.0 M_pc160226n3_c -1.0 M_12dgr140205n3_c -1.0 M_1agpc160_c 1.0 M_tag140205n3226n3_c 1.0 
+REACTION R_ARTFR31 10.0 M_stcoa_c -1.0 M_R3coa_hs_c 1.125 
+REACTION R_r0784 10.0 M_xylt_c -1.0 M_nad_c -1.0 M_xylu__L_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_SELCYSTGL 10.0 M_selcyst_c -1.0 M_h2o_c -1.0 M_2obut_c 1.0 M_selcys_c 1.0 M_nh4_c 1.0 
+REACTION R_LASP2OA 10.0 M_Largn_c -1.0 M_oaa_c -1.0 M_asp__L_c 1.0 M_pphn_c 1.0 
+REACTION R_GLYC2P3Pc 10.0 M_glyc2p_c -1.0 M_glyc3p_c 1.0 
+REACTION R_PTHRP 10.0 M_thrp_c -1.0 M_h2o_c -1.0 M_pi_c 1.0 M_thr__L_c 1.0 
+REACTION R_DAGK_20_4_20_4 10.0 M_dag_pf_20_4_20_4_c -1.0 M_atp_c -1.0 M_pa_pf_20_4_20_4_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_LGNCCPT1 10.0 M_lgnccoa_c -1.0 M_crn_c -1.0 M_lgnccrn_c 1.0 M_coa_c 1.0 
+REACTION R_HMR_1944 10.0 M_prgnlone_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_17ahprgnlone_c 1.0 M_h2o_c 1.0 M_nadp_c 1.0 
+REACTION R_IOR3b 10.0 M_34hpp_c -1.0 M_fdxo_42_c -1.0 M_coa_c -1.0 M_fdxr_42_c 1.0 M_hphaccoa_c 1.0 M_co2_c 1.0 M_h_c 1.0 
+REACTION R_HMR_0810 10.0 M_gbside_hs_c -1.0 M_udpacgal_c -1.0 M_M02197_c 1.0 M_h_c 1.0 M_udp_c 1.0 
+REACTION R_AADDGT 10.0 M_dtdp4aaddg_c -1.0 M_unagamu_c -1.0 M_unagamuf_c 1.0 M_dtdp_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT16018111Z1819Z3 10.0 M_pa18111Z1819Z_c -1.0 M_12dgr16018111Z_c -1.0 M_tag16018111Z1819Z_c 1.0 M_1odec11eg3p_c 1.0 
+REACTION R_PIPLC_EPA_PALM_c 10.0 M_pail45p205n3160_c -1.0 M_h2o_c -1.0 M_12dgr205n3160_c 1.0 M_mi145p_c 1.0 M_h_c 1.0 
+REACTION R_R5P2D 10.0 M_ribl5p_c -1.0 M_nadp_c -1.0 M_ru5p__D_c 1.0 M_h_c 3.0 M_nadph_c 1.0 
+REACTION R_PLDAGAT_PALM_PALM_LNA_PC_7_c 10.0 M_12dgr160_c -1.0 M_pc205n3182n6_c -1.0 M_1agpc205_c 1.0 M_tag160160182n6_c 1.0 
+REACTION R_DAGAH_OLE_MYRS_c 10.0 M_12dgr1819Z140_c -1.0 M_h2o_c -1.0 M_mag1819Z_c 1.0 M_h_c 1.0 M_ttdca_c 1.0 
+REACTION R_C4STMO1 10.0 M_44mzym_c -1.0 M_h_c -3.0 M_nadph_c -3.0 M_o2_c -3.0 M_4mzym_int1_c 1.0 M_h2o_c 4.0 M_nadp_c 3.0 
+REACTION R_AGPATCOA1819Z1819Z 10.0 M_1odec9eg3p_c -1.0 M_ocdce9coa_c -1.0 M_pa1819Z1819Z_c 1.0 M_coa_c 1.0 
+REACTION R_AGPATCOA1819Z160 10.0 M_1odec9eg3p_c -1.0 M_pmtcoa_c -1.0 M_pa1819Z160_c 1.0 M_coa_c 1.0 
+REACTION R_GGTP2 10.0 M_glu5pept_c -1.0 M_smscys_c -1.0 M_gglusem_c 1.0 M_peptide_c 1.0 
+REACTION R_MTOBR_c 10.0 M_2kmb_c -1.0 M_h_c -1.0 M_nadh_c -1.0 M_mthb_c 1.0 M_nad_c 1.0 
+REACTION R_APOCF 10.0 M_apoC_c -1.0 M_lys__L_c -1.0 M_apoC_Lys_c 1.0 M_h2o_c 1.0 M_h_c 1.0 
+REACTION R_RECOAH11 10.0 M_R_3hpdecacoa_c -1.0 M_pdca2coa_c 1.0 M_h2o_c 1.0 
+REACTION R_5HXKYNDCL 10.0 M_5hxkyn_c -1.0 M_h_c -1.0 M_5hxkynam_c 1.0 M_co2_c 1.0 
+REACTION R_RHACOAR70 10.0 M_3ohpcoa_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_R_3hhpcoa_c 1.0 M_nadp_c 1.0 
+REACTION R_CEPTE_16_0_18_4 10.0 M_dag_pf_16_0_18_2_c -1.0 M_cdpea_c -1.0 M_pe_pf_16_0_18_2_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_DAGK_OLE_MYRS_c 10.0 M_12dgr1819Z140_c -1.0 M_atp_c -1.0 M_pa1819Z140_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_TYRDHINDOX 10.0 M_CE4888_c -2.0 M_o2_c -1.0 M_ind56qn_c 2.0 M_h2o_c 2.0 
+REACTION R_ENGASE2 10.0 M_n2m2nm_c -1.0 M_h2o_c -1.0 M_acgam_c 1.0 M_n2m2nmn_c 1.0 
+REACTION R_CYTDK2 10.0 M_gtp_c -1.0 M_cytd_c -1.0 M_cmp_c 1.0 M_gdp_c 1.0 M_h_c 1.0 
+REACTION R_GTPCII 10.0 M_gtp_c -1.0 M_h2o_c -3.0 M_25dhpp_c 1.0 M_for_c 1.0 M_h_c 2.0 M_ppi_c 1.0 
+REACTION R_PIK4_18_0_18_0 10.0 M_pail_hs_18_0_18_0_c -1.0 M_atp_c -1.0 M_pail4p_hs_18_0_18_0_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_PIP3K_PALM_PALM_c 10.0 M_pail160_c -1.0 M_atp_c -1.0 M_pail3p160_c 1.0 M_adp_c 1.0 M_h_c 1.0 
+REACTION R_DSBDR 10.0 M_dsbdox_c -1.0 M_trdrd_c -1.0 M_dsbdrd_c 1.0 M_trdox_c 1.0 
+REACTION R_FEROc 10.0 M_fe2_c -4.0 M_h_c -4.0 M_o2_c -1.0 M_fe3_c 4.0 M_h2o_c 2.0 
+REACTION R_LAAL40 10.0 M_ala__L_c -1.0 M_atp_c -1.0 M_his__L_c -1.0 M_ala_L_his__L_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_PHEPC 10.0 M_pphos_c -1.0 M_co2_c -1.0 M_h2o_c -1.0 M_4hbz_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_PACCOAE 10.0 M_phaccoa_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_rephaccoa_c 1.0 M_h2o_c 1.0 M_nadp_c 1.0 
+REACTION R_PSSA2_hs_16_0_18_2 10.0 M_pe_hs_16_0_18_2_c -1.0 M_ser__L_c -1.0 M_ps_hs_16_0_18_2_c 1.0 M_etha_c 1.0 
+REACTION R_PLDAGAT_MYRS_HDE_HDE_PE_14_c 10.0 M_12dgr1401619Z_c -1.0 M_pe205n31619Z_c -1.0 M_tag1401619Z1619Z_c 1.0 M_1agpe205_c 1.0 
+REACTION R_AIRC2 10.0 M_air_c -1.0 M_hco3_c -1.0 M_atp_c -1.0 M_5caiz_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_RE1526C 10.0 M_CE2417_c -1.0 M_nad_c -1.0 M_CE2424_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_HMR_2270 10.0 M_M00067_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_M03047_c 1.0 M_nadp_c 1.0 
+REACTION R_HMR_0950 10.0 M_arachd_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_o2_c -1.0 M_C14770_c 1.0 M_h2o_c 1.0 M_nadp_c 1.0 
+REACTION R_FRDO 10.0 M_fdxrd_c -1.0 M_nadp_c -1.0 M_fdxox_c 1.0 M_h_c 1.0 M_nadph_c 1.0 
+REACTION R_SK_5mthglu_c 10.0 M_mhpglu_c -1.0 
+REACTION R_CRO4Ry 10.0 M_cro4_c -1.0 M_h_c -2.0 M_nadph_c -2.0 M_o2_c -2.0 M_cro2_c 1.0 M_h2o2_c 2.0 M_nadp_c 2.0 M_o2s_c 1.0 
+REACTION R_HMR_2219 10.0 M_M00049_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_hexccoa_c 1.0 M_nadp_c 1.0 
+REACTION R_S3MEACMPhc 10.0 M_3meacmp_c -1.0 M_paps_c -1.0 M_ahcys_c -1.0 M_pap_c 1.0 M_s3meacmp_c 1.0 M_amet_c 1.0 
+REACTION R_PCLYSOX 10.0 M_pcollglys_c -1.0 M_akg_c -1.0 M_o2_c -1.0 M_pcollg5hlys_c 1.0 M_co2_c 1.0 M_succ_c 1.0 
+REACTION R_HMR_0597 10.0 M_HC02050_c -1.0 M_h2o_c -1.0 M_HC02056_c 1.0 M_pi_c 1.0 
+REACTION R_2AGPEAT141 10.0 M_2agpe141_c -1.0 M_ttdcea_c -1.0 M_atp_c -1.0 M_pe141_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_FPGS6 10.0 M_6dhf_c -1.0 M_atp_c -1.0 M_glu__L_c -1.0 M_7dhf_c 1.0 M_adp_c 1.0 M_h_c 1.0 M_pi_c 1.0 
+REACTION R_DAGAH_LNA_EPA_c 10.0 M_12dgr182n6205n3_c -1.0 M_h2o_c -1.0 M_mag182n6_c 1.0 M_tmndnc_c 1.0 M_h_c 1.0 
+REACTION R_RE3556C 10.0 M_HC02202_c -1.0 M_HC02206_c 1.0 
+REACTION R_HASD 10.0 M_3hdpgps_c -1.0 M_h_c -1.0 M_3hdpgpe_c 1.0 M_co2_c 1.0 
+REACTION R_OCTDECCPT1 10.0 M_octdececoa_c -1.0 M_crn_c -1.0 M_octdececrn_c 1.0 M_coa_c 1.0 
+REACTION R_ACHBS2 10.0 M_2hetdp_c -1.0 M_2obut_c -1.0 M_thmpp_c 1.0 M_2ahbut_c 1.0 M_h_c 1.0 
+REACTION R_UPLA4NT 10.0 M_udpLa4n_c -1.0 M_udcpp_c -1.0 M_uLa4n_c 1.0 M_udp_c 1.0 
+REACTION R_RE2520C 10.0 M_CE5536_c -2.0 M_nadph_c -1.0 M_CE5541_c 2.0 M_h_c 1.0 M_nadp_c 1.0 
+REACTION R_FADB3 10.0 M_hcholc5coa_c -1.0 M_nad_c -1.0 M_ocholc5coa_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_ACALDCD 10.0 M_acald_c -2.0 M_actn__R_c 1.0 
+REACTION R_TRO2EAO 10.0 M_to2eACP_c -1.0 M_h_c -1.0 M_nadph_c -1.0 M_octACP_c 1.0 M_nadp_c 1.0 
+REACTION R_LIPATPT_1 10.0 M_lipoate_c -1.0 M_atp_c -1.0 M_h_c -1.0 M_lipamp_c 1.0 M_ppi_c 1.0 
+REACTION R_ACOADAGAT_HDE_HDE_GLNA_c 10.0 M_lnlncgcoa_c -1.0 M_12dgr161_c -1.0 M_coa_c 1.0 M_tag1619Z1619Z183n6_c 1.0 
+REACTION R_RTOT4_cho 10.0 M_R4coa_cho_c -1.0 M_Rtotalcoa_c 1.0 
+REACTION R_CMLDC 10.0 M_4cml_c -1.0 M_5odhf2a_c 1.0 M_co2_c 1.0 M_h_c 1.0 
+REACTION R_HMR_0381 10.0 M_M00010_c -1.0 M_atp_c -1.0 M_coa_c -1.0 M_M00012_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_AASAD2 10.0 M_L2aadp_c -1.0 M_atp_c -1.0 M_h_c -1.0 M_nadh_c -1.0 M_L2aadp6sa_c 1.0 M_amp_c 1.0 M_nad_c 1.0 M_ppi_c 1.0 
+REACTION R_ACOAD3 10.0 M_occoa_c -1.0 M_nad_c -1.0 M_oc2coa_c 1.0 M_h_c 1.0 M_nadh_c 1.0 
+REACTION R_FACOALPHDCA 10.0 M_phdca_c -1.0 M_atp_c -1.0 M_coa_c -1.0 M_phdcacoa_c 1.0 M_amp_c 1.0 M_ppi_c 1.0 
+REACTION R_ETHAPT_STC_LNA_c 10.0 M_12dgr180182n6_c -1.0 M_cdpea_c -1.0 M_pe180182n6_c 1.0 M_cmp_c 1.0 M_h_c 1.0 
+REACTION R_PLDAGAT_MYRS_EPA_LNA_PE_14_c 10.0 M_pe1819Z182n6_c -1.0 M_12dgr140205n3_c -1.0 M_1agpe181_c 1.0 M_tag140205n3182n6_c 1.0 

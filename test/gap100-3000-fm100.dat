@@ -1,0 +1,3103 @@
+# Created by gen.py on 19/09/2022 10:07:18
+# num metabolites = 100, num reactions = 3000
+MET met1 9 0
+MET met2 5 0
+MET met3 4 0
+MET met4 9 0
+MET met5 7 0
+MET met6 9 0
+MET met7 4 0
+MET met8 8 0
+MET met9 5 0
+MET met10 7 0
+MET met11 5 0
+MET met12 5 0
+MET met13 5 0
+MET met14 4 0
+MET met15 4 0
+MET met16 4 0
+MET met17 6 0
+MET met18 10 0
+MET met19 7 0
+MET met20 4 0
+MET met21 0 8
+MET met22 0 10
+MET met23 0 5
+MET met24 0 4
+MET met25 0 10
+MET met26 0 9
+MET met27 0 5
+MET met28 0 7
+MET met29 0 10
+MET met30 0 10
+MET met31 0 10
+MET met32 0 9
+MET met33 0 6
+MET met34 0 4
+MET met35 0 2
+MET met36 0 8
+MET met37 0 8
+MET met38 0 4
+MET met39 0 2
+MET met40 0 10
+MET met41 0 0
+MET met42 0 0
+MET met43 0 0
+MET met44 0 0
+MET met45 0 0
+MET met46 0 0
+MET met47 0 0
+MET met48 0 0
+MET met49 0 0
+MET met50 0 0
+MET met51 0 0
+MET met52 0 0
+MET met53 0 0
+MET met54 0 0
+MET met55 0 0
+MET met56 0 0
+MET met57 0 0
+MET met58 0 0
+MET met59 0 0
+MET met60 0 0
+MET met61 0 0
+MET met62 0 0
+MET met63 0 0
+MET met64 0 0
+MET met65 0 0
+MET met66 0 0
+MET met67 0 0
+MET met68 0 0
+MET met69 0 0
+MET met70 0 0
+MET met71 0 0
+MET met72 0 0
+MET met73 0 0
+MET met74 0 0
+MET met75 0 0
+MET met76 0 0
+MET met77 0 0
+MET met78 0 0
+MET met79 0 0
+MET met80 0 0
+MET met81 0 0
+MET met82 0 0
+MET met83 0 0
+MET met84 0 0
+MET met85 0 0
+MET met86 0 0
+MET met87 0 0
+MET met88 0 0
+MET met89 0 0
+MET met90 0 0
+MET met91 0 0
+MET met92 0 0
+MET met93 0 0
+MET met94 0 0
+MET met95 0 0
+MET met96 0 0
+MET met97 0 0
+MET met98 0 0
+MET met99 0 0
+MET met100 0 0
+
+REACTION react1 0  met95 0.75 met44 -1.75 met78 -1.5 met76 -0.5 met28 -1.75
+REACTION react2 0  met15 0.75 met94 0.25 met83 -0.25
+REACTION react3 0  met63 -2.0 met38 -2.0 met19 1.75 met54 0.25 met82 -1.5
+REACTION react4 0  met61 -1.0 met89 -1.25 met77 -0.25 met35 0.25 met53 -1.75
+REACTION react5 0  met19 0.75 met64 -0.25
+REACTION react6 0  met59 -0.25 met51 -0.5 met58 0.25
+REACTION react7 0  met33 1.0 met84 0.5 met91 0.25 met76 -1.75
+REACTION react8 0  met37 1.25 met86 1.0 met89 -1.75
+REACTION react9 0  met54 -1.75 met91 -1.5 met74 1.0 met40 -1.0 met80 0.5
+REACTION react10 0  met81 -2.0 met26 0.75
+REACTION react11 0  met49 -1.75 met82 0.25 met33 1.25 met47 0.25 met67 1.0
+REACTION react12 0  met78 0.75 met44 -0.5 met76 -1.0 met98 0.5 met58 -0.75
+REACTION react13 0  met3 0.25 met67 -1.0
+REACTION react14 0  met83 -2.0 met74 1.75
+REACTION react15 0  met26 0.25 met93 -0.25
+REACTION react16 0  met26 0.25 met39 1.75 met6 -0.5
+REACTION react17 0  met27 1.25 met76 -1.0 met49 1.75
+REACTION react18 0  met55 1.25 met37 -1.0
+REACTION react19 0  met25 -0.25 met1 -2.0 met84 1.0 met62 -1.25
+REACTION react20 0  met53 1.5 met20 1.25 met48 -1.75 met82 1.0
+REACTION react21 0  met73 0.5 met44 0.5 met7 -0.25 met60 -0.25 met69 -1.25
+REACTION react22 0  met91 -0.25 met89 -0.25 met76 2.0
+REACTION react23 0  met34 0.75 met37 -0.5
+REACTION react24 0  met69 0.5 met61 -0.5 met95 0.25 met16 0.25
+REACTION react25 0  met80 0.25 met11 -0.25
+REACTION react26 0  met34 -0.25 met98 -1.0 met23 0.5 met73 -2.0 met49 -1.75
+REACTION react27 0  met14 -0.5 met20 0.25 met75 -0.75 met99 -0.75 met19 0.75
+REACTION react28 0  met91 -1.25 met89 -0.75 met42 1.0
+REACTION react29 0  met43 1.5 met49 -1.5 met19 -1.25
+REACTION react30 0  met16 0.25 met47 0.25 met18 -0.5
+REACTION react31 0  met26 -1.75 met86 -1.5 met94 -2.0 met68 0.25
+REACTION react32 0  met97 0.75 met70 -1.5
+REACTION react33 0  met98 1.5 met24 -2.0 met58 -2.0
+REACTION react34 0  met35 -0.5 met51 1.75 met85 -0.75 met56 -2.0 met79 0.5
+REACTION react35 0  met26 -1.75 met36 1.75 met66 -1.25 met96 0.25
+REACTION react36 0  met85 -0.5 met54 1.25
+REACTION react37 0  met47 -0.75 met31 -1.5 met20 1.75
+REACTION react38 0  met51 -0.5 met13 1.0
+REACTION react39 0  met80 1.75 met71 -1.25 met8 -0.25
+REACTION react40 0  met83 -1.0 met22 1.25 met78 -0.25
+REACTION react41 0  met69 1.0 met85 -0.75 met75 1.75 met84 -1.5 met95 1.5
+REACTION react42 0  met10 -1.75 met39 -0.75 met48 1.5
+REACTION react43 0  met27 -0.75 met98 -0.25 met83 0.75
+REACTION react44 0  met85 -1.75 met70 1.5
+REACTION react45 0  met59 -0.25 met19 -0.25 met49 0.25 met15 -2.0
+REACTION react46 0  met66 -0.75 met12 1.25 met19 -2.0
+REACTION react47 0  met45 -1.75 met36 -1.75 met42 -1.25 met64 0.25
+REACTION react48 0  met93 -1.0 met24 0.75 met72 -0.25
+REACTION react49 0  met97 -0.25 met84 1.25
+REACTION react50 0  met38 0.25 met56 -0.75 met21 0.75 met26 0.75
+REACTION react51 0  met87 -0.75 met7 0.5 met36 -0.5 met2 0.25 met65 0.5
+REACTION react52 0  met23 -2.0 met53 0.25
+REACTION react53 0  met56 0.75 met22 -2.0 met60 1.5 met47 -0.5
+REACTION react54 0  met84 -1.0 met89 -1.25 met24 -0.25 met37 -0.75 met95 0.5
+REACTION react55 0  met9 0.5 met33 -0.75
+REACTION react56 0  met20 0.75 met1 1.5 met78 0.25 met17 -0.5
+REACTION react57 0  met68 1.25 met32 0.5 met20 -1.75
+REACTION react58 0  met82 1.0 met44 -1.25
+REACTION react59 0  met97 1.0 met5 0.25 met65 1.5 met30 -0.25
+REACTION react60 0  met78 -1.25 met25 1.25 met28 1.0
+REACTION react61 0  met99 -0.75 met62 0.25 met83 -1.25
+REACTION react62 0  met60 -0.5 met67 -0.25 met17 -2.0 met77 -1.0 met83 0.5
+REACTION react63 0  met69 -1.75 met18 0.5
+REACTION react64 0  met73 -0.25 met46 1.25 met2 1.75 met75 1.0 met48 -1.5
+REACTION react65 0  met3 -0.5 met85 0.25 met86 -2.0
+REACTION react66 0  met57 -0.5 met94 1.75 met65 -1.0
+REACTION react67 0  met19 -0.25 met65 1.5 met79 0.25 met31 0.5
+REACTION react68 0  met15 -2.0 met5 -0.5 met38 0.25
+REACTION react69 0  met68 -1.25 met1 -0.75 met50 0.25 met21 -1.0 met36 -0.25
+REACTION react70 0  met50 0.5 met73 -0.25
+REACTION react71 0  met94 1.75 met90 0.75 met61 -1.0 met29 -1.25 met67 0.5
+REACTION react72 0  met53 0.75 met44 -0.75
+REACTION react73 0  met99 1.75 met74 0.25 met39 1.25 met49 -1.25
+REACTION react74 0  met80 -1.5 met39 1.0 met99 0.25 met82 1.75 met22 1.75
+REACTION react75 0  met81 1.75 met48 -0.5 met79 -1.25
+REACTION react76 0  met47 -1.25 met26 0.25 met45 0.75 met76 1.75 met77 -2.0
+REACTION react77 0  met94 1.25 met10 0.75 met53 -1.5
+REACTION react78 0  met76 0.5 met58 -1.5
+REACTION react79 0  met31 -0.25 met64 0.25 met77 -0.5 met95 0.5 met91 -2.0
+REACTION react80 0  met6 -2.0 met34 0.75 met51 1.25 met67 -0.25
+REACTION react81 0  met8 -1.5 met86 0.25 met76 -2.0 met82 -0.25 met24 1.0
+REACTION react82 0  met62 -1.25 met14 -0.75 met58 -0.75 met39 0.75 met98 1.75
+REACTION react83 0  met100 -1.0 met3 -0.75 met52 1.0
+REACTION react84 0  met58 -0.5 met15 1.25 met80 -1.25 met61 -0.25 met69 1.75
+REACTION react85 0  met34 1.5 met24 0.25 met65 1.75 met64 -0.25
+REACTION react86 0  met22 -1.0 met41 -2.0 met25 1.75
+REACTION react87 0  met19 1.75 met54 -1.25
+REACTION react88 0  met39 -1.5 met62 -0.75 met59 0.25 met63 -2.0 met84 1.25
+REACTION react89 0  met22 -0.5 met62 1.5 met64 -1.5 met65 1.75
+REACTION react90 0  met55 1.0 met87 -1.75 met81 -1.5
+REACTION react91 0  met57 -1.5 met21 0.5
+REACTION react92 0  met36 -1.5 met74 -0.5 met94 -1.75 met16 1.25
+REACTION react93 0  met36 -0.75 met90 1.0
+REACTION react94 0  met39 -0.75 met50 -1.25 met23 2.0
+REACTION react95 0  met18 1.0 met91 -0.25 met13 0.5 met23 -0.5
+REACTION react96 0  met86 -1.75 met15 1.75 met68 -1.5 met55 -1.25
+REACTION react97 0  met2 -1.0 met59 -1.25 met44 1.25
+REACTION react98 0  met46 1.0 met24 -0.5 met29 -0.5
+REACTION react99 0  met5 1.75 met32 1.75 met39 -1.5
+REACTION react100 0  met93 0.75 met26 -1.25 met71 1.5
+REACTION react101 0  met18 1.5 met38 -0.75
+REACTION react102 0  met91 -1.25 met12 -2.0 met87 0.25 met28 1.75 met84 0.25
+REACTION react103 0  met5 1.5 met81 -2.0 met18 -0.5 met33 -1.25
+REACTION react104 0  met91 0.25 met58 0.25 met93 1.5 met50 0.25 met54 -1.75
+REACTION react105 0  met59 -2.0 met2 1.25
+REACTION react106 0  met79 0.75 met27 -2.0 met98 0.5
+REACTION react107 0  met17 -0.75 met95 1.75 met82 -0.75 met86 0.25 met79 -0.75
+REACTION react108 0  met34 -1.25 met64 -1.25 met96 1.25
+REACTION react109 0  met63 -0.75 met71 -0.75 met23 1.75
+REACTION react110 0  met12 -1.75 met30 0.75 met17 -1.75 met32 0.75
+REACTION react111 0  met2 0.5 met26 0.25 met4 -0.75
+REACTION react112 0  met61 0.75 met42 0.25 met88 -0.75 met36 -2.0
+REACTION react113 0  met5 -1.5 met6 0.5
+REACTION react114 0  met27 1.5 met78 -0.75 met47 0.25
+REACTION react115 0  met1 -0.25 met33 0.5
+REACTION react116 0  met55 -0.5 met76 -1.5 met14 1.75 met11 0.5
+REACTION react117 0  met26 -1.5 met4 0.5
+REACTION react118 0  met47 1.0 met27 -1.25 met62 1.25 met24 0.25
+REACTION react119 0  met40 -0.75 met89 0.75 met56 1.5
+REACTION react120 0  met78 -1.25 met72 0.75
+REACTION react121 0  met73 1.5 met68 -1.25 met8 -2.0 met27 -1.25
+REACTION react122 0  met1 0.75 met98 -1.25
+REACTION react123 0  met18 -0.5 met75 1.5 met48 0.75
+REACTION react124 0  met13 1.75 met68 -1.5 met74 -1.5
+REACTION react125 0  met100 1.5 met70 -0.25
+REACTION react126 0  met2 -0.5 met25 1.5
+REACTION react127 0  met92 0.25 met100 -1.5 met30 0.75
+REACTION react128 0  met7 1.25 met49 -1.5
+REACTION react129 0  met93 -1.75 met24 0.25 met11 0.25 met76 -0.5
+REACTION react130 0  met55 1.0 met38 0.5 met75 -0.75 met23 1.25
+REACTION react131 0  met21 0.5 met50 -0.5
+REACTION react132 0  met68 -0.75 met97 0.75 met15 1.75
+REACTION react133 0  met59 -1.5 met89 -1.5 met18 -0.25 met40 -1.5 met11 0.25
+REACTION react134 0  met5 -0.75 met27 1.5 met82 -1.0 met80 -1.0 met31 1.25
+REACTION react135 0  met53 0.25 met4 -1.25
+REACTION react136 0  met13 -2.0 met94 1.75
+REACTION react137 0  met90 0.25 met62 -0.25
+REACTION react138 0  met2 -0.5 met90 1.0 met93 0.75 met18 -1.75 met36 -0.25
+REACTION react139 0  met49 1.5 met22 0.25 met57 -0.5
+REACTION react140 0  met8 -2.0 met100 0.25
+REACTION react141 0  met69 -1.75 met76 -0.25 met90 1.5 met92 -1.5 met87 -1.25
+REACTION react142 0  met88 -2.0 met94 1.75 met83 -2.0 met20 -1.5 met58 0.5
+REACTION react143 0  met81 1.75 met32 0.25 met64 -2.0 met53 0.75
+REACTION react144 0  met26 1.25 met97 0.25 met70 1.0 met72 0.75 met38 -1.0
+REACTION react145 0  met88 -0.75 met11 1.0
+REACTION react146 0  met22 -0.5 met45 -0.5 met32 -2.0 met42 0.75 met44 -1.75
+REACTION react147 0  met45 -1.0 met4 -1.5 met82 1.5 met5 -1.5
+REACTION react148 0  met9 1.5 met86 1.75 met11 0.75 met27 0.75 met65 -0.25
+REACTION react149 0  met20 -0.5 met13 1.25 met25 -0.75
+REACTION react150 0  met31 -1.5 met78 -0.75 met67 1.0 met11 0.25 met14 -1.75
+REACTION react151 0  met28 -0.5 met85 1.75 met92 1.75 met81 0.25 met76 -2.0
+REACTION react152 0  met88 -0.5 met41 0.5 met10 -1.25
+REACTION react153 0  met23 -1.75 met64 -0.25 met18 -2.0 met62 0.25
+REACTION react154 0  met79 -1.0 met31 1.25
+REACTION react155 0  met25 0.75 met42 0.75 met47 0.25 met76 -1.25
+REACTION react156 0  met46 -1.75 met76 -0.5 met89 2.0
+REACTION react157 0  met97 1.5 met87 0.5 met41 -1.25
+REACTION react158 0  met79 -1.75 met74 1.75 met56 -0.75 met98 -1.75
+REACTION react159 0  met7 1.75 met66 1.5 met17 0.5 met15 -1.75 met91 1.5
+REACTION react160 0  met36 -0.75 met61 0.75 met12 -2.0
+REACTION react161 0  met99 1.25 met50 -1.0 met79 -1.25 met77 1.0 met86 0.25
+REACTION react162 0  met22 1.5 met40 0.25 met88 1.5 met99 -1.25
+REACTION react163 0  met92 -1.25 met5 -1.0 met59 -0.75 met94 0.5
+REACTION react164 0  met22 -1.5 met59 1.75 met43 -0.25 met91 1.5 met35 -0.25
+REACTION react165 0  met46 1.75 met99 -0.5
+REACTION react166 0  met60 -1.5 met51 -1.0 met71 0.5 met90 1.75 met23 1.0
+REACTION react167 0  met74 -1.75 met37 -0.5 met27 1.0
+REACTION react168 0  met37 -1.5 met79 0.25 met32 -0.75 met55 1.75 met100 -1.25
+REACTION react169 0  met60 0.5 met53 -1.75 met56 1.25
+REACTION react170 0  met2 -1.25 met26 0.25 met52 1.25
+REACTION react171 0  met52 0.75 met90 -1.0
+REACTION react172 0  met61 -1.25 met43 1.5
+REACTION react173 0  met87 1.5 met54 1.25 met74 1.5 met81 -2.0
+REACTION react174 0  met56 1.0 met79 -1.5 met78 0.75 met8 -2.0 met30 -1.5
+REACTION react175 0  met46 -0.5 met90 0.25
+REACTION react176 0  met2 1.5 met21 0.75 met8 -1.5 met97 -0.25
+REACTION react177 0  met5 -1.75 met49 1.75 met45 -1.5 met97 1.5
+REACTION react178 0  met89 -0.5 met86 -0.25 met20 -0.75 met52 -1.0 met28 1.0
+REACTION react179 0  met13 -1.5 met2 1.75 met54 0.25 met59 -1.75
+REACTION react180 0  met90 -1.25 met74 0.25
+REACTION react181 0  met83 -2.0 met79 1.5 met67 1.25
+REACTION react182 0  met41 -1.75 met1 1.5
+REACTION react183 0  met32 1.25 met45 -1.75
+REACTION react184 0  met4 -1.0 met22 0.75 met56 -0.5 met65 -0.75 met79 -0.5
+REACTION react185 0  met71 1.5 met55 -1.25 met92 -0.75 met57 0.25 met39 -1.5
+REACTION react186 0  met68 0.25 met4 0.25 met56 -1.25
+REACTION react187 0  met97 1.5 met5 -1.5 met14 -1.0 met9 -1.5
+REACTION react188 0  met89 -1.75 met78 1.0 met99 1.0 met39 0.25 met16 1.0
+REACTION react189 0  met26 -0.5 met23 -1.25 met90 1.5 met48 1.25 met2 -1.5
+REACTION react190 0  met46 0.5 met39 -1.5 met61 0.25
+REACTION react191 0  met44 0.25 met93 0.25 met72 -0.75
+REACTION react192 0  met5 0.25 met52 -1.75 met72 -1.5 met31 -1.25
+REACTION react193 0  met90 1.75 met59 -1.0 met73 0.5
+REACTION react194 0  met18 -0.25 met47 -1.25 met49 0.5 met96 -1.75 met98 1.75
+REACTION react195 0  met90 1.0 met58 -0.25 met24 0.5 met64 1.25 met69 1.75
+REACTION react196 0  met35 -0.5 met79 1.0
+REACTION react197 0  met37 0.25 met47 1.5 met69 0.25 met90 -0.5
+REACTION react198 0  met45 1.5 met46 1.0 met61 1.25 met66 -0.75 met34 1.0
+REACTION react199 0  met24 -1.5 met81 0.25 met5 1.25
+REACTION react200 0  met40 -1.5 met70 -2.0 met80 1.75
+REACTION react201 0  met43 -1.5 met8 1.0
+REACTION react202 0  met52 -2.0 met1 -2.0 met95 0.25
+REACTION react203 0  met62 -0.5 met39 -1.75 met96 1.25
+REACTION react204 0  met90 -2.0 met38 -0.25 met87 1.0 met62 0.25 met15 1.25
+REACTION react205 0  met93 -0.5 met35 0.25 met12 0.5
+REACTION react206 0  met89 1.0 met94 -0.75
+REACTION react207 0  met10 1.75 met27 1.0 met22 -0.5 met93 1.0
+REACTION react208 0  met89 -0.5 met47 1.25
+REACTION react209 0  met17 1.0 met76 0.75 met31 0.75 met93 1.5 met97 -0.75
+REACTION react210 0  met23 1.0 met7 -1.5 met22 1.25
+REACTION react211 0  met53 1.25 met25 1.25 met62 -1.0
+REACTION react212 0  met50 0.25 met2 -2.0 met89 1.75 met95 1.75
+REACTION react213 0  met9 -1.25 met15 0.25 met40 1.25 met10 -1.5 met87 -1.25
+REACTION react214 0  met54 -2.0 met37 -0.25 met97 1.5
+REACTION react215 0  met4 0.25 met15 -1.5
+REACTION react216 0  met78 -1.75 met5 0.25 met66 -0.25 met80 -0.5
+REACTION react217 0  met19 1.0 met72 1.0 met36 -0.25 met8 -0.5
+REACTION react218 0  met72 -0.25 met40 0.5
+REACTION react219 0  met16 1.0 met82 1.75 met71 1.25 met89 -1.25 met6 0.25
+REACTION react220 0  met18 0.25 met51 -1.75 met11 0.25 met57 -2.0 met68 -0.25
+REACTION react221 0  met55 1.25 met81 0.5 met26 -0.5 met47 -2.0
+REACTION react222 0  met97 1.5 met46 1.0 met53 -0.25 met43 1.0
+REACTION react223 0  met87 -0.75 met98 2.0
+REACTION react224 0  met27 1.75 met61 1.25 met2 -1.75 met85 -1.0
+REACTION react225 0  met87 -0.75 met80 0.25 met92 -2.0
+REACTION react226 0  met76 -1.5 met15 1.25 met17 -1.75 met84 -0.25 met25 0.5
+REACTION react227 0  met98 -1.5 met82 -1.75 met65 -0.75 met96 -1.5 met69 1.25
+REACTION react228 0  met96 0.75 met80 1.5 met53 -1.5 met100 0.5 met10 0.5
+REACTION react229 0  met83 -0.25 met93 -1.0 met67 -1.5 met25 -1.75 met69 0.25
+REACTION react230 0  met54 0.75 met38 -1.75
+REACTION react231 0  met51 1.0 met62 -1.75 met27 -1.75 met71 -1.25
+REACTION react232 0  met75 -1.75 met58 -0.5 met71 0.75
+REACTION react233 0  met13 0.5 met86 -1.75 met96 0.75 met20 -2.0 met88 0.25
+REACTION react234 0  met51 1.75 met94 -1.5 met77 1.25 met11 -0.25 met25 -0.5
+REACTION react235 0  met99 -1.0 met34 0.5
+REACTION react236 0  met60 0.5 met80 -1.75 met40 -0.75
+REACTION react237 0  met61 0.25 met55 1.75 met79 1.75 met12 -1.0
+REACTION react238 0  met73 1.75 met42 0.25 met10 -1.25
+REACTION react239 0  met36 -0.75 met24 1.75
+REACTION react240 0  met29 -0.25 met53 -0.75 met100 -0.25 met41 0.75
+REACTION react241 0  met29 -0.25 met85 1.5
+REACTION react242 0  met82 0.75 met19 0.25 met16 -1.5
+REACTION react243 0  met69 -1.0 met64 1.5 met78 0.25 met15 1.75 met20 -0.25
+REACTION react244 0  met99 -1.5 met13 1.25 met25 -2.0 met33 -1.0 met52 0.25
+REACTION react245 0  met43 -1.0 met18 0.75
+REACTION react246 0  met22 -1.0 met39 1.25 met50 -0.5
+REACTION react247 0  met86 0.5 met70 -2.0 met58 -2.0
+REACTION react248 0  met54 -1.75 met93 -1.75 met10 1.75
+REACTION react249 0  met18 -0.25 met14 1.0 met38 -0.75 met9 -0.5
+REACTION react250 0  met15 0.25 met73 0.25 met26 -2.0
+REACTION react251 0  met27 -0.5 met54 2.0
+REACTION react252 0  met57 -2.0 met24 -0.75 met99 0.25 met8 1.0 met86 -1.0
+REACTION react253 0  met68 1.75 met23 0.5 met77 0.75 met78 -0.5 met88 -0.5
+REACTION react254 0  met36 1.75 met27 1.25 met29 -1.75
+REACTION react255 0  met30 1.25 met88 -1.25
+REACTION react256 0  met41 0.75 met33 -1.5 met91 -0.25
+REACTION react257 0  met61 0.25 met17 -1.0 met80 1.75 met84 -1.5 met90 0.75
+REACTION react258 0  met29 0.25 met45 1.5 met92 -1.5 met7 -0.75
+REACTION react259 0  met67 0.25 met78 -0.25
+REACTION react260 0  met37 -1.0 met54 -1.0 met47 1.75
+REACTION react261 0  met78 -0.75 met38 0.25
+REACTION react262 0  met6 0.5 met72 0.5 met36 -0.75 met76 1.25 met56 1.25
+REACTION react263 0  met84 1.5 met42 1.5 met21 1.0 met72 -0.25 met12 1.75
+REACTION react264 0  met49 -1.5 met15 -1.25 met28 1.5 met47 -2.0
+REACTION react265 0  met53 0.5 met60 0.25 met14 -1.0 met16 1.0
+REACTION react266 0  met25 1.5 met24 -1.75
+REACTION react267 0  met68 1.0 met37 -2.0 met3 -1.75
+REACTION react268 0  met97 0.75 met84 0.25 met60 0.25 met93 1.0 met73 -1.75
+REACTION react269 0  met29 0.25 met89 -1.75 met40 1.75
+REACTION react270 0  met14 -2.0 met72 -0.25 met8 0.75
+REACTION react271 0  met90 1.25 met6 -2.0
+REACTION react272 0  met93 0.25 met99 -0.25
+REACTION react273 0  met26 -1.25 met70 0.25 met90 1.25
+REACTION react274 0  met100 -1.25 met49 -1.5 met58 -1.75 met82 2.0
+REACTION react275 0  met89 1.75 met31 0.75 met51 -0.75
+REACTION react276 0  met57 1.0 met58 1.5 met17 -2.0 met64 0.25
+REACTION react277 0  met46 1.75 met65 -2.0 met72 -1.75 met66 -1.0
+REACTION react278 0  met53 1.0 met60 1.5 met12 1.0 met57 -0.75
+REACTION react279 0  met1 0.5 met7 -1.25
+REACTION react280 0  met24 1.25 met55 -1.25
+REACTION react281 0  met5 -2.0 met39 1.25
+REACTION react282 0  met14 0.25 met9 1.25 met71 -1.25
+REACTION react283 0  met12 -1.25 met41 -0.5 met60 1.75
+REACTION react284 0  met62 0.25 met98 -2.0 met6 0.75
+REACTION react285 0  met77 0.25 met41 -0.5
+REACTION react286 0  met41 -1.0 met90 0.25
+REACTION react287 0  met62 0.25 met77 -1.5 met12 -1.5
+REACTION react288 0  met37 -0.5 met75 -0.75 met58 1.5
+REACTION react289 0  met84 1.75 met9 1.75 met58 -0.5
+REACTION react290 0  met62 -0.75 met98 -0.25 met4 1.75
+REACTION react291 0  met12 -2.0 met57 -1.75 met6 0.25 met37 0.25 met53 1.5
+REACTION react292 0  met38 0.25 met21 -1.75
+REACTION react293 0  met48 0.5 met72 -0.25
+REACTION react294 0  met58 -2.0 met45 -1.25 met74 1.25 met37 0.5 met89 -0.75
+REACTION react295 0  met71 -0.5 met76 -1.75 met74 1.75 met32 -0.75 met72 1.75
+REACTION react296 0  met40 -2.0 met64 0.25 met77 -1.5 met89 -1.25
+REACTION react297 0  met90 -0.75 met77 1.25 met85 -1.5
+REACTION react298 0  met91 1.75 met61 -0.25
+REACTION react299 0  met96 -0.5 met94 0.75 met50 -1.25 met11 1.0 met40 0.25
+REACTION react300 0  met58 -1.0 met82 2.0
+REACTION react301 0  met83 0.75 met98 -2.0 met63 -1.0 met55 0.75
+REACTION react302 0  met52 -1.75 met60 0.5 met98 0.75 met80 -0.5 met17 -2.0
+REACTION react303 0  met94 -1.75 met60 1.75 met12 -2.0 met2 1.25 met14 1.5
+REACTION react304 0  met97 1.75 met52 0.75 met46 -2.0 met86 -1.75
+REACTION react305 0  met2 -1.0 met46 0.25 met86 1.0 met99 -1.0 met56 -1.0
+REACTION react306 0  met86 1.25 met76 1.25 met8 -1.25 met99 -1.5
+REACTION react307 0  met22 1.0 met93 0.25 met21 -1.75
+REACTION react308 0  met23 -2.0 met30 -2.0 met97 0.75 met89 -2.0
+REACTION react309 0  met89 0.5 met15 -1.25
+REACTION react310 0  met12 -0.75 met87 1.5 met7 -1.25 met52 -1.5
+REACTION react311 0  met13 1.75 met39 1.75 met63 1.25 met86 -1.25
+REACTION react312 0  met3 0.75 met26 1.0 met90 1.5 met93 0.5 met1 -0.5
+REACTION react313 0  met44 1.75 met76 -0.25 met68 0.5
+REACTION react314 0  met1 0.75 met6 -1.5 met94 -1.75 met21 -0.75
+REACTION react315 0  met80 -1.5 met30 0.25
+REACTION react316 0  met12 0.25 met37 0.25 met39 -1.25 met45 0.25
+REACTION react317 0  met91 1.5 met19 0.25 met17 -0.75
+REACTION react318 0  met19 1.25 met2 -1.25 met26 -0.75 met60 -2.0 met14 1.75
+REACTION react319 0  met4 -1.5 met52 1.5
+REACTION react320 0  met60 0.5 met95 -1.25
+REACTION react321 0  met93 -0.75 met46 0.25
+REACTION react322 0  met51 1.25 met53 -0.25
+REACTION react323 0  met98 -1.5 met12 -1.75 met88 -2.0 met73 1.0 met25 -2.0
+REACTION react324 0  met9 1.75 met78 -1.5 met99 -1.25 met64 1.25
+REACTION react325 0  met33 0.25 met20 0.25 met31 -0.75 met21 0.5 met80 -1.0
+REACTION react326 0  met96 0.25 met28 1.75 met74 -1.75 met68 0.25 met84 -1.5
+REACTION react327 0  met83 0.25 met63 -0.5 met67 1.75
+REACTION react328 0  met77 0.25 met57 -1.0 met70 -1.5 met11 1.25 met66 -1.5
+REACTION react329 0  met14 -0.25 met84 -0.5 met59 1.0 met71 0.5
+REACTION react330 0  met23 1.25 met99 -1.5 met79 -1.75
+REACTION react331 0  met66 -1.25 met59 0.5
+REACTION react332 0  met76 -1.25 met47 -2.0 met73 0.25
+REACTION react333 0  met1 1.0 met82 -1.25 met6 0.25 met76 1.25 met74 0.25
+REACTION react334 0  met16 1.5 met12 0.25 met44 -1.25 met99 0.25
+REACTION react335 0  met49 1.25 met29 -1.0
+REACTION react336 0  met95 1.0 met22 0.25 met46 -1.0 met2 -0.75 met90 0.5
+REACTION react337 0  met25 -0.25 met11 0.25 met33 -0.5
+REACTION react338 0  met24 -1.5 met26 -1.25 met17 -0.75 met20 -1.5 met80 1.25
+REACTION react339 0  met53 0.25 met70 -1.0 met13 -1.5
+REACTION react340 0  met56 -1.0 met100 -2.0 met24 0.75
+REACTION react341 0  met23 -1.5 met75 0.5 met22 0.75 met42 0.25
+REACTION react342 0  met74 -0.25 met93 -2.0 met33 1.25
+REACTION react343 0  met15 -0.25 met80 -1.25 met30 0.75
+REACTION react344 0  met72 -0.75 met14 -1.5 met90 1.5 met41 -1.0 met76 0.25
+REACTION react345 0  met25 0.25 met15 -0.75 met3 -0.75 met28 -1.0 met61 0.5
+REACTION react346 0  met15 -2.0 met64 -0.25 met44 -0.5 met6 1.0
+REACTION react347 0  met48 -0.25 met6 0.25 met100 -1.0
+REACTION react348 0  met98 -0.5 met84 0.75 met24 0.25
+REACTION react349 0  met31 -0.25 met38 -1.25 met75 0.5 met13 -1.75 met40 0.25
+REACTION react350 0  met54 0.75 met2 0.25 met76 0.25 met24 -1.75
+REACTION react351 0  met26 -0.75 met23 -0.5 met51 -0.5 met35 1.75 met61 -0.5
+REACTION react352 0  met17 0.5 met76 1.25 met59 0.25 met4 -0.75 met40 1.75
+REACTION react353 0  met31 0.75 met64 -1.75 met32 -1.25
+REACTION react354 0  met72 1.5 met5 -0.75
+REACTION react355 0  met39 0.25 met24 -2.0 met47 0.25 met55 -0.5
+REACTION react356 0  met9 -1.5 met65 -0.75 met16 -0.5 met26 -0.25 met12 1.75
+REACTION react357 0  met58 0.25 met32 1.5 met25 -2.0 met7 -1.5
+REACTION react358 0  met25 -1.0 met63 0.25
+REACTION react359 0  met47 0.5 met98 -1.75
+REACTION react360 0  met95 -0.75 met70 1.75 met50 -1.75 met13 0.25 met11 -0.75
+REACTION react361 0  met17 0.75 met41 -0.5 met97 -0.75 met100 -2.0 met71 1.0
+REACTION react362 0  met50 1.5 met81 -0.75
+REACTION react363 0  met1 1.0 met84 -1.0 met92 1.0
+REACTION react364 0  met24 -1.75 met32 1.25 met87 -1.5 met94 0.25
+REACTION react365 0  met33 -0.75 met47 1.5 met22 1.75
+REACTION react366 0  met70 -0.25 met68 0.25 met15 -0.5 met99 -0.25 met34 1.0
+REACTION react367 0  met6 1.0 met64 -0.75 met27 0.25
+REACTION react368 0  met35 1.25 met46 0.25 met34 0.5 met97 1.25 met11 -1.25
+REACTION react369 0  met21 -2.0 met59 -0.25 met68 0.25
+REACTION react370 0  met95 0.75 met54 0.75 met69 -1.0
+REACTION react371 0  met37 -1.5 met88 -1.5 met59 0.5 met58 -1.25
+REACTION react372 0  met65 -0.75 met68 0.25
+REACTION react373 0  met1 -0.25 met34 -1.25 met26 1.75 met42 1.5 met36 0.25
+REACTION react374 0  met26 -0.25 met59 1.75 met31 1.0 met11 -0.75
+REACTION react375 0  met34 0.25 met52 -0.25
+REACTION react376 0  met57 -0.25 met91 -2.0 met7 0.25 met50 0.25 met22 0.75
+REACTION react377 0  met18 -1.25 met35 -0.25 met15 -1.0 met93 1.5
+REACTION react378 0  met43 -1.75 met97 -1.5 met69 1.5
+REACTION react379 0  met49 0.25 met29 0.5 met37 -0.75
+REACTION react380 0  met88 0.75 met81 0.5 met34 -1.5
+REACTION react381 0  met11 -1.75 met74 1.25
+REACTION react382 0  met92 -1.0 met32 1.0 met71 0.25 met6 -1.0
+REACTION react383 0  met60 -1.5 met99 -1.0 met45 0.25 met95 -1.25 met15 0.25
+REACTION react384 0  met83 0.75 met11 0.75 met20 -0.75
+REACTION react385 0  met4 1.5 met25 -1.0 met81 1.0 met22 1.0 met89 -1.5
+REACTION react386 0  met81 1.0 met33 -1.25 met88 -1.5 met90 -2.0 met76 0.75
+REACTION react387 0  met95 -1.5 met85 1.0 met81 1.5 met67 0.25 met59 -1.75
+REACTION react388 0  met46 0.25 met16 -1.0 met28 0.75
+REACTION react389 0  met21 -0.25 met62 0.5
+REACTION react390 0  met73 -0.25 met66 0.75 met97 1.5 met16 1.5 met65 -0.75
+REACTION react391 0  met17 -1.5 met80 -2.0 met62 0.75 met79 0.5
+REACTION react392 0  met86 0.75 met63 -1.75 met24 -1.25
+REACTION react393 0  met65 0.5 met21 -1.0
+REACTION react394 0  met83 -1.5 met43 -0.75 met32 -1.0 met4 0.25 met12 -0.5
+REACTION react395 0  met99 -2.0 met46 -0.5 met88 -1.5 met96 2.0
+REACTION react396 0  met65 1.0 met19 1.75 met35 1.0 met23 -1.5
+REACTION react397 0  met56 -1.0 met68 -1.5 met88 -0.25 met31 1.5 met65 1.25
+REACTION react398 0  met67 1.25 met33 -0.25 met73 0.25 met82 1.5 met48 -0.75
+REACTION react399 0  met53 0.25 met79 -2.0
+REACTION react400 0  met2 -0.5 met60 0.5
+REACTION react401 0  met59 -2.0 met77 0.25
+REACTION react402 0  met63 0.25 met7 -1.25 met79 -1.0 met14 0.5 met61 -0.5
+REACTION react403 0  met6 -0.75 met89 0.75 met76 0.75 met67 1.0 met24 1.75
+REACTION react404 0  met52 -1.5 met10 0.25
+REACTION react405 0  met100 -1.5 met65 1.0 met17 1.25 met54 1.5
+REACTION react406 0  met5 -1.0 met8 0.5 met79 0.75
+REACTION react407 0  met17 -0.5 met15 0.25
+REACTION react408 0  met44 -0.5 met52 -0.5 met36 0.25 met87 -0.75
+REACTION react409 0  met59 -2.0 met60 0.25 met25 1.25
+REACTION react410 0  met94 0.25 met25 -0.25
+REACTION react411 0  met50 -1.0 met91 1.5 met3 0.25
+REACTION react412 0  met31 -1.0 met1 0.25
+REACTION react413 0  met52 -0.25 met34 -0.75 met83 0.25 met66 1.5
+REACTION react414 0  met6 1.75 met13 -0.75
+REACTION react415 0  met28 -2.0 met25 0.75
+REACTION react416 0  met91 1.25 met10 -2.0
+REACTION react417 0  met6 -2.0 met40 0.25
+REACTION react418 0  met35 -1.5 met37 -1.25 met65 1.5 met73 0.25 met45 -0.25
+REACTION react419 0  met58 -2.0 met94 1.5 met17 -0.25
+REACTION react420 0  met75 -1.0 met45 1.75 met42 -1.75 met43 -1.75 met58 -0.25
+REACTION react421 0  met65 1.5 met25 -2.0
+REACTION react422 0  met8 1.5 met41 -1.0 met13 -1.25
+REACTION react423 0  met76 -0.25 met11 -1.5 met2 1.25 met18 -0.5
+REACTION react424 0  met36 1.25 met41 0.5 met100 -2.0
+REACTION react425 0  met41 -1.25 met53 -2.0 met59 -1.75 met83 0.5
+REACTION react426 0  met77 0.25 met74 -0.25
+REACTION react427 0  met88 0.25 met46 -0.75 met38 0.5 met52 0.25 met11 -2.0
+REACTION react428 0  met74 -1.25 met65 -0.5 met15 -1.5 met44 -0.25 met83 1.75
+REACTION react429 0  met56 -1.0 met59 -1.5 met58 1.75 met85 -0.25
+REACTION react430 0  met78 -2.0 met100 1.25
+REACTION react431 0  met24 1.75 met100 -1.5
+REACTION react432 0  met48 0.25 met26 -0.25
+REACTION react433 0  met8 -2.0 met2 0.25 met9 -0.25
+REACTION react434 0  met43 0.25 met89 -1.75 met78 0.75 met73 -0.75 met47 0.25
+REACTION react435 0  met95 -0.25 met54 0.25 met73 -2.0 met85 1.0 met57 -0.25
+REACTION react436 0  met56 0.25 met34 1.25 met5 1.0 met39 1.25 met98 -1.75
+REACTION react437 0  met47 -0.25 met81 0.25
+REACTION react438 0  met64 0.25 met41 0.25 met73 1.0 met34 -0.75
+REACTION react439 0  met31 0.5 met93 0.25 met17 -1.0 met64 -1.5
+REACTION react440 0  met30 1.0 met23 -1.5 met93 -1.0
+REACTION react441 0  met68 1.25 met6 0.75 met57 -1.75
+REACTION react442 0  met55 1.75 met11 1.5 met25 1.75 met46 -0.75 met81 -1.5
+REACTION react443 0  met16 -1.5 met66 -0.5 met61 -1.0 met20 2.0
+REACTION react444 0  met29 1.75 met76 -1.0 met34 0.25
+REACTION react445 0  met21 -1.0 met42 1.75 met72 -0.75 met50 -1.75
+REACTION react446 0  met89 -0.75 met41 0.75
+REACTION react447 0  met39 1.75 met45 -0.25 met76 -1.0 met23 1.75 met99 -0.5
+REACTION react448 0  met30 1.75 met67 1.5 met58 0.5 met87 1.5 met25 -1.5
+REACTION react449 0  met42 -0.25 met32 -0.25 met21 -0.75 met58 1.75
+REACTION react450 0  met32 -0.5 met2 -1.5 met13 0.25 met56 1.0 met99 -0.75
+REACTION react451 0  met85 1.0 met90 1.75 met11 -0.75 met35 0.75
+REACTION react452 0  met80 1.25 met43 0.25 met54 -1.5 met6 -0.25
+REACTION react453 0  met55 1.5 met1 -0.5 met73 -1.25 met28 1.5 met2 -1.25
+REACTION react454 0  met6 -1.75 met49 -1.0 met8 0.25 met71 1.0 met15 0.25
+REACTION react455 0  met53 -1.25 met84 -0.75 met20 0.25
+REACTION react456 0  met75 -2.0 met1 0.75 met17 0.75 met68 1.0 met94 -2.0
+REACTION react457 0  met74 -1.75 met25 -1.5 met43 0.75
+REACTION react458 0  met30 0.5 met86 -0.75 met11 -1.5 met38 0.25
+REACTION react459 0  met47 1.75 met77 -0.25 met56 0.5 met59 1.75 met14 -1.75
+REACTION react460 0  met6 1.5 met53 1.0 met76 -0.75
+REACTION react461 0  met56 0.25 met38 1.25 met58 0.25 met48 0.75 met82 -1.25
+REACTION react462 0  met23 -1.75 met9 -0.75 met41 0.25 met13 -1.75
+REACTION react463 0  met46 1.25 met42 -1.75
+REACTION react464 0  met59 -0.25 met40 -1.5 met23 1.5 met22 -1.75 met78 -0.75
+REACTION react465 0  met39 -0.75 met67 1.75 met14 0.5 met77 -0.25 met94 -1.25
+REACTION react466 0  met75 1.75 met31 -0.75 met26 1.75
+REACTION react467 0  met20 0.5 met56 1.25 met82 -0.5
+REACTION react468 0  met46 -1.5 met10 -1.5 met65 1.75
+REACTION react469 0  met81 -0.75 met61 0.75
+REACTION react470 0  met34 0.75 met81 1.0 met26 -0.75
+REACTION react471 0  met56 0.75 met19 -0.5
+REACTION react472 0  met54 -1.25 met82 -1.0 met80 1.0 met31 -2.0
+REACTION react473 0  met70 -1.75 met31 0.25 met13 -1.5 met87 -0.75
+REACTION react474 0  met9 -0.75 met43 0.25
+REACTION react475 0  met50 1.5 met4 -0.25 met91 -1.25 met41 1.0 met80 -1.5
+REACTION react476 0  met74 -0.75 met10 0.25 met42 1.25 met9 -1.5 met59 -1.25
+REACTION react477 0  met72 1.75 met3 0.5 met6 -0.75
+REACTION react478 0  met100 -1.25 met71 -1.25 met16 0.5
+REACTION react479 0  met34 -0.75 met82 0.25 met31 -1.0 met45 -1.0 met56 -1.5
+REACTION react480 0  met97 -1.25 met90 1.5 met40 1.25
+REACTION react481 0  met48 1.25 met21 1.0 met49 -2.0 met12 -1.5 met27 0.25
+REACTION react482 0  met92 -1.0 met1 -1.5 met83 -0.75 met86 -1.5 met81 1.25
+REACTION react483 0  met62 -1.75 met81 1.75 met15 -1.75
+REACTION react484 0  met96 0.75 met34 -0.5 met70 -1.5
+REACTION react485 0  met9 1.0 met63 0.5 met99 -1.75 met75 0.25
+REACTION react486 0  met15 1.75 met71 0.75 met6 -1.0
+REACTION react487 0  met63 -1.25 met23 0.75 met49 1.25 met87 1.0 met32 -2.0
+REACTION react488 0  met83 1.75 met44 -1.5 met58 0.25 met63 -0.75 met56 -1.0
+REACTION react489 0  met60 0.25 met33 0.5 met66 -1.25
+REACTION react490 0  met85 0.75 met24 -1.5
+REACTION react491 0  met7 0.25 met35 -0.75
+REACTION react492 0  met46 1.25 met76 -1.25
+REACTION react493 0  met82 -2.0 met71 0.25
+REACTION react494 0  met49 -0.25 met39 1.25 met44 -1.0 met53 1.75 met42 -2.0
+REACTION react495 0  met98 -0.75 met91 -0.5 met59 0.75
+REACTION react496 0  met58 1.75 met13 -1.0 met30 -1.5
+REACTION react497 0  met60 -1.5 met39 0.25 met58 -1.25 met49 1.5 met20 -1.0
+REACTION react498 0  met66 -1.25 met99 1.25 met83 -0.5 met57 -1.25 met89 1.5
+REACTION react499 0  met2 0.25 met69 -0.75 met57 0.25 met75 1.0
+REACTION react500 0  met68 -1.5 met25 1.5 met93 1.0 met7 -1.25
+REACTION react501 0  met5 -1.25 met28 1.5 met80 -1.0 met91 -0.75
+REACTION react502 0  met83 -1.25 met22 0.25 met6 1.0 met63 -0.75 met77 -0.25
+REACTION react503 0  met44 -1.5 met78 1.0
+REACTION react504 0  met5 -0.25 met54 0.25
+REACTION react505 0  met22 -0.75 met64 0.25
+REACTION react506 0  met94 1.0 met90 -0.25 met26 -1.75 met62 0.75 met75 1.5
+REACTION react507 0  met53 -0.75 met70 0.5 met93 -1.25 met87 -1.25
+REACTION react508 0  met44 0.25 met99 0.25 met97 0.75 met93 0.75 met35 -1.75
+REACTION react509 0  met99 -0.5 met83 1.5
+REACTION react510 0  met16 -2.0 met2 1.25
+REACTION react511 0  met43 -1.5 met93 -1.25 met13 -2.0 met33 0.5 met65 -0.5
+REACTION react512 0  met62 -0.5 met56 1.25
+REACTION react513 0  met35 0.25 met27 0.75 met31 1.75 met10 -1.75 met70 0.5
+REACTION react514 0  met89 -1.75 met50 -0.25 met17 -0.75 met15 -1.5 met23 0.25
+REACTION react515 0  met62 0.25 met27 -0.25
+REACTION react516 0  met25 -1.5 met67 -1.25 met62 0.25
+REACTION react517 0  met84 -0.5 met67 0.75 met59 -1.75
+REACTION react518 0  met91 -1.25 met25 0.5
+REACTION react519 0  met46 -0.25 met73 1.25
+REACTION react520 0  met45 0.75 met43 0.75 met97 -1.0 met83 1.25
+REACTION react521 0  met36 0.75 met51 -0.25 met75 -1.75 met81 -0.75
+REACTION react522 0  met23 1.0 met12 1.5 met97 -0.5 met50 0.75 met93 -0.25
+REACTION react523 0  met82 -2.0 met6 -2.0 met54 -0.75 met78 0.25 met95 0.25
+REACTION react524 0  met10 -0.25 met60 1.75 met88 -1.5 met17 0.5
+REACTION react525 0  met38 0.25 met52 -2.0
+REACTION react526 0  met69 1.25 met58 -0.25
+REACTION react527 0  met83 -2.0 met2 1.25
+REACTION react528 0  met62 -0.5 met55 0.25 met39 -1.75 met87 -1.0 met9 0.25
+REACTION react529 0  met17 1.75 met18 0.75 met15 -1.75
+REACTION react530 0  met72 -0.75 met24 -0.5 met97 -1.0 met5 0.25 met19 1.25
+REACTION react531 0  met91 0.25 met21 0.25 met56 1.5 met39 -1.75
+REACTION react532 0  met46 -0.5 met34 0.75 met67 1.75
+REACTION react533 0  met48 1.5 met25 -0.5 met51 -1.25
+REACTION react534 0  met93 -0.25 met5 1.75 met98 0.5 met19 0.25
+REACTION react535 0  met99 0.25 met70 -0.75 met18 1.25 met54 -1.0
+REACTION react536 0  met22 -1.0 met50 0.25 met89 -0.75 met6 -1.25 met44 1.5
+REACTION react537 0  met21 0.5 met54 -0.25 met73 0.75 met29 -1.25
+REACTION react538 0  met60 -1.0 met89 1.0 met29 -1.25 met6 -2.0
+REACTION react539 0  met35 -0.5 met93 -2.0 met19 0.75
+REACTION react540 0  met13 1.5 met44 -1.0 met17 -2.0 met95 -0.25 met3 -1.0
+REACTION react541 0  met73 1.0 met62 0.25 met72 -1.25
+REACTION react542 0  met9 0.25 met69 -1.0
+REACTION react543 0  met91 -1.0 met69 0.25
+REACTION react544 0  met48 1.75 met66 0.25 met71 -1.25
+REACTION react545 0  met68 0.75 met51 0.25 met71 -1.5 met86 -0.25
+REACTION react546 0  met11 -1.25 met54 1.75
+REACTION react547 0  met17 -0.25 met23 -2.0 met88 0.25
+REACTION react548 0  met39 0.25 met90 -1.5 met28 -0.25 met4 1.25 met73 0.75
+REACTION react549 0  met63 -1.25 met32 1.75 met94 -2.0 met74 -0.5 met88 -1.25
+REACTION react550 0  met29 -2.0 met97 -1.75 met13 0.5
+REACTION react551 0  met13 0.75 met49 -1.25
+REACTION react552 0  met17 1.5 met82 1.0 met38 -0.5 met58 -2.0 met22 -1.0
+REACTION react553 0  met68 1.25 met24 -0.5 met17 0.25 met96 0.25
+REACTION react554 0  met35 0.5 met38 -0.25
+REACTION react555 0  met58 1.5 met68 0.25 met79 1.0 met15 -0.75
+REACTION react556 0  met22 0.25 met15 1.75 met53 -2.0
+REACTION react557 0  met82 -1.75 met80 0.25 met90 -1.25 met40 -1.5
+REACTION react558 0  met61 0.25 met22 -0.25 met86 0.5
+REACTION react559 0  met18 -0.25 met3 1.5
+REACTION react560 0  met39 -1.75 met71 -1.75 met6 -2.0 met85 -0.75 met66 1.75
+REACTION react561 0  met68 1.0 met92 -1.25 met52 1.75 met37 -1.5
+REACTION react562 0  met44 1.25 met83 -0.25
+REACTION react563 0  met28 -1.5 met40 0.25
+REACTION react564 0  met54 -0.75 met73 -0.25 met60 1.5 met100 -0.25 met10 1.0
+REACTION react565 0  met98 -0.25 met84 0.25 met87 -1.25 met23 -1.5
+REACTION react566 0  met46 -1.75 met62 -0.75 met2 -0.75 met16 1.75
+REACTION react567 0  met14 -1.25 met15 0.25
+REACTION react568 0  met79 1.5 met4 -1.75
+REACTION react569 0  met4 -1.5 met9 1.5 met70 0.75
+REACTION react570 0  met68 0.5 met29 -1.75 met49 1.5 met95 0.5
+REACTION react571 0  met50 0.25 met15 1.25 met11 0.25 met54 -2.0
+REACTION react572 0  met68 -1.5 met31 -1.75 met61 1.25 met99 1.25
+REACTION react573 0  met49 -1.0 met29 1.5 met97 -1.75
+REACTION react574 0  met80 0.75 met26 -0.5
+REACTION react575 0  met78 -1.0 met74 0.75 met77 -1.25
+REACTION react576 0  met76 -2.0 met80 1.0
+REACTION react577 0  met25 -0.75 met87 0.75
+REACTION react578 0  met41 -1.0 met63 1.75 met15 -0.25 met54 1.0
+REACTION react579 0  met77 -0.5 met83 0.25
+REACTION react580 0  met30 0.25 met99 1.25 met78 0.25 met61 -1.5
+REACTION react581 0  met46 1.75 met90 -0.5
+REACTION react582 0  met19 -0.75 met42 0.75
+REACTION react583 0  met29 -1.75 met16 -2.0 met81 -2.0 met91 0.5
+REACTION react584 0  met1 -0.75 met59 -1.5 met56 1.5
+REACTION react585 0  met5 1.25 met31 -1.5 met92 1.0 met79 -1.0 met53 -1.5
+REACTION react586 0  met52 1.5 met1 -2.0
+REACTION react587 0  met93 0.5 met56 -1.0
+REACTION react588 0  met15 -1.0 met47 0.75
+REACTION react589 0  met99 -0.25 met9 1.5 met13 1.75 met56 1.75 met60 0.25
+REACTION react590 0  met67 -1.0 met45 0.5 met16 -1.75 met78 -1.0
+REACTION react591 0  met61 -1.5 met73 1.5 met89 -1.75
+REACTION react592 0  met64 0.5 met48 1.75 met11 1.0 met9 -1.75
+REACTION react593 0  met85 -1.5 met89 1.75
+REACTION react594 0  met20 -1.0 met95 -2.0 met14 1.75
+REACTION react595 0  met95 0.25 met12 -0.75 met40 -1.0 met66 -2.0
+REACTION react596 0  met39 1.75 met74 -0.75 met46 1.5
+REACTION react597 0  met4 1.5 met55 -1.5
+REACTION react598 0  met50 -0.75 met91 0.5 met7 0.5 met78 1.5 met29 0.5
+REACTION react599 0  met56 -1.0 met3 0.25
+REACTION react600 0  met16 -1.0 met51 1.5 met50 1.25 met77 -0.5 met79 -0.75
+REACTION react601 0  met91 -0.75 met58 -1.5 met42 0.5
+REACTION react602 200  met61 0.25 met72 0.25 met32 -2.0 met10 0.25 met15 -0.5
+REACTION react603 200  met75 -1.75 met55 0.75
+REACTION react604 300  met25 -2.0 met17 1.0 met30 1.75 met78 -0.5
+REACTION react605 300  met82 -0.5 met1 1.25 met86 -0.75
+REACTION react606 200  met49 -1.25 met1 -0.75 met36 -1.0 met19 -1.5 met68 0.25
+REACTION react607 300  met9 0.5 met18 -1.25 met76 -1.75 met86 0.75
+REACTION react608 300  met100 -1.75 met77 0.25 met73 -1.0 met76 1.25 met59 -2.0
+REACTION react609 300  met68 0.75 met48 -0.5 met45 -2.0 met94 -1.25
+REACTION react610 300  met83 1.5 met81 -0.75
+REACTION react611 100  met86 -2.0 met4 -0.25 met58 2.0
+REACTION react612 300  met45 1.0 met79 1.0 met73 1.0 met32 -0.25
+REACTION react613 300  met1 1.25 met96 -0.5
+REACTION react614 100  met44 -0.75 met49 0.5 met55 -1.5 met20 -1.25 met73 -0.75
+REACTION react615 300  met97 -2.0 met36 -1.25 met21 -2.0 met41 1.75 met90 0.75
+REACTION react616 200  met31 -1.5 met21 -2.0 met14 -0.5 met52 0.25
+REACTION react617 100  met46 -2.0 met4 0.25 met2 1.0 met89 1.75
+REACTION react618 200  met76 1.0 met43 1.25 met46 -1.75
+REACTION react619 200  met9 -2.0 met90 0.25 met43 0.75 met87 -1.75 met1 -1.75
+REACTION react620 100  met99 1.75 met55 -0.75 met36 -1.0
+REACTION react621 200  met76 -2.0 met45 0.75 met17 0.5
+REACTION react622 100  met48 0.25 met16 -1.0
+REACTION react623 200  met30 -2.0 met36 -1.75 met73 -0.5 met21 0.75 met86 0.25
+REACTION react624 200  met78 -2.0 met66 1.5 met29 0.25
+REACTION react625 100  met98 1.0 met26 -0.75 met13 0.25 met11 -0.25 met21 0.5
+REACTION react626 200  met15 1.75 met59 1.75 met22 0.5 met13 1.75 met56 -1.5
+REACTION react627 300  met19 1.75 met46 0.5 met31 -0.5
+REACTION react628 100  met10 1.25 met71 -0.5
+REACTION react629 200  met11 -1.75 met73 1.25
+REACTION react630 200  met48 1.75 met15 0.25 met78 -1.5 met6 1.5 met59 1.0
+REACTION react631 300  met54 0.75 met77 -1.0 met41 1.75 met88 0.25 met35 1.25
+REACTION react632 100  met35 0.75 met18 0.25 met13 0.5 met56 -1.5
+REACTION react633 200  met71 -2.0 met17 0.5 met89 1.75 met93 0.5 met20 -0.25
+REACTION react634 200  met87 -2.0 met79 -1.75 met71 1.25 met62 0.25 met63 1.5
+REACTION react635 300  met61 -0.75 met58 1.25
+REACTION react636 200  met6 1.5 met61 0.25 met22 -1.75 met75 0.25 met59 -0.25
+REACTION react637 300  met52 -0.25 met84 -2.0 met62 0.5 met37 -1.75
+REACTION react638 300  met29 -0.25 met100 2.0
+REACTION react639 300  met79 1.75 met22 -2.0 met96 -0.75 met94 -1.0
+REACTION react640 100  met20 1.0 met88 -1.5
+REACTION react641 300  met72 -0.5 met33 1.75
+REACTION react642 200  met12 0.25 met21 0.25 met31 1.0 met68 -0.5
+REACTION react643 300  met59 1.75 met77 -1.25 met87 1.75 met85 -1.75
+REACTION react644 100  met92 -1.0 met31 0.5
+REACTION react645 300  met76 0.25 met72 0.5 met21 -0.25
+REACTION react646 200  met22 1.0 met49 -1.5 met82 1.0
+REACTION react647 300  met53 0.25 met97 0.25 met21 -2.0 met12 1.0 met25 0.25
+REACTION react648 300  met91 1.0 met24 1.25 met69 -1.75
+REACTION react649 300  met40 1.5 met56 0.25 met58 1.0 met20 1.75 met74 -1.25
+REACTION react650 100  met1 0.25 met4 -0.5 met6 -1.0 met98 1.0
+REACTION react651 100  met79 1.25 met78 0.25 met74 -1.25 met92 0.75 met81 -1.5
+REACTION react652 100  met93 1.25 met66 0.25 met2 1.5 met64 1.75 met6 -1.0
+REACTION react653 300  met58 -1.5 met18 -0.75 met85 0.75
+REACTION react654 100  met18 1.25 met36 1.0 met40 -1.75
+REACTION react655 300  met45 -0.5 met86 -1.5 met94 1.5
+REACTION react656 100  met94 0.25 met25 -1.5
+REACTION react657 300  met48 -1.25 met26 1.0
+REACTION react658 300  met60 -0.25 met57 1.0 met83 -0.25 met52 1.75
+REACTION react659 300  met96 -1.5 met74 1.0
+REACTION react660 100  met85 0.25 met91 1.75 met75 0.25 met63 1.75 met14 -1.75
+REACTION react661 100  met35 0.25 met44 0.5 met72 -1.25 met87 -1.75 met21 -1.0
+REACTION react662 100  met23 -1.5 met27 -0.25 met69 -1.75 met95 -0.25 met84 2.0
+REACTION react663 300  met42 0.25 met90 -1.0
+REACTION react664 100  met13 -0.75 met20 -0.25 met90 1.75
+REACTION react665 100  met75 -0.25 met53 -0.25 met33 0.25
+REACTION react666 100  met31 -1.5 met29 -0.5 met82 1.5 met75 0.25
+REACTION react667 300  met98 1.5 met1 -1.0 met18 1.0 met4 0.25 met12 1.5
+REACTION react668 300  met54 -1.5 met39 -0.25 met84 0.5
+REACTION react669 100  met33 1.75 met66 0.5 met15 -1.25 met40 1.0
+REACTION react670 300  met42 1.5 met74 -0.5 met1 -1.5 met43 0.5
+REACTION react671 300  met97 0.75 met76 -0.25 met15 0.25 met39 0.25 met70 -0.75
+REACTION react672 100  met47 -0.5 met43 -0.25 met40 -1.75 met62 1.25
+REACTION react673 300  met49 -2.0 met84 1.0 met35 1.75 met94 1.25 met63 -1.5
+REACTION react674 200  met5 -2.0 met29 -1.5 met6 -0.25 met20 0.75
+REACTION react675 100  met63 -2.0 met66 1.25 met30 1.0 met79 0.75 met11 -0.25
+REACTION react676 100  met31 0.5 met47 -1.25 met94 -0.75 met69 1.75
+REACTION react677 100  met45 -2.0 met72 1.25 met67 0.25 met56 1.25
+REACTION react678 100  met27 -0.25 met14 -0.75 met62 1.5 met56 -1.5 met20 -0.75
+REACTION react679 100  met61 0.25 met99 -1.5
+REACTION react680 200  met77 0.25 met73 -0.5 met69 -1.0
+REACTION react681 200  met89 1.25 met18 -0.75
+REACTION react682 300  met28 0.25 met25 0.25 met45 -2.0 met62 -2.0
+REACTION react683 300  met88 1.5 met21 -0.25 met41 0.25 met66 -1.0
+REACTION react684 200  met46 0.25 met47 -0.75 met3 1.5
+REACTION react685 200  met64 -1.0 met79 -1.5 met12 0.5 met48 0.5
+REACTION react686 100  met53 0.25 met11 -0.5 met97 1.5 met1 -0.25
+REACTION react687 100  met46 -1.25 met18 1.25 met16 -1.75 met86 -1.5 met85 0.25
+REACTION react688 200  met96 -1.5 met86 1.0 met6 1.25
+REACTION react689 100  met71 -1.5 met59 0.5 met28 1.0 met52 1.5
+REACTION react690 200  met95 0.25 met21 0.5 met69 -2.0
+REACTION react691 100  met13 -0.25 met72 -1.25 met53 -1.75 met65 -1.75 met7 1.0
+REACTION react692 200  met27 -0.75 met96 1.25 met50 1.25 met2 0.5
+REACTION react693 300  met71 -1.75 met13 0.75
+REACTION react694 200  met23 -0.75 met57 0.75 met90 -1.75 met2 0.75 met8 1.5
+REACTION react695 300  met95 1.0 met91 -1.75 met30 -1.5 met61 -2.0
+REACTION react696 100  met90 -1.75 met15 0.25
+REACTION react697 100  met84 -1.75 met31 -0.25 met69 1.75
+REACTION react698 200  met51 1.75 met55 -0.25 met87 -1.75 met4 1.75
+REACTION react699 200  met36 -1.5 met73 0.25 met6 0.25 met57 0.25
+REACTION react700 300  met86 -2.0 met57 -1.5 met88 -2.0 met71 1.0 met62 0.25
+REACTION react701 200  met95 -1.75 met92 -1.25 met25 0.25
+REACTION react702 200  met17 0.5 met79 1.0 met95 -0.5
+REACTION react703 100  met79 -0.25 met8 1.75
+REACTION react704 100  met89 -1.75 met46 -1.5 met76 -1.75 met48 1.5
+REACTION react705 300  met47 1.25 met51 -0.25 met70 1.75 met78 1.75
+REACTION react706 300  met96 -0.75 met98 -1.75 met72 -1.0 met79 -1.5 met22 1.0
+REACTION react707 100  met15 0.25 met21 -0.75
+REACTION react708 200  met67 -0.5 met34 1.5 met97 0.5 met79 -2.0
+REACTION react709 100  met79 1.5 met86 0.5 met3 0.75 met20 1.75 met71 -0.5
+REACTION react710 100  met51 0.5 met74 -1.5 met30 1.5 met13 -0.5
+REACTION react711 100  met86 0.25 met82 -0.25
+REACTION react712 100  met30 -2.0 met56 -1.0 met22 -0.5 met24 0.25
+REACTION react713 300  met46 -1.75 met19 1.25 met3 1.25 met89 -1.5
+REACTION react714 300  met26 0.25 met3 0.75 met77 -1.5 met90 0.25
+REACTION react715 200  met94 -1.5 met58 1.0 met81 1.25 met57 1.0 met87 -1.25
+REACTION react716 100  met67 -0.25 met17 1.5
+REACTION react717 100  met89 -0.75 met29 -1.0 met48 -1.5 met13 -1.25 met1 1.25
+REACTION react718 100  met46 -0.75 met9 -1.75 met40 -1.25 met89 0.5
+REACTION react719 200  met40 -1.25 met80 -0.75 met55 0.25
+REACTION react720 200  met68 -1.5 met91 -1.75 met78 0.25 met72 1.75
+REACTION react721 100  met27 1.5 met79 0.25 met17 -1.75
+REACTION react722 300  met3 1.0 met2 0.25 met55 -2.0
+REACTION react723 200  met4 -1.75 met78 0.25
+REACTION react724 100  met74 0.25 met53 -2.0 met86 0.25 met45 -0.75 met85 -1.5
+REACTION react725 100  met83 -0.75 met18 -1.0 met82 0.5
+REACTION react726 200  met90 0.25 met43 1.25 met47 -0.25
+REACTION react727 100  met67 1.75 met10 1.75 met84 -1.25
+REACTION react728 200  met5 -0.75 met74 0.75
+REACTION react729 300  met29 -2.0 met91 -0.25 met21 -2.0 met18 1.25
+REACTION react730 100  met53 0.25 met34 -0.25
+REACTION react731 200  met98 1.5 met77 1.0 met69 1.5 met95 -0.25
+REACTION react732 300  met96 -0.75 met48 0.25
+REACTION react733 300  met53 -0.75 met93 0.25
+REACTION react734 200  met22 -0.25 met56 -1.75 met84 -1.0 met75 1.25
+REACTION react735 200  met19 -0.5 met24 1.5 met80 -0.5 met88 -1.0 met52 -0.5
+REACTION react736 300  met86 -0.5 met19 1.0 met13 0.5 met100 1.75
+REACTION react737 200  met75 0.25 met26 -1.0
+REACTION react738 100  met33 -0.75 met69 -1.75 met19 1.0
+REACTION react739 100  met96 -0.75 met91 -0.5 met78 -1.25 met3 -0.75 met53 1.75
+REACTION react740 200  met75 0.25 met77 -0.75
+REACTION react741 200  met24 -1.25 met71 0.5
+REACTION react742 300  met62 0.25 met31 1.75 met32 1.0 met39 -2.0
+REACTION react743 200  met16 -0.25 met20 0.75
+REACTION react744 100  met45 -2.0 met59 1.5
+REACTION react745 300  met86 0.75 met44 -1.0 met83 -1.5
+REACTION react746 100  met96 0.75 met3 -1.0 met83 0.25
+REACTION react747 300  met36 -1.0 met45 0.5 met99 -0.5 met64 -0.75 met7 0.25
+REACTION react748 100  met29 -0.5 met75 0.5
+REACTION react749 300  met26 0.25 met41 0.75 met85 1.25 met88 -1.5
+REACTION react750 100  met73 -0.5 met70 -1.0 met26 -1.25 met51 0.5
+REACTION react751 100  met74 0.25 met36 1.75 met66 -0.25
+REACTION react752 300  met22 0.75 met3 -1.25
+REACTION react753 100  met73 0.75 met58 1.75 met87 -0.75 met22 0.25 met100 0.25
+REACTION react754 200  met74 0.25 met7 -1.25 met69 -1.75 met38 -0.25 met16 1.75
+REACTION react755 300  met5 -0.5 met8 -0.75 met89 1.75 met27 1.5 met83 -1.75
+REACTION react756 100  met86 0.25 met67 0.25 met31 -0.75 met40 0.75
+REACTION react757 200  met75 1.25 met43 -1.5
+REACTION react758 100  met18 -1.75 met56 0.75 met69 -0.5
+REACTION react759 200  met90 1.0 met32 1.25 met48 -1.75 met23 0.25 met74 1.75
+REACTION react760 200  met7 0.25 met54 -2.0 met35 -1.25 met29 1.0
+REACTION react761 100  met33 -0.75 met73 1.5 met95 1.0
+REACTION react762 200  met13 -0.75 met50 -0.5 met44 0.5
+REACTION react763 300  met17 1.5 met1 1.0 met16 -1.0
+REACTION react764 200  met72 -1.5 met29 1.5 met22 -0.5 met50 -1.0
+REACTION react765 200  met6 0.5 met41 1.25 met87 -0.25
+REACTION react766 100  met63 0.25 met38 0.5 met76 -1.5 met99 -1.5 met39 -1.5
+REACTION react767 300  met73 0.25 met34 0.25 met55 -0.25 met1 -0.25
+REACTION react768 100  met36 0.25 met17 0.75 met83 -2.0 met96 0.5
+REACTION react769 300  met37 1.25 met87 -0.25
+REACTION react770 300  met94 0.25 met76 -0.25
+REACTION react771 300  met85 0.25 met11 1.25 met57 1.5 met19 -1.0
+REACTION react772 100  met74 -2.0 met91 0.5 met25 -0.5
+REACTION react773 100  met41 1.0 met29 0.25 met65 1.0 met90 0.25 met18 -1.5
+REACTION react774 300  met45 -0.25 met95 -2.0 met3 1.5 met27 -0.5
+REACTION react775 200  met57 -0.5 met14 1.25
+REACTION react776 200  met76 -1.0 met91 -0.25 met68 1.75
+REACTION react777 200  met6 1.5 met93 0.75 met31 -0.25
+REACTION react778 200  met86 1.0 met4 0.5 met32 0.25 met31 -1.0
+REACTION react779 100  met30 -0.75 met4 1.75 met94 -1.25
+REACTION react780 100  met52 -0.75 met57 0.25 met39 1.5 met58 1.0
+REACTION react781 100  met63 0.75 met11 -1.75 met84 -0.75 met15 1.25
+REACTION react782 200  met91 -1.5 met36 0.25 met88 0.75 met55 -1.75
+REACTION react783 100  met8 -0.25 met89 -0.25 met60 -1.25 met10 1.0
+REACTION react784 100  met60 -1.5 met80 1.75
+REACTION react785 100  met54 1.25 met44 1.5 met88 1.25 met59 -1.75 met23 1.75
+REACTION react786 200  met7 0.25 met77 -1.25
+REACTION react787 200  met3 -0.75 met99 -0.5 met41 -0.25 met96 -0.25 met83 1.25
+REACTION react788 300  met48 -2.0 met84 1.0 met61 0.5 met55 -1.75 met19 -2.0
+REACTION react789 200  met53 -1.0 met25 -0.5 met26 -1.5 met10 1.75
+REACTION react790 300  met61 -0.75 met41 -1.5 met20 0.25 met44 -1.75 met60 1.0
+REACTION react791 200  met31 -1.5 met30 0.5 met49 -0.25
+REACTION react792 100  met99 -0.25 met23 1.25
+REACTION react793 300  met88 -0.25 met83 -0.5 met18 -1.5 met44 -2.0 met55 1.5
+REACTION react794 300  met19 -0.5 met51 1.25 met84 0.5 met73 -0.5 met72 -1.25
+REACTION react795 200  met72 -1.75 met98 1.5
+REACTION react796 200  met84 -1.5 met52 1.75
+REACTION react797 100  met47 0.25 met9 -1.5
+REACTION react798 100  met76 -1.5 met23 1.75
+REACTION react799 200  met74 -0.25 met27 1.0 met17 1.25
+REACTION react800 200  met34 -1.25 met55 0.25 met66 -1.25 met70 -1.75 met16 -1.25
+REACTION react801 300  met16 -1.0 met76 0.75
+REACTION react802 300  met81 -0.25 met92 -1.25 met46 1.75 met13 1.5 met60 1.75
+REACTION react803 100  met98 -1.75 met80 -1.75 met73 0.25
+REACTION react804 200  met53 -0.25 met65 0.5
+REACTION react805 200  met81 -1.5 met70 1.0
+REACTION react806 300  met15 -0.5 met14 1.0
+REACTION react807 100  met57 1.5 met87 1.0 met8 0.75 met84 -1.0
+REACTION react808 100  met63 0.75 met43 0.75 met33 1.75 met52 1.25 met65 -1.25
+REACTION react809 200  met37 -0.75 met48 0.75
+REACTION react810 100  met64 0.25 met97 0.25 met78 -2.0 met79 -0.75 met68 -2.0
+REACTION react811 100  met77 -2.0 met36 0.25 met44 -1.25 met41 0.25
+REACTION react812 200  met4 -1.0 met2 1.75
+REACTION react813 200  met59 -1.5 met35 -1.0 met84 1.5
+REACTION react814 300  met26 -1.0 met39 1.0
+REACTION react815 200  met5 -0.5 met2 -0.5 met56 -1.5 met22 1.0
+REACTION react816 300  met88 1.25 met31 -1.5 met93 0.75 met80 1.5
+REACTION react817 200  met18 1.25 met42 -1.0
+REACTION react818 100  met4 0.25 met21 -0.25
+REACTION react819 100  met56 1.5 met5 -1.75 met47 1.75
+REACTION react820 300  met28 1.25 met29 0.5 met45 0.5 met40 -0.75
+REACTION react821 100  met10 0.75 met25 0.25 met26 -0.5
+REACTION react822 300  met44 1.25 met72 -1.5
+REACTION react823 200  met90 -1.5 met85 -0.75 met76 0.25 met72 -1.0
+REACTION react824 100  met36 -0.75 met34 -2.0 met3 -1.75 met50 0.5 met14 -0.5
+REACTION react825 300  met65 1.5 met18 -1.0
+REACTION react826 300  met82 -1.0 met80 -1.5 met26 -1.0 met75 0.25
+REACTION react827 100  met68 -1.75 met28 1.5 met2 -1.75 met89 -0.5
+REACTION react828 100  met96 1.25 met69 1.0 met54 -1.25 met42 -1.0 met74 0.25
+REACTION react829 300  met8 0.25 met47 -0.25
+REACTION react830 300  met1 -2.0 met12 0.25 met26 1.0 met7 0.5
+REACTION react831 100  met52 -1.75 met33 -0.75 met20 0.25
+REACTION react832 300  met24 -0.5 met78 1.5 met76 1.25
+REACTION react833 100  met8 -0.25 met15 -1.5 met66 -0.25 met52 1.25 met71 -0.5
+REACTION react834 200  met11 1.75 met32 -1.25 met21 0.75
+REACTION react835 100  met34 1.75 met3 0.75 met61 -2.0 met96 0.5
+REACTION react836 100  met38 -1.0 met94 1.5
+REACTION react837 100  met6 -1.75 met21 -1.75 met62 -0.75 met51 -1.0 met89 1.5
+REACTION react838 100  met14 -0.5 met27 0.75 met94 0.75 met96 -2.0 met44 1.75
+REACTION react839 100  met24 1.75 met85 -0.75 met63 0.25 met2 -0.25 met91 -1.0
+REACTION react840 200  met4 -0.25 met63 1.0
+REACTION react841 200  met19 -1.0 met84 -0.25 met37 1.5
+REACTION react842 300  met17 -2.0 met94 0.25
+REACTION react843 100  met37 0.25 met13 0.25 met11 -0.25
+REACTION react844 100  met27 1.0 met88 -1.75 met4 -0.5
+REACTION react845 300  met94 1.5 met83 -1.5
+REACTION react846 200  met96 0.75 met10 0.5 met2 1.5 met93 -1.75
+REACTION react847 100  met6 1.5 met55 0.25 met80 0.75 met24 -1.25 met27 1.0
+REACTION react848 100  met12 1.0 met30 -0.75 met93 -1.75 met83 1.25
+REACTION react849 300  met56 -1.75 met96 0.5 met2 -0.75 met18 -1.5
+REACTION react850 300  met79 0.25 met83 0.75 met41 0.75 met82 0.25 met49 -2.0
+REACTION react851 200  met24 1.0 met6 -1.5 met85 0.5 met88 1.75 met82 0.25
+REACTION react852 300  met57 1.75 met77 1.75 met72 -0.25
+REACTION react853 300  met5 0.5 met97 1.5 met86 -1.25
+REACTION react854 200  met86 -2.0 met17 0.25
+REACTION react855 200  met22 1.75 met69 1.5 met11 1.25 met38 -0.75
+REACTION react856 200  met26 -2.0 met73 1.75
+REACTION react857 100  met82 1.0 met95 -1.25 met7 -0.25
+REACTION react858 300  met67 1.75 met30 -0.5
+REACTION react859 300  met67 -1.0 met19 1.5
+REACTION react860 200  met15 -1.5 met66 0.25 met7 -1.75
+REACTION react861 200  met49 -1.0 met7 -1.25 met90 0.25
+REACTION react862 300  met68 0.25 met69 -1.5
+REACTION react863 200  met48 0.5 met79 1.0 met92 -1.75
+REACTION react864 200  met49 1.5 met25 -1.25
+REACTION react865 100  met59 1.5 met47 1.25 met48 -0.5 met10 0.5 met26 -1.25
+REACTION react866 100  met14 0.5 met69 -1.25 met48 1.0 met70 1.25 met56 -0.5
+REACTION react867 200  met71 -1.75 met27 -1.5 met75 0.5
+REACTION react868 100  met44 -1.75 met19 1.0
+REACTION react869 200  met73 1.25 met36 -0.5 met8 0.5 met16 0.5 met19 -1.0
+REACTION react870 200  met31 1.0 met22 1.75 met58 -0.25 met14 -1.5 met7 -1.25
+REACTION react871 200  met90 -1.25 met49 -2.0 met39 1.0 met50 -0.75
+REACTION react872 100  met44 -0.75 met66 -0.5 met47 -0.5 met82 1.25 met35 1.5
+REACTION react873 300  met19 -2.0 met32 -1.75 met83 -1.25 met96 1.5
+REACTION react874 200  met40 1.0 met32 0.75 met24 -0.5 met96 -1.0
+REACTION react875 200  met96 -1.0 met57 1.0 met37 1.25 met86 1.0
+REACTION react876 200  met85 -1.75 met98 1.5 met38 -2.0 met60 -1.5 met79 -0.75
+REACTION react877 200  met88 -1.75 met86 0.5
+REACTION react878 300  met70 -0.5 met22 1.25 met57 -1.25
+REACTION react879 300  met13 -1.75 met27 1.75 met58 -0.25 met96 -1.75
+REACTION react880 100  met11 1.75 met44 -1.75 met91 0.25 met97 -1.75 met55 1.75
+REACTION react881 200  met29 -2.0 met62 0.75
+REACTION react882 300  met48 -0.75 met76 -0.25 met70 2.0
+REACTION react883 300  met56 1.0 met39 -1.0 met68 -0.25
+REACTION react884 100  met51 -1.25 met10 -1.0 met47 -0.5 met66 0.25 met21 0.25
+REACTION react885 300  met6 1.75 met77 -0.75
+REACTION react886 300  met22 -1.75 met49 -2.0 met83 1.75
+REACTION react887 200  met90 0.25 met81 0.25 met78 0.5 met50 -0.25
+REACTION react888 300  met74 -0.75 met10 -1.75 met11 -0.75 met36 1.75
+REACTION react889 100  met83 -0.5 met82 0.25
+REACTION react890 200  met96 -2.0 met64 0.75
+REACTION react891 100  met46 0.5 met59 1.5 met91 -1.75 met10 -2.0 met20 0.5
+REACTION react892 200  met73 0.5 met42 -0.75 met82 1.25
+REACTION react893 300  met17 -2.0 met98 -0.25 met81 1.5 met18 -1.5 met91 -1.0
+REACTION react894 300  met34 1.25 met67 -0.25 met55 -1.5 met68 1.0 met95 0.25
+REACTION react895 200  met9 1.0 met39 -1.75 met47 -1.25 met25 1.5 met97 -0.75
+REACTION react896 300  met87 -0.25 met83 0.25 met89 0.25
+REACTION react897 200  met20 1.75 met28 1.25 met40 -0.75 met90 1.25
+REACTION react898 300  met34 -1.0 met40 0.5 met31 1.0
+REACTION react899 200  met30 1.5 met45 -1.5
+REACTION react900 100  met77 -1.0 met52 -1.75 met21 1.5
+REACTION react901 100  met65 -1.75 met87 0.25
+REACTION react902 100  met47 -1.5 met54 0.25 met31 -1.5 met46 1.75 met20 1.5
+REACTION react903 200  met37 -0.5 met79 -1.5 met14 -1.75 met38 0.25 met72 0.25
+REACTION react904 300  met19 0.5 met56 -1.75 met68 -2.0 met23 -2.0
+REACTION react905 300  met34 -1.5 met66 0.75
+REACTION react906 200  met98 0.25 met97 -0.5
+REACTION react907 100  met10 -0.5 met54 -0.5 met80 1.5 met42 -0.25
+REACTION react908 100  met31 0.25 met65 -2.0 met85 0.25 met21 0.5 met33 -0.75
+REACTION react909 100  met70 -0.25 met94 0.25 met75 -1.0 met23 -1.0
+REACTION react910 300  met37 -1.25 met56 0.5 met31 1.0
+REACTION react911 200  met72 -1.25 met85 -1.25 met7 0.75
+REACTION react912 200  met77 0.25 met60 -2.0
+REACTION react913 100  met63 -2.0 met97 0.25 met2 0.5 met84 -0.25 met88 0.75
+REACTION react914 200  met2 -0.5 met25 1.25 met68 -0.5 met30 0.25 met18 -1.5
+REACTION react915 100  met36 -0.25 met1 0.5 met2 1.75 met76 -0.75
+REACTION react916 300  met36 -2.0 met38 1.25
+REACTION react917 100  met43 -1.25 met27 -0.25 met1 -1.25 met48 0.5
+REACTION react918 300  met82 -1.5 met68 1.5 met90 1.25
+REACTION react919 200  met59 -0.75 met61 -0.5 met11 -0.75 met8 1.75
+REACTION react920 200  met42 1.75 met77 -0.25 met27 1.5 met40 -0.5 met33 -2.0
+REACTION react921 100  met74 0.5 met94 0.5 met23 -0.25 met52 -1.25 met75 1.0
+REACTION react922 300  met29 -1.75 met36 1.75
+REACTION react923 300  met14 -0.75 met23 -0.25 met1 -0.5 met58 0.75
+REACTION react924 300  met12 -1.5 met50 0.25
+REACTION react925 200  met57 -2.0 met13 2.0
+REACTION react926 300  met69 -1.0 met25 -0.25 met11 -0.5 met57 -0.5 met36 0.25
+REACTION react927 200  met61 -1.25 met30 1.0 met14 -0.25 met60 -1.25 met25 1.25
+REACTION react928 200  met65 -2.0 met32 -1.75 met23 1.5 met57 -0.25 met97 -1.75
+REACTION react929 100  met99 1.0 met84 -1.0 met49 -1.75
+REACTION react930 200  met71 -1.75 met17 0.25 met12 0.25
+REACTION react931 100  met50 -1.25 met97 -2.0 met76 0.75 met18 -0.5 met87 -0.75
+REACTION react932 200  met58 1.75 met49 -1.25 met89 1.25 met23 1.75 met47 0.5
+REACTION react933 100  met96 -1.25 met53 1.5 met20 0.5
+REACTION react934 100  met50 0.25 met72 0.5 met71 -0.5 met86 -1.75 met54 -1.25
+REACTION react935 200  met31 -1.75 met24 1.5 met81 -1.25 met28 1.75
+REACTION react936 100  met97 0.25 met10 -1.0
+REACTION react937 100  met30 0.75 met80 0.25 met23 -0.25
+REACTION react938 300  met50 -0.5 met45 -0.25 met2 0.25 met34 -0.75 met14 -0.5
+REACTION react939 300  met42 1.5 met95 0.25 met77 0.25 met87 -1.75
+REACTION react940 200  met41 -1.25 met25 0.25 met81 0.25 met11 -0.75
+REACTION react941 300  met67 1.75 met34 -1.5 met55 -1.25 met75 -1.0
+REACTION react942 200  met71 -0.25 met17 0.25
+REACTION react943 100  met24 0.75 met79 -1.75 met27 -1.5 met47 -1.5
+REACTION react944 300  met74 1.75 met65 -1.0
+REACTION react945 300  met49 -0.75 met99 1.75
+REACTION react946 300  met33 1.5 met83 -0.5
+REACTION react947 300  met4 -2.0 met1 -1.5 met83 1.5 met2 0.25
+REACTION react948 300  met33 -0.25 met47 -1.75 met24 1.0 met59 -1.5 met13 -1.25
+REACTION react949 100  met91 1.25 met25 -1.5
+REACTION react950 200  met26 -0.5 met70 2.0
+REACTION react951 200  met31 -2.0 met34 0.75
+REACTION react952 300  met25 0.25 met6 -1.0 met41 -1.5
+REACTION react953 100  met41 1.75 met62 -0.25 met55 -0.75 met90 1.75
+REACTION react954 100  met3 0.5 met81 -1.5
+REACTION react955 200  met18 -1.75 met53 -0.5 met2 0.25 met23 1.75 met31 0.5
+REACTION react956 300  met18 1.5 met40 -1.75 met47 -0.75 met28 -1.5
+REACTION react957 300  met64 -1.0 met72 0.75 met11 1.5 met23 1.0 met67 0.25
+REACTION react958 300  met66 1.75 met92 0.25 met76 -1.75 met56 -0.25
+REACTION react959 200  met48 0.25 met9 -0.75
+REACTION react960 200  met66 -1.5 met81 1.0
+REACTION react961 300  met96 1.0 met94 -0.25
+REACTION react962 100  met69 1.5 met53 -0.5 met28 -0.25
+REACTION react963 100  met71 -1.25 met39 -1.25 met7 1.75 met65 0.75 met12 -1.0
+REACTION react964 100  met90 0.5 met34 -0.5 met36 0.75 met55 0.5
+REACTION react965 200  met42 1.25 met23 -0.25 met90 -0.25 met24 0.25 met10 -1.75
+REACTION react966 200  met61 0.5 met74 -1.0 met98 1.5 met63 -0.5
+REACTION react967 200  met78 -0.5 met89 1.25
+REACTION react968 100  met67 -1.5 met75 -0.5 met92 -1.75 met35 -0.25 met98 0.75
+REACTION react969 100  met27 -1.25 met9 -1.75 met100 -2.0 met23 0.5
+REACTION react970 200  met87 1.5 met78 0.5 met64 1.25 met29 -0.75
+REACTION react971 300  met54 -1.25 met42 0.25 met44 1.0 met15 1.5
+REACTION react972 100  met100 1.0 met39 0.75 met59 -0.75
+REACTION react973 300  met28 -2.0 met84 1.75 met48 0.25
+REACTION react974 100  met26 0.75 met4 1.75 met51 -1.25
+REACTION react975 100  met15 0.25 met65 0.5 met84 -1.75 met80 1.0
+REACTION react976 100  met97 1.25 met95 1.5 met38 1.75 met92 -1.0 met33 -0.25
+REACTION react977 200  met75 -1.75 met67 1.25
+REACTION react978 300  met51 1.75 met94 -1.0
+REACTION react979 300  met2 -1.0 met100 1.75 met65 1.25
+REACTION react980 200  met64 -0.75 met41 -0.25 met97 -0.25 met81 0.5
+REACTION react981 100  met43 1.0 met73 -0.25 met16 1.25 met81 -1.0
+REACTION react982 100  met85 -1.75 met96 -0.25 met90 -0.75 met34 1.0
+REACTION react983 100  met11 1.75 met42 0.25 met56 -0.75 met64 1.75 met85 -0.75
+REACTION react984 300  met51 -2.0 met18 1.75 met20 1.75 met95 -0.75 met26 -1.25
+REACTION react985 300  met18 -2.0 met64 0.5 met75 -2.0 met53 -1.5 met11 1.75
+REACTION react986 100  met72 0.25 met21 -1.5
+REACTION react987 100  met99 0.75 met60 -1.0 met90 0.75 met83 -1.75 met30 1.25
+REACTION react988 100  met12 0.75 met39 -0.25 met31 1.75 met65 0.25 met23 1.0
+REACTION react989 200  met50 1.25 met39 -2.0 met25 1.0 met89 -1.75
+REACTION react990 100  met48 -0.25 met25 0.5 met78 -2.0 met28 -0.75 met11 0.25
+REACTION react991 200  met57 -2.0 met44 -1.5 met16 0.5
+REACTION react992 100  met89 -1.75 met63 -1.0 met8 0.5 met82 -1.25
+REACTION react993 100  met56 1.25 met54 -1.5 met30 -0.25
+REACTION react994 200  met23 -1.75 met98 0.5 met44 1.25
+REACTION react995 100  met88 -1.0 met80 0.25 met40 -0.75 met48 -0.75
+REACTION react996 200  met85 -2.0 met16 -1.5 met19 -0.25 met62 1.0
+REACTION react997 300  met31 -1.75 met2 0.5
+REACTION react998 300  met82 1.75 met98 -2.0 met34 -0.75 met16 1.5
+REACTION react999 300  met3 -0.25 met44 1.5
+REACTION react1000 100  met12 -1.5 met22 -2.0 met46 0.25 met24 1.0
+REACTION react1001 100  met75 0.5 met87 1.0 met99 -1.75 met81 -2.0 met16 -2.0
+REACTION react1002 300  met25 -0.25 met43 0.5 met76 1.75 met75 -1.75 met41 0.5
+REACTION react1003 200  met50 0.25 met87 0.75 met58 -0.5 met61 -0.5 met84 -1.75
+REACTION react1004 100  met81 1.75 met52 -1.75
+REACTION react1005 100  met93 0.25 met47 -2.0 met17 1.25 met97 1.0
+REACTION react1006 200  met26 0.5 met80 1.75 met100 -0.25
+REACTION react1007 100  met96 -1.75 met75 0.5 met92 1.5 met19 0.25 met65 -1.5
+REACTION react1008 200  met12 1.25 met80 -0.25
+REACTION react1009 100  met77 0.75 met65 -0.25 met3 -1.5 met9 0.5
+REACTION react1010 300  met52 -1.0 met90 -0.5 met34 0.5 met64 0.5 met50 -1.25
+REACTION react1011 100  met53 -1.25 met74 1.5
+REACTION react1012 100  met84 1.25 met27 1.5 met63 -0.5
+REACTION react1013 100  met100 -2.0 met7 -1.75 met1 -0.25 met65 0.25
+REACTION react1014 300  met23 0.75 met80 -1.5 met1 1.5 met29 0.25 met51 0.25
+REACTION react1015 300  met88 -0.25 met91 -0.75 met63 0.25 met32 0.25
+REACTION react1016 100  met76 1.25 met22 -1.75
+REACTION react1017 300  met16 -1.75 met86 1.5
+REACTION react1018 100  met8 -0.25 met94 0.75 met62 -0.25 met4 -1.75 met79 -0.5
+REACTION react1019 200  met89 0.75 met85 -1.75 met26 -0.75 met23 1.75 met86 0.25
+REACTION react1020 200  met68 -1.5 met34 0.25 met10 -1.25
+REACTION react1021 300  met79 0.25 met88 -1.25 met2 1.5
+REACTION react1022 200  met89 -0.25 met15 1.75 met18 1.25
+REACTION react1023 300  met43 -1.25 met62 1.0 met64 0.5 met53 -1.0 met86 0.25
+REACTION react1024 300  met92 1.5 met77 -2.0 met10 -0.75
+REACTION react1025 300  met85 1.0 met90 -1.75 met8 0.25 met18 1.0 met15 0.5
+REACTION react1026 100  met69 -0.5 met66 1.0 met27 1.75 met91 1.25 met14 0.25
+REACTION react1027 300  met2 1.0 met95 0.25 met68 1.0 met23 -0.75
+REACTION react1028 100  met29 -1.0 met42 -0.25 met48 0.75
+REACTION react1029 200  met59 1.5 met68 -0.5 met57 -2.0
+REACTION react1030 100  met91 1.25 met30 -0.5
+REACTION react1031 200  met12 1.5 met71 -1.5
+REACTION react1032 100  met16 -0.5 met71 1.25 met11 0.25 met90 -0.25
+REACTION react1033 200  met36 -0.75 met37 -1.0 met67 -0.5 met13 0.25 met3 -0.75
+REACTION react1034 200  met38 0.5 met85 1.75 met67 -1.0
+REACTION react1035 300  met64 1.0 met92 -1.75 met98 -1.0 met78 -0.75
+REACTION react1036 100  met80 -0.25 met53 -1.5 met84 -1.0 met70 1.0
+REACTION react1037 300  met55 1.5 met100 1.25 met58 -0.25
+REACTION react1038 200  met27 -2.0 met56 -1.25 met12 -1.25 met69 1.25
+REACTION react1039 200  met21 1.5 met8 -0.5
+REACTION react1040 100  met37 0.25 met32 -1.0 met81 -0.5 met59 1.0 met27 -2.0
+REACTION react1041 200  met86 -1.75 met7 -0.25 met35 1.5
+REACTION react1042 100  met67 -0.25 met46 0.5
+REACTION react1043 100  met71 -1.25 met84 -0.25 met11 -2.0 met62 0.5 met90 0.25
+REACTION react1044 300  met48 1.75 met4 -1.75 met82 -0.25
+REACTION react1045 300  met18 -1.0 met69 -1.25 met97 -0.75 met76 -0.75 met17 0.5
+REACTION react1046 200  met1 -1.5 met59 -2.0 met53 -0.5 met65 1.25
+REACTION react1047 100  met46 0.25 met1 0.5 met63 1.75 met3 1.5 met11 -1.75
+REACTION react1048 100  met25 -1.5 met11 1.0
+REACTION react1049 100  met25 -0.75 met23 1.75 met66 -1.0 met63 1.0 met48 -0.25
+REACTION react1050 100  met45 0.75 met78 1.5 met71 0.75 met18 1.75 met49 -1.75
+REACTION react1051 300  met85 1.75 met97 -0.75 met96 -1.25
+REACTION react1052 200  met94 -0.75 met77 0.75
+REACTION react1053 200  met82 -0.75 met66 1.25 met4 -1.75 met43 -1.0 met37 -1.75
+REACTION react1054 300  met48 -2.0 met36 -0.75 met32 1.0 met51 -0.5
+REACTION react1055 100  met90 0.25 met65 -1.25
+REACTION react1056 200  met21 0.5 met73 0.5 met12 1.25 met84 -1.25 met79 0.25
+REACTION react1057 100  met74 -1.25 met35 -0.75 met83 -0.5 met20 0.25 met73 1.25
+REACTION react1058 300  met65 1.0 met57 -0.75 met11 -1.5
+REACTION react1059 200  met10 0.25 met40 -1.0 met98 0.75 met2 -0.75 met26 -0.25
+REACTION react1060 200  met11 -2.0 met64 1.5
+REACTION react1061 300  met57 1.75 met55 -1.5 met66 1.25
+REACTION react1062 300  met20 -1.0 met3 1.0 met9 0.5
+REACTION react1063 300  met19 -1.5 met76 1.25
+REACTION react1064 100  met35 -2.0 met42 -0.75 met16 1.75 met29 0.5 met90 -0.75
+REACTION react1065 300  met100 1.75 met31 0.75 met55 0.75 met12 -1.25
+REACTION react1066 300  met82 0.5 met95 0.25 met60 1.0 met38 1.0 met40 -2.0
+REACTION react1067 200  met98 1.25 met60 1.0 met96 1.25 met54 -1.75 met73 1.75
+REACTION react1068 300  met98 -0.75 met63 -0.5 met61 1.25 met16 1.75
+REACTION react1069 300  met32 -0.25 met92 -0.75 met38 1.25 met58 0.25 met39 -2.0
+REACTION react1070 100  met50 -2.0 met76 -1.5 met86 1.75
+REACTION react1071 100  met46 1.75 met9 -1.75 met70 0.25 met49 -1.75 met85 1.25
+REACTION react1072 300  met5 -1.25 met13 0.75
+REACTION react1073 300  met5 0.5 met26 0.5 met78 -1.75
+REACTION react1074 300  met75 -0.25 met61 1.5
+REACTION react1075 100  met98 1.75 met74 0.25 met38 -1.25 met39 -0.25 met5 -0.75
+REACTION react1076 200  met89 -2.0 met68 -0.75 met22 -1.75 met49 1.5
+REACTION react1077 100  met68 0.75 met59 -0.25
+REACTION react1078 200  met69 1.5 met42 1.0 met31 -0.25
+REACTION react1079 100  met21 0.25 met22 -1.5
+REACTION react1080 100  met17 -0.25 met35 0.75 met94 -1.0 met32 -1.25
+REACTION react1081 300  met31 0.5 met4 0.25 met56 -0.25
+REACTION react1082 300  met78 1.75 met35 -0.75 met34 -1.75 met67 -0.5
+REACTION react1083 300  met80 0.25 met34 1.5 met60 -1.0
+REACTION react1084 300  met97 -1.25 met65 0.5 met72 1.75
+REACTION react1085 300  met75 1.25 met78 -1.75
+REACTION react1086 100  met43 0.5 met78 0.5 met25 -1.0 met92 -1.5 met46 1.25
+REACTION react1087 300  met60 0.5 met97 -1.25
+REACTION react1088 200  met4 -1.75 met79 0.75
+REACTION react1089 300  met78 -2.0 met9 -2.0 met73 -0.25 met46 0.25 met45 -1.5
+REACTION react1090 200  met51 -1.25 met73 -1.75 met98 -1.5 met100 1.5
+REACTION react1091 100  met14 -1.25 met92 1.5 met9 0.25 met19 1.75
+REACTION react1092 300  met39 0.25 met80 -0.25 met85 1.0 met26 1.0 met21 -1.25
+REACTION react1093 200  met24 0.75 met39 -0.75 met78 -0.5
+REACTION react1094 300  met63 0.25 met2 0.25 met39 0.25 met15 0.25 met67 -0.75
+REACTION react1095 200  met64 0.75 met66 -1.5 met87 -2.0 met94 0.25
+REACTION react1096 200  met39 -1.25 met56 -1.5 met44 0.75 met25 0.25
+REACTION react1097 200  met25 -1.25 met51 0.25
+REACTION react1098 300  met45 -1.25 met68 1.0 met51 -1.5 met7 0.25
+REACTION react1099 200  met58 -1.0 met88 -0.25 met25 -1.0 met71 1.0 met13 1.5
+REACTION react1100 100  met81 1.5 met73 -1.5 met82 -0.75 met93 -1.5
+REACTION react1101 100  met69 1.25 met68 1.25 met82 -1.0
+REACTION react1102 300  met64 -1.25 met26 0.5
+REACTION react1103 100  met25 0.25 met78 -0.5 met1 0.75 met52 -1.25 met89 -0.25
+REACTION react1104 100  met41 -1.75 met55 -0.5 met42 1.75
+REACTION react1105 300  met33 1.75 met32 -1.25 met80 1.75
+REACTION react1106 200  met70 1.0 met78 1.0 met38 -1.25 met91 1.25
+REACTION react1107 100  met68 -1.0 met93 1.25
+REACTION react1108 300  met66 -0.5 met1 0.5 met98 -1.75
+REACTION react1109 300  met64 -0.25 met39 -1.0 met79 1.25
+REACTION react1110 100  met99 0.5 met19 1.75 met71 -1.5 met36 0.5 met66 0.25
+REACTION react1111 200  met95 -0.5 met76 0.5 met38 -1.25 met79 -0.5 met51 -0.5
+REACTION react1112 200  met34 1.5 met29 0.25 met73 -1.25
+REACTION react1113 100  met43 1.5 met72 -1.5
+REACTION react1114 300  met24 0.75 met40 -1.75 met67 -0.5 met3 1.75
+REACTION react1115 300  met86 -1.0 met56 0.75 met79 0.25 met35 0.25
+REACTION react1116 200  met49 -0.5 met68 1.5 met85 -0.75
+REACTION react1117 200  met3 1.0 met69 -0.25
+REACTION react1118 300  met91 -0.25 met41 0.25 met65 0.5 met67 -0.75
+REACTION react1119 300  met63 1.5 met43 0.5 met76 1.75 met73 -1.0
+REACTION react1120 200  met83 -2.0 met46 2.0
+REACTION react1121 100  met10 -1.75 met82 0.75
+REACTION react1122 300  met84 -1.5 met6 0.5 met67 0.25 met29 1.5
+REACTION react1123 200  met78 -1.25 met35 -1.25 met4 1.25 met74 1.0 met26 -0.5
+REACTION react1124 200  met74 0.5 met91 -0.75 met2 0.25 met96 -0.5
+REACTION react1125 100  met5 1.5 met98 -0.75 met76 -1.0 met21 1.5
+REACTION react1126 300  met44 -0.75 met93 1.75
+REACTION react1127 200  met61 1.5 met40 0.5 met44 -0.75 met76 0.5 met97 1.25
+REACTION react1128 300  met3 0.25 met52 -0.25
+REACTION react1129 200  met55 -1.5 met85 1.0 met40 1.5 met100 0.25 met33 1.5
+REACTION react1130 100  met98 -2.0 met75 -1.25 met11 0.25 met76 1.25 met94 -2.0
+REACTION react1131 300  met96 -0.25 met50 0.5
+REACTION react1132 300  met49 -1.0 met79 0.75 met41 0.5 met76 -1.5 met85 -0.5
+REACTION react1133 200  met100 -0.5 met97 1.0 met7 -0.5 met33 -1.25 met59 -1.25
+REACTION react1134 200  met5 1.25 met56 -0.5 met54 0.25
+REACTION react1135 100  met58 1.5 met53 -1.25 met66 -0.5
+REACTION react1136 200  met46 0.25 met2 -1.5
+REACTION react1137 200  met2 0.5 met82 0.5 met41 1.0 met11 -0.75
+REACTION react1138 200  met80 0.25 met14 -2.0 met71 -0.5 met95 1.0
+REACTION react1139 100  met43 -0.75 met100 2.0
+REACTION react1140 300  met84 1.0 met33 -1.0 met54 -2.0 met98 1.0
+REACTION react1141 300  met22 -1.75 met93 -1.75 met74 0.75
+REACTION react1142 300  met51 0.75 met94 -1.5 met50 1.75 met80 -1.75
+REACTION react1143 100  met33 -0.25 met75 -1.75 met84 -0.25 met96 0.5
+REACTION react1144 200  met86 -0.5 met40 0.25 met76 0.75 met78 -1.75 met25 -1.5
+REACTION react1145 100  met83 -1.0 met33 1.25 met38 -0.5 met18 -1.5
+REACTION react1146 200  met29 1.0 met82 -1.25 met60 -1.0 met27 0.5
+REACTION react1147 100  met9 0.25 met85 -1.5 met42 0.75 met82 1.5
+REACTION react1148 300  met81 -1.75 met29 -0.5 met28 1.0
+REACTION react1149 200  met72 1.75 met28 -1.75 met68 1.0 met76 1.25
+REACTION react1150 300  met79 0.25 met81 -1.5 met99 0.25 met27 -0.5
+REACTION react1151 200  met33 -1.75 met53 -1.5 met28 -0.75 met71 0.5 met56 -1.75
+REACTION react1152 300  met72 0.25 met54 -0.25
+REACTION react1153 200  met33 -2.0 met89 0.25 met78 0.75 met14 -1.25
+REACTION react1154 200  met55 -1.75 met50 0.5
+REACTION react1155 200  met39 0.25 met92 1.0 met38 1.5 met42 -1.0 met90 0.25
+REACTION react1156 300  met66 0.25 met90 -1.75 met85 0.5 met7 -1.25
+REACTION react1157 300  met35 -0.75 met51 0.25 met74 1.5
+REACTION react1158 300  met85 -2.0 met8 1.25
+REACTION react1159 100  met41 1.5 met4 0.25 met90 -1.0
+REACTION react1160 300  met15 -0.5 met8 0.25 met27 -0.25
+REACTION react1161 200  met58 0.5 met49 -1.25 met12 -1.25
+REACTION react1162 200  met83 1.75 met92 -1.75 met71 1.0 met24 1.5
+REACTION react1163 100  met30 -1.75 met8 0.25
+REACTION react1164 100  met72 -1.25 met69 0.75 met5 0.5
+REACTION react1165 300  met62 -1.0 met27 -2.0 met33 0.5
+REACTION react1166 300  met82 1.25 met8 1.0 met1 0.25 met31 1.0 met54 -1.75
+REACTION react1167 300  met49 -2.0 met78 -0.25 met82 0.25 met44 0.5
+REACTION react1168 100  met85 -1.0 met43 1.5 met19 0.25
+REACTION react1169 300  met40 0.75 met96 -1.25 met2 1.0 met47 1.0 met3 -1.5
+REACTION react1170 100  met68 -0.5 met39 0.5 met1 1.0
+REACTION react1171 100  met1 -1.5 met99 -1.25 met72 1.75
+REACTION react1172 200  met42 1.0 met57 -1.75 met88 -1.25
+REACTION react1173 300  met23 1.75 met78 1.75 met36 -0.25
+REACTION react1174 300  met70 1.25 met57 1.75 met7 0.25 met47 -0.75
+REACTION react1175 200  met34 1.5 met29 1.25 met80 -1.0
+REACTION react1176 100  met61 0.25 met6 -1.0 met79 -1.25 met85 1.25 met81 1.5
+REACTION react1177 300  met98 0.25 met100 1.25 met41 -0.5
+REACTION react1178 100  met88 0.25 met76 -1.75 met71 -0.25 met67 0.5
+REACTION react1179 200  met39 0.5 met54 -1.5 met32 0.5 met71 -0.75 met56 0.75
+REACTION react1180 100  met34 -1.25 met10 0.75 met91 1.5 met100 1.0
+REACTION react1181 100  met99 -1.75 met34 -0.25 met41 -0.5 met62 0.25 met85 -0.25
+REACTION react1182 100  met70 1.75 met10 0.25 met52 -1.0
+REACTION react1183 300  met71 0.5 met99 -1.75 met32 -1.75 met86 1.0 met43 -0.75
+REACTION react1184 100  met78 1.0 met36 0.25 met42 -0.5
+REACTION react1185 200  met15 -0.5 met68 1.75
+REACTION react1186 300  met2 -0.75 met82 0.25 met49 1.75 met35 1.75
+REACTION react1187 200  met30 0.25 met8 -1.75 met15 -1.25 met31 0.25
+REACTION react1188 200  met66 -1.0 met73 -0.25 met72 1.5
+REACTION react1189 100  met16 -1.25 met96 -1.0 met76 1.0 met30 0.25 met41 1.0
+REACTION react1190 100  met8 -1.0 met78 -2.0 met81 1.5 met37 0.75
+REACTION react1191 300  met7 -1.5 met41 1.75 met72 -1.0 met66 1.25
+REACTION react1192 300  met89 0.25 met50 0.75 met97 -0.75
+REACTION react1193 100  met65 1.75 met38 1.5 met36 1.0 met41 -0.25
+REACTION react1194 300  met34 0.5 met100 -0.75
+REACTION react1195 100  met6 -2.0 met69 0.25
+REACTION react1196 300  met35 1.75 met12 -0.5 met37 0.25 met94 -1.0 met70 -1.5
+REACTION react1197 300  met41 0.25 met54 1.5 met57 -0.5
+REACTION react1198 300  met22 -1.0 met33 1.25 met83 0.25 met16 1.5 met81 -1.0
+REACTION react1199 300  met89 -2.0 met2 -0.5 met43 -0.25 met91 1.5
+REACTION react1200 200  met7 -1.0 met23 -1.75 met19 -0.25 met32 1.25 met37 -1.75
+REACTION react1201 300  met41 -2.0 met45 1.75
+REACTION react1202 100  met70 1.5 met20 -0.25 met45 -0.75 met17 -1.25 met43 -1.25
+REACTION react1203 100  met9 0.25 met64 -1.75
+REACTION react1204 300  met50 0.5 met84 -0.75 met72 0.5 met48 0.25
+REACTION react1205 300  met29 0.5 met9 1.5 met4 1.25 met6 0.5 met77 -2.0
+REACTION react1206 300  met4 1.25 met31 -0.75 met54 -0.75 met65 -1.5
+REACTION react1207 100  met18 -0.25 met9 -0.25 met56 -1.5 met84 0.25
+REACTION react1208 200  met67 -2.0 met98 0.75 met33 1.25
+REACTION react1209 200  met58 1.5 met95 -1.75 met65 -2.0 met87 -2.0 met99 -0.25
+REACTION react1210 100  met22 -1.0 met6 0.5 met27 -0.25 met82 -0.75
+REACTION react1211 100  met50 1.5 met35 -1.25 met45 -1.75 met39 -2.0
+REACTION react1212 200  met30 1.25 met3 1.5 met40 -0.75
+REACTION react1213 100  met5 -0.75 met99 0.25 met30 -1.0 met83 1.25 met43 -0.75
+REACTION react1214 300  met98 -0.75 met38 -2.0 met73 2.0
+REACTION react1215 200  met61 0.5 met86 1.75 met41 1.5 met68 -1.75
+REACTION react1216 300  met47 1.25 met63 1.75 met11 1.75 met9 0.25 met53 -0.5
+REACTION react1217 200  met79 -1.25 met37 0.75 met29 -1.75 met53 1.75
+REACTION react1218 200  met66 -1.25 met64 1.75
+REACTION react1219 200  met88 -0.25 met15 0.5 met59 -1.75 met72 -0.75
+REACTION react1220 300  met63 1.75 met46 0.25 met72 -0.25
+REACTION react1221 100  met41 -1.25 met53 0.5 met36 -0.5
+REACTION react1222 200  met99 -0.25 met74 -0.25 met89 0.25 met73 1.75
+REACTION react1223 300  met76 0.5 met84 -0.5 met6 -0.5
+REACTION react1224 200  met33 1.75 met49 -0.75
+REACTION react1225 100  met54 -0.75 met79 1.0
+REACTION react1226 300  met11 0.25 met82 0.5 met73 -0.5
+REACTION react1227 100  met4 -1.25 met80 -2.0 met23 1.25 met33 1.75 met77 -0.75
+REACTION react1228 200  met80 1.75 met8 0.75 met97 -2.0 met77 -2.0
+REACTION react1229 200  met38 1.0 met68 -0.5 met31 0.5 met7 -1.75 met35 1.0
+REACTION react1230 200  met21 1.5 met10 -1.0 met38 -1.25
+REACTION react1231 100  met41 1.5 met4 1.25 met47 0.25 met62 -0.75
+REACTION react1232 100  met37 1.25 met93 1.5 met28 -1.25 met78 1.25
+REACTION react1233 200  met76 1.5 met43 -0.75 met21 0.75 met53 1.75
+REACTION react1234 300  met98 -1.0 met31 -0.5 met42 -1.75 met21 0.25
+REACTION react1235 200  met51 1.75 met92 1.5 met42 -1.5 met34 -1.5 met91 -0.75
+REACTION react1236 100  met78 0.75 met99 -0.25
+REACTION react1237 100  met100 0.5 met67 1.25 met24 -1.25
+REACTION react1238 200  met47 0.25 met11 -0.25
+REACTION react1239 100  met26 1.75 met90 1.75 met85 -0.5
+REACTION react1240 200  met66 0.75 met5 -0.75 met65 0.75 met1 1.75 met7 1.5
+REACTION react1241 300  met76 -0.25 met12 -1.0 met60 0.5
+REACTION react1242 200  met79 0.25 met78 -0.25 met48 -0.75
+REACTION react1243 100  met16 -0.25 met98 0.75
+REACTION react1244 200  met78 0.25 met79 -1.0
+REACTION react1245 300  met86 0.25 met63 -0.25
+REACTION react1246 100  met42 -0.25 met21 1.5 met86 0.5
+REACTION react1247 300  met58 -2.0 met64 1.5
+REACTION react1248 200  met38 1.0 met33 -1.25
+REACTION react1249 100  met95 -1.75 met73 1.25 met37 -2.0
+REACTION react1250 100  met71 -0.25 met31 1.0
+REACTION react1251 100  met34 0.75 met56 0.75 met46 1.25 met79 -0.25
+REACTION react1252 200  met50 0.5 met87 1.0 met94 0.5 met30 0.75 met40 -1.5
+REACTION react1253 200  met58 -2.0 met29 -2.0 met73 0.25 met40 1.0
+REACTION react1254 100  met50 -0.5 met28 -0.75 met56 1.5
+REACTION react1255 200  met80 -0.75 met44 1.75
+REACTION react1256 300  met100 0.75 met97 -0.75
+REACTION react1257 100  met40 1.25 met34 -1.25 met3 -1.0
+REACTION react1258 200  met68 -1.0 met13 -0.5 met16 0.25 met10 0.25 met37 -1.75
+REACTION react1259 200  met30 -2.0 met18 0.25
+REACTION react1260 200  met7 -1.0 met85 -0.5 met46 -0.5 met65 0.25 met22 0.75
+REACTION react1261 200  met23 0.5 met100 -1.75
+REACTION react1262 200  met51 1.25 met44 -2.0
+REACTION react1263 200  met83 0.75 met86 -0.25
+REACTION react1264 200  met70 -1.75 met45 1.25 met98 1.5
+REACTION react1265 300  met40 0.5 met54 1.75 met33 -1.0 met87 -0.25 met17 -0.5
+REACTION react1266 200  met72 -0.75 met83 -2.0 met88 -0.75 met75 1.5
+REACTION react1267 200  met84 -1.0 met81 1.5 met52 1.5 met13 1.5
+REACTION react1268 100  met46 -2.0 met8 0.25 met82 1.75 met57 -1.75 met64 0.75
+REACTION react1269 100  met26 0.25 met24 0.25 met39 -0.75 met74 1.0
+REACTION react1270 300  met17 0.25 met39 -0.5
+REACTION react1271 200  met53 1.5 met37 -0.25 met57 1.75 met15 -1.5 met26 -0.5
+REACTION react1272 300  met57 -1.0 met45 1.25 met72 0.25 met50 0.25 met46 -0.5
+REACTION react1273 300  met49 1.75 met46 1.25 met31 0.5 met28 -0.5 met13 -1.75
+REACTION react1274 300  met82 -2.0 met73 0.25 met28 1.25 met55 -1.75
+REACTION react1275 100  met33 0.25 met23 -1.5 met93 0.75 met58 -1.5 met64 1.0
+REACTION react1276 300  met46 0.75 met61 1.5 met25 1.5 met47 -0.75 met44 0.25
+REACTION react1277 200  met82 0.5 met60 -1.75 met85 -1.5 met89 -1.75 met42 0.5
+REACTION react1278 200  met53 -0.5 met45 1.25 met64 -1.0 met24 -0.5
+REACTION react1279 200  met49 0.25 met77 1.75 met89 -1.5
+REACTION react1280 300  met50 1.5 met7 0.75 met53 -1.5
+REACTION react1281 200  met1 -1.75 met93 -0.5 met27 0.25
+REACTION react1282 200  met94 -1.75 met56 -0.25 met29 0.25 met21 1.0 met17 1.0
+REACTION react1283 200  met18 1.0 met10 0.75 met83 -1.75
+REACTION react1284 200  met24 0.25 met98 -1.0 met82 -1.5 met31 -1.25
+REACTION react1285 200  met81 -1.5 met73 0.25 met14 0.5
+REACTION react1286 200  met92 -2.0 met34 -1.0 met84 -0.25 met22 0.25
+REACTION react1287 100  met35 -1.0 met93 -2.0 met65 1.25 met32 0.25 met17 1.75
+REACTION react1288 100  met45 -0.5 met25 -2.0 met84 0.25
+REACTION react1289 300  met75 0.75 met16 -1.25
+REACTION react1290 200  met91 1.5 met51 1.25 met36 -1.5
+REACTION react1291 300  met35 1.25 met54 -0.75
+REACTION react1292 300  met2 -2.0 met88 -2.0 met71 0.25 met40 1.5
+REACTION react1293 100  met41 1.75 met29 -0.25
+REACTION react1294 300  met54 1.25 met25 -2.0 met76 -0.5 met75 1.75
+REACTION react1295 200  met19 -2.0 met98 -0.75 met24 0.5
+REACTION react1296 300  met69 -1.25 met93 0.5 met44 -0.25
+REACTION react1297 100  met68 1.25 met69 1.75 met61 -1.25 met52 0.75 met13 0.25
+REACTION react1298 100  met16 -0.5 met70 1.5 met37 0.75 met13 1.0 met71 -0.25
+REACTION react1299 100  met40 -1.5 met91 0.25 met73 -2.0 met49 1.5 met70 0.25
+REACTION react1300 300  met97 1.5 met29 0.25 met3 -1.25 met69 -1.25
+REACTION react1301 100  met37 -1.0 met52 0.25 met20 1.5
+REACTION react1302 300  met91 1.5 met51 -1.75 met26 -2.0 met13 -1.5 met74 -0.75
+REACTION react1303 200  met100 -0.5 met50 0.25 met46 -2.0 met15 0.25
+REACTION react1304 200  met53 -1.0 met82 1.5
+REACTION react1305 200  met94 -0.75 met25 -1.75 met14 0.75
+REACTION react1306 100  met49 -1.75 met98 -0.25 met8 1.5 met62 0.25 met46 1.25
+REACTION react1307 100  met43 -1.75 met29 1.75 met28 -1.5 met17 -1.5 met14 0.75
+REACTION react1308 200  met40 -1.75 met44 -2.0 met91 1.75
+REACTION react1309 200  met3 0.5 met43 1.5 met87 -1.0
+REACTION react1310 200  met7 1.0 met14 -1.75
+REACTION react1311 200  met42 -1.5 met93 -1.25 met16 2.0
+REACTION react1312 100  met54 -0.75 met34 -1.5 met81 0.25
+REACTION react1313 300  met37 0.25 met1 -0.75
+REACTION react1314 100  met5 -0.25 met34 -2.0 met6 0.5 met42 0.5
+REACTION react1315 200  met10 1.25 met40 -0.75 met9 1.25
+REACTION react1316 100  met84 1.5 met15 0.25 met90 -0.5
+REACTION react1317 100  met42 -1.75 met77 -1.75 met52 0.25
+REACTION react1318 200  met75 -0.25 met87 1.75 met57 1.5 met76 1.5
+REACTION react1319 200  met12 -1.0 met46 1.25 met86 0.5
+REACTION react1320 300  met34 0.25 met78 -0.75 met25 -0.75 met12 1.0
+REACTION react1321 200  met5 -0.5 met23 0.25 met76 0.25 met95 0.25
+REACTION react1322 200  met71 -0.75 met7 1.75 met54 -0.75 met49 0.75
+REACTION react1323 200  met74 -0.25 met22 -0.75 met33 -1.75 met21 0.25
+REACTION react1324 200  met37 0.25 met78 -1.25 met96 -0.5
+REACTION react1325 200  met36 -1.25 met5 -0.75 met62 0.5
+REACTION react1326 300  met69 1.75 met78 1.25 met62 -1.5
+REACTION react1327 100  met47 0.25 met93 1.5 met39 -0.5 met75 -1.25 met86 -1.75
+REACTION react1328 100  met74 -1.0 met64 -1.5 met34 -0.5 met39 1.25
+REACTION react1329 300  met25 1.0 met14 -0.25
+REACTION react1330 200  met63 -0.25 met98 1.0
+REACTION react1331 100  met35 0.25 met54 -1.0
+REACTION react1332 300  met67 0.75 met71 1.25 met68 -1.25 met98 1.25 met100 1.0
+REACTION react1333 200  met36 0.25 met26 1.0 met43 -0.25 met35 -1.5
+REACTION react1334 200  met41 -0.25 met49 1.0 met37 -2.0 met18 1.0
+REACTION react1335 200  met95 0.75 met46 0.25 met57 -0.75 met48 0.25
+REACTION react1336 200  met23 -0.25 met59 1.0
+REACTION react1337 200  met50 0.25 met14 -1.0
+REACTION react1338 300  met82 1.5 met76 -2.0 met66 -1.5 met27 1.75
+REACTION react1339 300  met5 0.25 met58 -0.75
+REACTION react1340 200  met27 0.75 met99 -1.75 met43 1.0
+REACTION react1341 300  met84 -1.0 met62 0.5 met31 1.0 met24 0.5 met18 -1.75
+REACTION react1342 200  met59 0.25 met48 -1.25 met42 -1.0
+REACTION react1343 200  met19 1.25 met53 -0.75
+REACTION react1344 200  met97 0.25 met60 -1.25 met48 1.25 met83 1.5 met21 -0.25
+REACTION react1345 100  met88 -1.25 met28 1.75 met96 -1.5 met6 -0.75 met95 0.5
+REACTION react1346 100  met58 1.0 met27 -0.75 met67 -1.75 met98 -0.75 met9 1.75
+REACTION react1347 200  met98 -1.25 met32 -1.25 met36 1.75
+REACTION react1348 200  met64 -1.5 met25 0.25 met5 0.25 met46 -1.0
+REACTION react1349 300  met94 1.5 met32 0.25 met56 0.25 met84 -1.25 met85 -1.0
+REACTION react1350 100  met75 -0.25 met44 0.75 met52 -0.75 met10 1.0
+REACTION react1351 300  met99 -1.5 met48 0.75
+REACTION react1352 300  met32 -2.0 met20 -1.5 met57 -0.5 met17 0.25
+REACTION react1353 100  met42 1.25 met64 -1.0 met44 1.25 met53 1.75
+REACTION react1354 300  met90 -1.25 met70 1.75 met48 0.25 met81 1.5
+REACTION react1355 300  met55 -0.5 met75 0.5 met28 1.75 met80 -0.5
+REACTION react1356 100  met77 1.25 met78 1.75 met98 -1.25 met75 -0.75 met59 1.75
+REACTION react1357 300  met7 1.5 met78 -1.5 met77 1.25
+REACTION react1358 200  met74 -2.0 met97 0.5 met91 -1.75 met50 1.25
+REACTION react1359 200  met68 -1.75 met1 -2.0 met11 -1.0 met4 1.75 met47 1.25
+REACTION react1360 300  met97 0.25 met1 -1.5
+REACTION react1361 200  met54 -2.0 met40 0.25 met72 -0.75 met69 -1.0
+REACTION react1362 200  met22 -0.25 met48 0.25 met42 0.25 met4 -1.5 met17 1.5
+REACTION react1363 300  met27 -2.0 met25 -0.75 met17 -0.75 met35 1.0
+REACTION react1364 100  met55 -1.25 met57 0.25
+REACTION react1365 200  met79 1.75 met37 -0.25
+REACTION react1366 100  met82 1.75 met83 1.5 met10 1.25 met100 -1.5
+REACTION react1367 200  met5 -2.0 met23 -0.25 met4 -1.0 met81 1.75
+REACTION react1368 100  met56 0.25 met2 -0.25
+REACTION react1369 300  met20 0.75 met64 -0.75
+REACTION react1370 300  met48 0.25 met64 -0.75 met76 1.5 met65 1.0 met52 0.25
+REACTION react1371 300  met70 -1.0 met35 -1.5 met72 1.75
+REACTION react1372 200  met73 1.0 met12 -0.25 met66 1.5
+REACTION react1373 200  met39 -0.25 met53 1.0
+REACTION react1374 300  met60 1.0 met50 0.75 met89 -1.0 met67 1.25
+REACTION react1375 200  met2 0.25 met25 -1.5
+REACTION react1376 100  met15 0.25 met19 -0.5 met23 -1.5 met4 -0.75 met88 -2.0
+REACTION react1377 200  met87 -1.25 met22 -1.75 met4 0.75 met10 -0.25 met95 0.5
+REACTION react1378 300  met99 0.5 met8 -2.0
+REACTION react1379 300  met89 1.75 met4 -0.75
+REACTION react1380 300  met30 -1.0 met62 -1.75 met67 1.5
+REACTION react1381 300  met37 0.75 met92 -2.0 met97 -1.5 met59 1.0 met89 0.25
+REACTION react1382 200  met88 -0.25 met26 0.25 met77 -0.75 met17 0.25 met60 0.25
+REACTION react1383 300  met42 -2.0 met11 -0.5 met80 -0.5 met84 -1.0 met78 1.75
+REACTION react1384 100  met43 -0.75 met74 1.25 met30 1.0 met50 -1.0
+REACTION react1385 100  met6 -0.25 met67 -0.75 met79 1.25 met14 -1.75 met22 1.0
+REACTION react1386 300  met8 0.75 met31 0.75 met98 -1.25
+REACTION react1387 100  met56 1.5 met24 -1.0
+REACTION react1388 300  met6 -0.5 met5 0.25 met22 0.25 met82 -0.5
+REACTION react1389 100  met79 -0.75 met45 1.5 met52 -1.5
+REACTION react1390 200  met3 -2.0 met50 0.25 met19 -2.0 met46 -1.5 met36 1.25
+REACTION react1391 100  met48 -0.75 met20 1.0 met24 -1.25 met62 1.25 met84 -0.5
+REACTION react1392 200  met3 0.25 met60 -0.5 met68 0.75
+REACTION react1393 200  met91 -1.5 met73 -1.0 met40 -1.25 met11 1.5 met67 1.5
+REACTION react1394 300  met14 1.75 met4 -0.25
+REACTION react1395 200  met47 -1.5 met79 0.25 met3 1.75
+REACTION react1396 100  met3 0.75 met65 -1.25 met19 1.0 met21 1.75 met38 -1.5
+REACTION react1397 100  met22 -1.75 met74 -2.0 met53 -1.75 met69 -0.25 met96 2.0
+REACTION react1398 100  met70 -2.0 met15 0.25 met35 -1.75
+REACTION react1399 100  met69 1.75 met48 1.5 met9 -1.25 met73 -2.0 met67 -0.25
+REACTION react1400 300  met93 1.25 met48 -0.75 met52 -0.25 met71 -1.25
+REACTION react1401 300  met81 -0.25 met77 -0.5 met11 1.0
+REACTION react1402 200  met100 0.5 met15 -1.0
+REACTION react1403 200  met19 0.5 met52 -0.75 met40 1.5
+REACTION react1404 200  met43 1.5 met39 -0.25
+REACTION react1405 100  met50 -0.5 met59 -1.5 met55 -2.0 met26 1.5
+REACTION react1406 200  met27 -2.0 met51 0.75 met25 -1.25 met12 -0.5
+REACTION react1407 100  met8 -1.25 met28 -0.5 met23 1.25 met99 -1.25 met78 -1.5
+REACTION react1408 100  met89 0.5 met38 -1.75
+REACTION react1409 200  met35 0.25 met54 1.5 met11 0.25 met74 -1.75 met95 -0.5
+REACTION react1410 200  met94 1.5 met97 -1.5 met49 0.5 met87 0.25 met24 -1.5
+REACTION react1411 100  met43 -1.0 met90 -2.0 met77 1.75
+REACTION react1412 200  met97 -0.25 met94 1.5 met40 -0.75 met42 -1.5 met15 0.25
+REACTION react1413 100  met10 -1.0 met20 -0.75 met49 0.25
+REACTION react1414 100  met6 1.25 met79 -1.5 met92 1.25 met2 -1.5 met44 -1.5
+REACTION react1415 200  met95 -1.75 met14 0.75 met39 1.75 met59 -1.0 met25 0.25
+REACTION react1416 300  met99 -0.75 met30 -0.75 met3 0.25 met72 1.75 met77 0.25
+REACTION react1417 100  met61 0.5 met76 -2.0 met64 1.25
+REACTION react1418 300  met62 -0.5 met51 -0.75 met41 1.75
+REACTION react1419 200  met9 -0.5 met4 -2.0 met85 -1.75 met41 0.25
+REACTION react1420 200  met8 -1.75 met3 -0.5 met21 -0.75 met61 1.25 met38 -0.25
+REACTION react1421 300  met93 -1.5 met84 0.5 met15 -0.75
+REACTION react1422 200  met50 1.5 met43 -0.75 met71 -1.75 met39 0.25 met66 1.75
+REACTION react1423 200  met68 -1.5 met14 0.75
+REACTION react1424 100  met14 -0.75 met23 1.25
+REACTION react1425 300  met71 0.25 met73 -1.25 met19 1.25
+REACTION react1426 100  met76 -0.5 met30 0.25
+REACTION react1427 300  met15 -1.75 met81 -0.25 met78 0.75 met80 -1.75 met41 -1.25
+REACTION react1428 200  met84 -0.25 met6 1.5
+REACTION react1429 300  met27 1.25 met11 -2.0
+REACTION react1430 100  met24 0.5 met76 0.25 met39 1.0 met38 -0.25 met4 -0.75
+REACTION react1431 100  met48 -2.0 met32 1.0
+REACTION react1432 100  met53 -2.0 met88 -1.5 met86 0.5 met97 0.25 met90 -1.25
+REACTION react1433 300  met95 1.25 met86 0.25 met13 0.25 met77 -1.75
+REACTION react1434 200  met25 1.75 met50 0.75 met18 -0.75 met11 -0.5
+REACTION react1435 200  met95 -0.25 met51 1.25 met68 1.25
+REACTION react1436 200  met8 0.25 met92 -1.0 met5 -0.5
+REACTION react1437 100  met100 -1.5 met39 1.0 met97 1.25 met98 1.0 met17 0.75
+REACTION react1438 200  met68 1.25 met21 -0.25
+REACTION react1439 100  met45 -1.75 met75 1.0 met15 1.25
+REACTION react1440 200  met43 0.5 met67 -1.25 met86 0.5
+REACTION react1441 200  met1 -1.25 met45 1.5
+REACTION react1442 300  met99 -1.5 met87 0.5 met17 -2.0
+REACTION react1443 100  met86 -0.5 met18 -0.5 met22 -0.25 met23 0.75 met6 -1.0
+REACTION react1444 300  met20 -2.0 met50 1.75 met36 -0.5
+REACTION react1445 300  met7 0.25 met48 1.5 met74 -0.25 met2 1.5 met58 0.5
+REACTION react1446 100  met18 0.25 met98 -0.25 met68 -0.25
+REACTION react1447 200  met13 1.75 met87 -2.0 met63 -1.0 met46 0.25 met60 -1.0
+REACTION react1448 300  met98 -1.25 met80 0.25
+REACTION react1449 100  met61 0.75 met8 -1.0
+REACTION react1450 200  met28 -1.5 met12 0.75
+REACTION react1451 100  met15 -1.25 met13 -0.75 met62 0.5 met6 -0.5
+REACTION react1452 200  met51 -1.5 met54 0.25
+REACTION react1453 100  met80 -1.5 met4 0.5
+REACTION react1454 200  met29 0.25 met58 -1.25 met20 -1.75
+REACTION react1455 200  met60 0.5 met52 -0.5 met45 1.75 met34 -1.75
+REACTION react1456 100  met86 -2.0 met8 0.5
+REACTION react1457 200  met38 -1.75 met10 1.0
+REACTION react1458 100  met34 0.25 met54 -1.25 met10 -1.25 met6 1.25
+REACTION react1459 100  met84 1.0 met94 -1.25 met7 -2.0
+REACTION react1460 200  met61 -0.5 met39 1.0 met55 0.75
+REACTION react1461 200  met31 1.5 met24 -0.25
+REACTION react1462 200  met68 0.25 met85 -0.5
+REACTION react1463 200  met100 0.5 met95 0.25 met7 0.75 met66 -1.0
+REACTION react1464 200  met21 -1.25 met55 2.0
+REACTION react1465 300  met68 -0.5 met21 1.5 met18 -1.75 met38 1.5 met82 -0.5
+REACTION react1466 100  met57 -1.5 met52 0.5 met36 -1.0 met21 1.5 met48 -1.25
+REACTION react1467 200  met88 0.25 met50 0.25 met28 1.25 met61 -0.5
+REACTION react1468 100  met35 -0.25 met23 0.25 met76 1.5
+REACTION react1469 300  met25 -2.0 met83 -1.25 met59 -0.5 met31 1.0
+REACTION react1470 100  met20 -1.0 met95 1.0
+REACTION react1471 300  met63 -1.5 met32 -0.75 met13 0.25
+REACTION react1472 100  met83 1.0 met22 1.5 met14 -1.5
+REACTION react1473 100  met75 -0.25 met80 1.25 met39 -2.0 met19 -0.25 met51 -1.75
+REACTION react1474 100  met1 -1.0 met5 -1.25 met24 0.5 met6 -2.0 met21 0.25
+REACTION react1475 200  met46 -0.25 met76 1.5
+REACTION react1476 100  met41 1.5 met39 0.25 met34 -0.25 met98 1.0
+REACTION react1477 100  met53 -0.75 met51 1.5 met18 -2.0 met44 -1.75 met2 0.25
+REACTION react1478 100  met88 -1.25 met65 -0.75 met56 -1.25 met12 0.25 met69 0.25
+REACTION react1479 300  met25 -1.25 met45 1.75
+REACTION react1480 100  met65 -0.75 met15 0.75 met41 0.25
+REACTION react1481 200  met23 -0.25 met82 -1.0 met72 0.75 met88 -1.0 met55 -0.25
+REACTION react1482 200  met1 1.0 met43 1.75 met38 -1.0
+REACTION react1483 300  met94 -1.75 met66 1.75 met21 -1.75
+REACTION react1484 200  met1 1.0 met55 1.0 met15 -1.75 met33 -0.5 met81 -0.75
+REACTION react1485 100  met38 1.0 met73 -0.25
+REACTION react1486 200  met58 0.25 met2 -1.0 met54 1.0
+REACTION react1487 100  met35 -1.5 met39 1.25
+REACTION react1488 200  met10 1.25 met95 0.25 met70 -1.75 met51 -2.0 met41 -0.5
+REACTION react1489 200  met72 -1.25 met59 0.25 met55 -2.0
+REACTION react1490 200  met24 -1.75 met52 1.5
+REACTION react1491 200  met17 0.75 met71 0.25 met76 0.75 met35 -1.75
+REACTION react1492 300  met59 1.25 met79 -0.25 met30 1.25
+REACTION react1493 300  met63 0.75 met83 -0.5
+REACTION react1494 100  met35 -1.75 met8 -1.75 met93 1.25 met18 -1.0
+REACTION react1495 100  met24 -1.75 met89 -1.75 met22 -0.25 met3 1.75
+REACTION react1496 200  met81 1.0 met8 -0.5 met95 1.5 met59 1.75
+REACTION react1497 300  met25 1.75 met89 0.25 met86 -1.0
+REACTION react1498 200  met46 -2.0 met70 -1.0 met34 1.75 met19 0.25
+REACTION react1499 200  met76 -0.25 met34 -1.0 met5 -0.75 met32 1.5
+REACTION react1500 300  met61 1.0 met13 1.0 met78 -1.75 met44 -1.5 met96 -1.0
+REACTION react1501 300  met21 1.25 met86 -1.5
+REACTION react1502 300  met32 -0.75 met13 -0.5 met70 0.25 met60 0.75 met57 0.5
+REACTION react1503 300  met26 -0.5 met59 1.25
+REACTION react1504 100  met70 1.0 met85 -0.25
+REACTION react1505 100  met100 -0.25 met53 -1.0 met21 -1.25 met36 1.0
+REACTION react1506 100  met82 0.75 met62 -0.25 met19 1.5 met2 -1.5
+REACTION react1507 200  met35 -1.75 met56 -0.5 met54 -1.75 met14 1.25
+REACTION react1508 300  met27 0.75 met67 -1.25 met35 1.75
+REACTION react1509 200  met20 -0.25 met16 0.5
+REACTION react1510 300  met9 0.5 met17 0.25 met90 0.25 met99 0.25 met82 -1.75
+REACTION react1511 300  met2 -1.0 met11 -2.0 met29 -0.25 met85 1.0 met30 0.25
+REACTION react1512 300  met64 -0.25 met9 -1.25 met20 -2.0 met79 0.75 met62 0.25
+REACTION react1513 200  met63 -1.25 met96 -0.5 met28 -0.75 met27 -1.25 met99 1.25
+REACTION react1514 300  met21 1.75 met50 -1.75
+REACTION react1515 300  met5 0.25 met17 -0.25
+REACTION react1516 200  met28 0.5 met9 1.0 met5 -1.5 met78 -1.0
+REACTION react1517 100  met92 0.25 met68 -0.25 met8 1.75
+REACTION react1518 300  met1 0.5 met91 -1.0
+REACTION react1519 200  met87 0.75 met56 -0.25 met97 0.5 met42 0.5
+REACTION react1520 200  met31 0.25 met23 -0.5 met17 1.75
+REACTION react1521 300  met78 -1.25 met8 0.25 met73 0.5 met59 -1.0 met74 -0.25
+REACTION react1522 100  met79 -1.0 met98 1.5
+REACTION react1523 200  met4 -2.0 met72 1.0 met54 -0.5 met94 0.5
+REACTION react1524 100  met48 -1.75 met51 1.5 met84 1.0 met23 0.5
+REACTION react1525 300  met48 -0.25 met25 -1.5 met40 1.0
+REACTION react1526 200  met8 -2.0 met67 -0.25 met12 1.5 met33 0.25 met16 0.25
+REACTION react1527 100  met55 0.75 met98 -1.25 met31 1.5 met97 -0.5 met44 -0.25
+REACTION react1528 300  met66 -1.5 met22 0.25
+REACTION react1529 100  met4 -2.0 met76 0.25
+REACTION react1530 200  met48 -1.5 met41 0.75
+REACTION react1531 100  met62 1.25 met58 -1.5
+REACTION react1532 300  met91 -0.5 met38 0.25 met51 -0.75 met58 -1.25 met25 1.75
+REACTION react1533 300  met40 -1.5 met11 -1.5 met82 0.75 met13 1.5 met69 -1.5
+REACTION react1534 100  met96 -2.0 met28 -1.5 met25 -1.75 met51 -0.75 met79 2.0
+REACTION react1535 200  met90 -0.25 met83 -2.0 met70 0.25 met30 -1.0 met11 -1.25
+REACTION react1536 200  met42 -2.0 met19 0.5 met12 -1.5 met40 -0.25
+REACTION react1537 100  met8 -1.5 met82 0.75 met4 0.5
+REACTION react1538 100  met80 -1.5 met44 0.5
+REACTION react1539 300  met2 1.25 met54 -1.75
+REACTION react1540 300  met94 1.25 met66 -1.75
+REACTION react1541 300  met74 1.25 met70 -1.75 met76 0.25
+REACTION react1542 200  met16 -0.25 met74 -0.25 met32 -0.75 met69 0.75
+REACTION react1543 200  met8 -1.0 met81 0.25
+REACTION react1544 200  met88 1.5 met18 -0.25
+REACTION react1545 300  met36 -1.25 met45 1.25
+REACTION react1546 100  met6 -1.75 met70 -1.5 met76 0.25 met41 -0.5
+REACTION react1547 300  met7 -0.5 met40 0.75 met98 0.25
+REACTION react1548 100  met88 -1.75 met57 -1.5 met47 1.0
+REACTION react1549 200  met82 1.25 met71 -0.25
+REACTION react1550 100  met50 0.75 met18 -1.0
+REACTION react1551 200  met41 1.0 met57 -0.5 met46 0.25 met34 -0.25 met36 1.25
+REACTION react1552 200  met29 1.5 met11 -1.5
+REACTION react1553 200  met37 -1.75 met2 -0.75 met4 -1.5 met97 1.5 met9 0.75
+REACTION react1554 300  met64 -2.0 met47 0.25 met32 1.75 met41 -0.5
+REACTION react1555 100  met33 1.5 met100 -1.0 met48 0.25 met70 -0.5 met58 -0.5
+REACTION react1556 100  met97 0.25 met18 -1.0 met49 0.25 met58 1.25 met59 0.75
+REACTION react1557 200  met70 1.5 met22 0.75 met35 -1.5 met16 0.25 met69 -1.75
+REACTION react1558 100  met65 0.25 met46 0.5 met78 -2.0 met30 -1.25 met18 1.25
+REACTION react1559 200  met30 0.25 met94 0.75 met4 -0.25
+REACTION react1560 100  met77 0.25 met29 -1.5 met54 -1.75 met6 -0.75
+REACTION react1561 300  met76 1.25 met6 -1.75 met93 -0.25
+REACTION react1562 100  met40 -0.25 met89 -0.75 met84 1.0 met82 -1.5
+REACTION react1563 200  met49 -1.75 met77 1.0 met27 -1.75 met37 -0.5 met53 -1.25
+REACTION react1564 200  met92 1.75 met13 -1.5 met10 -1.25 met32 -1.75 met71 1.5
+REACTION react1565 100  met75 -1.75 met45 0.5 met84 -1.5
+REACTION react1566 100  met85 -1.75 met5 -0.25 met50 -1.5 met72 1.75
+REACTION react1567 300  met53 -2.0 met6 0.75
+REACTION react1568 300  met53 -0.5 met32 1.75 met92 -1.75
+REACTION react1569 100  met2 1.25 met47 0.75 met89 0.75 met37 -1.0
+REACTION react1570 200  met3 -1.5 met53 -2.0 met5 1.75
+REACTION react1571 300  met44 0.25 met76 0.5 met5 -0.5
+REACTION react1572 300  met49 -1.0 met56 -0.75 met46 -1.75 met63 1.0 met54 -2.0
+REACTION react1573 200  met5 -0.75 met61 -0.25 met42 -0.5 met90 0.5
+REACTION react1574 100  met89 0.5 met67 -1.5
+REACTION react1575 300  met16 1.75 met32 -0.25 met97 -1.0 met94 -1.0 met50 1.0
+REACTION react1576 200  met26 1.5 met24 -1.25 met70 0.5 met63 -1.5 met85 -1.25
+REACTION react1577 300  met8 0.75 met80 -0.5 met18 -0.5 met11 0.5
+REACTION react1578 200  met50 -1.25 met2 -0.75 met79 1.5
+REACTION react1579 300  met66 1.25 met35 0.25 met63 0.75 met52 1.75 met24 -1.5
+REACTION react1580 200  met32 -1.25 met46 1.75 met42 1.75
+REACTION react1581 300  met59 -0.75 met12 0.25 met4 0.25 met56 0.5
+REACTION react1582 100  met24 -0.25 met67 0.25 met45 1.75 met35 -1.75
+REACTION react1583 100  met42 1.5 met86 -0.5 met1 1.0 met44 1.5
+REACTION react1584 300  met100 0.5 met28 1.0 met50 -0.5 met32 -0.75 met65 -2.0
+REACTION react1585 300  met94 -1.5 met5 1.75
+REACTION react1586 300  met74 -1.5 met94 1.75 met27 -0.25
+REACTION react1587 300  met66 -1.5 met46 -1.5 met47 1.0
+REACTION react1588 200  met100 -0.75 met36 1.0 met11 0.25 met30 0.75 met20 -1.25
+REACTION react1589 200  met66 1.25 met53 0.25 met27 1.75 met2 1.75 met14 -0.75
+REACTION react1590 300  met25 1.0 met1 1.5 met42 -1.75
+REACTION react1591 200  met40 -1.5 met1 0.25
+REACTION react1592 200  met63 0.25 met2 1.5 met35 -1.75
+REACTION react1593 200  met80 1.0 met44 -1.75
+REACTION react1594 200  met1 0.5 met3 -1.25
+REACTION react1595 300  met100 1.75 met7 -1.0
+REACTION react1596 100  met90 1.75 met13 -1.0 met69 1.5 met4 0.5
+REACTION react1597 300  met66 -0.75 met61 -1.75 met28 0.5 met38 -1.25 met47 0.5
+REACTION react1598 300  met50 0.75 met20 1.0 met81 -1.75 met25 -1.0 met70 0.5
+REACTION react1599 100  met78 0.25 met91 -1.75 met56 0.25 met99 0.25
+REACTION react1600 300  met64 -0.5 met59 -0.75 met39 0.25 met78 1.5 met31 1.25
+REACTION react1601 300  met50 1.25 met27 -1.75 met70 1.5
+REACTION react1602 200  met68 -0.5 met44 0.75
+REACTION react1603 300  met65 -2.0 met60 0.75 met13 -1.5
+REACTION react1604 100  met19 1.5 met65 -2.0 met47 -1.75 met88 -1.5
+REACTION react1605 300  met81 -1.25 met45 0.5 met78 1.75
+REACTION react1606 200  met15 -0.5 met98 1.0 met14 1.0
+REACTION react1607 200  met86 1.25 met14 -1.0 met24 0.25 met57 0.25 met70 1.5
+REACTION react1608 200  met96 0.25 met9 1.75 met89 0.25 met78 -1.5 met76 0.75
+REACTION react1609 100  met71 -1.0 met30 -1.25 met59 1.25 met36 -0.75
+REACTION react1610 300  met30 0.75 met9 -1.0
+REACTION react1611 300  met35 0.25 met68 -0.25 met77 -1.25 met5 0.25 met30 1.0
+REACTION react1612 300  met70 0.25 met66 0.25 met18 0.5 met16 1.25 met85 -0.25
+REACTION react1613 300  met30 1.5 met74 -2.0 met20 -0.75 met12 0.25
+REACTION react1614 200  met24 -2.0 met65 -1.25 met5 1.25 met48 -1.25 met81 -1.25
+REACTION react1615 200  met40 -1.75 met91 -0.75 met88 1.5
+REACTION react1616 200  met11 1.5 met25 0.25 met4 -1.25 met54 1.25
+REACTION react1617 100  met61 -1.75 met7 0.5 met78 0.75 met97 -1.0
+REACTION react1618 300  met59 -0.5 met91 0.5 met9 1.0 met8 -0.25
+REACTION react1619 300  met22 0.5 met95 -2.0 met29 1.25
+REACTION react1620 300  met62 -0.75 met76 1.5
+REACTION react1621 300  met27 1.25 met90 1.75 met4 -1.25 met81 1.25 met61 1.25
+REACTION react1622 200  met21 1.5 met64 1.75 met87 0.75 met33 -1.5
+REACTION react1623 300  met1 1.25 met81 -1.25 met82 0.75
+REACTION react1624 300  met31 -0.75 met24 -1.0 met12 -0.25 met26 1.75
+REACTION react1625 200  met34 0.5 met39 -2.0 met75 -1.5
+REACTION react1626 100  met76 1.25 met95 1.0 met92 -0.25 met8 -0.75 met97 -0.75
+REACTION react1627 200  met11 1.75 met69 -0.75 met48 -0.75 met43 -0.5
+REACTION react1628 100  met81 1.75 met20 1.75 met99 1.25 met67 -1.0
+REACTION react1629 100  met42 0.75 met52 -2.0 met76 1.0 met16 -1.5
+REACTION react1630 100  met46 -0.5 met52 -0.25 met77 -1.75 met6 1.0
+REACTION react1631 100  met42 0.75 met21 1.0 met97 -0.25
+REACTION react1632 200  met20 -1.5 met16 -1.5 met73 1.5 met45 -0.75 met68 0.5
+REACTION react1633 100  met61 1.0 met74 0.5 met77 -1.5
+REACTION react1634 200  met48 0.25 met29 -0.25 met51 0.25
+REACTION react1635 300  met24 0.25 met61 -0.5
+REACTION react1636 300  met22 0.25 met76 -1.5 met62 1.5 met32 -1.5 met25 1.75
+REACTION react1637 100  met19 -1.0 met98 1.5
+REACTION react1638 200  met46 -1.5 met23 -1.75 met53 1.0
+REACTION react1639 100  met45 -0.75 met36 0.75 met60 -1.0 met40 1.5 met82 -0.25
+REACTION react1640 300  met22 -2.0 met91 -2.0 met20 0.75
+REACTION react1641 200  met30 0.25 met90 1.25 met98 -0.75
+REACTION react1642 300  met38 0.5 met3 0.25 met50 0.25 met39 -0.25
+REACTION react1643 300  met44 1.25 met23 -1.5
+REACTION react1644 200  met58 0.5 met60 -1.25
+REACTION react1645 100  met85 -1.0 met40 0.75 met37 1.0 met21 1.25
+REACTION react1646 200  met12 1.25 met39 -2.0
+REACTION react1647 300  met39 0.75 met34 -1.0 met57 -0.5 met92 -1.75 met60 -0.5
+REACTION react1648 200  met95 0.25 met41 -1.5 met48 -0.75 met62 1.25 met72 0.25
+REACTION react1649 100  met90 0.25 met51 0.75 met77 -0.75 met95 -0.75
+REACTION react1650 100  met60 -1.25 met34 0.25 met78 0.75
+REACTION react1651 100  met40 0.5 met83 0.5 met55 -1.25 met46 1.0 met80 1.25
+REACTION react1652 300  met90 -1.5 met54 0.5 met28 1.5 met42 -2.0 met33 -1.25
+REACTION react1653 300  met74 -1.5 met99 -1.5 met73 1.0 met94 -0.25 met48 -1.75
+REACTION react1654 300  met49 1.5 met66 -0.25
+REACTION react1655 200  met31 1.75 met25 -0.5
+REACTION react1656 100  met57 -0.5 met9 1.0 met55 0.25
+REACTION react1657 300  met19 -2.0 met28 0.75 met2 -2.0 met44 1.25
+REACTION react1658 200  met27 1.0 met97 -1.0
+REACTION react1659 100  met100 -1.0 met97 0.25 met19 -1.75
+REACTION react1660 300  met99 0.25 met90 0.5 met59 -0.25
+REACTION react1661 300  met37 -0.5 met85 0.5
+REACTION react1662 300  met18 0.25 met62 0.25 met90 -1.25 met36 0.25 met50 -1.5
+REACTION react1663 100  met5 0.25 met17 1.0 met90 0.25 met11 -0.25
+REACTION react1664 100  met71 -0.5 met2 1.25
+REACTION react1665 300  met67 1.25 met35 -1.0
+REACTION react1666 100  met52 1.0 met47 -1.75 met39 0.5
+REACTION react1667 200  met49 0.25 met25 1.5 met32 -1.25 met96 -0.75 met76 0.75
+REACTION react1668 200  met85 -2.0 met56 -0.5 met36 1.0 met72 -1.75
+REACTION react1669 300  met98 -0.25 met90 0.25 met69 -1.5
+REACTION react1670 300  met28 0.25 met65 -1.0 met15 -1.75
+REACTION react1671 100  met49 1.25 met16 1.5 met96 -1.0
+REACTION react1672 100  met67 0.75 met77 -1.25 met27 -0.75
+REACTION react1673 200  met37 -0.75 met68 1.25 met25 0.25 met93 -0.75
+REACTION react1674 300  met99 0.25 met2 0.5 met3 0.5 met14 -1.5
+REACTION react1675 300  met78 0.75 met53 1.5 met49 -0.75 met20 -0.5 met4 -1.25
+REACTION react1676 300  met10 0.5 met33 -1.0 met47 -1.75 met97 -1.5 met76 0.5
+REACTION react1677 200  met52 -0.25 met34 0.5
+REACTION react1678 300  met92 -2.0 met97 1.5
+REACTION react1679 100  met43 0.25 met88 1.25 met17 -1.75 met27 -1.5
+REACTION react1680 200  met65 -0.75 met35 1.25
+REACTION react1681 300  met61 -1.0 met9 -1.25 met83 0.5 met35 -1.75
+REACTION react1682 100  met38 -1.75 met12 -0.75 met44 0.25
+REACTION react1683 100  met21 1.5 met65 -1.5
+REACTION react1684 100  met42 1.25 met46 -1.0 met18 0.25
+REACTION react1685 300  met35 -1.75 met82 -2.0 met77 0.25 met89 -1.25 met52 0.75
+REACTION react1686 100  met4 -1.75 met39 0.75 met35 0.75 met10 1.25 met15 -2.0
+REACTION react1687 200  met45 -0.25 met94 1.25
+REACTION react1688 200  met84 0.25 met12 -0.5 met88 0.5
+REACTION react1689 200  met63 0.25 met77 0.25 met21 1.25 met11 0.75 met80 -0.25
+REACTION react1690 200  met87 0.75 met23 -1.0 met77 0.5 met95 -1.75 met75 -0.25
+REACTION react1691 300  met72 -0.5 met98 -1.75 met84 -0.75 met80 0.5
+REACTION react1692 300  met93 0.25 met99 -1.0
+REACTION react1693 300  met96 0.25 met89 1.75 met7 0.25 met66 -1.0 met86 -0.5
+REACTION react1694 300  met35 -0.5 met91 -1.25 met40 -2.0 met75 -1.25 met11 1.5
+REACTION react1695 100  met91 0.25 met95 -1.75 met80 -0.5 met18 1.75
+REACTION react1696 200  met11 -0.5 met25 -0.5 met65 1.75 met86 1.75
+REACTION react1697 300  met94 -0.5 met92 0.25 met63 0.25 met30 -1.25 met68 -1.75
+REACTION react1698 200  met26 0.5 met83 -1.5 met96 0.75 met100 -2.0
+REACTION react1699 100  met52 -1.25 met79 0.75 met72 1.0 met61 -0.5
+REACTION react1700 200  met58 1.0 met34 1.0 met96 0.25 met46 1.75 met84 -1.25
+REACTION react1701 300  met4 -1.25 met40 1.0 met56 0.25 met62 -0.5 met36 -0.5
+REACTION react1702 100  met99 -0.5 met12 -0.25 met90 -2.0 met14 1.75
+REACTION react1703 300  met51 0.75 met20 -2.0 met62 -0.5 met58 -0.25
+REACTION react1704 100  met58 0.5 met77 0.75 met70 1.25 met57 -0.5
+REACTION react1705 100  met72 -1.25 met87 1.0 met100 -0.25 met32 -0.25
+REACTION react1706 300  met66 -1.5 met32 -0.75 met84 1.0 met49 1.0 met20 0.5
+REACTION react1707 100  met31 0.5 met59 1.75 met71 -1.5 met42 1.75
+REACTION react1708 200  met39 1.75 met60 1.75 met35 -0.25
+REACTION react1709 200  met71 -2.0 met44 1.75 met100 -1.25 met78 -0.25
+REACTION react1710 200  met74 1.75 met99 -1.5 met39 -0.25 met71 -1.25
+REACTION react1711 300  met100 1.0 met33 -0.5
+REACTION react1712 100  met29 -1.0 met80 1.5
+REACTION react1713 300  met98 1.75 met90 -1.25 met81 0.5
+REACTION react1714 100  met67 -0.5 met21 -1.25 met17 1.75
+REACTION react1715 100  met60 0.5 met21 -2.0
+REACTION react1716 200  met17 1.0 met26 -0.75 met54 1.5 met55 -1.75
+REACTION react1717 100  met11 0.25 met84 -2.0 met80 0.25
+REACTION react1718 300  met63 -1.75 met87 0.25 met62 -2.0
+REACTION react1719 100  met47 0.25 met8 -1.0 met68 1.75 met6 0.5
+REACTION react1720 100  met9 0.25 met28 1.25 met99 -2.0 met61 1.25
+REACTION react1721 100  met27 -0.75 met24 -0.5 met85 0.5
+REACTION react1722 100  met42 -1.5 met34 0.75
+REACTION react1723 200  met7 -1.25 met60 -1.5 met88 1.75
+REACTION react1724 200  met33 -2.0 met87 1.75
+REACTION react1725 100  met23 0.75 met25 -1.5
+REACTION react1726 200  met59 -1.0 met54 1.25
+REACTION react1727 100  met28 -0.25 met74 0.75 met14 1.5
+REACTION react1728 300  met53 -1.5 met21 -2.0 met51 0.75 met62 1.5 met48 0.75
+REACTION react1729 200  met28 -2.0 met54 0.25 met42 1.0 met76 -2.0
+REACTION react1730 300  met6 0.25 met3 -0.75 met13 -1.0 met14 0.5
+REACTION react1731 200  met76 -0.75 met64 1.0
+REACTION react1732 200  met63 -1.0 met57 0.5 met76 0.25 met56 -1.0
+REACTION react1733 200  met31 0.25 met58 0.75 met46 0.25 met14 -1.25 met53 -0.75
+REACTION react1734 200  met7 -1.75 met99 -0.75 met86 -1.25 met26 0.25 met9 1.25
+REACTION react1735 200  met12 -1.0 met10 0.25
+REACTION react1736 100  met54 -0.75 met90 -1.75 met60 1.25
+REACTION react1737 300  met44 -1.0 met59 1.75
+REACTION react1738 200  met41 -1.5 met4 1.5 met66 -2.0 met17 0.5 met20 0.25
+REACTION react1739 300  met65 1.25 met80 -0.25
+REACTION react1740 300  met95 0.5 met38 -0.75 met8 -0.25 met81 1.75
+REACTION react1741 300  met8 1.25 met52 -0.5 met45 0.25 met37 -1.0 met17 0.25
+REACTION react1742 100  met83 0.25 met69 -1.0 met21 -2.0
+REACTION react1743 100  met1 1.75 met37 0.5 met3 -0.25 met84 0.75 met38 0.25
+REACTION react1744 100  met84 -2.0 met6 0.75 met5 -1.0 met45 1.5 met41 -1.25
+REACTION react1745 300  met18 0.75 met23 -1.25
+REACTION react1746 100  met70 -1.0 met9 -0.75 met56 0.25 met87 1.25 met31 1.5
+REACTION react1747 300  met76 1.5 met22 -0.5 met9 -0.25 met52 0.25 met15 1.0
+REACTION react1748 200  met4 0.75 met6 1.0 met23 0.25 met16 -1.75 met29 -1.0
+REACTION react1749 300  met80 -0.25 met67 0.25 met88 -2.0
+REACTION react1750 200  met17 0.75 met49 1.0 met9 0.5 met23 -1.5
+REACTION react1751 100  met25 1.0 met58 -1.75 met19 -1.5
+REACTION react1752 200  met48 1.5 met63 -2.0 met57 -1.0
+REACTION react1753 200  met57 1.5 met92 0.25 met33 -1.75
+REACTION react1754 100  met100 -1.0 met44 0.75
+REACTION react1755 300  met66 1.75 met98 0.5 met46 1.75 met57 -1.25
+REACTION react1756 300  met97 0.75 met41 -1.75 met11 1.0
+REACTION react1757 300  met1 0.25 met93 -0.25 met69 -0.5
+REACTION react1758 300  met12 0.5 met80 -0.5 met32 1.0 met35 0.25
+REACTION react1759 300  met94 -1.0 met18 -1.0 met78 0.75 met20 -2.0
+REACTION react1760 100  met44 1.0 met2 1.75 met25 -1.75 met69 1.25 met51 -1.0
+REACTION react1761 300  met92 1.0 met26 0.75 met4 -1.5
+REACTION react1762 200  met87 1.25 met92 -2.0 met47 -0.25 met7 -1.75
+REACTION react1763 100  met85 1.0 met11 -1.75 met36 -1.5
+REACTION react1764 100  met20 0.25 met84 1.75 met52 0.75 met12 -0.75
+REACTION react1765 300  met1 1.0 met89 1.75 met20 -0.75 met70 -1.0
+REACTION react1766 100  met23 1.75 met25 1.75 met18 -0.5 met12 -0.75 met65 -1.0
+REACTION react1767 100  met95 0.75 met91 -1.5 met74 0.25
+REACTION react1768 300  met54 0.25 met56 -2.0
+REACTION react1769 200  met1 0.75 met6 0.5 met24 -1.75 met14 -1.0 met68 1.5
+REACTION react1770 300  met46 0.25 met7 1.75 met56 -0.75 met9 -0.75
+REACTION react1771 300  met24 0.25 met14 -0.75
+REACTION react1772 200  met13 -0.5 met58 1.75 met2 0.5 met18 -0.75 met44 -2.0
+REACTION react1773 100  met79 0.75 met72 -1.75 met65 0.25
+REACTION react1774 200  met96 -1.0 met40 -0.25 met92 0.25
+REACTION react1775 100  met20 -1.75 met73 1.0 met5 -0.5
+REACTION react1776 100  met5 0.75 met36 -0.5
+REACTION react1777 300  met98 -0.25 met8 0.25 met17 -2.0 met58 -1.25
+REACTION react1778 100  met49 -1.0 met55 0.25 met43 -1.25 met98 -1.5 met56 0.5
+REACTION react1779 200  met51 0.25 met62 -1.75
+REACTION react1780 100  met30 -2.0 met31 -0.5 met40 -0.25 met28 0.75
+REACTION react1781 300  met8 -0.5 met25 -1.0 met95 -1.5 met41 0.5
+REACTION react1782 100  met19 0.5 met58 -0.25 met91 -1.0
+REACTION react1783 300  met77 -1.5 met24 0.75
+REACTION react1784 200  met89 -2.0 met17 0.5
+REACTION react1785 300  met44 -2.0 met64 -0.75 met99 1.0 met8 1.25
+REACTION react1786 100  met67 1.75 met8 -1.75 met50 -0.25 met98 -0.25 met34 0.75
+REACTION react1787 200  met60 0.5 met73 -1.25 met80 -0.5 met48 -0.5 met15 0.25
+REACTION react1788 300  met86 -2.0 met49 -1.5 met42 -0.75 met92 1.25
+REACTION react1789 200  met32 0.25 met77 -0.25
+REACTION react1790 100  met22 1.25 met20 1.5 met86 -0.75
+REACTION react1791 300  met24 1.5 met12 -1.25
+REACTION react1792 100  met60 1.25 met21 -1.75 met23 0.5 met58 -1.0
+REACTION react1793 200  met88 1.0 met71 -0.5
+REACTION react1794 100  met75 1.0 met7 -0.75 met65 0.75 met46 -0.75 met91 0.75
+REACTION react1795 200  met99 1.75 met48 0.75 met3 0.75 met71 -1.25
+REACTION react1796 200  met71 1.25 met76 0.25 met41 0.75 met86 -1.0
+REACTION react1797 100  met16 -0.25 met48 -1.0 met56 1.25
+REACTION react1798 300  met25 0.25 met49 -1.25
+REACTION react1799 100  met5 -0.5 met35 0.5
+REACTION react1800 300  met92 -1.5 met49 0.25 met52 -0.5
+REACTION react1801 200  met51 1.5 met9 0.5 met93 0.25 met40 0.25 met95 -1.5
+REACTION react1802 200  met93 -0.5 met96 0.75
+REACTION react1803 300  met28 0.75 met99 -0.5
+REACTION react1804 100  met5 -1.75 met54 1.25 met29 0.25
+REACTION react1805 300  met83 0.25 met61 -1.75 met53 -2.0 met54 0.25
+REACTION react1806 300  met55 0.75 met60 1.25 met62 -1.5
+REACTION react1807 300  met78 0.25 met95 1.25 met73 -1.5 met86 -0.25
+REACTION react1808 200  met58 -2.0 met38 1.5
+REACTION react1809 200  met91 1.5 met68 -1.0 met92 -1.25
+REACTION react1810 300  met70 -1.0 met68 1.5 met73 0.75 met94 -1.25 met58 1.25
+REACTION react1811 100  met34 -1.5 met95 -0.75 met17 1.0
+REACTION react1812 200  met66 1.25 met48 -0.5 met75 0.75 met83 0.5
+REACTION react1813 300  met90 1.75 met95 -2.0 met9 -1.75 met98 -1.0 met74 -0.5
+REACTION react1814 200  met17 1.25 met47 -0.5
+REACTION react1815 100  met15 1.25 met83 0.5 met79 1.0 met20 -2.0 met62 0.25
+REACTION react1816 100  met38 -1.5 met13 1.5 met64 -1.0 met83 -1.25 met63 -0.25
+REACTION react1817 200  met67 -0.75 met88 1.0
+REACTION react1818 200  met40 -1.5 met6 -1.5 met9 1.75
+REACTION react1819 200  met93 0.25 met54 0.25 met68 -2.0
+REACTION react1820 200  met40 0.75 met22 -1.0 met47 -1.5 met52 -1.5
+REACTION react1821 200  met18 -0.75 met67 -1.0 met86 0.25 met49 0.5
+REACTION react1822 200  met11 -0.5 met44 0.75
+REACTION react1823 100  met5 1.75 met99 -1.5 met46 0.25 met74 0.75
+REACTION react1824 100  met4 1.75 met90 -0.25 met27 1.0
+REACTION react1825 100  met78 -1.5 met11 0.5 met82 0.25 met98 -0.75
+REACTION react1826 300  met76 -0.5 met96 0.25 met58 1.25
+REACTION react1827 100  met12 1.25 met24 -1.75
+REACTION react1828 300  met49 -0.25 met11 -0.5 met99 -0.25 met34 1.5
+REACTION react1829 300  met83 0.25 met47 -1.5 met75 -0.5
+REACTION react1830 300  met4 0.25 met1 -2.0 met55 1.0 met81 0.25 met92 0.25
+REACTION react1831 300  met51 0.75 met1 -1.5
+REACTION react1832 200  met48 -0.5 met12 1.5 met18 -1.25 met38 -0.5
+REACTION react1833 300  met24 0.75 met91 -1.25 met83 0.25 met54 -0.5
+REACTION react1834 200  met6 -1.0 met11 -1.25 met53 0.75 met89 -2.0
+REACTION react1835 100  met4 1.75 met77 -0.25 met30 -0.75 met5 1.5 met55 1.0
+REACTION react1836 300  met33 -1.75 met43 1.5
+REACTION react1837 300  met82 0.5 met41 -1.0 met35 -0.25 met92 1.0
+REACTION react1838 100  met14 0.75 met80 -0.75 met90 0.25
+REACTION react1839 100  met32 0.5 met97 -1.5 met45 1.0
+REACTION react1840 200  met39 -0.75 met12 -0.25 met54 0.25
+REACTION react1841 300  met3 0.5 met77 -0.75 met70 1.25 met24 -1.25
+REACTION react1842 100  met15 1.5 met7 -1.75 met81 0.5 met42 -1.0 met66 -1.25
+REACTION react1843 200  met42 1.5 met17 -0.5 met5 -2.0 met57 -1.0
+REACTION react1844 100  met89 0.25 met59 0.75 met56 -2.0 met73 1.5 met39 -1.25
+REACTION react1845 100  met81 1.0 met33 0.75 met24 -1.0
+REACTION react1846 200  met71 0.5 met16 -1.75 met5 0.5 met25 -2.0
+REACTION react1847 100  met93 0.75 met64 1.75 met28 -0.25 met41 1.5 met58 -1.25
+REACTION react1848 200  met25 0.5 met3 -0.75 met11 -1.0
+REACTION react1849 100  met94 1.5 met41 1.25 met68 -2.0
+REACTION react1850 300  met73 0.25 met13 -2.0 met26 1.75 met79 -0.75
+REACTION react1851 100  met81 1.0 met15 -0.25 met82 -1.0
+REACTION react1852 200  met60 0.25 met91 -1.75
+REACTION react1853 200  met30 -0.5 met76 1.25
+REACTION react1854 300  met17 1.25 met70 -0.5
+REACTION react1855 100  met100 0.75 met63 -1.5 met87 -0.25
+REACTION react1856 200  met61 -1.5 met81 0.75 met60 -0.75
+REACTION react1857 300  met76 -1.25 met16 -2.0 met15 0.75 met84 0.25 met47 -1.5
+REACTION react1858 300  met48 0.25 met19 -1.5 met18 -1.25 met67 1.5 met100 1.0
+REACTION react1859 100  met58 1.25 met34 -0.75
+REACTION react1860 100  met79 -0.5 met75 -2.0 met29 -0.25 met24 -2.0 met86 0.5
+REACTION react1861 100  met10 -1.0 met90 1.75 met42 -1.75 met70 -1.25
+REACTION react1862 100  met55 0.25 met24 1.25 met30 0.25 met61 0.25 met80 -0.25
+REACTION react1863 300  met99 -1.0 met35 0.25 met68 -0.5 met3 1.5
+REACTION react1864 200  met91 0.25 met8 0.75 met97 1.75 met55 -0.75
+REACTION react1865 300  met24 -1.25 met25 0.25 met87 1.75
+REACTION react1866 200  met76 -0.5 met25 0.75 met49 0.25 met68 0.5 met46 0.5
+REACTION react1867 200  met28 1.0 met3 1.75 met84 -0.75
+REACTION react1868 100  met75 1.75 met97 -1.5
+REACTION react1869 300  met22 0.5 met97 1.0 met33 -0.75 met56 -1.5 met81 -1.25
+REACTION react1870 300  met26 0.75 met87 -1.25 met93 0.75 met28 -0.75
+REACTION react1871 300  met68 -1.5 met75 1.25
+REACTION react1872 300  met1 1.75 met92 -1.5 met18 -1.0 met59 -1.5
+REACTION react1873 100  met63 1.0 met65 1.25 met47 -1.25 met2 -2.0 met43 1.25
+REACTION react1874 100  met22 -2.0 met39 1.75
+REACTION react1875 200  met4 1.75 met2 1.0 met88 -0.25
+REACTION react1876 200  met23 0.25 met27 -2.0 met43 0.75 met51 1.0
+REACTION react1877 100  met45 -2.0 met1 -1.75 met89 -0.5 met76 1.0 met5 0.25
+REACTION react1878 300  met64 1.5 met74 1.0 met73 -1.75 met9 -1.5 met15 -0.25
+REACTION react1879 100  met45 0.25 met24 1.5 met53 -1.0 met25 1.0 met90 -1.0
+REACTION react1880 200  met59 0.25 met89 1.0 met31 0.5 met63 1.0 met71 -1.0
+REACTION react1881 100  met22 -2.0 met9 -1.0 met67 1.5 met62 1.5
+REACTION react1882 200  met95 0.25 met71 -0.75 met80 -1.75 met37 -1.5
+REACTION react1883 100  met87 -0.5 met22 -0.25 met76 0.75
+REACTION react1884 100  met38 0.25 met81 -1.0 met74 1.5 met46 -1.75 met56 -0.75
+REACTION react1885 100  met72 1.25 met27 -0.5 met59 -0.5 met90 0.5
+REACTION react1886 200  met12 -0.75 met25 0.25 met10 1.0
+REACTION react1887 300  met61 0.25 met56 -1.25
+REACTION react1888 200  met49 -2.0 met15 1.5 met71 -2.0 met31 -1.25 met11 -0.25
+REACTION react1889 300  met75 0.25 met91 -1.0 met17 1.25 met90 0.25 met33 0.5
+REACTION react1890 200  met66 1.75 met89 -0.75 met77 -1.5 met31 -1.0
+REACTION react1891 100  met74 -1.0 met35 1.75
+REACTION react1892 100  met90 -1.25 met23 0.75
+REACTION react1893 200  met22 1.75 met77 -0.75 met7 1.0 met3 -1.5
+REACTION react1894 200  met49 1.75 met15 -1.5 met98 1.25 met44 0.25
+REACTION react1895 300  met20 -1.5 met100 0.25 met54 1.75 met82 0.25
+REACTION react1896 200  met35 -0.5 met42 -0.75 met32 0.25 met70 0.5 met34 1.0
+REACTION react1897 300  met74 0.5 met14 -1.5
+REACTION react1898 100  met84 0.5 met66 -1.5 met32 -0.25
+REACTION react1899 100  met7 0.5 met56 -0.25
+REACTION react1900 300  met58 -2.0 met51 -1.0 met35 0.25
+REACTION react1901 100  met99 -0.25 met23 1.0
+REACTION react1902 100  met9 0.5 met35 1.75 met74 -2.0
+REACTION react1903 100  met61 -1.0 met77 1.25
+REACTION react1904 300  met25 -1.25 met95 0.75
+REACTION react1905 200  met32 0.5 met92 1.25 met30 -1.5
+REACTION react1906 300  met45 0.25 met98 0.25 met21 -1.5
+REACTION react1907 100  met90 0.75 met52 -0.75 met74 0.25 met64 1.0
+REACTION react1908 200  met17 -0.25 met80 0.5 met50 -1.5 met49 -0.5
+REACTION react1909 200  met86 -1.75 met46 0.75 met23 0.75 met91 -0.75 met30 -2.0
+REACTION react1910 300  met73 1.25 met59 1.25 met20 -1.75 met12 0.5 met23 0.5
+REACTION react1911 100  met78 0.5 met39 0.75 met29 -1.0 met41 -0.25 met63 0.75
+REACTION react1912 200  met49 -2.0 met99 -1.5 met9 0.75
+REACTION react1913 100  met79 -0.75 met44 0.5
+REACTION react1914 200  met4 0.25 met32 -1.75
+REACTION react1915 200  met32 1.0 met62 1.75 met39 -1.5
+REACTION react1916 200  met93 0.25 met73 -0.5 met61 -1.75
+REACTION react1917 300  met8 -1.0 met35 1.0
+REACTION react1918 300  met5 0.25 met45 -1.25
+REACTION react1919 200  met86 -2.0 met30 -1.0 met21 -1.75 met83 1.5 met16 1.5
+REACTION react1920 100  met7 1.0 met76 1.25 met89 0.25 met46 0.5 met15 -1.75
+REACTION react1921 200  met99 0.5 met8 -0.5
+REACTION react1922 300  met3 -0.5 met30 1.5
+REACTION react1923 300  met90 1.75 met32 -1.75 met44 1.25 met72 1.0 met100 -0.25
+REACTION react1924 100  met48 -2.0 met29 -0.5 met95 -1.75 met100 1.0
+REACTION react1925 300  met70 -1.75 met30 1.75 met44 1.75
+REACTION react1926 100  met4 1.75 met68 1.0 met66 0.25 met88 -0.5
+REACTION react1927 300  met47 1.75 met88 1.5 met48 -0.25
+REACTION react1928 300  met82 -2.0 met57 1.0 met8 -1.75 met16 1.0 met13 -1.25
+REACTION react1929 200  met44 -0.75 met98 1.5
+REACTION react1930 100  met16 -1.0 met58 -0.5 met26 1.25
+REACTION react1931 300  met94 -0.25 met23 1.5 met51 -1.25 met37 0.5
+REACTION react1932 200  met27 -1.5 met14 1.5
+REACTION react1933 100  met79 -0.5 met4 1.0 met46 -1.5
+REACTION react1934 300  met20 1.0 met70 0.75 met29 -0.75
+REACTION react1935 300  met35 -2.0 met69 1.5
+REACTION react1936 100  met70 -0.25 met20 0.5 met33 -2.0
+REACTION react1937 100  met12 -0.5 met68 1.0
+REACTION react1938 100  met41 -1.25 met18 0.75 met89 -0.5
+REACTION react1939 100  met53 -0.75 met56 -1.0 met29 -1.0 met72 0.25
+REACTION react1940 100  met90 -1.5 met94 -0.5 met83 1.0 met5 -2.0
+REACTION react1941 300  met99 -2.0 met38 -0.75 met65 1.0
+REACTION react1942 300  met88 0.5 met14 -1.25 met75 -2.0 met12 -1.25 met61 1.5
+REACTION react1943 200  met7 1.5 met66 -1.5 met86 -0.75
+REACTION react1944 300  met80 -1.0 met79 -0.5 met51 0.25 met8 0.25 met2 -2.0
+REACTION react1945 300  met10 0.5 met90 1.75 met91 -0.5
+REACTION react1946 100  met27 -1.75 met57 -0.25 met29 0.25 met11 -1.25 met56 1.0
+REACTION react1947 200  met36 0.5 met84 -0.75
+REACTION react1948 200  met89 -0.25 met26 -0.5 met62 0.25 met31 0.25 met57 0.25
+REACTION react1949 300  met56 1.25 met31 -1.75
+REACTION react1950 200  met79 1.0 met17 -1.0 met16 0.75 met76 -1.75
+REACTION react1951 200  met26 -0.25 met99 1.75 met39 -1.5 met23 -1.75
+REACTION react1952 200  met23 -1.25 met50 0.25 met33 -1.0 met54 1.5 met13 1.75
+REACTION react1953 300  met29 -1.5 met20 0.75 met94 -1.75 met2 -1.0 met71 1.25
+REACTION react1954 200  met94 -1.0 met91 1.25 met71 -0.25 met65 1.75
+REACTION react1955 200  met58 -1.0 met16 -1.25 met95 1.25
+REACTION react1956 100  met67 -1.75 met39 0.75 met71 -2.0 met55 -2.0
+REACTION react1957 200  met81 0.25 met39 -0.25
+REACTION react1958 300  met44 -2.0 met48 1.25 met13 0.5
+REACTION react1959 200  met13 -1.75 met29 1.5 met85 1.0 met20 1.5
+REACTION react1960 300  met59 -0.5 met81 0.25 met85 -1.25 met83 1.0
+REACTION react1961 300  met86 -1.0 met28 0.25
+REACTION react1962 100  met34 0.5 met41 -2.0 met21 1.5 met92 1.5
+REACTION react1963 200  met40 0.75 met33 -1.0
+REACTION react1964 300  met70 -1.5 met79 -1.75 met11 -1.0 met96 0.75
+REACTION react1965 100  met39 -0.25 met57 1.5 met22 1.0 met91 -0.75
+REACTION react1966 100  met2 0.5 met28 -0.25
+REACTION react1967 100  met56 0.75 met9 -2.0 met80 1.0 met53 -0.25
+REACTION react1968 200  met77 1.25 met19 1.75 met12 -0.5
+REACTION react1969 100  met71 0.25 met37 -2.0 met21 0.5 met23 -1.75
+REACTION react1970 300  met72 -1.25 met32 0.25
+REACTION react1971 300  met4 1.5 met16 1.75 met14 -1.75
+REACTION react1972 200  met75 -0.75 met40 1.75 met50 -1.25 met73 1.5 met17 1.0
+REACTION react1973 300  met48 0.25 met97 1.0 met74 -0.75 met39 -1.25
+REACTION react1974 200  met29 1.75 met43 -0.75
+REACTION react1975 200  met47 1.0 met27 -1.25
+REACTION react1976 300  met28 1.75 met83 -1.5 met100 -0.25
+REACTION react1977 300  met18 0.75 met24 1.25 met15 1.75 met41 -2.0
+REACTION react1978 300  met30 1.75 met37 -0.25 met50 -0.5
+REACTION react1979 100  met45 -1.75 met58 1.0 met76 0.25
+REACTION react1980 100  met89 -1.0 met35 1.5 met15 -1.0
+REACTION react1981 300  met93 -0.75 met56 1.0 met25 1.75
+REACTION react1982 100  met81 1.25 met64 -2.0
+REACTION react1983 300  met5 1.0 met73 1.75 met91 1.25 met67 -0.75
+REACTION react1984 300  met49 0.75 met73 0.5 met65 -0.75 met32 -2.0 met28 -2.0
+REACTION react1985 300  met47 -0.25 met96 0.5
+REACTION react1986 300  met14 1.0 met59 -0.5 met45 1.5 met83 0.25 met64 -0.25
+REACTION react1987 100  met75 0.5 met63 -0.25
+REACTION react1988 100  met4 -1.5 met26 -1.75 met37 1.5
+REACTION react1989 300  met39 1.25 met51 1.5 met66 -0.75
+REACTION react1990 100  met56 -1.5 met70 0.25
+REACTION react1991 100  met99 1.75 met17 -0.25 met32 -1.0 met98 0.75
+REACTION react1992 300  met99 -1.0 met22 1.0 met60 1.25
+REACTION react1993 300  met17 -0.5 met57 -0.75 met16 0.5
+REACTION react1994 300  met74 0.5 met46 1.0 met81 -0.25
+REACTION react1995 300  met95 -1.25 met67 1.75
+REACTION react1996 100  met4 -0.75 met96 0.75 met72 0.5 met26 -0.25 met43 -0.5
+REACTION react1997 300  met64 1.5 met47 -1.5
+REACTION react1998 200  met66 -2.0 met83 -2.0 met45 0.75
+REACTION react1999 100  met17 0.75 met88 -0.75 met74 1.5 met62 -2.0
+REACTION react2000 100  met78 -1.75 met72 -0.25 met18 -0.5 met91 1.5
+REACTION react2001 200  met59 0.5 met5 0.75 met64 -1.75
+REACTION react2002 300  met6 1.25 met36 0.25 met99 -1.25
+REACTION react2003 300  met94 -1.75 met17 1.5 met32 -1.25 met24 -0.5 met22 1.25
+REACTION react2004 100  met19 0.25 met59 0.75 met32 -2.0 met100 -1.0 met16 -0.5
+REACTION react2005 100  met71 0.75 met89 -0.25 met8 -1.25 met26 0.5 met100 -1.0
+REACTION react2006 200  met81 0.5 met100 -1.75
+REACTION react2007 200  met72 1.5 met22 -2.0 met87 -0.5 met9 -2.0
+REACTION react2008 100  met77 0.25 met61 -2.0
+REACTION react2009 100  met96 -1.5 met3 1.5 met26 1.5 met79 -0.25 met58 1.25
+REACTION react2010 300  met73 -2.0 met50 1.75
+REACTION react2011 100  met29 0.25 met98 0.5 met13 -2.0 met31 0.75 met73 -1.25
+REACTION react2012 200  met68 0.5 met77 -0.5 met18 -0.25 met76 -2.0 met1 -1.75
+REACTION react2013 200  met86 -1.5 met88 0.75
+REACTION react2014 200  met18 -1.5 met91 -1.75 met5 0.25 met95 -0.75
+REACTION react2015 100  met28 -0.5 met71 -0.25 met29 1.25
+REACTION react2016 100  met99 -0.75 met29 1.0
+REACTION react2017 100  met54 -0.25 met67 -2.0 met59 -0.5 met10 1.75
+REACTION react2018 200  met74 0.5 met33 1.75 met60 -0.5 met57 0.75
+REACTION react2019 200  met62 0.25 met72 1.5 met13 1.25 met14 -0.25
+REACTION react2020 300  met12 1.25 met66 1.25 met45 -0.5 met65 1.25
+REACTION react2021 300  met87 -0.25 met54 -1.75 met62 1.5 met6 0.5
+REACTION react2022 200  met40 0.25 met34 -0.5 met47 -1.75
+REACTION react2023 200  met97 -1.75 met69 -0.75 met89 1.0
+REACTION react2024 100  met65 1.75 met94 -0.25 met54 1.5
+REACTION react2025 300  met49 1.25 met98 1.75 met33 -0.25 met8 -1.0
+REACTION react2026 300  met33 -0.5 met65 -2.0 met54 -1.5 met79 1.5
+REACTION react2027 300  met57 0.5 met95 -2.0 met93 -1.25 met25 -1.5
+REACTION react2028 100  met88 0.25 met15 -1.5 met49 -0.75
+REACTION react2029 200  met76 -0.75 met23 -1.0 met31 1.25 met66 -1.75
+REACTION react2030 200  met40 0.25 met4 -1.75 met62 1.0 met49 -2.0
+REACTION react2031 200  met93 0.75 met59 -1.25
+REACTION react2032 300  met57 -0.25 met59 0.75 met43 0.5 met48 -0.75 met18 1.25
+REACTION react2033 300  met98 -1.25 met22 0.25 met66 -0.5 met74 1.75
+REACTION react2034 100  met65 0.75 met5 -0.25
+REACTION react2035 200  met88 0.25 met10 1.5 met84 -0.5
+REACTION react2036 200  met37 0.25 met68 -1.75 met34 -0.25 met77 0.25
+REACTION react2037 100  met20 -1.5 met43 1.0
+REACTION react2038 200  met90 -2.0 met51 -1.5 met77 1.75 met31 0.25
+REACTION react2039 100  met76 -1.0 met44 1.75
+REACTION react2040 300  met50 -1.75 met41 1.25 met9 0.25 met62 -0.25
+REACTION react2041 300  met90 0.75 met35 0.5 met26 -0.5 met9 0.25 met12 -1.0
+REACTION react2042 200  met28 -1.5 met1 1.25 met5 0.75 met14 0.25
+REACTION react2043 200  met31 1.5 met99 1.5 met54 0.75 met25 -0.25 met14 -1.0
+REACTION react2044 200  met68 1.75 met58 0.5 met1 1.0 met70 -1.25
+REACTION react2045 200  met48 1.5 met72 -0.25 met34 1.0 met88 -0.75 met90 1.0
+REACTION react2046 200  met2 1.5 met60 -0.75 met85 0.25
+REACTION react2047 100  met20 -1.5 met80 0.5
+REACTION react2048 100  met13 -0.75 met7 0.25 met39 -2.0 met8 -1.25 met24 0.25
+REACTION react2049 100  met96 1.0 met65 -1.0 met45 -1.0
+REACTION react2050 200  met32 -0.5 met63 -1.25 met60 0.75 met36 1.75 met13 -1.75
+REACTION react2051 300  met64 0.75 met37 1.25 met72 -0.5
+REACTION react2052 300  met21 -1.5 met78 -0.25 met47 0.75 met39 -2.0 met76 -1.25
+REACTION react2053 200  met84 -0.75 met34 1.5 met33 1.0 met59 0.5
+REACTION react2054 100  met62 -1.0 met73 0.25
+REACTION react2055 300  met74 -0.75 met66 1.75 met65 0.75 met45 1.5
+REACTION react2056 200  met29 -2.0 met8 1.25
+REACTION react2057 100  met4 0.25 met53 -1.75
+REACTION react2058 200  met27 -0.25 met11 -0.25 met60 1.75
+REACTION react2059 100  met20 1.25 met40 -1.5 met37 0.75
+REACTION react2060 300  met74 -0.25 met73 0.75
+REACTION react2061 100  met51 -2.0 met17 0.75 met43 1.0
+REACTION react2062 100  met21 -1.5 met56 -2.0 met62 0.25
+REACTION react2063 100  met83 0.25 met56 -2.0 met100 0.5 met66 -1.0
+REACTION react2064 200  met57 1.25 met20 1.25 met90 0.5 met65 -1.75
+REACTION react2065 100  met19 -0.5 met93 1.0 met14 -1.25 met3 0.5 met74 -1.75
+REACTION react2066 100  met52 -2.0 met16 -1.25 met6 0.75
+REACTION react2067 200  met64 -0.25 met74 -0.75 met3 -1.75 met22 2.0
+REACTION react2068 100  met37 1.5 met52 -0.75
+REACTION react2069 300  met65 -1.25 met63 0.25 met25 -0.25
+REACTION react2070 200  met39 -1.0 met2 0.25 met7 -1.0 met60 0.25
+REACTION react2071 300  met38 -0.25 met3 1.0 met93 1.0 met95 1.25
+REACTION react2072 300  met60 1.0 met20 0.75 met32 -2.0 met36 1.75
+REACTION react2073 200  met54 -0.5 met17 -1.75 met93 1.5 met38 1.5
+REACTION react2074 200  met80 -1.75 met94 1.25
+REACTION react2075 200  met8 1.5 met82 0.75 met64 0.25 met24 -0.75 met52 1.0
+REACTION react2076 300  met8 0.25 met88 -1.0
+REACTION react2077 100  met50 0.25 met70 1.25 met61 1.25 met33 1.75 met23 -2.0
+REACTION react2078 300  met11 -0.5 met65 1.0 met47 1.25 met52 1.0
+REACTION react2079 300  met94 -1.0 met83 1.25 met64 -0.25 met75 -0.75
+REACTION react2080 100  met84 -0.5 met12 0.25
+REACTION react2081 200  met8 -2.0 met46 1.25 met80 0.25
+REACTION react2082 100  met86 -1.0 met81 0.25 met70 -1.5 met98 1.75
+REACTION react2083 200  met35 1.0 met68 1.0 met26 0.75 met43 0.25 met70 -0.75
+REACTION react2084 200  met21 0.25 met17 0.5 met29 1.5 met74 -0.25
+REACTION react2085 300  met11 -1.75 met53 -1.75 met88 1.5
+REACTION react2086 300  met43 1.75 met65 1.75 met71 -1.0 met100 -1.0 met63 -0.5
+REACTION react2087 200  met73 1.25 met62 -1.0 met69 -2.0 met19 0.75
+REACTION react2088 200  met50 0.75 met48 -0.25 met22 -0.5
+REACTION react2089 100  met56 1.25 met47 1.75 met48 -1.25 met97 0.25 met53 -0.75
+REACTION react2090 300  met97 1.0 met89 1.25 met81 -1.0
+REACTION react2091 100  met40 -2.0 met52 0.75
+REACTION react2092 200  met42 -0.5 met41 0.75 met77 -0.5 met65 -0.5
+REACTION react2093 100  met43 -2.0 met47 1.5
+REACTION react2094 100  met37 -0.5 met56 -0.5 met47 1.75
+REACTION react2095 200  met58 0.5 met5 0.75 met86 1.25 met93 1.75 met40 -0.25
+REACTION react2096 100  met72 0.75 met9 -1.0
+REACTION react2097 100  met37 1.25 met8 -1.5 met85 1.0 met95 1.25
+REACTION react2098 300  met15 -1.25 met6 1.5
+REACTION react2099 200  met19 0.25 met65 0.5 met67 -0.75
+REACTION react2100 100  met97 -1.0 met66 -1.25 met75 0.25
+REACTION react2101 100  met65 -0.25 met39 0.75
+REACTION react2102 100  met19 -0.5 met75 0.75 met46 -0.5 met39 -2.0 met1 -1.5
+REACTION react2103 200  met53 -1.75 met36 -0.25 met38 1.5 met41 0.25 met95 1.0
+REACTION react2104 300  met18 1.5 met51 -2.0 met38 1.5 met43 0.75 met5 0.25
+REACTION react2105 100  met67 -0.75 met13 0.5 met55 1.5 met29 1.75 met17 0.75
+REACTION react2106 100  met94 0.25 met96 1.5 met42 0.25 met41 -0.25
+REACTION react2107 300  met22 0.25 met14 -1.5 met66 -1.5 met60 -1.75
+REACTION react2108 100  met58 0.75 met51 0.25 met29 -0.75 met40 1.5
+REACTION react2109 300  met15 1.0 met95 0.25 met73 -2.0 met46 1.25 met19 -0.25
+REACTION react2110 200  met100 1.0 met49 1.75 met17 0.5 met22 -1.25
+REACTION react2111 200  met28 -1.0 met11 -1.25 met25 -0.75 met22 1.75
+REACTION react2112 200  met44 -1.25 met3 1.0
+REACTION react2113 300  met9 1.75 met65 -1.75 met4 -1.0
+REACTION react2114 100  met5 -1.25 met73 0.25
+REACTION react2115 100  met4 1.5 met97 -2.0 met98 -0.5 met30 1.0
+REACTION react2116 300  met9 -1.75 met64 0.25 met17 1.25 met83 -1.5 met19 -0.75
+REACTION react2117 100  met87 -1.0 met82 0.25
+REACTION react2118 100  met91 -0.5 met51 0.25 met87 1.0 met33 0.25 met3 -1.0
+REACTION react2119 100  met73 -0.5 met13 0.25 met42 0.5 met50 -1.75
+REACTION react2120 100  met43 0.5 met56 -1.25 met74 0.5
+REACTION react2121 200  met81 1.5 met36 0.25 met56 -1.5
+REACTION react2122 300  met93 0.25 met76 0.75 met72 1.75 met1 -1.0
+REACTION react2123 100  met35 0.75 met99 1.5 met5 -0.25
+REACTION react2124 100  met59 0.25 met82 1.75 met28 1.75 met18 -0.25
+REACTION react2125 100  met15 0.75 met77 -0.5
+REACTION react2126 200  met8 -2.0 met27 -0.5 met86 -1.5 met30 -0.5 met62 0.25
+REACTION react2127 300  met23 -0.75 met72 0.25 met28 1.0
+REACTION react2128 200  met41 1.25 met24 -0.75
+REACTION react2129 100  met15 1.25 met96 -0.5 met68 1.0
+REACTION react2130 300  met67 1.25 met54 -0.25 met52 -1.75 met53 -1.0
+REACTION react2131 100  met79 -1.75 met50 -1.5 met46 -0.25 met66 0.25 met54 -1.0
+REACTION react2132 200  met34 0.25 met62 1.25 met78 -1.25
+REACTION react2133 100  met22 -0.25 met65 -1.5 met56 -1.75 met83 0.75 met18 1.5
+REACTION react2134 100  met89 -1.0 met6 0.75 met17 -0.5
+REACTION react2135 200  met16 1.75 met23 -2.0 met38 -1.0 met33 0.5
+REACTION react2136 300  met62 -2.0 met98 -0.25 met56 1.0 met80 -0.75
+REACTION react2137 200  met18 0.25 met50 -1.0
+REACTION react2138 200  met60 0.25 met53 -1.5 met10 -1.0 met100 -2.0
+REACTION react2139 100  met55 0.25 met17 1.75 met73 -0.25
+REACTION react2140 200  met51 1.5 met3 0.25 met49 0.25 met31 -0.25
+REACTION react2141 100  met67 0.25 met64 -0.25 met63 0.75 met23 -0.25
+REACTION react2142 300  met70 0.25 met57 -0.25
+REACTION react2143 300  met23 -1.25 met22 -2.0 met60 -1.25 met94 0.75
+REACTION react2144 100  met2 -1.0 met68 1.0 met36 -0.25
+REACTION react2145 200  met52 -0.25 met27 1.5
+REACTION react2146 300  met47 0.75 met84 -0.75 met50 0.25
+REACTION react2147 300  met45 -1.0 met78 0.75 met94 1.25 met88 -1.5 met79 0.25
+REACTION react2148 100  met85 -2.0 met61 -0.25 met19 -1.25 met82 0.25
+REACTION react2149 100  met80 1.5 met98 0.75 met59 -2.0 met73 0.25 met17 -0.75
+REACTION react2150 300  met98 0.5 met82 -0.5
+REACTION react2151 300  met55 -1.75 met84 -2.0 met65 0.5
+REACTION react2152 100  met32 1.0 met83 1.0 met60 -0.25
+REACTION react2153 100  met43 0.75 met35 -1.0
+REACTION react2154 200  met87 -2.0 met26 0.75
+REACTION react2155 300  met9 -0.75 met40 1.75 met89 -1.0
+REACTION react2156 200  met22 0.75 met99 -0.5 met36 0.5 met46 0.5
+REACTION react2157 100  met13 -1.5 met99 0.5 met31 1.5 met10 0.25 met19 -1.5
+REACTION react2158 200  met93 -2.0 met87 1.75
+REACTION react2159 300  met75 1.0 met71 -1.5
+REACTION react2160 200  met19 -1.0 met72 -2.0 met71 2.0
+REACTION react2161 200  met75 -1.5 met7 -2.0 met42 0.25
+REACTION react2162 300  met98 -0.5 met29 0.25 met95 -1.5
+REACTION react2163 100  met75 0.5 met76 -0.25 met25 -2.0 met2 0.25
+REACTION react2164 200  met74 -1.5 met5 -1.0 met15 0.25
+REACTION react2165 300  met49 0.75 met71 0.25 met91 0.5 met21 -2.0
+REACTION react2166 300  met86 -0.75 met17 -0.5 met50 0.5
+REACTION react2167 100  met71 0.25 met3 -1.75
+REACTION react2168 200  met22 -1.5 met38 -1.25 met31 -0.75 met46 -0.5 met23 0.75
+REACTION react2169 300  met66 -1.75 met30 0.25
+REACTION react2170 300  met79 -0.75 met64 0.25
+REACTION react2171 100  met38 0.25 met94 1.75 met15 -1.5 met97 1.75
+REACTION react2172 200  met82 -1.0 met19 -0.25 met99 1.0 met42 -2.0
+REACTION react2173 300  met32 -1.5 met60 -0.75 met76 -0.5 met12 0.5 met55 -0.25
+REACTION react2174 100  met71 0.75 met46 0.75 met17 -2.0 met52 -0.75 met63 0.25
+REACTION react2175 100  met95 -0.25 met12 -1.25 met34 -0.75 met67 -1.5 met18 1.75
+REACTION react2176 300  met15 1.25 met78 -0.75
+REACTION react2177 100  met2 -1.25 met67 -1.75 met86 1.0
+REACTION react2178 100  met39 -1.0 met35 1.0 met18 0.25 met56 1.0 met67 0.25
+REACTION react2179 200  met90 -1.75 met30 0.75 met32 -1.25 met52 -1.5
+REACTION react2180 100  met48 -0.75 met82 -1.25 met62 1.5 met74 -0.75 met41 0.5
+REACTION react2181 200  met41 -1.75 met58 1.25 met48 0.75 met53 -2.0 met13 0.25
+REACTION react2182 200  met72 1.5 met83 0.25 met40 1.0 met71 -1.75
+REACTION react2183 200  met78 1.5 met4 0.25 met11 0.5 met27 -1.5 met28 0.25
+REACTION react2184 300  met76 1.0 met25 -1.75 met10 -0.25
+REACTION react2185 300  met71 1.5 met13 1.25 met88 -0.75 met62 -0.25
+REACTION react2186 100  met6 -1.75 met78 -1.5 met52 1.75 met11 -2.0 met39 -1.25
+REACTION react2187 300  met23 -1.25 met28 1.5 met47 -0.25 met22 -0.25
+REACTION react2188 300  met62 -1.0 met78 0.75 met13 -0.25
+REACTION react2189 200  met65 1.25 met16 -1.0 met89 -0.5 met70 1.5 met15 -1.5
+REACTION react2190 100  met58 -2.0 met98 1.0
+REACTION react2191 200  met63 1.0 met1 1.5 met89 0.75 met92 -1.75 met18 -0.5
+REACTION react2192 300  met98 1.0 met23 -1.75
+REACTION react2193 300  met21 -1.0 met31 1.5
+REACTION react2194 300  met50 -0.25 met71 1.0 met39 1.5 met70 0.25 met44 -0.75
+REACTION react2195 100  met49 0.75 met81 -1.25 met44 0.75 met23 -0.25
+REACTION react2196 200  met5 -1.5 met84 0.25
+REACTION react2197 300  met16 0.75 met19 0.25 met13 -1.25
+REACTION react2198 300  met16 -2.0 met71 1.5 met83 -1.0
+REACTION react2199 100  met95 -1.0 met86 -0.25 met92 1.75
+REACTION react2200 300  met96 -1.25 met39 1.25 met27 -0.25
+REACTION react2201 200  met27 -1.0 met35 1.0 met67 -0.5
+REACTION react2202 300  met90 1.25 met59 -1.0 met65 0.25 met26 -1.75 met18 -0.75
+REACTION react2203 300  met56 1.25 met80 -1.25
+REACTION react2204 100  met16 -1.25 met92 0.75 met32 0.25
+REACTION react2205 300  met46 1.75 met60 0.75 met38 -0.25
+REACTION react2206 300  met66 -2.0 met9 1.5 met49 -1.75 met40 0.75
+REACTION react2207 300  met95 -1.75 met84 1.75 met54 1.25
+REACTION react2208 300  met42 0.25 met98 0.25 met28 0.25 met56 -1.5
+REACTION react2209 100  met58 1.0 met72 0.75 met83 -1.25
+REACTION react2210 300  met45 -1.5 met68 -2.0 met86 1.5 met39 -1.75
+REACTION react2211 300  met20 -1.0 met17 0.25 met25 0.25 met12 1.25 met47 -0.25
+REACTION react2212 100  met83 1.25 met4 0.75 met48 0.75 met14 0.25 met79 -0.5
+REACTION react2213 200  met10 1.5 met26 -0.75 met76 -0.5 met86 -0.5
+REACTION react2214 200  met97 -1.0 met73 -2.0 met52 -1.75 met53 0.5
+REACTION react2215 300  met37 -1.25 met52 -1.25 met75 1.5 met29 1.75 met19 -1.5
+REACTION react2216 300  met86 0.75 met55 0.75 met38 -1.75
+REACTION react2217 300  met18 1.75 met86 0.75 met98 -1.0
+REACTION react2218 300  met30 1.5 met52 0.75 met26 -1.0
+REACTION react2219 200  met74 0.5 met4 -0.75 met28 1.0 met11 -1.0
+REACTION react2220 200  met99 -0.25 met38 -0.75 met87 0.5 met46 1.25 met44 -0.5
+REACTION react2221 200  met91 -1.0 met59 -1.0 met89 -1.75 met92 0.5
+REACTION react2222 200  met59 0.75 met68 1.25 met9 1.5 met81 -0.25
+REACTION react2223 300  met83 -0.5 met35 1.25
+REACTION react2224 300  met95 1.0 met3 -0.75 met9 -0.5
+REACTION react2225 200  met87 1.5 met23 -0.5
+REACTION react2226 100  met39 -1.5 met37 -0.5 met62 1.0 met19 -0.75
+REACTION react2227 200  met49 1.25 met6 -1.75
+REACTION react2228 200  met36 -1.0 met35 0.5
+REACTION react2229 100  met79 -1.75 met47 0.25
+REACTION react2230 200  met62 -2.0 met56 1.75 met49 -1.0 met91 -2.0 met17 -0.25
+REACTION react2231 100  met90 1.0 met25 -1.5
+REACTION react2232 100  met67 -1.75 met35 0.5 met96 1.25
+REACTION react2233 100  met55 0.75 met6 1.0 met43 -1.75
+REACTION react2234 100  met93 1.5 met64 -0.75
+REACTION react2235 200  met1 1.75 met15 0.5 met14 -1.5
+REACTION react2236 300  met97 1.25 met72 0.25 met98 -0.75
+REACTION react2237 100  met36 -0.5 met70 1.25
+REACTION react2238 200  met32 -0.25 met84 -0.75 met13 -0.25 met66 -1.0 met51 2.0
+REACTION react2239 300  met94 1.5 met96 -1.5 met81 1.75 met3 -1.25
+REACTION react2240 100  met88 -0.25 met52 0.25 met68 1.5 met48 0.75
+REACTION react2241 300  met100 0.75 met58 -2.0 met60 1.25 met36 -0.75
+REACTION react2242 200  met13 -1.75 met67 0.5 met37 0.75 met81 0.75
+REACTION react2243 100  met96 -1.75 met38 0.25
+REACTION react2244 200  met7 0.5 met42 -1.75
+REACTION react2245 100  met30 -1.75 met13 1.0 met70 -2.0 met56 0.75 met99 -0.25
+REACTION react2246 300  met100 -1.75 met95 0.5 met83 -2.0 met3 -1.5 met35 -0.25
+REACTION react2247 100  met81 -1.0 met9 -1.75 met89 1.0
+REACTION react2248 200  met25 -1.5 met27 -1.5 met2 -0.75 met67 -1.5 met98 0.5
+REACTION react2249 300  met6 1.75 met39 0.75 met66 -1.75
+REACTION react2250 300  met83 -0.75 met12 -1.25 met46 -1.25 met2 0.75 met97 0.25
+REACTION react2251 300  met22 -2.0 met11 1.75 met27 -0.25 met15 1.75 met50 1.0
+REACTION react2252 200  met91 -1.5 met39 -1.25 met60 1.5 met69 -1.25 met41 0.75
+REACTION react2253 100  met91 1.75 met97 -0.75 met20 0.75 met60 -1.5
+REACTION react2254 300  met40 1.0 met39 -0.25
+REACTION react2255 200  met91 1.75 met95 -2.0
+REACTION react2256 200  met17 -1.0 met68 -0.5 met8 0.25 met35 1.5
+REACTION react2257 200  met43 -1.0 met19 1.75
+REACTION react2258 200  met4 -1.25 met45 1.0 met16 1.75
+REACTION react2259 200  met67 1.0 met30 1.5 met46 1.5 met21 -0.75
+REACTION react2260 300  met41 0.25 met14 -1.75 met2 0.5 met64 1.25 met56 1.0
+REACTION react2261 300  met75 0.5 met22 1.25 met59 -1.0
+REACTION react2262 300  met28 -0.25 met9 -1.5 met56 -1.75 met58 1.0
+REACTION react2263 300  met24 -0.25 met29 1.25 met92 1.0 met6 -0.5
+REACTION react2264 100  met15 -1.5 met30 0.75 met83 1.0 met21 -0.5 met68 1.5
+REACTION react2265 200  met22 1.75 met50 -0.5 met82 1.5 met23 1.75
+REACTION react2266 100  met28 0.75 met19 0.25 met44 0.5 met21 -0.75 met70 0.25
+REACTION react2267 300  met54 0.75 met77 0.25 met7 -1.5
+REACTION react2268 300  met91 1.5 met18 -1.0 met72 0.25 met93 -2.0 met23 -1.5
+REACTION react2269 100  met6 0.5 met66 1.75 met44 -0.75
+REACTION react2270 100  met36 -1.5 met72 0.75
+REACTION react2271 200  met98 1.25 met39 -0.75 met90 -1.5
+REACTION react2272 200  met19 0.5 met25 1.0 met23 1.25 met72 -2.0 met92 1.5
+REACTION react2273 100  met23 -0.75 met57 1.0 met20 -0.5
+REACTION react2274 100  met51 -1.0 met50 0.75 met8 -1.25 met77 -1.0 met93 0.25
+REACTION react2275 300  met56 1.0 met65 1.0 met49 -1.25
+REACTION react2276 300  met54 0.75 met19 1.25 met23 0.25 met82 -1.75
+REACTION react2277 100  met79 -1.75 met60 0.25
+REACTION react2278 200  met38 0.5 met82 1.5 met5 1.25 met24 1.25 met54 -1.75
+REACTION react2279 300  met20 1.25 met30 0.25 met95 1.75 met48 1.75 met12 -1.5
+REACTION react2280 300  met58 -1.0 met56 -0.5 met12 0.75
+REACTION react2281 200  met59 0.25 met4 -0.25 met15 -0.25 met46 -1.0 met12 1.25
+REACTION react2282 200  met30 1.5 met10 -0.5
+REACTION react2283 200  met79 -2.0 met64 -0.25 met17 0.75
+REACTION react2284 300  met52 0.75 met95 -1.25
+REACTION react2285 200  met12 1.25 met20 -1.5 met10 1.25 met55 1.75 met84 -1.0
+REACTION react2286 100  met49 -0.5 met76 -0.5 met3 1.5
+REACTION react2287 200  met96 0.25 met66 -1.25 met37 1.0 met65 -0.5 met42 -0.5
+REACTION react2288 100  met42 -0.25 met59 2.0
+REACTION react2289 100  met48 -1.75 met78 0.75
+REACTION react2290 200  met11 -1.25 met27 2.0
+REACTION react2291 100  met71 -0.5 met41 1.5
+REACTION react2292 200  met29 -0.5 met69 -1.0 met33 1.25
+REACTION react2293 100  met76 -1.75 met32 0.75
+REACTION react2294 200  met70 -1.25 met42 0.25 met50 1.25
+REACTION react2295 200  met47 0.25 met91 -2.0 met75 1.5 met85 1.0
+REACTION react2296 200  met92 0.25 met50 -0.5
+REACTION react2297 100  met88 -1.75 met79 0.25 met58 -1.75
+REACTION react2298 200  met53 1.75 met31 -1.25 met88 1.75
+REACTION react2299 300  met1 0.5 met14 0.25 met82 0.25 met81 -1.75
+REACTION react2300 200  met99 1.25 met58 0.25 met67 -1.25 met98 -1.0
+REACTION react2301 200  met74 -1.0 met9 0.25
+REACTION react2302 200  met33 1.75 met1 0.25 met87 -0.75
+REACTION react2303 200  met25 0.25 met50 1.25 met36 -1.75
+REACTION react2304 100  met84 -2.0 met64 -1.5 met65 0.5 met31 -1.75 met30 -1.25
+REACTION react2305 100  met57 1.75 met88 -1.25 met33 1.75
+REACTION react2306 200  met19 1.25 met36 -1.5
+REACTION react2307 300  met7 -0.25 met5 -0.25 met56 0.5
+REACTION react2308 100  met70 -1.5 met76 2.0
+REACTION react2309 200  met21 -0.25 met57 1.0
+REACTION react2310 300  met87 -2.0 met91 -0.75 met72 -0.5 met75 1.25
+REACTION react2311 200  met54 0.25 met26 -0.25 met58 1.0 met36 -1.0
+REACTION react2312 100  met64 -0.25 met53 -0.5 met9 1.0 met8 -0.5 met57 1.25
+REACTION react2313 200  met50 1.0 met60 -1.5 met65 0.25 met86 0.75
+REACTION react2314 100  met30 -2.0 met21 -1.0 met68 -1.25 met6 0.25 met17 0.25
+REACTION react2315 100  met81 -1.5 met94 1.5
+REACTION react2316 200  met96 0.25 met70 -1.75
+REACTION react2317 100  met41 1.5 met95 -1.5 met71 -1.0 met31 -0.75 met18 -1.5
+REACTION react2318 300  met32 -2.0 met53 0.75
+REACTION react2319 300  met31 0.75 met33 -1.75 met67 -0.75 met80 -1.5
+REACTION react2320 100  met55 -2.0 met80 0.5
+REACTION react2321 200  met17 -1.25 met21 -1.5 met59 1.5 met77 0.75 met39 1.25
+REACTION react2322 100  met64 1.75 met60 -1.25 met87 1.75
+REACTION react2323 100  met61 -0.5 met42 -2.0 met47 -0.25 met78 0.5
+REACTION react2324 200  met40 -0.75 met26 0.25
+REACTION react2325 200  met2 -0.5 met77 -2.0 met19 0.75
+REACTION react2326 300  met94 1.0 met56 -0.75 met4 -1.5
+REACTION react2327 300  met55 -2.0 met61 0.25
+REACTION react2328 200  met77 0.5 met56 -0.5
+REACTION react2329 200  met1 -1.25 met69 1.75
+REACTION react2330 100  met57 1.5 met13 0.25 met71 1.75 met88 1.5 met51 -1.25
+REACTION react2331 300  met91 -0.75 met41 -2.0 met56 0.75
+REACTION react2332 100  met61 -0.25 met20 0.25 met54 -0.75 met42 -0.75
+REACTION react2333 100  met89 -1.5 met74 1.75 met94 -2.0 met35 1.0
+REACTION react2334 100  met53 1.0 met22 -0.25 met50 -1.0 met94 0.25
+REACTION react2335 100  met18 -0.75 met85 0.75
+REACTION react2336 200  met6 -1.5 met20 1.75
+REACTION react2337 100  met22 -0.5 met96 0.75 met89 -1.25
+REACTION react2338 300  met94 0.5 met51 -0.25 met64 -1.0
+REACTION react2339 300  met89 1.25 met22 0.75 met78 -1.25 met32 1.75 met30 0.25
+REACTION react2340 100  met61 1.25 met42 0.25 met77 -0.25 met94 1.0 met53 -1.5
+REACTION react2341 100  met4 1.25 met8 -0.75 met47 1.25
+REACTION react2342 100  met75 1.75 met50 -1.5 met94 0.25
+REACTION react2343 200  met21 -0.5 met51 -0.75 met77 1.5 met87 1.5 met31 -0.25
+REACTION react2344 200  met43 1.5 met30 0.5 met63 -0.75 met48 1.0
+REACTION react2345 200  met86 1.5 met58 -0.75 met69 1.25
+REACTION react2346 200  met80 1.5 met61 -0.25
+REACTION react2347 100  met40 0.25 met80 1.25 met95 0.25 met52 -0.5 met24 0.25
+REACTION react2348 300  met93 1.75 met7 -1.0 met92 -1.25 met71 -1.0
+REACTION react2349 100  met24 -2.0 met57 -2.0 met94 1.0 met69 -1.5
+REACTION react2350 100  met93 1.25 met13 0.5 met29 -2.0
+REACTION react2351 100  met89 -1.75 met97 -1.5 met6 -1.25 met66 1.0 met52 1.5
+REACTION react2352 100  met66 0.5 met10 1.0 met58 -0.75 met47 0.75 met41 0.25
+REACTION react2353 300  met37 -0.75 met36 1.25 met75 1.25 met31 1.5 met11 0.25
+REACTION react2354 200  met78 1.25 met18 -1.0 met22 -1.75 met8 -2.0 met70 0.25
+REACTION react2355 200  met6 -1.75 met8 1.0
+REACTION react2356 300  met82 -1.75 met83 0.25 met1 -1.5 met92 1.75 met10 -0.75
+REACTION react2357 100  met28 -1.0 met48 -1.5 met97 -2.0 met34 1.75 met59 -1.25
+REACTION react2358 200  met65 -0.75 met74 0.5 met48 1.0 met15 -1.5 met64 0.25
+REACTION react2359 100  met59 -0.25 met11 0.25 met26 -1.5 met38 -1.5 met68 0.75
+REACTION react2360 100  met31 1.0 met33 -2.0 met46 1.5 met85 -1.75 met60 -0.5
+REACTION react2361 300  met59 1.0 met51 1.25 met13 -1.75 met21 0.5
+REACTION react2362 200  met30 -2.0 met43 -0.25 met85 0.75
+REACTION react2363 200  met27 -0.5 met9 0.25 met97 -0.25
+REACTION react2364 300  met75 1.25 met81 -0.75 met54 -1.5
+REACTION react2365 200  met66 0.75 met44 -0.25 met50 -0.5 met41 -1.5
+REACTION react2366 100  met90 1.25 met3 0.75 met99 1.5 met76 -0.25
+REACTION react2367 200  met70 1.25 met80 -1.0
+REACTION react2368 200  met91 -2.0 met65 0.25 met83 0.25 met35 -1.75 met63 -2.0
+REACTION react2369 300  met79 -1.25 met3 1.0 met6 -1.5 met57 -0.75
+REACTION react2370 100  met40 -1.25 met34 -1.0 met91 0.5 met47 -0.25
+REACTION react2371 300  met76 -1.0 met88 2.0
+REACTION react2372 200  met37 -1.75 met55 1.25 met23 -1.75
+REACTION react2373 300  met90 1.25 met21 -1.0 met71 0.25
+REACTION react2374 200  met36 0.25 met95 1.0 met45 0.5 met31 1.5 met100 -1.5
+REACTION react2375 100  met77 1.75 met93 -1.25 met53 -0.75
+REACTION react2376 200  met9 0.25 met71 -0.25
+REACTION react2377 200  met83 1.75 met10 -0.5 met75 0.5 met46 -2.0
+REACTION react2378 200  met28 1.25 met40 -1.0 met84 -0.25 met68 -1.0 met12 1.25
+REACTION react2379 100  met56 -1.25 met4 -1.5 met13 1.25
+REACTION react2380 300  met1 1.5 met61 -1.25 met50 -0.25
+REACTION react2381 200  met60 -0.75 met35 0.25
+REACTION react2382 200  met19 1.0 met65 0.25 met48 -2.0
+REACTION react2383 300  met67 -0.25 met99 0.25 met21 1.75 met88 1.5
+REACTION react2384 100  met36 0.25 met48 -1.25
+REACTION react2385 300  met100 0.75 met36 -1.75 met22 0.25 met55 -1.25 met88 1.0
+REACTION react2386 100  met17 -0.75 met68 -1.5 met89 1.5 met34 0.5 met47 -0.5
+REACTION react2387 300  met82 -1.5 met94 -1.0 met36 0.25
+REACTION react2388 200  met31 -1.0 met83 0.5
+REACTION react2389 300  met26 -1.75 met100 2.0
+REACTION react2390 100  met36 1.0 met94 -2.0 met67 -1.0 met78 -1.0 met61 1.5
+REACTION react2391 300  met84 -0.5 met83 2.0
+REACTION react2392 300  met22 1.0 met81 -0.25 met8 -1.75 met61 1.0
+REACTION react2393 200  met64 -0.75 met81 1.5
+REACTION react2394 300  met92 -0.75 met38 -1.5 met29 -0.5 met96 1.5 met3 1.25
+REACTION react2395 100  met36 -2.0 met16 0.75 met82 -1.0
+REACTION react2396 100  met36 0.5 met65 -0.5 met96 1.75 met16 -1.5
+REACTION react2397 300  met18 -0.25 met79 -0.25 met2 0.25 met15 -2.0
+REACTION react2398 300  met22 1.5 met73 -1.0 met93 0.5 met36 1.75 met26 -1.75
+REACTION react2399 200  met33 -1.5 met10 0.25
+REACTION react2400 100  met36 1.0 met61 0.5 met81 -2.0 met10 0.25 met35 1.75
+REACTION react2401 300  met13 -1.25 met65 1.0
+REACTION react2402 300  met5 -1.75 met34 0.25 met7 -1.75 met67 -1.5 met64 -0.25
+REACTION react2403 300  met22 -1.5 met72 -1.0 met59 0.75
+REACTION react2404 100  met18 1.25 met60 1.25 met56 -1.0
+REACTION react2405 300  met93 0.5 met52 1.25 met10 -0.5
+REACTION react2406 300  met85 0.75 met97 1.0 met80 1.0 met47 -2.0 met8 -1.25
+REACTION react2407 200  met84 -0.25 met91 0.25
+REACTION react2408 200  met79 0.25 met15 -1.75
+REACTION react2409 200  met29 -1.25 met65 -0.5 met19 0.5
+REACTION react2410 200  met89 1.75 met45 0.5 met61 -0.5 met49 -0.5
+REACTION react2411 300  met88 -1.0 met68 -1.5 met8 -1.25 met6 -0.75 met53 0.25
+REACTION react2412 200  met86 0.25 met31 -0.25 met37 1.25
+REACTION react2413 200  met58 1.75 met88 0.5 met61 -1.0
+REACTION react2414 100  met59 -2.0 met29 -1.75 met28 0.25
+REACTION react2415 300  met69 1.0 met14 -1.5 met93 -1.75
+REACTION react2416 200  met38 -0.75 met77 1.0 met66 -0.75
+REACTION react2417 100  met42 1.25 met48 -0.75 met31 -0.75 met67 -2.0 met76 0.5
+REACTION react2418 300  met46 -2.0 met93 -0.25 met24 -0.75 met15 0.25 met87 -1.5
+REACTION react2419 200  met5 -2.0 met36 1.5 met71 -0.5 met58 0.75 met82 0.25
+REACTION react2420 300  met98 0.5 met61 -1.0 met60 0.25 met37 0.25
+REACTION react2421 200  met61 0.75 met99 -1.0 met58 -2.0 met27 1.75
+REACTION react2422 300  met88 1.25 met68 -0.5 met37 -1.5 met51 1.25 met25 -1.25
+REACTION react2423 200  met58 -0.25 met89 -0.25 met46 -0.5 met39 1.0
+REACTION react2424 200  met67 -0.75 met53 1.25 met70 1.5 met4 1.75
+REACTION react2425 200  met27 -2.0 met72 -2.0 met100 1.75
+REACTION react2426 200  met84 0.25 met27 1.75 met48 -1.75 met63 0.25 met4 0.75
+REACTION react2427 100  met44 1.5 met54 -1.5 met30 -0.25 met59 0.75
+REACTION react2428 100  met19 -2.0 met79 -0.5 met95 -1.25 met41 -1.5 met59 1.5
+REACTION react2429 300  met25 -0.5 met92 -0.25 met99 1.5
+REACTION react2430 100  met90 -0.5 met61 -0.25 met27 1.25
+REACTION react2431 300  met10 -1.75 met9 1.0 met8 1.25 met82 -1.25 met77 0.25
+REACTION react2432 300  met63 -2.0 met12 -0.75 met11 1.0
+REACTION react2433 100  met46 -1.0 met26 1.0 met78 0.75
+REACTION react2434 300  met20 1.5 met17 -0.75 met80 -1.5 met27 1.25
+REACTION react2435 300  met43 -0.5 met77 1.5
+REACTION react2436 300  met63 -0.5 met97 1.75
+REACTION react2437 300  met21 -0.75 met26 1.75
+REACTION react2438 200  met75 -0.75 met59 0.25 met40 0.5 met4 -0.75 met26 -0.75
+REACTION react2439 100  met45 -0.25 met52 1.5 met57 -1.25 met70 -0.5
+REACTION react2440 300  met70 1.0 met23 1.25 met1 -0.25
+REACTION react2441 100  met95 -1.25 met39 -0.25 met8 -1.75 met22 1.5 met92 -1.75
+REACTION react2442 300  met43 -1.75 met50 1.75 met95 0.25
+REACTION react2443 200  met40 -0.75 met29 0.25
+REACTION react2444 200  met78 1.0 met72 -1.75 met85 -0.5 met92 -1.25 met5 1.0
+REACTION react2445 200  met75 -1.0 met81 0.25
+REACTION react2446 300  met35 -0.25 met98 0.75
+REACTION react2447 100  met62 0.5 met23 0.25 met41 -0.5
+REACTION react2448 200  met92 -1.75 met17 -0.5 met47 1.75 met58 -1.5
+REACTION react2449 200  met18 0.5 met15 -1.75 met45 -1.5 met69 0.25 met75 1.25
+REACTION react2450 200  met40 -2.0 met77 -0.75 met33 0.75 met50 -2.0 met90 0.5
+REACTION react2451 100  met2 -1.25 met46 -0.5 met54 0.25
+REACTION react2452 300  met24 0.25 met26 -1.25
+REACTION react2453 200  met96 0.25 met93 -0.75 met100 0.5 met3 -1.5 met73 0.25
+REACTION react2454 300  met82 -2.0 met47 1.25
+REACTION react2455 200  met59 -1.25 met40 0.75 met87 1.25 met68 -0.25 met93 -1.5
+REACTION react2456 300  met68 -1.0 met87 0.75 met73 1.5
+REACTION react2457 300  met45 -1.25 met56 0.75 met68 -1.75
+REACTION react2458 300  met22 0.25 met70 -1.25
+REACTION react2459 300  met48 1.75 met57 -2.0 met32 1.0 met15 1.0 met47 0.75
+REACTION react2460 200  met18 -0.5 met37 0.25 met64 0.75 met3 -1.75
+REACTION react2461 200  met55 -1.0 met92 -2.0 met29 -1.75 met69 -0.75 met25 0.5
+REACTION react2462 300  met86 -1.5 met88 0.25 met39 0.75 met62 -1.5 met80 -0.25
+REACTION react2463 100  met79 1.0 met97 -1.25 met43 0.75 met24 -1.75
+REACTION react2464 100  met46 0.25 met36 -1.25 met93 0.25 met14 1.25
+REACTION react2465 300  met95 -1.25 met57 -1.5 met32 0.75 met29 -0.5
+REACTION react2466 100  met54 0.5 met71 -0.5 met60 -2.0
+REACTION react2467 300  met76 1.0 met79 -1.0 met32 -0.5
+REACTION react2468 100  met50 0.5 met21 -1.25 met84 0.5
+REACTION react2469 200  met35 -1.25 met26 1.0
+REACTION react2470 100  met33 -0.75 met60 1.25 met73 -1.5 met58 0.5 met81 0.25
+REACTION react2471 100  met25 1.25 met37 0.75 met4 1.0 met95 -0.25
+REACTION react2472 200  met53 -0.5 met41 1.25 met96 -0.25 met80 1.75
+REACTION react2473 200  met36 -1.5 met73 0.25
+REACTION react2474 100  met18 0.5 met20 -1.25 met87 0.75 met52 0.25 met70 -1.0
+REACTION react2475 200  met78 -1.25 met59 -0.5 met69 1.25 met22 -2.0 met53 1.75
+REACTION react2476 300  met32 1.0 met41 -0.75
+REACTION react2477 200  met100 -1.0 met65 -1.25 met86 -1.5 met43 1.0
+REACTION react2478 300  met13 -0.25 met92 0.5 met27 -0.25 met63 -0.5
+REACTION react2479 100  met45 0.75 met2 -0.25
+REACTION react2480 100  met3 1.25 met45 0.5 met64 -1.25 met71 1.5
+REACTION react2481 100  met23 0.25 met89 0.25 met99 -1.0
+REACTION react2482 300  met32 -1.25 met98 -2.0 met40 0.25 met55 0.75
+REACTION react2483 100  met43 -1.75 met61 1.25 met14 -0.25
+REACTION react2484 300  met95 -0.25 met52 1.5 met45 1.75 met72 0.5 met17 0.75
+REACTION react2485 200  met92 -1.25 met31 -1.0 met65 -2.0 met58 0.25 met81 -2.0
+REACTION react2486 200  met91 -0.25 met25 0.25 met13 -1.5
+REACTION react2487 100  met75 -1.0 met86 0.25
+REACTION react2488 200  met69 1.25 met35 1.25 met50 -1.0 met14 -2.0 met31 -0.25
+REACTION react2489 300  met66 -1.0 met71 0.25
+REACTION react2490 200  met48 -1.25 met7 -0.5 met68 1.75
+REACTION react2491 200  met91 -0.5 met74 -1.25 met63 1.5
+REACTION react2492 300  met35 0.5 met22 -0.25
+REACTION react2493 200  met76 0.25 met42 -1.5 met30 -1.0
+REACTION react2494 300  met22 1.25 met58 -1.5 met68 1.25 met31 1.25
+REACTION react2495 100  met66 -2.0 met8 1.25 met71 -0.25
+REACTION react2496 300  met28 1.0 met11 -1.25 met94 -1.0 met89 0.25 met64 0.75
+REACTION react2497 100  met49 -0.75 met99 -2.0 met21 -1.25 met25 0.25 met91 -0.5
+REACTION react2498 200  met71 -1.5 met77 -1.5 met58 0.25 met23 -1.0
+REACTION react2499 300  met83 1.25 met62 0.75 met2 -0.5
+REACTION react2500 200  met80 -1.25 met18 -0.25 met48 -0.5 met8 1.5
+REACTION react2501 200  met6 -0.25 met49 0.5
+REACTION react2502 100  met93 -1.0 met52 -0.75 met75 -1.75 met54 1.25
+REACTION react2503 100  met40 -0.75 met39 -1.5 met65 0.75
+REACTION react2504 200  met1 -0.25 met27 1.25 met58 0.25
+REACTION react2505 200  met91 -1.5 met9 -1.5 met30 0.25 met72 -0.75 met75 -0.25
+REACTION react2506 100  met39 0.5 met34 -1.5 met80 -0.25 met96 -1.5
+REACTION react2507 200  met9 1.25 met77 1.5 met85 -1.0 met2 -2.0 met27 1.75
+REACTION react2508 300  met14 0.25 met74 -2.0
+REACTION react2509 300  met2 -0.75 met90 -2.0 met36 2.0
+REACTION react2510 200  met12 -1.25 met76 0.25 met92 -0.25 met1 -2.0
+REACTION react2511 200  met15 1.0 met8 -0.25
+REACTION react2512 200  met61 -0.5 met99 -1.25 met72 -0.5 met39 1.5
+REACTION react2513 100  met60 -1.75 met33 0.25 met86 1.25
+REACTION react2514 200  met45 -1.0 met41 -1.25 met87 0.5 met76 -2.0
+REACTION react2515 200  met68 -2.0 met70 0.75
+REACTION react2516 300  met95 1.5 met77 0.25 met26 0.25 met20 -1.75
+REACTION react2517 100  met3 -1.5 met88 1.5
+REACTION react2518 100  met54 -1.5 met21 -0.5 met36 0.25 met50 -0.25 met38 0.25
+REACTION react2519 100  met86 1.75 met70 -1.75 met77 -0.5 met23 -1.25
+REACTION react2520 200  met41 -1.25 met16 -0.25 met93 1.0
+REACTION react2521 200  met97 -1.0 met63 -2.0 met95 1.25 met58 1.5
+REACTION react2522 100  met79 1.75 met99 -1.75
+REACTION react2523 300  met86 1.25 met60 -1.5 met90 1.75 met96 -1.25
+REACTION react2524 300  met22 1.5 met60 -1.5 met94 -1.75 met37 -1.25
+REACTION react2525 300  met31 0.75 met77 1.0 met38 1.0 met58 -0.5
+REACTION react2526 200  met57 1.5 met87 0.75 met49 1.25 met69 -0.75
+REACTION react2527 200  met34 -0.25 met32 0.25
+REACTION react2528 200  met69 -2.0 met54 1.5 met95 -1.0 met78 -1.75 met19 -0.5
+REACTION react2529 200  met20 1.0 met77 -0.5 met53 -0.75
+REACTION react2530 100  met12 -0.5 met11 -0.75 met67 -1.0 met57 1.0
+REACTION react2531 300  met98 -0.5 met41 1.0
+REACTION react2532 300  met93 -0.5 met73 -0.25 met11 0.25
+REACTION react2533 300  met99 0.25 met56 1.5 met98 -1.0 met1 1.75 met4 1.25
+REACTION react2534 100  met93 -1.75 met42 -2.0 met81 -0.25 met88 1.5 met26 -1.0
+REACTION react2535 100  met33 -1.5 met75 0.25 met5 -1.0 met49 -1.0
+REACTION react2536 300  met27 1.5 met1 -1.0 met77 1.25 met89 0.25
+REACTION react2537 200  met82 -0.25 met38 -1.75 met20 0.25
+REACTION react2538 200  met77 -1.0 met3 -0.5 met44 -0.25 met40 1.75
+REACTION react2539 200  met86 -0.25 met56 0.5 met26 1.25
+REACTION react2540 300  met43 1.0 met1 -1.75 met70 1.0 met82 -1.5 met71 1.75
+REACTION react2541 100  met79 1.5 met93 0.75 met50 -1.0 met77 1.5 met20 -1.75
+REACTION react2542 100  met58 -2.0 met42 0.25
+REACTION react2543 200  met38 -0.5 met64 -0.75 met24 -1.0 met29 1.75
+REACTION react2544 100  met22 1.0 met38 1.25 met7 -2.0 met44 1.5 met18 0.25
+REACTION react2545 300  met18 0.75 met61 -1.5 met25 -0.5
+REACTION react2546 100  met40 -1.0 met5 -0.5 met56 0.5 met59 1.5
+REACTION react2547 300  met82 0.25 met85 0.25 met73 -0.75 met26 0.25 met21 0.25
+REACTION react2548 100  met86 -1.0 met73 0.25 met10 -1.0 met17 -0.5
+REACTION react2549 200  met82 0.25 met81 -1.0
+REACTION react2550 200  met21 -0.75 met66 -1.5 met39 1.75
+REACTION react2551 300  met49 -0.25 met98 1.25
+REACTION react2552 300  met79 0.25 met49 1.75 met72 1.75 met23 -1.75
+REACTION react2553 300  met83 -1.75 met65 1.0
+REACTION react2554 300  met75 0.25 met19 -1.5
+REACTION react2555 300  met53 -1.5 met1 0.25
+REACTION react2556 300  met60 -1.5 met93 -0.5 met94 1.5 met40 1.25 met34 -0.25
+REACTION react2557 300  met22 0.25 met69 1.25 met74 -2.0 met68 1.25
+REACTION react2558 100  met29 -1.25 met25 1.0 met58 1.25
+REACTION react2559 100  met4 -0.25 met40 1.0
+REACTION react2560 200  met18 -1.5 met3 0.25
+REACTION react2561 100  met48 -1.75 met63 -0.25 met88 -0.5 met59 1.75
+REACTION react2562 200  met26 0.25 met43 -1.0 met16 -1.75 met42 -1.5
+REACTION react2563 200  met80 0.75 met88 -1.75
+REACTION react2564 100  met28 0.25 met27 -2.0
+REACTION react2565 100  met25 1.5 met95 -0.25
+REACTION react2566 200  met100 1.5 met7 -1.5
+REACTION react2567 200  met85 -1.0 met75 1.25 met29 1.25 met22 -2.0
+REACTION react2568 300  met22 -0.75 met65 0.25 met74 0.75
+REACTION react2569 300  met87 0.5 met57 0.25 met86 1.75 met49 0.5 met14 -1.0
+REACTION react2570 200  met31 1.75 met3 -1.5
+REACTION react2571 100  met96 -0.75 met67 -1.25 met32 -1.25 met29 -0.75 met99 0.75
+REACTION react2572 300  met18 1.75 met29 1.75 met85 1.0 met68 1.75 met17 -1.5
+REACTION react2573 300  met64 1.0 met36 -1.0 met87 -2.0 met37 -1.75
+REACTION react2574 100  met40 -1.5 met41 1.5
+REACTION react2575 100  met22 0.25 met83 -0.25 met87 0.25 met50 0.25
+REACTION react2576 100  met48 0.5 met57 -0.25
+REACTION react2577 300  met32 0.5 met69 -0.5 met24 -0.75
+REACTION react2578 300  met63 -2.0 met1 0.75 met9 -1.0 met36 1.5
+REACTION react2579 300  met18 -1.0 met95 1.25
+REACTION react2580 200  met75 0.25 met40 1.0 met41 1.75 met4 -0.75
+REACTION react2581 200  met84 0.25 met49 -1.0
+REACTION react2582 300  met41 -1.5 met100 0.5 met34 0.25 met10 1.5 met82 -2.0
+REACTION react2583 200  met99 -1.5 met20 1.25 met28 1.5 met73 1.5 met87 1.0
+REACTION react2584 300  met65 -0.5 met40 1.75
+REACTION react2585 300  met12 -1.25 met58 1.0
+REACTION react2586 300  met47 1.25 met6 -1.25
+REACTION react2587 300  met13 0.25 met65 1.5 met32 -1.5 met10 0.25
+REACTION react2588 300  met25 1.75 met11 -0.75
+REACTION react2589 200  met46 -0.5 met52 0.25 met30 0.25
+REACTION react2590 300  met72 0.25 met65 -0.75
+REACTION react2591 200  met67 1.25 met5 0.5 met11 -1.75 met58 0.25 met30 0.75
+REACTION react2592 300  met30 -0.75 met19 1.0
+REACTION react2593 300  met52 1.0 met62 1.25 met92 0.25 met35 -0.75
+REACTION react2594 200  met82 0.25 met49 1.0 met23 -1.75 met8 -1.5
+REACTION react2595 200  met50 -1.5 met67 1.5
+REACTION react2596 300  met5 -2.0 met75 1.0 met24 0.25 met48 -1.0 met58 0.25
+REACTION react2597 100  met65 -1.75 met95 -2.0 met3 0.5 met79 -0.5 met58 1.0
+REACTION react2598 200  met99 1.25 met45 0.25 met93 -0.25 met58 -0.25
+REACTION react2599 200  met22 1.75 met19 1.0 met43 -1.75
+REACTION react2600 100  met55 1.5 met56 -1.0
+REACTION react2601 200  met93 -1.75 met18 0.25 met77 -0.25 met19 1.75
+REACTION react2602 300  met52 1.25 met2 -0.75 met88 1.25 met80 -1.0
+REACTION react2603 200  met41 -1.5 met84 -0.5 met50 1.75
+REACTION react2604 300  met43 0.5 met86 -0.5 met31 -1.25 met73 -1.25
+REACTION react2605 100  met84 0.75 met33 1.75 met49 -1.25
+REACTION react2606 100  met47 -1.0 met25 -1.5 met1 -1.75 met80 2.0
+REACTION react2607 200  met100 -1.0 met49 -1.0 met96 0.5 met59 1.75
+REACTION react2608 100  met1 1.25 met78 0.75 met75 -0.5
+REACTION react2609 200  met32 1.75 met2 -2.0 met59 1.75
+REACTION react2610 100  met88 -1.0 met73 -1.5 met71 -2.0 met85 0.75
+REACTION react2611 100  met38 -2.0 met32 -0.25 met9 -0.5 met63 0.75 met5 0.5
+REACTION react2612 100  met8 -1.75 met64 -1.75 met85 1.25
+REACTION react2613 300  met86 0.5 met24 -0.25
+REACTION react2614 300  met33 -0.25 met78 1.5 met12 1.25 met70 -2.0 met1 1.25
+REACTION react2615 300  met70 -0.5 met76 -0.75 met21 1.5
+REACTION react2616 200  met89 0.25 met54 -0.75 met11 0.25
+REACTION react2617 200  met81 -1.25 met38 -1.25 met72 1.25
+REACTION react2618 300  met42 -0.5 met5 0.25 met49 0.5 met2 -0.25
+REACTION react2619 200  met38 1.75 met57 -1.0
+REACTION react2620 100  met20 0.75 met74 0.5 met89 -0.25 met75 1.25 met5 -1.25
+REACTION react2621 200  met51 -2.0 met44 1.5 met17 -0.5 met62 1.25 met35 1.0
+REACTION react2622 100  met54 1.0 met47 1.0 met7 -1.0
+REACTION react2623 200  met4 1.25 met33 -1.5 met77 -0.75 met53 0.5 met97 -1.25
+REACTION react2624 100  met32 -1.75 met58 0.25 met49 -1.5
+REACTION react2625 100  met12 -1.5 met21 1.5
+REACTION react2626 300  met96 -1.25 met84 1.75 met9 0.25 met46 -1.75
+REACTION react2627 300  met37 -0.75 met68 0.25 met85 -1.25
+REACTION react2628 300  met49 -1.5 met26 -2.0 met84 -2.0 met69 -1.75 met9 0.25
+REACTION react2629 200  met41 1.75 met18 -1.5 met66 -0.5
+REACTION react2630 100  met78 -1.75 met2 -1.25 met43 -0.75 met48 0.75 met80 1.0
+REACTION react2631 200  met95 -0.75 met90 1.0 met33 -0.25 met85 -1.25 met63 1.0
+REACTION react2632 300  met55 -1.5 met79 0.25
+REACTION react2633 200  met86 1.25 met36 -0.75 met42 1.0 met90 -1.5 met93 1.25
+REACTION react2634 100  met94 -1.75 met64 0.5 met5 1.0
+REACTION react2635 100  met79 0.25 met75 1.25 met48 -1.75
+REACTION react2636 200  met18 1.0 met86 -1.75
+REACTION react2637 100  met83 0.5 met54 -0.75
+REACTION react2638 100  met93 -1.5 met59 0.75 met84 -1.25 met21 0.75
+REACTION react2639 200  met78 -1.25 met71 1.75 met1 -1.0
+REACTION react2640 200  met7 -1.0 met13 1.75 met5 -0.5 met48 -1.75
+REACTION react2641 200  met78 1.5 met62 -0.5 met51 -1.0 met69 0.25
+REACTION react2642 200  met42 -1.0 met5 -1.75 met94 -0.5 met44 1.75 met86 0.25
+REACTION react2643 100  met31 -1.25 met57 1.5
+REACTION react2644 200  met58 0.75 met8 -1.5 met15 -1.0 met78 -1.75
+REACTION react2645 300  met38 0.25 met48 1.75 met55 1.25 met59 -1.75
+REACTION react2646 100  met61 1.25 met2 -1.0 met79 1.5
+REACTION react2647 200  met29 1.25 met57 0.25 met47 -1.25
+REACTION react2648 200  met59 -0.5 met25 -1.0 met53 0.5 met73 -0.5 met39 1.5
+REACTION react2649 100  met14 -1.0 met75 1.25
+REACTION react2650 200  met34 -2.0 met44 0.5 met36 0.25
+REACTION react2651 200  met99 0.25 met83 0.25 met30 -1.0 met51 -1.0
+REACTION react2652 100  met83 -1.25 met93 -1.25 met60 1.75 met47 -1.5
+REACTION react2653 100  met90 1.25 met23 0.25 met81 0.75 met32 -0.5 met2 1.5
+REACTION react2654 200  met9 0.5 met47 1.25 met38 -0.25 met57 -1.0 met86 -1.25
+REACTION react2655 300  met99 0.25 met20 -1.0
+REACTION react2656 300  met61 -0.75 met50 1.5 met81 -0.25 met80 -0.5 met45 0.25
+REACTION react2657 100  met17 1.5 met67 -1.5
+REACTION react2658 300  met37 1.25 met40 -2.0 met56 -1.0
+REACTION react2659 200  met65 0.25 met75 -1.25 met36 0.25 met25 -1.75
+REACTION react2660 300  met90 1.25 met57 -0.5 met36 -1.75 met10 1.25
+REACTION react2661 300  met10 -0.25 met46 1.0
+REACTION react2662 300  met20 -1.75 met56 1.5
+REACTION react2663 300  met62 -0.75 met94 -1.25 met34 1.5 met88 1.5
+REACTION react2664 200  met49 -1.5 met74 1.5 met63 1.5
+REACTION react2665 300  met15 0.25 met76 -1.25 met67 -1.25
+REACTION react2666 100  met64 -2.0 met89 -1.5 met82 0.5 met33 0.75
+REACTION react2667 200  met67 -0.25 met23 0.25
+REACTION react2668 300  met84 -1.5 met15 -0.25 met11 -1.5 met4 1.0 met5 1.75
+REACTION react2669 200  met7 -0.5 met50 -1.25 met62 1.5
+REACTION react2670 100  met12 0.25 met27 1.5 met84 0.5 met45 -1.75
+REACTION react2671 300  met80 0.5 met41 0.25 met95 -0.25
+REACTION react2672 200  met42 -0.25 met25 0.25
+REACTION react2673 200  met70 -1.75 met69 0.75
+REACTION react2674 200  met53 -1.5 met37 1.75 met57 -0.25 met52 1.0
+REACTION react2675 200  met28 1.75 met81 -0.75
+REACTION react2676 200  met85 -0.5 met37 -0.25 met82 0.25 met96 -1.5 met52 1.25
+REACTION react2677 200  met1 0.25 met70 -0.5
+REACTION react2678 300  met97 -0.25 met81 0.25 met62 1.0 met50 -0.75 met27 1.75
+REACTION react2679 300  met84 -2.0 met54 -1.5 met14 1.25 met25 -1.75
+REACTION react2680 100  met28 -0.25 met12 0.75 met71 1.25 met85 -0.75
+REACTION react2681 300  met51 -0.5 met31 1.0 met67 0.25 met50 -0.5 met27 0.25
+REACTION react2682 300  met83 -1.25 met77 -1.75 met66 -2.0 met24 1.0 met10 1.5
+REACTION react2683 100  met88 1.25 met33 0.25 met84 -1.5 met13 1.0
+REACTION react2684 300  met49 -1.5 met55 -1.5 met84 -1.75 met50 0.5 met88 -1.5
+REACTION react2685 300  met26 0.25 met95 -1.25
+REACTION react2686 100  met7 -1.25 met93 1.75
+REACTION react2687 100  met91 0.75 met60 -0.75 met34 0.75
+REACTION react2688 200  met8 0.75 met83 -1.25
+REACTION react2689 100  met2 -1.5 met85 1.75 met95 0.25 met16 -1.0
+REACTION react2690 200  met77 1.5 met52 0.5 met40 -1.75 met89 0.75 met36 1.25
+REACTION react2691 300  met10 1.0 met31 -1.0
+REACTION react2692 100  met66 -0.5 met44 0.25 met91 1.0 met42 -1.75
+REACTION react2693 300  met6 1.75 met14 -1.75 met55 1.0 met19 -1.0
+REACTION react2694 100  met86 -2.0 met48 -0.75 met27 0.25 met17 0.25 met99 0.75
+REACTION react2695 300  met15 -1.0 met53 0.75
+REACTION react2696 100  met1 1.5 met72 -0.25
+REACTION react2697 300  met96 -1.0 met63 -1.25 met57 0.25
+REACTION react2698 100  met53 -0.5 met77 -0.5 met10 1.25
+REACTION react2699 200  met76 -1.25 met22 0.5 met34 1.5
+REACTION react2700 300  met14 -1.25 met12 -1.5 met59 -2.0 met89 0.25
+REACTION react2701 200  met17 -1.0 met15 -0.25 met28 -0.5 met29 -1.5 met43 0.75
+REACTION react2702 200  met15 -0.25 met2 -1.25 met31 0.75 met47 1.5 met96 0.75
+REACTION react2703 200  met15 -0.5 met45 1.25 met71 -0.5 met30 -1.25
+REACTION react2704 100  met3 0.25 met64 -0.75 met96 0.25
+REACTION react2705 100  met56 -0.25 met28 0.5 met54 0.25
+REACTION react2706 200  met50 0.25 met100 -0.5 met32 -1.5 met33 -0.5 met49 -1.75
+REACTION react2707 100  met18 -2.0 met87 0.25
+REACTION react2708 100  met24 0.25 met44 1.5 met99 -0.25
+REACTION react2709 200  met59 1.0 met31 -1.5 met92 1.5 met11 -0.75 met41 -0.25
+REACTION react2710 200  met15 -1.75 met39 1.75
+REACTION react2711 300  met24 -2.0 met76 1.75 met39 -1.5 met95 1.0 met20 -1.0
+REACTION react2712 100  met32 -0.75 met16 0.25
+REACTION react2713 100  met99 0.25 met69 -0.75
+REACTION react2714 200  met12 -1.5 met5 -1.25 met11 0.75 met41 -1.0
+REACTION react2715 300  met8 -1.5 met100 1.0
+REACTION react2716 200  met14 1.25 met40 1.75 met87 1.0 met97 -2.0
+REACTION react2717 300  met67 -2.0 met64 1.75 met54 0.5 met17 -2.0 met63 -1.25
+REACTION react2718 100  met42 -1.5 met60 0.25
+REACTION react2719 100  met14 1.25 met57 1.5 met35 0.25 met76 -1.0
+REACTION react2720 300  met100 1.75 met56 -0.25
+REACTION react2721 100  met72 0.25 met54 -1.0 met31 0.25 met14 -0.5
+REACTION react2722 200  met67 1.5 met1 -0.75 met77 -2.0
+REACTION react2723 200  met23 -0.25 met33 1.5 met17 -1.5
+REACTION react2724 300  met71 -0.75 met34 0.25
+REACTION react2725 200  met41 -0.25 met13 1.75 met74 -0.25 met52 0.25
+REACTION react2726 300  met86 -1.75 met4 1.5
+REACTION react2727 100  met78 -0.5 met81 -0.75 met83 1.5
+REACTION react2728 100  met65 -0.25 met46 0.25 met78 -2.0
+REACTION react2729 100  met86 -0.5 met18 -2.0 met83 0.25 met30 1.5
+REACTION react2730 200  met70 0.25 met20 -0.75 met97 1.25 met91 0.5
+REACTION react2731 100  met74 1.5 met21 -0.5 met22 0.75 met68 1.25
+REACTION react2732 100  met97 1.75 met32 -0.25
+REACTION react2733 100  met76 -2.0 met5 0.75 met90 -0.25
+REACTION react2734 200  met6 -1.5 met31 0.25
+REACTION react2735 100  met36 0.5 met11 -0.75 met60 0.75 met97 -2.0
+REACTION react2736 200  met7 -1.75 met34 0.25
+REACTION react2737 100  met30 1.0 met7 -2.0 met52 0.75 met5 0.5
+REACTION react2738 100  met9 -1.75 met77 -0.25 met68 -1.0 met56 1.0
+REACTION react2739 100  met81 1.5 met69 -1.75
+REACTION react2740 300  met12 1.0 met22 1.5 met31 1.75 met4 1.0 met89 -0.25
+REACTION react2741 200  met67 0.75 met15 1.25 met71 -0.75
+REACTION react2742 100  met10 -1.5 met94 -1.0 met86 -1.25 met82 0.5
+REACTION react2743 300  met81 1.5 met42 -0.5 met71 0.5
+REACTION react2744 200  met61 -2.0 met8 1.25
+REACTION react2745 300  met65 -2.0 met79 1.75
+REACTION react2746 200  met46 0.75 met29 -2.0 met60 -1.25
+REACTION react2747 200  met90 1.0 met93 0.75 met23 0.25 met100 -0.5
+REACTION react2748 100  met13 -0.75 met34 0.5 met36 0.25 met65 0.75 met49 -1.25
+REACTION react2749 300  met89 -2.0 met74 -1.5 met43 -0.5 met82 1.25 met76 1.75
+REACTION react2750 200  met37 -0.5 met14 -0.25 met77 1.75 met69 -0.5 met9 0.25
+REACTION react2751 200  met84 -0.5 met54 -1.0 met74 -0.75 met29 1.5
+REACTION react2752 100  met83 -1.5 met58 0.5 met82 0.75 met19 0.25 met85 0.5
+REACTION react2753 100  met8 1.0 met27 -1.75 met9 1.0 met29 0.25
+REACTION react2754 200  met35 -1.0 met1 -0.75 met39 0.75
+REACTION react2755 100  met15 -1.25 met99 1.25
+REACTION react2756 100  met30 -1.5 met80 -0.25 met90 -1.75 met78 0.25 met31 -0.75
+REACTION react2757 200  met11 -1.5 met50 1.0 met33 0.75 met44 0.25
+REACTION react2758 300  met59 0.25 met77 -1.75 met50 -1.0
+REACTION react2759 300  met63 -1.75 met96 -2.0 met29 -1.5 met87 0.5 met19 1.0
+REACTION react2760 200  met17 -1.5 met81 0.75
+REACTION react2761 100  met51 0.25 met20 -0.25
+REACTION react2762 200  met12 1.5 met79 -1.25 met92 -0.75
+REACTION react2763 300  met13 -1.5 met37 -1.75 met36 -1.75 met30 -0.5 met90 1.75
+REACTION react2764 200  met14 -1.5 met53 1.75
+REACTION react2765 200  met92 1.0 met59 0.75 met35 1.5 met68 0.5 met94 -0.75
+REACTION react2766 200  met51 1.5 met81 -1.5 met18 -2.0
+REACTION react2767 200  met32 -1.0 met10 0.25
+REACTION react2768 200  met14 0.25 met53 -2.0 met91 -0.75
+REACTION react2769 300  met33 -1.75 met38 0.75
+REACTION react2770 200  met43 0.25 met100 -1.0 met24 -1.5
+REACTION react2771 100  met83 -0.25 met22 1.25 met97 1.0 met33 -1.0
+REACTION react2772 200  met90 -0.25 met66 -1.25 met34 -0.75 met76 2.0
+REACTION react2773 200  met96 1.0 met61 1.25 met35 -1.25
+REACTION react2774 300  met22 1.25 met67 -1.5 met70 0.25 met50 -1.25 met16 1.75
+REACTION react2775 300  met41 0.25 met5 1.25 met50 -1.25 met59 1.75 met61 -0.25
+REACTION react2776 300  met21 0.5 met99 -1.0 met59 0.25 met48 -1.75
+REACTION react2777 200  met68 -1.75 met41 0.75
+REACTION react2778 200  met68 1.0 met74 -0.5
+REACTION react2779 200  met73 -0.25 met35 -2.0 met14 1.0 met36 1.75 met87 1.25
+REACTION react2780 300  met5 -1.25 met91 -0.75 met32 -1.5 met8 0.25
+REACTION react2781 200  met85 -0.25 met32 1.25 met57 1.75 met87 1.5 met65 0.25
+REACTION react2782 300  met99 1.25 met71 -0.25
+REACTION react2783 200  met14 -0.25 met5 0.75
+REACTION react2784 100  met72 -1.25 met96 1.0 met82 -0.25 met33 -0.5 met89 -0.25
+REACTION react2785 300  met77 0.25 met37 0.25 met55 0.5 met43 -0.5
+REACTION react2786 300  met42 1.0 met24 -1.5
+REACTION react2787 300  met29 0.5 met21 0.75 met12 -0.25
+REACTION react2788 100  met37 -0.75 met86 1.75 met4 1.5
+REACTION react2789 300  met67 0.25 met34 -1.25
+REACTION react2790 100  met7 1.5 met39 -0.5 met75 -1.0 met27 1.0
+REACTION react2791 100  met80 1.5 met58 -2.0 met68 -1.5 met90 1.75
+REACTION react2792 200  met89 -2.0 met91 1.0
+REACTION react2793 200  met100 1.75 met29 -2.0
+REACTION react2794 300  met1 1.5 met13 -1.0
+REACTION react2795 200  met52 0.5 met38 -2.0
+REACTION react2796 100  met77 1.0 met47 -0.25
+REACTION react2797 200  met41 -1.5 met93 0.25 met52 1.25 met91 0.5 met67 -1.0
+REACTION react2798 200  met32 -0.75 met57 1.75 met60 1.5 met40 1.25
+REACTION react2799 300  met88 -1.5 met16 -2.0 met99 1.75
+REACTION react2800 300  met13 0.5 met5 1.75 met61 -1.0 met56 1.25 met86 1.0
+REACTION react2801 100  met63 -0.5 met97 0.25 met6 -0.5 met41 1.0
+REACTION react2802 100  met55 -0.5 met80 1.75 met46 -0.5 met97 -0.5
+REACTION react2803 100  met22 1.75 met48 -1.75
+REACTION react2804 300  met70 -1.5 met54 0.25 met14 -1.25 met82 0.5 met12 -1.0
+REACTION react2805 300  met43 -2.0 met82 0.5 met48 0.25
+REACTION react2806 100  met96 -0.5 met70 -1.75 met47 0.75 met26 0.5 met44 0.25
+REACTION react2807 100  met36 -0.25 met69 0.75 met55 0.5 met38 0.5 met56 -1.75
+REACTION react2808 100  met42 0.25 met87 -0.25 met33 -0.25 met21 0.5
+REACTION react2809 300  met5 -2.0 met45 1.75 met55 -0.5 met49 0.75 met73 -0.25
+REACTION react2810 100  met44 -1.5 met13 0.25 met54 0.75 met23 0.75
+REACTION react2811 100  met14 -1.25 met33 0.25 met64 0.75
+REACTION react2812 200  met74 0.25 met81 -1.0
+REACTION react2813 100  met13 0.25 met99 1.0 met68 0.5 met51 -1.25
+REACTION react2814 200  met15 0.5 met98 0.25 met90 -1.0 met67 -2.0 met59 1.5
+REACTION react2815 300  met52 0.25 met56 -1.75 met83 1.0
+REACTION react2816 100  met54 -1.25 met77 1.0 met15 0.75 met66 1.75 met78 0.25
+REACTION react2817 100  met45 -1.0 met35 1.25
+REACTION react2818 100  met51 -1.75 met3 0.25 met50 -1.75
+REACTION react2819 100  met47 0.25 met7 0.5 met10 -0.25
+REACTION react2820 100  met54 0.5 met33 -1.25
+REACTION react2821 100  met69 -0.75 met81 1.0 met24 -0.25 met77 -0.25 met26 -0.75
+REACTION react2822 300  met50 0.75 met84 1.75 met37 0.5 met61 -0.75 met52 -1.0
+REACTION react2823 300  met27 -1.0 met23 -1.5 met32 -1.25 met59 0.25 met19 -1.5
+REACTION react2824 300  met92 1.75 met62 -0.5 met49 0.5
+REACTION react2825 200  met16 -0.75 met14 -1.75 met31 -2.0 met68 1.5 met24 0.75
+REACTION react2826 100  met71 1.5 met96 0.75 met3 0.25 met38 0.25 met12 -0.5
+REACTION react2827 300  met58 1.25 met48 -1.0
+REACTION react2828 200  met98 -0.75 met34 -1.25 met8 1.0
+REACTION react2829 200  met90 -1.75 met35 -0.5 met71 0.25
+REACTION react2830 200  met40 -0.5 met22 -0.75 met35 -0.5 met55 -1.75 met10 1.5
+REACTION react2831 300  met62 -2.0 met23 -0.75 met84 0.75 met14 -1.0
+REACTION react2832 100  met79 0.75 met76 0.75 met12 -1.75
+REACTION react2833 200  met7 -0.75 met39 0.25 met92 1.25
+REACTION react2834 100  met13 0.25 met2 0.25 met76 -0.5 met56 1.0 met17 -0.5
+REACTION react2835 100  met63 -2.0 met34 -1.0 met29 0.75
+REACTION react2836 100  met39 -0.5 met53 0.25
+REACTION react2837 100  met74 -1.75 met58 1.75 met49 0.75 met60 -1.25 met100 1.0
+REACTION react2838 100  met61 -2.0 met12 -1.25 met90 0.25 met20 0.75 met21 -1.75
+REACTION react2839 100  met23 0.5 met51 -1.25 met89 -1.75 met55 0.5
+REACTION react2840 300  met96 1.0 met80 0.25 met37 -0.5
+REACTION react2841 100  met36 -0.25 met39 -1.5 met45 0.75 met4 0.25
+REACTION react2842 100  met30 -1.75 met8 1.5 met12 1.25 met53 -2.0
+REACTION react2843 200  met48 1.5 met50 0.25 met40 -1.75 met39 -0.5 met28 -1.5
+REACTION react2844 300  met26 -1.5 met65 0.5 met19 -1.5
+REACTION react2845 200  met11 -1.5 met86 0.75
+REACTION react2846 300  met21 0.5 met68 -1.5 met15 -2.0 met71 -1.75 met41 -0.25
+REACTION react2847 100  met64 0.75 met82 -0.25
+REACTION react2848 100  met46 -1.75 met32 1.0 met64 -2.0 met78 0.5
+REACTION react2849 200  met90 0.75 met33 0.5 met72 -1.75
+REACTION react2850 100  met10 0.25 met87 0.5 met23 -2.0 met22 -1.75 met88 -0.25
+REACTION react2851 300  met13 -1.75 met38 -1.25 met59 1.5
+REACTION react2852 100  met75 0.75 met61 -0.5 met47 1.0 met20 -0.25 met27 0.25
+REACTION react2853 100  met25 0.75 met27 -1.75 met79 1.0
+REACTION react2854 200  met4 -2.0 met81 1.0
+REACTION react2855 200  met69 -2.0 met18 1.0 met66 -1.0 met87 1.5
+REACTION react2856 100  met62 -0.5 met16 -2.0 met63 -1.75 met89 0.25
+REACTION react2857 300  met70 -1.25 met15 0.25
+REACTION react2858 200  met16 1.75 met72 -0.75
+REACTION react2859 300  met12 0.25 met18 -1.75
+REACTION react2860 100  met65 -0.25 met7 1.5 met3 -0.25
+REACTION react2861 100  met92 0.25 met37 -0.75 met2 0.5
+REACTION react2862 100  met81 -0.25 met20 0.25 met56 0.25 met13 -1.75 met79 -0.25
+REACTION react2863 100  met95 -2.0 met92 -1.25 met50 -1.0 met37 1.25 met26 1.75
+REACTION react2864 100  met25 0.75 met79 -0.75 met20 -1.75 met94 0.5
+REACTION react2865 200  met31 1.0 met47 1.75 met32 -1.75 met100 0.75
+REACTION react2866 300  met36 1.0 met88 1.0 met15 -1.75 met28 -0.75
+REACTION react2867 100  met29 1.0 met69 -1.0 met74 0.25 met86 -0.5 met42 -1.0
+REACTION react2868 100  met65 0.25 met61 -1.0 met36 0.25 met38 0.25 met50 0.75
+REACTION react2869 100  met46 1.0 met93 0.75 met56 1.0 met9 -1.25 met33 1.75
+REACTION react2870 300  met43 1.0 met51 1.0 met33 -1.0 met94 -1.0
+REACTION react2871 300  met88 1.25 met23 -1.0 met81 -2.0
+REACTION react2872 200  met94 -2.0 met79 1.5 met66 -2.0
+REACTION react2873 100  met43 0.25 met46 0.75 met81 0.25 met47 -0.25
+REACTION react2874 200  met72 -1.5 met70 -1.5 met61 -0.75 met9 -0.25 met19 1.25
+REACTION react2875 200  met50 -1.75 met39 0.75 met22 -1.0
+REACTION react2876 200  met26 -2.0 met74 0.5 met88 -0.75
+REACTION react2877 300  met73 -1.5 met9 -0.25 met2 1.25
+REACTION react2878 200  met14 0.25 met66 0.5 met22 -1.5
+REACTION react2879 300  met7 1.5 met5 0.25 met36 -0.75
+REACTION react2880 300  met49 -0.5 met43 0.25
+REACTION react2881 200  met7 -0.5 met98 0.25 met47 -2.0 met62 1.25 met73 -1.5
+REACTION react2882 100  met33 0.25 met57 1.0 met84 0.5 met5 -0.5
+REACTION react2883 300  met93 0.75 met67 -0.75 met36 -2.0 met66 1.0
+REACTION react2884 100  met29 -1.75 met3 2.0
+REACTION react2885 100  met54 -2.0 met53 -0.5 met1 0.25 met61 -1.75 met19 0.75
+REACTION react2886 200  met87 0.5 met33 -1.5
+REACTION react2887 300  met78 1.0 met65 -0.25 met100 -0.25 met99 -0.75
+REACTION react2888 200  met91 1.75 met2 0.25 met66 1.75 met44 -0.5
+REACTION react2889 200  met53 1.0 met34 -1.75 met42 -0.25 met83 0.25 met17 1.5
+REACTION react2890 200  met20 1.5 met79 1.25 met65 -0.5
+REACTION react2891 300  met18 -0.75 met51 0.5 met8 0.5 met4 1.0 met28 -1.0
+REACTION react2892 300  met8 -1.25 met67 1.0
+REACTION react2893 100  met7 1.75 met91 0.25 met14 1.5 met48 -0.75 met22 1.25
+REACTION react2894 200  met88 0.5 met5 -1.0 met59 -2.0
+REACTION react2895 200  met80 0.25 met66 1.0 met60 1.75 met46 -1.5
+REACTION react2896 200  met53 -0.5 met78 -0.75 met99 -1.75 met4 0.25
+REACTION react2897 100  met11 -0.25 met74 -1.5 met58 -2.0 met33 0.75 met79 -1.5
+REACTION react2898 300  met34 0.75 met44 -1.5 met16 0.75 met7 1.5
+REACTION react2899 100  met29 -1.25 met87 0.25
+REACTION react2900 300  met15 -0.25 met65 -0.75 met39 0.75
+REACTION react2901 200  met64 0.5 met70 0.25 met62 1.25 met95 -0.25
+REACTION react2902 300  met78 -1.25 met79 1.0 met24 -0.75 met12 -1.25 met41 0.25
+REACTION react2903 300  met40 -1.25 met68 -0.75 met67 1.5 met97 0.75 met20 1.5
+REACTION react2904 300  met30 1.0 met16 -2.0
+REACTION react2905 100  met70 -0.25 met69 0.75 met29 1.5 met14 1.0 met88 0.25
+REACTION react2906 100  met63 -0.5 met40 -1.25 met10 0.75 met12 -0.75
+REACTION react2907 100  met35 -0.5 met20 1.75 met70 0.5 met18 0.25
+REACTION react2908 100  met90 -0.75 met41 0.5 met100 1.75 met69 -0.5
+REACTION react2909 200  met64 0.5 met30 0.25 met72 -2.0 met47 -2.0
+REACTION react2910 200  met59 -0.25 met15 -1.5 met78 1.0
+REACTION react2911 300  met46 -0.5 met94 -0.25 met82 -1.0 met86 0.75 met73 0.25
+REACTION react2912 100  met97 -1.5 met89 1.25
+REACTION react2913 300  met38 0.25 met81 -1.5 met79 1.75 met68 1.75 met99 0.25
+REACTION react2914 200  met84 -1.75 met74 0.25
+REACTION react2915 300  met25 -0.5 met22 1.5
+REACTION react2916 100  met88 -1.0 met47 1.75 met50 1.75
+REACTION react2917 100  met28 0.25 met67 1.0 met77 -0.25 met41 1.75 met99 1.0
+REACTION react2918 300  met39 1.25 met8 -1.25 met19 -1.0 met17 -0.25 met44 1.25
+REACTION react2919 300  met12 -1.5 met32 1.0 met44 -0.75 met69 1.0
+REACTION react2920 200  met97 -0.5 met70 -0.75 met76 -0.75 met54 1.0
+REACTION react2921 300  met7 1.25 met6 -0.75 met80 -0.25 met3 0.25 met70 1.5
+REACTION react2922 300  met100 0.25 met23 -0.5 met4 -1.25
+REACTION react2923 300  met93 0.25 met46 0.25 met31 -0.25 met55 0.5
+REACTION react2924 200  met30 1.25 met17 -0.25
+REACTION react2925 100  met81 0.25 met38 0.25 met12 -0.5 met96 -2.0
+REACTION react2926 200  met56 1.75 met11 -0.25 met19 -0.5 met16 0.75 met77 -1.25
+REACTION react2927 300  met38 0.25 met72 -1.0 met80 -1.0 met89 -1.75
+REACTION react2928 100  met46 1.75 met13 1.25 met90 0.75 met81 -0.75
+REACTION react2929 100  met36 0.5 met93 1.75 met54 0.25 met81 -0.75
+REACTION react2930 100  met46 -1.25 met96 1.75
+REACTION react2931 100  met64 0.25 met10 -2.0 met45 0.25 met91 0.25 met12 1.75
+REACTION react2932 300  met55 1.75 met60 -1.75
+REACTION react2933 300  met57 1.25 met5 -2.0 met58 0.25
+REACTION react2934 300  met12 0.5 met30 -0.5 met58 -1.75 met72 -0.5
+REACTION react2935 200  met90 0.75 met69 0.5 met32 -0.75 met9 -2.0 met70 0.25
+REACTION react2936 100  met78 -0.25 met22 1.5 met75 0.25 met63 1.25
+REACTION react2937 100  met22 -0.25 met83 0.25
+REACTION react2938 200  met61 -0.75 met41 0.5 met44 0.25 met88 0.75
+REACTION react2939 200  met88 -1.25 met91 1.25 met58 -1.25
+REACTION react2940 300  met49 1.0 met100 -1.75 met15 -1.0 met41 -1.0 met64 0.75
+REACTION react2941 100  met92 -1.5 met8 -2.0 met21 1.75
+REACTION react2942 200  met67 0.75 met15 -2.0 met56 -0.5
+REACTION react2943 100  met69 -1.0 met23 0.5
+REACTION react2944 100  met54 1.5 met58 0.5 met3 -1.75 met30 1.25
+REACTION react2945 200  met12 0.25 met80 -1.0
+REACTION react2946 100  met94 -1.75 met97 0.5
+REACTION react2947 100  met34 -0.75 met73 0.25 met94 -0.75 met51 0.25
+REACTION react2948 100  met20 -0.5 met67 0.25 met36 -1.25
+REACTION react2949 200  met26 -1.75 met20 -1.25 met47 1.25 met59 1.75 met96 1.0
+REACTION react2950 300  met69 1.25 met54 -1.75 met82 -1.25 met96 0.25
+REACTION react2951 100  met35 0.75 met70 -1.5
+REACTION react2952 200  met8 -0.75 met22 -1.0 met53 0.25 met88 1.0 met2 1.75
+REACTION react2953 200  met29 0.25 met92 -2.0 met72 0.25
+REACTION react2954 300  met55 1.0 met14 1.5 met80 1.5 met11 -1.0 met50 -2.0
+REACTION react2955 300  met52 1.25 met14 -1.25 met11 0.25
+REACTION react2956 200  met99 1.25 met9 1.5 met46 1.75 met59 -1.0 met83 -2.0
+REACTION react2957 100  met41 0.25 met19 -0.75
+REACTION react2958 100  met66 -1.5 met36 0.25 met23 0.75
+REACTION react2959 100  met92 -2.0 met18 -2.0 met42 -1.75 met89 0.75
+REACTION react2960 100  met9 -2.0 met29 -0.25 met93 0.25 met37 0.25 met89 -1.5
+REACTION react2961 100  met26 -0.25 met36 0.75
+REACTION react2962 300  met6 -0.5 met69 -1.25 met79 -1.25 met15 1.0
+REACTION react2963 300  met80 -0.75 met90 1.5
+REACTION react2964 200  met73 1.25 met55 -0.75
+REACTION react2965 200  met97 0.25 met1 0.5 met3 -0.5
+REACTION react2966 200  met91 -1.0 met61 0.25
+REACTION react2967 200  met66 0.25 met79 0.5 met94 0.25 met20 -0.75 met13 -2.0
+REACTION react2968 100  met17 -0.75 met9 0.75 met73 0.25 met18 0.75
+REACTION react2969 300  met51 0.75 met91 1.25 met58 -0.5
+REACTION react2970 100  met74 -1.75 met47 1.0 met56 -1.5 met85 -1.25 met91 -1.75
+REACTION react2971 300  met93 0.25 met95 0.75 met17 -1.5
+REACTION react2972 100  met19 0.75 met27 0.25 met69 0.75 met40 -1.5 met98 0.25
+REACTION react2973 300  met92 0.5 met23 -0.5 met91 1.0 met39 1.25 met81 1.25
+REACTION react2974 200  met39 1.0 met68 -0.5 met77 0.25 met59 -1.75 met1 -1.5
+REACTION react2975 300  met7 -1.25 met54 0.5 met25 1.75
+REACTION react2976 300  met95 -0.75 met58 0.25
+REACTION react2977 100  met98 -1.25 met58 1.0
+REACTION react2978 200  met51 0.25 met46 -0.5
+REACTION react2979 100  met10 -2.0 met62 0.25 met26 -0.25 met7 1.75 met39 1.0
+REACTION react2980 300  met27 -1.25 met47 -0.25 met2 0.75 met21 -0.75
+REACTION react2981 200  met12 0.75 met68 1.25 met53 -1.0 met51 -1.75
+REACTION react2982 300  met13 -0.5 met73 1.25 met4 0.25 met17 -0.5
+REACTION react2983 100  met23 1.75 met63 -0.25 met66 1.25
+REACTION react2984 300  met61 1.25 met96 0.5 met42 -1.5
+REACTION react2985 200  met7 0.75 met65 0.25 met98 -1.5
+REACTION react2986 300  met89 1.5 met68 -1.75 met7 1.5
+REACTION react2987 300  met26 1.5 met80 -0.75
+REACTION react2988 200  met95 -0.25 met54 0.5 met25 -1.5
+REACTION react2989 300  met49 0.25 met35 -0.5 met38 -2.0
+REACTION react2990 200  met51 -0.25 met84 -0.25 met48 0.5 met38 -0.5
+REACTION react2991 200  met50 1.0 met47 1.5 met88 -2.0
+REACTION react2992 300  met57 -1.0 met4 0.25
+REACTION react2993 300  met16 -0.5 met25 -1.75 met7 1.25
+REACTION react2994 200  met87 -2.0 met96 -1.0 met77 0.25
+REACTION react2995 200  met88 1.25 met12 1.25 met84 -1.25 met17 0.25
+REACTION react2996 100  met97 1.0 met21 0.75 met7 -0.25
+REACTION react2997 200  met64 -2.0 met17 0.25 met57 0.25
+REACTION react2998 300  met40 -1.5 met23 0.25 met93 -2.0 met28 -2.0
+REACTION react2999 300  met75 1.25 met51 -1.0
+REACTION react3000 -100  met56 -1.75 met60 -1.0 met93 -0.25 met17 -1.0 met82 1.25

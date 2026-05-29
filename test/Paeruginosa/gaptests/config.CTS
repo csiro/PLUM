@@ -1,0 +1,4 @@
+threads     11
+timelimit 		600
+biomass_mult 	10
+biomass_iters	20

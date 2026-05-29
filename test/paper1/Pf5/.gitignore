@@ -1,0 +1,10 @@
+*.dig
+*.txt
+*.res
+*.cfg
+mminttmp
+mrconfig
+*.lis
+res
+plummx-*
+testall-*

@@ -1,0 +1,17 @@
+
+MET met1 "Met 1"
+MET met2 "Met 2"
+MET met3 "Met 3"
+MET met4 "Met 4"
+
+REACTION ex_1 1 1 met1 1
+REACTION ex_2 1 2 met2 1
+REACTION dm_3 1 1 met3 -1
+REACTION dm_4 1 2 met4 -1
+
+REACTION react13 -1 2 met1 -1 met3 1
+REACTION react24 1 2 met2 -1 met4 1
+
+REACTION react12 10 2 met1 -1 met2 1
+REACTION react23 10 2 met2 -1 met3 1
+REACTION react34 10 2 met3 -1 met4 1

@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --time=01:00:00
+#SBATCH --output=log/out.%A
+#SBATCH --mem=1G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+
+date
+echo "Run job number $1 in $2 "
+cmd="`sed "${1}q;d" $2`"
+echo "${cmd}"
+${cmd} 

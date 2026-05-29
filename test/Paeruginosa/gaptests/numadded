@@ -1,0 +1,32 @@
+#!/bin/bash
+
+l_flag=0
+if [ "$1" == "-l" ]
+then
+    l_flag=1
+    shift
+fi
+if [ "$2" == "" ]
+then
+    echo "numadded [-l] <dat-fn> <out-fn>"
+    echo "  -l: List reactions"
+    exit 1
+fi
+
+all_added="added_reactions_by_pair.dat"
+
+dat=$1
+out=$2
+
+tmp="/tmp/compare1-added.tmp"
+
+grep $dat $all_added | mycol 2- | unfold > $tmp
+from_added=`grep -v '^#' $out | kjoin - $tmp -o1 | wc -l`
+
+list=""
+if [ $l_flag -eq 1 ]
+then
+    list=`grep -v '^#' $out | kjoin - $tmp -o2 | myfold`
+fi
+echo $out $from_added $list
+

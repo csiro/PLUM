@@ -1,0 +1,7 @@
+test/paper1/Pf5/genes_reactions_AGORA2_updated.csv filter=lfs diff=lfs merge=lfs -text
+test/paper1/common/20240909_AGORA2_Update_Species_Concave_Taxonomic_Reaction_Weighting.csv filter=lfs diff=lfs merge=lfs -text
+test/paper1/common/20240909_AGORA2_Update_Species_Convex_Taxonomic_Reaction_Weighting.csv filter=lfs diff=lfs merge=lfs -text
+test/paper1/common/phylo_weights.csv filter=lfs diff=lfs merge=lfs -text
+test/paper1/Pf5/reactions_AGORA2_updated.csv filter=lfs diff=lfs merge=lfs -text
+data/BiGG+iMO1056_DB.xml filter=lfs diff=lfs merge=lfs -text
+test/paper1/common/20240131_All_AGORA_Species_Convex_Taxonomic_Reaction_Weighting.csv filter=lfs diff=lfs merge=lfs -text

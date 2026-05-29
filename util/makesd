@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+    echo "gapfill output file required"
+    echo "Usage: makesd <gap-out> [<base-sd>]"
+    echo "  gap-out: gapfill '-m' file"
+    echo "  base-sd: file given to gapfill '-sd'"
+    exit 1
+fi
+infile="$1"
+
+grep -v '^#' $infile | gawk '$2 != 0 {print $1, 0, $2}' | sed 's/_/ /' 
+if [ "$2" != "" ]
+then
+    cat $2
+fi
+

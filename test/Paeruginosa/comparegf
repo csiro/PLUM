@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if [ "$2" == "" ]
+then
+    echo "comparegf <dat> <outfile> [<orig-solution>]"
+    exit 1
+fi
+
+dat=$1
+out=$2
+orig=$3
+
+tmp="/tmp/comparegf.tmp"
+tmp2="/tmp/comparegf2.tmp"
+tmp3="/tmp/comparegf3.tmp"
+
+grep "Excluded reactions" $dat | mycol 5- | unfold > $tmp
+num_excluded=`wc -l < $tmp`
+echo "Num excluded is $num_excluded"
+if [ $num_excluded -eq 0 ]
+then
+    echo 'No "Excluded reactions" found in $dat'
+    exit 2
+fi
+
+found=0
+not_found=0
+for name in `cat $tmp`
+do
+    count=`grep "^$name " $out | wc -l`
+    echo "$name: $count"
+    if [ $count -eq 0 ]
+    then
+        echo "Reaction $name NOT replaced"
+        not_found=$((not_found+1))
+    else
+        echo "Reaction $name FOUND"
+        found=$((found+1))
+    fi
+done
+
+echo "$found of $num_excluded found"
+echo "$not_found of $num_excluded not found"
+
+if [ "$orig" == "" ]
+then
+    exit 0
+fi
+grep -v '^#' $out > $tmp2
+grep -v '^#' $orig > $tmp3
+
+echo ""
+echo "Change in flux (old to new)"
+kjoin $tmp $tmp3 | getcol 2 3 | kjoin - $tmp2 | gawk '{printf ("%-20s %8.4f %8.4f %+5.1f%%\n", $1, $2, $4, ($4 - $2) * 100.0 / $4)}'
+
+echo ""
+echo "Reactions in new sol not in orig sol (with flux):"
+kjoin $tmp2 $tmp3 -r | sort -g -r -k 2,2
+
+echo "" 
+echo "Reactions in orig sol not in new sol (with flux):"
+kjoin $tmp3 $tmp2 -r | sort -g -r -k 2,2

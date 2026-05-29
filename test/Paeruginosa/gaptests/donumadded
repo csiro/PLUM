@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for solver in INT CTS
+do
+    for sd in `cat sd`
+    do
+        sd=`basename $sd`
+        for dat in `cat dat`
+        do
+            out="out.sd/out-$dat-$sd-$solver-1"
+            #echo $out
+            numadded -l $dat $out
+        done 
+    done
+done

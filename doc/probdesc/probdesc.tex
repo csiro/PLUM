@@ -1,0 +1,337 @@
+\documentclass[12pt,twoside,fleqn,a4paper]{article}
+\makeatletter %%%% ugly fudge to customise spacing in lists %%%%%%%%%%%%%%%
+  %% note \@listI is originally defined in art12.sty (or size12.clo for 2e)
+  \def\@listI{\leftmargin\leftmargini  \parsep\z@ plus2.5\p@ minus\p@
+    \topsep\z@ plus4\p@ minus6\p@  \itemsep 2\p@ plus2.5\p@ minus\p@}
+  \let\@listi\@listI
+  %% could define \@listii, \@listiii similarly for sublists.
+\makeatother
+
+\usepackage{graphicx}
+
+\pagestyle{plain}
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{245mm}
+\setlength{\parskip}{1.4ex}
+\setlength{\parindent}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{-0.5cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\headheight}{1cm}
+
+\raggedbottom
+
+\setlength{\partopsep}{-0.5\parskip}%
+\setlength{\leftmargini}{2em}%
+\setlength{\leftmarginii}{2em}%
+\setlength{\labelsep}{0.5em}%
+\setlength{\topsep}{0\parskip}%
+
+% Define italic ``et al''. Use as {\etal} to avoid space problems
+\newcommand{\etal}{{\it et al.}}
+
+\begin{document}
+
+\section{Introduction}
+
+We look at the gap-filling problem in metabolic processes.
+
+Here, we have a set of metabolites, and a set of reactions. In steady
+state, each reaction uses up metabolites at a given rate, and produces
+metabolites at given rate.
+
+We have a set of experiments where we have measured the metabolites
+used, and the metabolites produced. We know (or think we know) some of
+the reactions involved. We wish to work out the other reactions
+involved. Each potential reaction has a notional 'cost' reflecting the
+probability it is involved; e.g. this reaction has been seen in
+similar contexts, or this reaction is from a plant database, so is
+unlikely to be used.
+
+The decision variables are the \emph{flux}, or throughput of each
+potential reaction. The constraints reflect the mass balance
+equations: the amount used and produced must balance with the observed
+use and output of the experiments.
+
+\section{Nomenclature}
+
+We have metabolites in the set $M = \{1 .. m\}$, and reactions in the
+set $R = \{1 .. r\}$.
+
+The \emph{flux} $v_i$ determines how active is reaction $i$. $v_i$ is
+the principal decision variable of the problem. The 'cost' of reaction
+$i$ is $c_i$.
+
+Each reaction involves a number of metabolites. The stoichiometric
+coefficient $a_{ik}$ determines the amount of metabolite $k$ used or
+produced in reaction $i$: a negative coefficient means the metabolite
+is used, a positive coefficient means the metabolite is
+produced. There is a linear relationship between the flux and the
+amounts: for negative stoichiometric coefficients, the total amount of
+metabolite $k$ used by reaction $i$ is $v_i . -a_{ik}$ (since $a_{ik}$
+will be negative). Similarly the amount of metabolite produced is
+$v_i . a_{ik}$ (since $a_{ik}$ will be positive).
+
+The rate of use of source metabolites -- that is, metabolites drawn
+from the substrate, and not supplied by reactions -- is given by $s_k$.
+The rate of production of output metabolites is given by $p_k$.
+
+\begin{tabular}{c | c c c c c c  | c c}
+        & R1 &  R2 &  R3 &  R4 &  R5 &  Biomass & & \\ \hline
+ Cost   & $c_1$ & $c_2$ & $c_3$ & $c_4$ & $c_5$ & -1000 & \\ \hline
+ Flux   & $v_1$ & $v_2$ & $v_3$ & $v_4$ & $v_5$ & $v_6$ & LB & UB \\ \hline
+  Met 1 & -1 &   0 &   1 &   1 &   0 &   0 & -10 & 0\\
+  Met 2 &  1 &  -1 &   0 &   1 &   0 &  -1 & 0 & 0  \\
+  Met 3 &  0 &  -1 &   0 &   0 &  -1 &   0 & 0 & 0   \\
+  Met 4 &  0 &   0 &  -1 &  -1 &   0 &   0 & 0 & 0   \\
+  Met 5 &  0 &   1 &   0 &  -1 &   0 &   1 & 0 & 10   \\
+  Met 6 &  0 &   0 &   0 &  -1 &   1 &   0 & 0 & 0
+\end{tabular}
+
+\section{Formulation 1}
+
+The problem can be expressed simply:
+
+Problem {\bf P1}:
+
+\begin{eqnarray}
+  \mbox{minimise} \sum_i c_i v_i & & 
+\end{eqnarray}
+subject to
+\begin{eqnarray}
+  \sum_i v_i a_{ik} & = & p_k - s_k \;\;\; \forall k \in M \label{eqn:metbal}
+\end{eqnarray}
+
+Note, we add dummy reactions in $D$ to $R$, each of which produce or consume
+one metabolite. These ensure that the problem is feasible,
+allowing an arbitrary amount of any metabolite to either appear or
+disappear if required. The cost for use of these reactions is, of
+course, set very high.
+
+Note also that one chosen reaction will be a biomass production
+reaction. This reaction is kind-of the aim of the process - to produce
+biomass. The biomass production reaction can have an negative
+objective coefficient so that it is maximised rather than
+minimised. The absolute value of the objective coefficient needs to be
+chosen carefully so that the biomass achieves maximum production given
+supply restrictions.
+
+\section{Dual variables}
+
+We can solve this problem using dual variables. We start by solving
+problem {\bf P1} where only dummy reactions are available. We
+then examine dual costs of every reaction not currently included. This
+is a simple calculation involving only the cost of the reaction, and the
+dual variables of each of the metabolites either used or produced by
+the reaction (along with the stoichiometric coefficients).
+
+Let $\lambda_k$ be the dual variable associated with the constraint
+(\ref{eqn:metbal}) on metabolite $k$. The reduced cost of reaction $i$
+is
+\[
+\mbox{RC}_i = c_i - \sum_k{\lambda_k a_{ik}} \label{eqn:rc1}
+\]
+
+We add any reactions with a negative reduced cost to the the LP.  We
+can the solve the new LP, and repeat until no reactions have negative
+reduced cost.
+
+\section{Integer Formulation}
+
+The ``GlobalFit'' system uses an integer formulation, using variables
+$y_i$ = 1 if reaction $i$ is used; 0 otherwise. We use an upper bound
+on flux ($\mbox{UB}_i$) for each reaction. The forumlation is then
+
+Problem {\bf P2}:
+
+\begin{eqnarray}
+  \mbox{minimise} \sum_i c_i y_i & & 
+\end{eqnarray}
+subject to
+\begin{eqnarray}
+  \sum_i v_i a_{ik} & = & p_k - s_k \;\;\; \forall k \in M \label{eqn:metbal2} \\
+  v_i & \le & \mbox{UB}_i \,  y_i \;\;\; \forall i \in R \\
+  y_i & \in & \{0, 1\} \;\;\; \forall i \in R 
+\end{eqnarray}
+
+\section{Reachability}
+
+The formulations in the previous section do not consider the order of
+production of metabolites.
+
+For instance, consider a reaction $r$ that consumes metabolite $A$, and
+produces metabolite $B$. Another reaction $s$ consumes metabolites $B$, and
+produces metabolite $A$. Neither $A$ nor $B$ are available in the
+substrate (i.e. $s_A = s_B = 0$). In that case, neither reaction can
+be used, unless another source of $A$ or $B$ is available. But
+Formulation 1 will happily use \emph{only} $r$ and $s$ since the use and
+production of $A$ and $B$ balance out.
+
+This gives rise to the concept of \emph{reachability}, and
+\emph{depth}.
+
+We say a reaction \emph{enabled} if all the metabolites consumed by a reaction
+are available. We say a metabolite is available if it is either
+supplied in the substrate ($s_k > 0$), or a reaction the supplies it
+is enabled.
+
+We define the 'level' of a reaction as the level it is enabled in the
+following algorithm. Note: \emph{never} is a constant indicating that
+the reaction can not be enabled.
+
+The \emph{depth} of the residuals can also be calculated: when all
+metabolites with $p_k$ > 0 are \emph{available}, we know the residuals
+can theoretically be produced.
+
+
+Algorithm \emph{Depth}:
+
+\begin{itemize}
+\item Make all metabolites $k$ with $s_k > 0$ available
+\item Set \emph{depth} of all reactions to {\bf never}
+\item Set \emph{residual\_depth} to {\bf never}
+\item \emph{level} = 0
+\item \emph{finished} = {\bf false}
+\item \emph{is\_progress } = {\bf true}
+\item while {\bf not} \emph{finished} {\bf and} \emph{is\_progress}
+  \begin{itemize}
+  \item \emph{level} = \emph{level + 1}
+  \item \emph{finished} = {\bf true}
+  \item \emph{is\_progress} = {\bf false}
+  \item for each reaction $r$ not yet enabled
+    \begin{itemize}
+    \item if all metabolites required by $r$ are available
+      \begin{itemize}
+      \item enable reaction $r$
+      \item set \emph{depth} of $r$ to \emph{level}
+      \item \emph{is\_progress} = {\bf true}
+      \end{itemize}
+    \item else
+      \begin{itemize}
+      \item \emph{finished} = {\bf false}
+      \end{itemize}
+    \end{itemize}
+  \item for each reaction $r$ enabled at this level
+    \begin{itemize}
+    \item for each metabolite $i$ produced by reaction $r$
+      \begin{itemize}
+      \item make $i$ available
+      \end{itemize}
+    \end{itemize}
+  \item if all metabolites $k$ with $p_k > 0$ are available
+    \begin{itemize}
+    \item All residuals can now be produced
+    \item set \emph{residual\_depth} = \emph{level}
+    \item set \emph{finished} = {\bf true}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+The variable \emph{is\_progress} ensures there is progress at each
+iteration, or else the algorithm terminates. The variable
+\emph{finished} is left at {\bf true} when all reactions are enabled.
+
+\section{Depth is important}
+
+Depth can be used to help ensure that the solution can be
+implemented in real life.
+
+We note the there must be at least one one reaction from each level in
+an implementable solution. Once the substrate metabolites are made
+available, only reactions in level 1 can be triggered. Hence, at least
+one of those must be used to produce metabolites that are not
+otherwise available. The same is true at level 2: I can't use any of
+those reactions until I see the metabolites produced at level 1. But
+if I want to use reactions in level 3, I must use at least one of the
+reactions in level 2. This repeats until I reach the depth of the
+residual metabolites.
+
+This then gives rise to a ``valid inequality'': at least one equation
+from each depth must be used.
+
+\section{Formulation 2}
+
+Let $d$ be the residual-depth as calculated by algorithm \emph{Depth}.
+
+Define $J(r) = j$ for $j \in \{1 .. d\}$ define the level of reaction 
+$r \in R$. Define \emph{LB} as a lower bound on a
+flux for a used reaction. Then we can define Formulation 2 as
+Formulation 1 plus
+
+\begin{eqnarray}
+  \sum_{i : J(i) = j} v_i & \ge & LB \;\;\; \forall j = 1..d \label{eqn:depth}
+\end{eqnarray}
+
+
+\section{Dual variables revisited}
+
+Let $\mu_j$ be the dual variable associated with the constraint
+(\ref{eqn:depth}) on reactions in depth $j$. The reduced cost of reaction
+$i$ is now
+\[
+\mbox{RC}_i = c_i - \sum_k{\lambda_k a_{ik}} - \mu_j \label{eqn:rc2}
+\]
+
+\section{Compartments}
+
+Cells are modelled to have ``compartments'' - different areas where
+reactions take place. Typical compartments are:
+\begin{itemize}
+\item Cytoplasm
+\item Periplasm
+\item External
+\item Outside
+\end{itemize}
+
+External is external to the cell, and the source of normal supply
+(i.e. the substrate we are growing on). We also model an ``outside''
+compartment, which is also external, but is the site for biomass
+production and other {\it residuals} from processes.
+
+We simply expand all reactions and metabolites to be present
+in/operate in a compartment. Transport reactions move metabolites from
+one compartment to another (e.g. $CO_2$ in Cytoplasm can be moved to
+$CO_2$ in the Outside.).
+
+\section{Multiple experiments}
+
+Rather than having a single supply/residual figure, biologists will
+run several experiments. Having measured outcomes with one substrate
+(i.e. supply configuration), they may knock out one metabolite from
+the substrate, and run the experiment again to see if biomass is
+created.
+
+In this case, the same reaction can be used with different fluxes in
+each experiment. A different reaction can be used in different
+experiments, but we want to find the smallest set of reactions that
+works in all cases. So, if I can explain 2 experiments with a slightly
+higher flux through 2 reactions, rather than a smaller flux through 3
+reactions, I want to choose the solution with 2 reactions.
+
+Expand our nomenclature to include $e$ experiments, and the set $E =
+\{1..e\}$ of all experiments.
+
+Data is supply/production data (including biomass production) $s^j_k$ and
+$p^j_k$ on $j \in E$.
+
+We now need flux variables $v^j_i$, for $j \in E$. We
+still use an overall flux of $v_i$, and ensure that $v_i$ takes the
+maximum value amongst $v^j_i$ values.
+
+Problem {\bf P2}:
+
+\begin{eqnarray}
+  \mbox{minimise} \sum_i c_i v_i & & 
+\end{eqnarray}
+subject to
+\begin{eqnarray}
+  \sum_i v^j_i a_{ik} & = & p^j_k - s^j_k \;\;\; \forall k \in
+  M, j \in E \label{eqn:metbal3} \\
+  v^j_i & \le & v_i \;\;\; \forall i \in R, j \in E\label{eqn:expflux}
+\end{eqnarray}
+
+
+\end{document}
+
+% LocalWords:  stoichiometric ik Reachability reachability Periplasm

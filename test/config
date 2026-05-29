@@ -1,0 +1,4 @@
+threads 	12
+timelimit 	600
+solver 		0
+use_abs 	false

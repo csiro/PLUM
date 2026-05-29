@@ -1,0 +1,153 @@
+#!/bin/bash
+# Run a command
+
+log="seqgf.log"
+
+function run() {
+    echo "$@"
+    "$@" 
+}
+
+function log()
+{
+    echo "$@"
+    echo "$@" >> $log
+}
+
+# Do sequential gap filling.
+
+if [ "$2" == "" ]
+then
+    echo "Usage seqgf <model.dat> <sd-list>"
+    exit 1
+fi
+
+dat=$1
+sd=$2
+
+res="res.seq"
+checkres="rescheck.seq"
+outdir="out.seq"
+echo "Run using datafile $dat on sd from $sd" > $log
+
+if [ -f $res ]
+then
+    echo $res
+    #rm -i $res
+fi
+if [ -f $checkres ]
+then
+    echo $checkres
+    #rm -i $checkres
+fi
+
+datbase=`kbasename $dat`
+
+newmodel="newmodel.dat"
+
+if [ ! -d $outdir ]
+then
+    mkdir -v $outdir 
+fi
+
+tmp="/tmp/seqgf.tmp"
+tmp2="/tmp/seqgf2.tmp"
+tmp3="/tmp/seqgf3.tmp"
+tmp4="/tmp/seqgf4.tmp"
+
+# Start with the reactions that cost <= 1
+gawk '
+/^MET/   {print; next;}
+/^REACT/ && $3 <= 1 {print}
+' $dat > $newmodel
+
+added="seqgf-added.dat"
+if [ -f $added ]
+then
+    rm $added
+fi
+touch $added
+
+for sd in `cat $sd`
+do
+    sd_id=`kbasename $sd`
+    log "-----------------------------------------------"
+    log "Test $sd_id"
+
+    echo "--------------------------------------" 	>> $added
+    echo "Added for $sd_id" 						>> $added
+
+    echo "Check current model"
+    
+    checkout="$outdir/${datbase}-${sd_id}-check.out"
+    run plum -c config.CTS -v CTS -s 1 -sd $sd -o $checkout -O $checkres $newmodel
+
+    biomass_flux=`tail -1 $checkres | getcol biomass_flux -`
+    gt0=`echo "$biomass_flux > 0.0" | bc`
+    log "Biomass flux is $biomass_flux (non-zero? $gt0)"
+    
+    if [ "$gt0" -gt 0 ]
+    then
+        log "Biomass flux is positive - no gapfill required"
+        echo "  None" >> $added
+        continue
+    fi
+
+    echo `colour CYAN`
+    log "No biomass flux - gapfill required"
+    echo `colour RESET` 
+
+    # Create a temp model that includes all fillable reactions
+    # (Reactions in original datafile with cost > 1, that have not
+    #   already been added
+    # Find names of all reactions already in newmodel (in tmp)
+    grep '^REACT' $newmodel | getcol 2 > $tmp
+
+    # Create temp model (in tmp3) with new model, plus all reactions not in newmodel
+    cat $newmodel > $tmp3
+    echo "#" >> $tmp3
+    grep '^REACT' $dat | kjoin - $tmp -j1 2 -r >> $tmp3
+
+    # Run gapfilling
+    out="$outdir/${datbase}-${sd_id}-cts.out"
+    run plum -s 1 -c config.CTS -v CTS -s 1 -sd $sd -o $out -O $res $tmp3
+    # Find the reactions in sol not in model
+    grep -v '^#' $out | getcol 1 > $tmp4  # tmp4 is used reactions not in model
+    grep '^REACT' $newmodel | kjoin $tmp4 - -j2 2 -r > $tmp	# tmp is extra reactions
+    num_added=`wc -l < $tmp`
+    log "    CTS added $num_added reactions"
+    
+    
+    out="$outdir/${datbase}-${sd_id}-int.out"
+    run plum -s 1 -c config.INT -v INT -s 1 -sd $sd -o $out -O $res $tmp3
+    
+    biomass_flux=`tail -1 $res | getcol biomass_flux -`
+    gt0=`echo "$biomass_flux > 0.0" | bc`
+    if [ "$gt0" -eq 0 ]
+    then
+        log "  Biomass flux ${biomass_flux} gt0: $gt0"
+        log "    No biomass flux - rerun with wiggle"
+        run plum -s 1 -c config.INT -w 1e-6 -v INT -s 1 -sd $sd -o $out -O $res $tmp3
+        biomass_flux=`tail -1 $res | getcol biomass_flux -`
+    fi
+    log "      Biomass flux now ${biomass_flux}"
+
+    # Find the reactions in sol not in model
+    grep -v '^#' $out | getcol 1 > $tmp4						# tmp4 is used reactions not in model
+    grep '^REACT' $newmodel | kjoin $tmp4 - -j2 2 -r > $tmp		# tmp is extra reactions
+    
+    cp $newmodel $tmp2											# tmp2 is new model under constrution
+    echo "#" >> $tmp2
+    # Add extra reactions 
+    grep '^REACT' $dat | kjoin $tmp - -j2 2 -o2 | gawk '{$3 = 1; print}' >> $tmp2
+
+    mv $tmp2 $newmodel
+    
+    grep '^REACT' $dat | kjoin $tmp - -j2 2 -o2  	>> $added
+    
+    num_added=`wc -l < $tmp`
+    log "    Added $num_added reactions"
+done
+
+echo "Done. New model in $newmodel"
+echo "Added reactions in $added"

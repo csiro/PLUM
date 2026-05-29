@@ -1,0 +1,4 @@
+# Produced by plum Version of Sep 19 2023 19:06:37 2d70ef3d Linux Release on 25/09/2023 16:16:27
+# datafile data/PA01.dat
+# seed 1 data data/PA01.dat mets 2022 reactions 2877 orig-reactions 2877 numused 0 sumflux 0 obj 0 relobj 0 absobj 0 status prop_optimal biomass_flux 0 biomass_obj 0 dummy_flux 0 soldepth 1 depth 2878 noreach_react 2813 noreach_mets 1969 noreach_resid 4 numselected 2877 calc_biomass_mult 104857600.0 biomass_search_iters 20 cpu 0.423416 config biomass_iters 20 biomass_mult 100.000000 biomass_mult_int 10.000000 comb_extra 0 cycle_met_fn "" data data/PA01.dat flux_fn none max_mh_iters 100 min_cost 0.000000 react_cost_fn none react_cost_min_fn none sd_fn data/sd-man.dat sd_vec "" seed 1 solver CTS threads 8 timelimit 0 use_abs 0 use_dummy 0 use_error 0 which_exp 0 wiggle 0.000000 build 2d70ef3d
+# <reaction> <flux> <obj-coeff> {<metabolite> <coeff>}...

@@ -1,0 +1,7 @@
+iters 		  1000
+sd_lis		  sd.lis
+data              PA01_draft.pld
+react_cost_min_fn tax.rc
+min_cost          1.0
+threads           11
+biomass_iters     10

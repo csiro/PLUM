@@ -1,0 +1,6 @@
+threads 10
+timelimit 600
+wiggle 0
+biomass_mult 10000.0
+solver CTS
+sd_vec sd-jp.dat sd-glc__D.dat

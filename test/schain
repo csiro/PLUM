@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Chain together a list of submissions, using dependencies
+
+if [ "$1" == "" ]
+then
+    echo "Job filename required"
+    exit 1;
+fi
+
+jobs="$1"
+depend=""
+
+n=`wc -l < $jobs`
+for i in `count $n`
+do
+    getline $i $jobs
+    jobid=`sbatch --parsable $depend ./dojob $i $jobs`
+    echo "Submitted job $jobid"
+    depend="-d afterany:$jobid"
+done

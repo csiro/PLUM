@@ -1,0 +1,43 @@
+# Prep
+if [ ! -d out ]; then mkdir out; else rm -v out/*; fi
+
+# Test 1 - CTS solver
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-4abut.dat -o out/test1.out
+diff out/test1.out ref/test1.out
+
+# Test 2 - INT solver
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-4abut.dat -o out/test2.out -v INT
+diff out/test2.out ref/test2.out
+
+# Test 3 - INT solver, all carbon sources
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-all.dat -o out/test3.out -v INT
+diff out/test3.out ref/test3.out
+
+# Test 4 - No biomass
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-man.dat -o out/test4.out 
+diff out/test4.out ref/test4.out
+
+# Test 5 - Incr solver, with react costs
+plum -s 1 -O out/res data/PA01_merge.dat -sd data/sd-all.dat -rc data/reactcost_tax_log.dat -o out/test5.out -C 1.0 -v INCR
+diff out/test5.out ref/test5.out
+
+# Test 6 - Int Incr solver, with react costs
+plum -s 1 -O out/res data/PA01_merge.dat -sd data/sd-all.dat -rc data/reactcost_tax_log.dat -o out/test6.out -C 1.0 -v INCR_INT
+diff out/test6.out ref/test6.out
+
+# Test 7 - Another P. Aeriginosa model - CTS alg
+plum -s 1 -O out/res data/Paeruginosa.dat -sd data/sd-glc__D.dat -o out/test7.out -v CTS
+diff out/test7.out ref/test7.out
+
+# Test 8 - Another P. Aeriginosa model - INT alg
+plum -s 1 -O out/res data/Paeruginosa.dat -sd data/sd-glc__D.dat -o out/test8.out -v INT
+diff out/test8.out ref/test8.out
+
+# Test 9 - INT solver ala_L
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-ala_L.dat -o out/test9.out -v INT
+diff out/test9.out ref/test9.out
+
+# Test 10 - INT solver ala_L
+plum -s 1 -O out/res data/PA01.dat -sd data/sd-cit.dat -o out/test10.out -v INT
+diff out/test10.out ref/test10.out
+

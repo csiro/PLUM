@@ -1,0 +1,10 @@
+SUBST
+DIR out.sd
+
+data @dat
+sd @sd
+solver CTS  INT
+#solver CTS COMB INT
+
+RES res.sd
+RUN 1 plum -c config.$solver -s $run -sd $sd -o out.sd/out-$u -m out.sd/metbal-$u -O $res -v $solver $data 

@@ -1,0 +1,9 @@
+dorun -n 1 toy.dat toyflux.dat toy+2000-1.dat
+dorun -n 2 toy.dat toyflux.dat toy+2000-2.dat
+dorun -n 3 toy.dat toyflux.dat toy+2000-3.dat
+dorun -n 4 toy.dat toyflux.dat toy+2000-4.dat
+dorun -n 5 toy.dat toyflux.dat toy+2000-5.dat
+dorun -n 6 toy.dat toyflux.dat toy+2000-6.dat
+dorun -n 7 toy.dat toyflux.dat toy+2000-7.dat
+dorun -n 8 toy.dat toyflux.dat toy+2000-8.dat
+dorun -n 9 toy.dat toyflux.dat toy+2000-9.dat

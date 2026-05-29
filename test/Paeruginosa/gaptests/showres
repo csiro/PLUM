@@ -1,0 +1,9 @@
+#!/bin/bash
+
+res=${1:- "res"}
+if [ ! -f $res ]
+then
+    echo "Res file $res not found"
+    exit 1
+fi
+getcol -H data solver sd_vec biomass_flux dummy_flux obj relobj absobj numused sumflux cpu $res

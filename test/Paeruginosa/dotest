@@ -1,0 +1,28 @@
+#!/bin/bash
+
+factor=367
+tmp1=/tmp/dotest1.tmp
+tmp2=/tmp/dotest2.tmp
+tmp3=/tmp/dotest3.tmp
+if [ -f $tmp2 ]
+then
+    rm $tmp2
+fi
+
+res=res.sd
+rm -i $res
+for sd in `cat sd.lis`
+do
+    if [ ! -f out.$sd ]
+    then
+        echo Run $sd
+        plum Paeruginosa.dat -o out.$sd -sd $sd -j 2000 -O $res
+    fi
+    grep -H biolog $sd | sed -e 's/:/ /' -e 's/biolog//' >> $tmp2
+done
+
+
+getcol sd_vec biomass_flux $res | sort -n -k 2,2 > $tmp3
+sort -n -k2,2 $tmp2 | paste - $tmp3
+
+

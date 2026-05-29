@@ -1,0 +1,151 @@
+#!/bin/bash
+
+dir=out
+res="${dir}/res"
+base=""
+time=600
+time_mins=$((time / 60))
+dat="Paeruginosa.dat"
+
+declare -A outarr
+
+if [ ! -d $dir ]
+then
+    mkdir -v $dir
+fi
+
+# Run a command
+function run()
+{
+    echo "$@"
+    "$@" 
+}
+# Display message and ask for a button press. Return keypress in $ask
+ask=""
+function ask() {
+ read -s -n 1 -p "$1 " ask
+ echo ""
+}
+# Display message and ask for a reply with return. Return keypress in $ask
+function ask_wait() {
+ read -s -p "$1 " ask
+ echo ""
+}
+
+function colour_echo
+{
+    colour cyan
+    echo "$@"
+    colour reset
+}
+function set_out ()
+{
+    base="$1"
+    out="${dir}/${base}.out"
+    bal="${dir}/${base}.bal"
+    dig="${dir}/${base}.dig"
+    outarr[$base]=$out
+}
+
+
+if [ -f $res ]
+then
+    ask "Delete and re-run?"
+    if [ "$ask" == "y" -o "$ask" == "Y" ]
+    then
+        rm -v $dir/*
+    fi
+fi
+
+set_out "jpflux"
+if [ ! -f $out ]
+then
+    colour_echo "Run with known flux"
+    run plum $dat -o $out -m $bal -f jpflux.dat -sd sd-jp.dat -g $dig -O $res 
+fi
+
+set_out "jpflux-int"
+if [ ! -f $out ]
+then
+    colour_echo "Run with known flux - integer (may take $time_mins mins)"
+    run plum $dat -o $out -m $bal -f jpflux.dat -sd sd-jp.dat -g $dig -O $res -v INT -t $time -p 10
+fi
+
+set_out "biomax"
+if [ ! -f $out ]
+then
+    colour_echo "Run biomass max"
+    run plum $dat -o $out -m $bal -sd sd-jp.dat -g $dig -O $res 
+fi
+
+set_out "biomax-int"
+if [ ! -f $out ]
+then
+    colour_echo "Run biomass max - integer (may take $time_mins mins)"
+    run plum $dat -o $out -m $bal -sd sd-jp.dat -g $dig -O $res -v INT -t $time -p 10
+fi
+
+set_out "minmax"
+if [ ! -f $out ]
+then
+    colour_echo "Run minimal media max"
+    run plum $dat -o $out -m $bal -sd sd-glc__D.dat -g $dig -O $res -j 10
+fi
+
+set_out "minmax-int"
+if [ ! -f $out ]
+then
+    colour_echo "Run minimal media max - integer (may take up to $time_mins mins)"
+    run plum $dat -o $out -m $bal -sd sd-glc__D.dat -g $dig -O $res -v INT -j 1000
+fi
+
+set_out "minmax-noco2"
+if [ ! -f $out ]
+then
+    colour_echo "Run JP's minimal media max"
+    run plum $dat -o $out -m $bal -sd sd-glc__D-noco2.dat -g $dig -O $res -j 10
+fi
+
+set_out "minmax-noco2-int"
+if [ ! -f $out ]
+then
+    colour_echo "Run JP's minimal media max - integer (may take up to $time_mins mins)"
+    run plum $dat -o $out -m $bal -sd sd-glc__D-noco2.dat -g $dig -O $res -v INT -j 1000
+fi
+
+
+colour_echo "Calc overlap"
+
+dig="${dir}/overlap-flux-bio-int.dig"
+digs=( $dig )
+run overlap $dat ${outarr["jpflux-int"]} ${outarr["biomax-int"]} -g $dig
+
+dig="${dir}/overlap-bio-int.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["biomax"]} ${outarr["biomax-int"]} -g $dig
+
+dig="${dir}/overlap-bio-noco2.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["biomax"]} ${outarr["minmax-noco2"]} -g $dig
+
+dig="${dir}/overlap-bio-noco2-int.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["biomax-int"]} ${outarr["minmax-noco2-int"]} -g $dig
+
+dig="${dir}/overlap-min-noco2.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["minmax"]} ${outarr["minmax-noco2"]} -g $dig
+
+dig="${dir}/overlap-min-noco2-int.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["minmax-int"]} ${outarr["minmax-noco2-int"]} -g $dig
+
+dig="${dir}/overlap-min-noco2-int.dig"
+digs+=( $dig )
+run overlap $dat ${outarr["minmax-noco2"]} ${outarr["minmax-noco2-int"]} -g $dig
+
+echo "View with"
+for dig in "${digs[@]}"
+do
+    echo "dig $dig &"
+done

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [ "$3" == "" ] 
+then
+    echo "Usage: procout <dat> <know-flux.dat> <gapfill-out>"
+    echo "All file names required"
+    exit 1
+fi
+
+data="$1"
+flux="$2"
+sol="$3"
+
+tmp="/tmp/procout.tmp"
+tmp2="/tmp/procout2.tmp"
+out="procout.out"
+grep -v '^#' $flux | sort -k2,2 -nr > $tmp
+
+grep dummy < $sol | sed -e 's/-dummy-/ /' -e 's/_/ /' | gawk '{print $1, $2, $4 * $7}' | sort -k 3,3 -nr > $tmp2
+
+grep ^MET $data | getcol 2 - | sort | uniq | kjoin - $tmp2 | sort -nr -k3,3 | gawk '{print $1, $3, $4 + 0}' > $out
+
+dig=procout.dig
+
+echo "T \"Known Flux\"" 				> $dig
+ gawk '{print "XT", NR, $1}' $tmp 		>> $dig 
+echo " " 								>> $dig 
+echo "S 1"								>> $dig 
+echo "L LB"								>> $dig 
+gawk '{print "D", NR, $2 - $3}' $tmp 	>> $dig 
+echo " " 								>> $dig 
+echo "L UB"								>> $dig 
+gawk '{print "D", NR, $2 + $3}' $tmp 	>> $dig 
+echo " " 								>> $dig 
+echo "L Flux"							>> $dig 
+gawk '{print "D", NR, $2}' $tmp 		>> $dig 
+echo " " 								>> $dig 
+echo "L Sol"							>> $dig 
+kjoin $tmp $sol | gawk '{print "D", NR, $5}' >> $dig 
+
+echo "Done. View with"
+echo "dig $dig & "
+echo "less $out"

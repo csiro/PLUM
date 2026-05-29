@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp ${HOME}/projects/mmint/mmint.jar Mmint $*

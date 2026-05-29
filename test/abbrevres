@@ -1,0 +1,2 @@
+#/bin/bash
+getcol -h data solver use_abs numused relobj absobj sumflux iters status numselected cpu res | sort

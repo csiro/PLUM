@@ -1,0 +1,49 @@
+#!/bin/bash
+
+refdat="../Paeruginosa.dat"
+refsol="refsol.out"
+
+all_excl="missing_reactions_by_pair.dat"
+all_added="added_reactions_by_pair.dat"
+
+tmp="/tmp/proc.tmp"
+tmp2="/tmp/proc2.tmp"
+
+rm -fv $all_excl $all_added
+
+for gap in pair*GAP.xml
+do
+    echo ""
+    base=`basename $gap .xml | sed 's/GAP//'`
+    ref="${base}REF.xml"
+    outgap="${base}-GAP.dat"
+    outref="${base}-REF.dat"
+    all="${base}-ALL.dat"
+    echo $gap $ref $outgap $outref
+    sbmlcvt.py -j 1 $gap $outgap 
+    sbmlcvt.py -j 10 $ref $outref
+
+    # Work out added / missing reactions
+    echo -n "$all " >> $all_excl
+    gawk '/^REACT/ {print $2}' $outref | kjoin -c - $refsol -o1 > $tmp
+    myfold < $tmp >> $all_excl
+    echo "  `wc -l < $tmp` excluded reactions found"
+
+    # Make a list of all model reactions 
+    gawk '/^REACT/ {print $2}' $refdat > $tmp2
+    echo -n "$all " >> $all_added
+    # Find those that aren't there...
+    gawk '/^REACT/ {print $2}' $outref | kjoin - $tmp2 -r > $tmp
+    myfold < $tmp >> $all_added
+    echo "  `wc -l < $tmp` added reactions found"
+
+    echo "# Created on `date` by proc"  > $all
+    grep ^MET $outgap >> $all
+    #grep ^REACT $outgap | kjoin - $outref -j 2 -r | grep -v 'R_EX_' | grep -v 'R_DM_' >> $all
+    grep ^REACT $outgap | grep -v 'R_EX_' | grep -v 'R_DM_' >> $all
+    grep ^REACT $outref | grep -v 'R_EX_' | grep -v 'R_DM_' >> $all
+    
+    echo ""
+    echo "Created $all"
+    
+done

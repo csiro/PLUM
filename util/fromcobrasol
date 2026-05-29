@@ -1,0 +1,11 @@
+#!/bin/bash
+
+gawk '
+{	rev="";
+	flux=$2;
+	if ($2 < 0) {
+		rev="_rev";
+		flux=0-$2;
+	}
+	print "R_" $1 rev, flux
+}' $1

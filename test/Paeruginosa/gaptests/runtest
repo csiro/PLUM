@@ -1,0 +1,25 @@
+#!/bin/bash
+# Load std functions
+source ${HOME}/bin/pjklib.sh
+
+outdir=out
+timelimit=600
+bio_mult=2000
+if [ ! -d $outdir ]
+then
+    mkdir -v $outdir
+fi
+
+# Run CTS results
+for method in CTS # COMB INT
+do
+    for dat in *-ALL.dat
+    do
+        echo $method $dat
+        out="$outdir/out-${method}-${dat}"
+        if [ ! -f $out ]
+        then
+            run plum $dat -sd ../sd-glc__D.dat -o $out -m ${outdir}/metbal-${method}-${dat} -O res -t $timelimit -j $bio_mult -v $method
+        fi
+    done
+done

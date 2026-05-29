@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+    echo "Need number of reactions in 'known flux' to skip"
+fi
+
+dat=toy.dat
+all=all.dat
+flux=toyflux.dat
+
+
+
+
+
+
+

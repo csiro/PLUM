@@ -1,0 +1,99 @@
+# Created by makedat Fri 24 Feb 2023 15:37:53 AEDT
+# Using makedat toyflux.dat all.dat
+MET cpd00001_C	# H2O
+MET cpd00002_P	# ATP
+MET cpd00009_C	# Phosphate
+MET cpd00009_P	# Phosphate
+MET cpd00010_C	# CoA
+MET cpd00011_C	# CO2
+MET cpd00011_E	# CO2
+MET cpd00020_C	# Pyruvate
+MET cpd00022_C	# Acetyl-CoA
+MET cpd00027_C	# D-Glucose
+MET cpd00027_P	# D-Glucose
+MET cpd00032_C	# Oxaloacetate
+MET cpd00036_C	# Succinate
+MET cpd00056_C	# TPP
+MET cpd00067_C	# H+
+MET cpd00067_P	# H+
+MET cpd00072_C	# D-fructose-6-phosphate
+MET cpd00079_C	# D-glucose-6-phosphate
+MET cpd00095_C	# Glycerone-phosphate
+MET cpd00102_C	# Glyceraldehyde3-phosphate
+MET cpd00106_C	# Fumarate
+MET cpd00130_C	# L-Malate
+MET cpd00169_C	# 3-Phosphoglycerate
+MET cpd00170_C	# Gluconolactone
+MET cpd00171_C	# D-Ribulose5-phosphate
+MET cpd00198_C	# D-Xylulose5-phosphate
+MET cpd00222_C	# GLCN
+MET cpd00222_P	# GLCN
+MET cpd00238_C	# Sedoheptulose7-phosphate
+MET cpd00242_C	# H2CO3
+MET cpd00260_C	# Isocitrate
+MET cpd00284_C	# 6-Phospho-D-gluconate
+MET cpd00290_C	# D-fructose-1,6-bisphosphate
+MET cpd00449_C	# Dihydrolipoamide
+MET cpd00480_C	# 2-Dehydro-D-gluconate
+MET cpd00480_P	# 2-Dehydro-D-gluconate
+MET cpd00863_C	# beta-D-Glucose 6-phosphate
+MET cpd00896_C	# 6-Phospho-2-dehydro-D-gluconate
+MET cpd00911_C	# 6-phospho-D-glucono-1-5-lactone
+MET cpd03187_C	# Oxalosuccinate
+MET cpd03189_C	# 3-Carboxy-1-hydroxypropyl-ThPP
+MET cpd11416_P	# Biomass
+MET cpd11669_P	# Q
+REACTION rxn07967_rev_P 1 cpd00004_P  1.0 cpd00067_P  1.0 cpd00480_P  1.0 cpd00003_P  -1.0 cpd00222_P  -1.0   # 2-dehydro-D-gluconate reductase (NADH) reversed P
+REACTION rxn00604_C 1 cpd00006_C  -1.0 cpd00079_C  -1.0 cpd00005_C  1.0 cpd00067_C  1.0 cpd00911_C  1.0   # D-glucose-6-phosphate:NADP+ 1-oxidoreductase C
+REACTION rxn01476_C 1 cpd00001_C  -1.0 cpd00911_C  -1.0 cpd00067_C  1.0 cpd00284_C  1.0   # 6-Phospho-D-glucono-1,5-lactone lactonohydrolase C
+REACTION rxn00781_C 1 cpd00003_C  -1.0 cpd00009_C  -1.0 cpd00102_C  -1.0 cpd00004_C  1.0 cpd00067_C  1.0 cpd00203_C  1.0   # D-glyceraldehyde-3-phosphate:NAD+ oxidoreductase (phosphorylating) C
+REACTION rxn01100_rev_C 1 cpd00002_C  1.0 cpd00169_C  1.0 cpd00008_C  -1.0 cpd00203_C  -1.0   # ATP:3-phospho-D-glycerate 1-phosphotransferase reversed C
+REACTION rxn01106_rev_C 1 cpd00482_C  1.0 cpd00169_C  -1.0   # 2-Phospho-D-glycerate 2,3-phosphomutase reversed C
+REACTION rxn00459_C 1 cpd00482_C  -1.0 cpd00001_C  1.0 cpd00061_C  1.0   # 2-phospho-D-glycerate hydro-lyase (phosphoenolpyruvate-forming) C
+REACTION rxn00148_rev_C 1 cpd00002_C  1.0 cpd00020_C  1.0 cpd00008_C  -1.0 cpd00061_C  -1.0 cpd00067_C  -1.0   # ATP:pyruvate 2-O-phosphotransferase reversed C
+REACTION rxn00747_C 1 cpd00102_C  -1.0 cpd00095_C  1.0   # D-glyceraldehyde-3-phosphate aldose-ketose-isomerase C
+REACTION rxn00549_C 1 cpd00001_C  -1.0 cpd00290_C  -1.0 cpd00009_C  1.0 cpd00072_C  1.0   # D-Fructose-1,6-bisphosphate 1-phosphohydrolase C
+REACTION rxn00558_rev_C 1 cpd00079_C  1.0 cpd00072_C  -1.0   # D-glucose-6-phosphate aldose-ketose-isomerase reversed C
+REACTION rxn01115_C 1 cpd00006_C  -1.0 cpd00284_C  -1.0 cpd00005_C  1.0 cpd00011_C  1.0 cpd00171_C  1.0   # 6-phospho-D-gluconate:NADP+ 2-oxidoreductase (decarboxylating) C
+REACTION rxn00777_rev_C 1 cpd00101_C  1.0 cpd00171_C  -1.0   # D-ribose-5-phosphate aldose-ketose-isomerase reversed C
+REACTION rxn01116_rev_C 1 cpd00171_C  1.0 cpd00198_C  -1.0   # D-Ribulose-5-phosphate 3-epimerase reversed C
+REACTION rxn00974_C 1 cpd00137_C  -1.0 cpd00001_C  1.0 cpd00331_C  1.0   # citrate hydro-lyase (cis-aconitate-forming) C
+REACTION rxn01388_rev_C 1 cpd00260_C  1.0 cpd00001_C  -1.0 cpd00331_C  -1.0   # isocitrate hydro-lyase (cis-aconitate-forming) reversed C
+REACTION rxn01387_C 1 cpd00006_C  -1.0 cpd00260_C  -1.0 cpd00005_C  1.0 cpd00067_C  1.0 cpd03187_C  1.0   # Isocitrate:NADP+ oxidoreductase C
+REACTION rxn00199_C 1 cpd00067_C  -1.0 cpd03187_C  -1.0 cpd00011_C  1.0 cpd00024_C  1.0   # oxalosuccinate carboxy-lyase (2-oxoglutarate-forming) C
+REACTION rxn00441_C 1 cpd00024_C  -1.0 cpd00056_C  -1.0 cpd00067_C  -1.0 cpd00011_C  1.0 cpd03189_C  1.0   # R00621 C
+REACTION rxn02376_C 1 cpd00213_C  -1.0 cpd03189_C  -1.0 cpd00056_C  1.0 cpd00860_C  1.0   # R03316 C
+REACTION rxn01872_rev_C 1 cpd00078_C  1.0 cpd00449_C  1.0 cpd00010_C  -1.0 cpd00860_C  -1.0   # succinyl-CoA:enzyme N6-(dihydrolipoyl)lysine S-succinyltransferase reversed C
+REACTION rxn00285_rev_C 1 cpd00002_C  1.0 cpd00010_C  1.0 cpd00036_C  1.0 cpd00008_C  -1.0 cpd00009_C  -1.0 cpd00078_C  -1.0   # Succinate:CoA ligase (ADP-forming) reversed C
+REACTION rxn00288_C 1 cpd00015_C  -1.0 cpd00036_C  -1.0 cpd00106_C  1.0 cpd00982_C  1.0   # Succinate:(acceptor) oxidoreductase C
+REACTION rxn00799_rev_C 1 cpd00130_C  1.0 cpd00001_C  -1.0 cpd00106_C  -1.0   # (S)-malate hydro-lyase (fumarate-forming) reversed C
+REACTION rxn00154_C 1 cpd00003_C  -1.0 cpd00010_C  -1.0 cpd00020_C  -1.0 cpd00004_C  1.0 cpd00011_C  1.0 cpd00022_C  1.0   # pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating) C
+REACTION rxn00786_rev_C 1 cpd00290_C  1.0 cpd00095_C  -1.0 cpd00102_C  -1.0   # D-fructose-1,6-bisphosphate D-glyceraldehyde-3-phosphate-lyase (glycerone-phosphate-forming) reversed C
+REACTION rxn00161_C 1 cpd00006_C  -1.0 cpd00130_C  -1.0 cpd00005_C  1.0 cpd00011_C  1.0 cpd00020_C  1.0   # (S)-Malate:NADP+ oxidoreductase(oxaloacetate-decarboxylating) C
+REACTION toy001_C 1 cpd00032_C  -1.0 cpd00106_C  1.0   # unnamed reaction from toy problem ((1) Oxaloacetate[0] => (1) Fumarate[0]) C
+REACTION rxn01200_C 1 cpd00102_C  -1.0 cpd00238_C  -1.0 cpd00101_C  1.0 cpd00198_C  1.0   # Sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase C
+REACTION rxn01333_rev_C 1 cpd00102_C  1.0 cpd00238_C  1.0 cpd00072_C  -1.0 cpd00236_C  -1.0   # sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate glyceronetransferase reversed C
+REACTION rxn00785_C 1 cpd00072_C  -1.0 cpd00102_C  -1.0 cpd00198_C  1.0 cpd00236_C  1.0   # D-Fructose 6-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase C
+REACTION rxn00256_rev_C 1 cpd00010_C  1.0 cpd00067_C  1.0 cpd00137_C  1.0 cpd00001_C  -1.0 cpd00022_C  -1.0 cpd00032_C  -1.0   # acetyl-CoA:oxaloacetate C-acetyltransferase (thioester-hydrolysing) reversed C
+REACTION rxn00102_rev_C 1 cpd00067_C  1.0 cpd00242_C  1.0 cpd00001_C  -1.0 cpd00011_C  -1.0   # carbonate hydro-lyase (carbon-dioxide-forming) reversed C
+REACTION rxn00250_C 1 cpd00002_C  -1.0 cpd00020_C  -1.0 cpd00242_C  -1.0 cpd00008_C  1.0 cpd00009_C  1.0 cpd00032_C  1.0 cpd00067_C  1.0   # Pyruvate:carbon-dioxide ligase (ADP-forming) C
+REACTION rxn32421_C 1 cpd00001_C  -1.0 cpd00011_C  -1.0 cpd00061_C  -1.0 cpd00009_C  1.0 cpd00032_C  1.0 cpd00067_C  1.0   # Phosphoenolpyruvate carboxylase C
+REACTION rxn01477_C 1 cpd00284_C  -1.0 cpd00001_C  1.0 cpd02711_C  1.0   # 6-Phospho-D-gluconate hydro-lyase(2-dehydro-3-deoxy-6-phospho-D-gluconate-forming) C
+REACTION rxn03884_C 1 cpd02711_C  -1.0 cpd00020_C  1.0 cpd00102_C  1.0   # 2-dehydro-3-deoxy-D-gluconate-6-phosphate D-glyceraldehyde-3-phosphate-lyase C
+REACTION rxn08617_EP 1 cpd00027_E  -1.0 cpd00027_P  1.0   # glucose transport via diffusion (extracellular to periplasm) transp EP
+REACTION rxn08617_rev_EP 1 cpd00027_E  1.0 cpd00027_P  -1.0   # glucose transport via diffusion (extracellular to periplasm) transp EP
+REACTION rxn05147_PC 1 cpd00001_P  -1.0 cpd00002_P  -1.0 cpd00027_C  -1.0 cpd00008_P  1.0 cpd00009_P  1.0 cpd00027_P  1.0 cpd00067_P  1.0   # D-Glucose-ABC transport transp PC
+REACTION rxn09502_C 1 cpd00002_C  -1.0 cpd00027_C  -1.0 cpd00008_C  1.0 cpd00067_C  1.0 cpd00863_C  1.0   # Glucokinase C
+REACTION rxn05571_PC 1 cpd00067_C  -1.0 cpd00222_C  -1.0 cpd00067_P  1.0 cpd00222_P  1.0   # D-gluconate transport via proton symport, reversible transp PC
+REACTION rxn01275_C 1 cpd00002_C  -1.0 cpd00222_C  -1.0 cpd00008_C  1.0 cpd00067_C  1.0 cpd00284_C  1.0   # ATP:D-Gluconate 6-phosphotransferase C
+REACTION rxn12783_PC 1 cpd00067_C  -1.0 cpd00480_C  -1.0 cpd00067_P  1.0 cpd00480_P  1.0   # 2-ketogluconate transporter transp PC
+REACTION rxn01921_C 1 cpd00002_C  -1.0 cpd00480_C  -1.0 cpd00008_C  1.0 cpd00067_C  1.0 cpd00896_C  1.0   # ATP:2-dehydro-D-gluconate 6-phosphate C
+REACTION rxn01475_rev_C 1 cpd00006_C  1.0 cpd00284_C  1.0 cpd00005_C  -1.0 cpd00067_C  -1.0 cpd00896_C  -1.0   # 6-phospho-D-gluconate:NADP+ 2-oxidoreductase reversed C
+REACTION rxn07122_P 1 cpd00027_P  -1.0 cpd11669_P  -1.0 cpd00170_P  1.0 cpd11665_P  1.0   # D-glucose:ubiquinone oxidoreductase P
+REACTION rxn13836_PC 1 cpd00001_P  -1.0 cpd00170_C  -1.0 cpd00067_P  1.0 cpd00222_C  1.0   # unnamed reaction from toy problem (1) cpd00001[0] + (1) cpd00170[1] <=> (1) cpd00067[0] + (1) cpd00222[1] transp PC
+REACTION rxn05571_EP 1 cpd00067_P  -1.0 cpd00222_P  -1.0 cpd00067_E  1.0 cpd00222_E  1.0   # D-gluconate transport via proton symport, reversible transp EP
+REACTION rxn12784_EP 1 cpd00480_E  -1.0 cpd00480_P  1.0   # ketogluconate transport via diffusion (extracellular to periplasm) transp EP
+REACTION rxn12784_rev_EP 1 cpd00480_E  1.0 cpd00480_P  -1.0   # ketogluconate transport via diffusion (extracellular to periplasm) reversed transp EP
+REACTION rxn05467_rev_EP 1 cpd00011_P  1.0 cpd00011_E  -1.0   # CO2 transporter via diffusion reversed transp EP
+REACTION biomass1_C 1 cpd00480_C  -5.0 cpd00095_C  -0.5 cpd00236_C  -1.8 cpd00079_C  -0.6 cpd00032_C  -11.1 cpd00061_C  -4.0 cpd00169_C  -6.1 cpd00020_C  -12.3 cpd00101_C  -5.5 cpd11416_C  1.0   # biomass for toy prob C
+REACTION rxn12985_rev_EP -1 cpd11416_E 1.0 cpd11416_P -1.0 # Growth reversed transp EP

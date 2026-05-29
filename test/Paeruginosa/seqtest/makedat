@@ -1,0 +1,26 @@
+#!/bin/bash
+
+id=${1:-"300"}
+
+ref="ref${id}.dat"
+base=base.dat
+
+if [ ! -f $ref ]
+then
+    echo "Lost ref file $ref"
+    exit 1
+fi
+
+out="comb${id}.dat"
+echo "Writing to $out"
+
+echo "# Created by makedat from $base and $ref on `date`" > $out
+cat $base $ref | grep ^MET | sort | uniq | choosemin -r -k 2 >> $out
+cat $base $ref | grep ^REACT | sort | choosemin -k 2 >> $out
+
+#echo "Repeat mets"
+#grep ^MET $out | getcol 2 | sort | uniq -c | gawk '$1 > 1'
+
+#echo "Repeat reactions"
+#grep ^REACT $out | getcol 2 | sort | uniq -c | gawk '$1 > 1'
+

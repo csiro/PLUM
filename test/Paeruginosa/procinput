@@ -1,0 +1,47 @@
+#!/bin/bash
+
+base="sd-input.dat"
+
+tmp="/tmp/procinput.tmp"
+
+# Grab EX lines as supplied metabolites. Exclude D-Glucose (the carbon source)
+# Translate "infinity" to 1000
+grep ^EX_ inputs.csv | grep -v 'EX_glc' | sed -e 's/Infinity/1000/g' -e 's/EX_/M_/' -e 's/(/_/g' -e 's/)//g' | gawk -F, '{print $1, 0 - $4, 0 - $3}' > $tmp
+
+grep ^DM_ inputs.csv | sed -e 's/Infinity/1000/g' -e 's/DM_/M_/' -e 's/(/_/g' -e 's/)//g' | gawk -F, '$4 > 0 {print $1, 0 - $4, 0 - $3}' >> $tmp
+
+grep ^MET Paeruginosa.dat | getcol 2 | kjoin - $tmp -o2 > $base
+
+echo "Produced $base"
+
+declare -A biolog
+biolog["4abut"]=403		# 4-aminobutyrate (4-Aminobutanoate?)
+biolog["cit"]=905		# Citrate
+biolog["glc__D"]=385	# D-Glucose
+biolog["man"]=5			# D-Mannose
+biolog["ala__L"]=252	# L-alanine
+biolog["pro__L"]=510	# L-proline
+biolog["ptrc"]=313		# Putrescine
+biolog["tre"]=22		# Trehalose
+biolog["cellb"]=10		# D-Cellobiose (Cellobiose)
+biolog["glu__L"]=652	# L-Glutamic Acid (L-Glutamate)
+
+lis=sd.lis
+if [ -f $lis ]
+then
+    rm $lis
+fi
+touch $lis
+
+for key in "${!biolog[@]}"
+do
+    echo $key
+    sd=sd-$key.dat
+    echo "biolog ${biolog[$key]}" 	> $sd
+    cat $base						>> $sd
+    echo "M_${key}_e 10 10" 		>> $sd
+    
+    echo "  Created $sd"
+    echo $sd >> $lis
+done
+echo "SD list in $lis"

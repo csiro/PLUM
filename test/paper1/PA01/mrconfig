@@ -1,0 +1,18 @@
+DIR plummx-phylo
+RES plummx-phylo/plummx.res
+
+react_cost_fn phylo.rc 
+which_obj 2 3 6 7
+
+RUN 10 plummx -s $run -c plummx-mr.cfg -o $dir/out-$u.out -M $dir/model-$u.pld -P $dir/$u.pto -PN $dir/pareto-$u -if $dir/prog-$u.out -ob $dir/unsel-$u.out -D $dir/descr-$u.out -O $res
+
+DIR plummx-tax
+RES plummx-tax/plummx.res
+
+react_cost_fn tax.rc
+which_obj 2 3 6 7
+
+RUN 10 plummx -s $run -c plummx-mr.cfg -o $dir/out-$u.out -M $dir/model-$u.pld -P $dir/$u.pto -PN $dir/pareto-$u -if $dir/prog-$u.out -ob $dir/unsel-$u.out -D $dir/descr-$u.out -O $res
+
+EXIT
+

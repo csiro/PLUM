@@ -1,0 +1,58 @@
+#!/bin/bash
+
+submit="sbatch --parsable"
+
+depend=""
+cmd="$submit $depend gapfill.sh gap10-20.dat -t 600 -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap10-20.dat -t 600 -a -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap10-20.dat -t 600 -a -v 1"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap10-20.dat -t 600 -a -v 2"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+
+cmd="$submit $depend gapfill.sh gap100-3000.dat -t 600 -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-3000.dat -t 600 -a -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-3000.dat -t 600 -a -v 1"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-3000.dat -t 600 -a -v 2"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+
+cmd="$submit $depend gapfill.sh gap100-5000.dat -t 600 -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-5000.dat -t 600 -a -v 0"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-5000.dat -t 600 -a -v 1"
+echo $cmd
+job=`$cmd`
+depend="-d afterany:$job"
+cmd="$submit $depend gapfill.sh gap100-5000.dat -t 600 -a -v 2"
+echo $cmd
+job=`$cmd`
+
+
+
+

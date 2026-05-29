@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sol=$1
+
+if [ "$sol" == "" ]
+then
+    echo "Sol file reqd"
+    exit 1
+fi
+
+gawk '
+!/^#/ && !/_rev/ 	  				{print; next;} 
+/^###/ && !/_rev/ && $2 !~ /dummy/ 	{$1=""; print; next;}
+$1 ~ /_rev$/ && $2 > 0 				{gsub(/_rev/,""); $2 = 0-$2; print; next;}
+' $sol | sed 's/^ //' | sort | choosemin 

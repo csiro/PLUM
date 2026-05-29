@@ -1,0 +1,6 @@
+tsvcvt.py compounds.tsv reactions.tsv ../test/toy/all.dat
+toy2dat.py Toy_model_rxns_20221117.xlsx > ../test/toy/toyflux.dat
+cd ../test/toy
+makedat toyflux.dat all.dat
+
+

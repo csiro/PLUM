@@ -1,0 +1,7 @@
+#!/bin/bash
+
+plum -c gaptests/config.CTS -s 1 -sd sd-glc__D.dat -o refsol-cts.out -v CTS Paeruginosa.dat -O res 
+
+plum -c gaptests/config.INT -s 1 -sd sd-glc__D.dat -o refsol.out -v INT Paeruginosa.dat -O res
+
+cp refsol.out gaptests

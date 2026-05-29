@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+import sys
+import os
+import fileinput
+import math
+from datetime import datetime # For date formatting
+
+def die (message):
+    print(message, file=sys.stderr)
+    exit (1)
+
+def usage (str = ""):
+    print (str)
+    print (sys.argv[0], end=' ')
+    print ('''[-n #] [file.dat]
+        Replaces round or square braces in a name to ascii id 
+		  e.g. XXX(e) -> XXX__40__e__41__
+	    Operates on a single column 
+ 		Outputs same line with name replaced 
+		Passes comments through
+    Args
+        file to process
+    Switches
+        -n: column to update [1]
+''')
+    exit (1)
+
+
+def main():
+    # parse argv
+    # Which is which transform: 1 = log; 2 = log log; 3 = log log log
+    input_fn = ""
+    col = 0
+    
+    while len(sys.argv) > 1:
+        arg = sys.argv.pop(1)
+        if len(arg) > 1 and arg[0] == '-':
+            if arg == '-n' and len(sys.argv) > 1:
+                # Decode col - and -1 for 0 base
+                col = int(sys.argv.pop(1)) - 1;
+            else:
+                usage("Unrecognised arg: " + arg)
+        elif input_fn == "":
+            input_fn = arg
+        else:
+            usage("Too many input filenames: " + arg)
+
+    infile = sys.stdin
+    if input_fn != "" and input_fn != "-":
+        try:
+            infile = open (input_fn , 'r')
+        except IOError:
+            die ('Can\'t open file ' + infile_name + ' for reading')
+        
+    for line in infile: 
+        fld = line.rstrip().split()
+        if len (fld) <= col:
+            print (line, end="")
+        elif fld[0].startswith("#"):
+            print (line, end="")
+        else:    
+            name = fld[col]
+            name = name.replace ("(", "__40__")
+            name = name.replace (")", "__41__")
+            name = name.replace ("[", "__91__")
+            name = name.replace ("]", "__93__")
+            fld[col] = name
+            print (" ".join(fld))
+
+if __name__ == '__main__':
+    main()
