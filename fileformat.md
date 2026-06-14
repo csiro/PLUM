@@ -1,6 +1,6 @@
-Internal File Format
+# Internal File Format
 
-File has 3 sections
+## File has 3 sections
 
 - Compartments (COMPARTMENT)
 - Metabolites (MET)
@@ -10,7 +10,7 @@ They must appear in that order
 
 
 
-###### Compartments
+### Compartments
 
 ```julia
 COMPART <id>
@@ -22,7 +22,7 @@ COMPART <id>
 
   
 
-###### Metabolites
+### Metabolites
 
 ```julia
 MET <id> <supply-1> <supply-2>... <residual-1> <residual-2> ...
@@ -34,7 +34,7 @@ MET <id> <supply-1> <supply-2>... <residual-1> <residual-2> ...
 - There must be as many supply values as there are compartments, in the order that compartments were specified
 - There must be as many residual values as there are compartments, in order
 
-###### Reactions
+### Reactions
 
 ```julia
 REACTION <id> <obj-coeff-1> <obj-coeff-2> ... <compound-spec-1> <compound-spec-2> ...
@@ -52,3 +52,5 @@ REACTION <id> <obj-coeff-1> <obj-coeff-2> ... <compound-spec-1> <compound-spec-2
 
   - compound-id is the compound involved
   - 'compartment' is an integer, giving the relative compartment. A transport reaction will have different compartments. Compartment 0 is where reaction products reside, and compartments 1, 2, etc are the source of compounds. With Compartments given in the order OCPE, a reaction with compartment 1 and compartment 0 will be transporting E->P, P->C and/or C->O
+
+## EOF
