@@ -288,6 +288,64 @@ open html/index.html  # or use your browser
 
 The documentation uses domain-appropriate terminology from metabolic modeling (flux balance analysis, stoichiometry, compartments, gap-filling) to help developers understand the biological context.
 
+### Python Documentation (Numpy Style)
+
+All Python utility scripts are fully documented with numpy-style docstrings:
+
+**Coverage:**
+- 7 Python files documented
+- Module-level docstrings with overview and examples
+- Function/method docstrings with Parameters, Returns, Raises, Examples sections
+- Class docstrings with Attributes descriptions
+
+**Documented Scripts:**
+- `util/csv2pld.py`: CSV to PLD format converter for metabolic networks
+- `util/sbmlcvt.py`: SBML (Systems Biology Markup Language) to PLD converter
+- `util/toy2dat.py`: Excel toy problem converter for FBA data
+- `util/tsvcvt.py`: TSV (Tab-Separated Values) converter for reactions and metabolites
+- `test/gen.py`: Synthetic metabolic network test data generator
+- `doc/gurobipy/Logistic_module_variables.py`: Gurobi optimization variables module
+- `doc/gurobipy/Logistic_module_constraints.py`: Gurobi optimization constraints module
+
+**Documentation Format:**
+```python
+def function_name(param1, param2):
+    """Brief description of function.
+
+    Detailed description providing context about what the function does,
+    how it fits into the metabolic gap-filling workflow, and any important
+    implementation details.
+
+    Parameters
+    ----------
+    param1 : type
+        Description of first parameter.
+    param2 : type
+        Description of second parameter.
+
+    Returns
+    -------
+    return_type
+        Description of return value.
+
+    Raises
+    ------
+    ExceptionType
+        When this exception is raised.
+
+    Examples
+    --------
+    >>> function_name(value1, value2)
+    expected_output
+
+    Notes
+    -----
+    Additional important information about the function.
+    """
+```
+
+All docstrings follow numpy conventions and can be used with Sphinx autodoc for generating HTML documentation.
+
 ## Project Structure
 
 - `src/`: Implementation files for solvers, scenarios, solutions (Doxygen documented)

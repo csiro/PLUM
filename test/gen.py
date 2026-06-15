@@ -1,4 +1,27 @@
 #!/usr/bin/env python3
+"""
+Test data generator for metabolic gap-filling solver.
+
+This module generates synthetic metabolic network data for testing flux balance
+analysis (FBA) gap-filling algorithms. It creates random metabolites and reactions
+with configurable parameters to simulate metabolic networks of varying complexity.
+
+Examples
+--------
+Generate a network with 50 metabolites and 100 reactions:
+    $ python gen.py 50 100
+
+Generate with custom max metabolites per reaction and objective coefficient:
+    $ python gen.py -m 8 -o 10 50 100
+
+Notes
+-----
+- Metabolites are categorized into three groups: supply (20%), residual (20%),
+  and intermediate (60%)
+- Reactions are categorized: preferred reactions (20%) and regular reactions (80%)
+- Stoichiometric coefficients are generated in quarters (0.25 increments)
+- Each reaction is guaranteed to have both positive and negative coefficients
+"""
 import sys
 import os
 import fileinput
@@ -7,10 +30,50 @@ from datetime import datetime
 from itertools import chain
 
 def die (message):
+    """
+    Print error message to stderr and exit the program.
+
+    Parameters
+    ----------
+    message : str
+        Error message to display before terminating.
+
+    Raises
+    ------
+    SystemExit
+        Always exits with code 1.
+
+    Examples
+    --------
+    >>> die("Invalid input file")
+    Invalid input file
+    """
     print(message, file=sys.stderr)
     exit (1)
 
 def usage (str = ""):
+    """
+    Display usage information and exit the program.
+
+    Parameters
+    ----------
+    str : str, optional
+        Additional message to display before usage information (default is "").
+
+    Raises
+    ------
+    SystemExit
+        Always exits with code 1.
+
+    Notes
+    -----
+    Prints command-line syntax and argument descriptions for the test data
+    generator, including:
+    - n: number of metabolites in the network
+    - m: number of reactions in the network
+    - -m: maximum metabolites per reaction (default: 5)
+    - -o: objective coefficient for preferred reactions (default: 0)
+    """
     print (str)
     print (sys.argv[0], end=' ')
     print (''' [-m #] n m
@@ -26,6 +89,47 @@ def usage (str = ""):
 
 
 def main():
+    """
+    Main function to generate synthetic metabolic network test data.
+
+    Parses command-line arguments and generates a random metabolic network with
+    specified numbers of metabolites and reactions. The output is formatted for
+    use with gap-filling solvers.
+
+    Returns
+    -------
+    None
+        Prints formatted network data to stdout.
+
+    Raises
+    ------
+    SystemExit
+        Exits with code 1 if invalid arguments are provided.
+
+    Notes
+    -----
+    Metabolite categories:
+    - First 20%: Supply metabolites with random supply values (2-10)
+    - Next 20%: Residual metabolites with random residual values (2-10)
+    - Remaining 60%: Intermediate metabolites
+
+    Reaction categories:
+    - First 20%: Preferred reactions with user-specified objective coefficient
+    - Remaining 80%: Regular reactions with random objective coefficients (100-300)
+
+    Stoichiometric coefficients:
+    - Generated in increments of 0.25 (quarters)
+    - Range: -2.0 to 1.75 (excluding 0)
+    - Each reaction guaranteed to have mixed signs (both reactants and products)
+
+    Examples
+    --------
+    Generate network with 50 metabolites and 100 reactions:
+    >>> main()  # with sys.argv = ['gen.py', '50', '100']
+
+    Generate with custom parameters:
+    >>> main()  # with sys.argv = ['gen.py', '-m', '8', '-o', '10', '50', '100']
+    """
     # parse argv
     n = 0
     m = 0
