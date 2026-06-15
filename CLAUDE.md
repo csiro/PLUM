@@ -246,13 +246,55 @@ PLUM depends on the `lime` library (CSIRO internal, included as git submodule). 
 - `lime/strutil.h`: String utilities
 - `lime/timekeeper.h`: Timing/profiling
 
+## Documentation
+
+### Doxygen API Documentation
+
+All C/C++ source and header files are fully annotated with Doxygen documentation:
+
+**Coverage:**
+- 58 files documented (29 headers + 29 source files)
+- File-level documentation (`@file`, `@brief`)
+- Class/struct documentation with detailed descriptions
+- Function documentation with `@param` and `@return` tags
+- Member variables, enums, typedefs, and namespaces
+
+**Generating Documentation:**
+
+```bash
+# Create a Doxyfile if needed
+doxygen -g
+
+# Configure Doxyfile (key settings):
+# PROJECT_NAME = "PLUM - Metabolic Gap-Filling Solver"
+# INPUT = include/mosh src
+# RECURSIVE = YES
+# EXTRACT_ALL = YES
+# GENERATE_HTML = YES
+
+# Generate HTML documentation
+doxygen
+
+# View documentation
+open html/index.html  # or use your browser
+```
+
+**Key Documented Components:**
+- Core classes: `Scenario`, `Reaction`, `Metabolite`, `Solution`, `MultiSol`, `Params`
+- Solver hierarchy: `LPSolver`, `IntSolver`, `IncrSolver`, `LnsMxSolver`
+- Solver implementations: `GrbLpSolverImp`, `HighsLpSolverImp`, `LpsLpSolverImp`
+- Algorithms: `PathFinder` (reachability analysis), `MathHeur` (heuristics)
+- All executable entry points: plum, plummx, plumsp, plumchk, plumcmp, plummerge
+
+The documentation uses domain-appropriate terminology from metabolic modeling (flux balance analysis, stoichiometry, compartments, gap-filling) to help developers understand the biological context.
+
 ## Project Structure
 
-- `src/`: Implementation files for solvers, scenarios, solutions
-- `include/mosh/`: Header files (main API)
-- `util/`: Conversion and preprocessing scripts
+- `src/`: Implementation files for solvers, scenarios, solutions (Doxygen documented)
+- `include/mosh/`: Header files with full API documentation (Doxygen documented)
+- `util/`: Conversion and preprocessing scripts (Python/Bash)
 - `test/`: Test data and scripts
 - `reftest/`: Reference tests with expected outputs
 - `doc/`: Documentation including `overview/overview.md` (project background)
 - `data/`: Input data files (not in repository)
-- `lime/`: Submodule dependency
+- `lime/`: Submodule dependency (CSIRO utility library)
