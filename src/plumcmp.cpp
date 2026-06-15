@@ -1,3 +1,17 @@
+/**
+ * @file plumcmp.cpp
+ * @brief Solution comparison tool for metabolic gap-filling problems
+ *
+ * This program compares multiple solutions to gap-filling problems by analyzing
+ * reaction fluxes, metabolite balances, and objective values. It generates
+ * visualizations showing differences in flux distributions, reaction usage patterns,
+ * and metabolite production/consumption across solutions.
+ *
+ * The tool reads solution files and produces comparative plots using the Dig
+ * visualization library, helping identify key differences in alternative
+ * gap-filling strategies.
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -22,8 +36,15 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
-// Define the OS variable
-const char* 
+/**
+ * @brief Returns a string identifying the operating system
+ *
+ * Uses preprocessor macros to detect the compilation platform and returns
+ * a human-readable string describing the operating system.
+ *
+ * @return Pointer to a constant string describing the OS (e.g., "Linux", "Windows", "Mac OS X")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -40,6 +61,21 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Reads a solution file and populates flux values
+ *
+ * Parses a solution file containing reaction names and flux values, then
+ * creates a Solution object with the flux distribution. Each line of the
+ * input file should contain a reaction name followed by its flux value.
+ * The function also maintains a count of how many times each reaction
+ * appears across multiple solution files.
+ *
+ * @param scenario Pointer to the Scenario containing reaction definitions
+ * @param fn Filename of the solution file to read
+ * @param count Reference to vector tracking reaction usage count across solutions
+ * @return Shared pointer to a Solution object containing the flux distribution
+ * @throws LineReader::error if a reaction name in the file is not found in the scenario
+ */
 SolutionPtr
 read_file (Scenario* scenario, string fn, vector<int>& count)
 {
@@ -64,9 +100,26 @@ read_file (Scenario* scenario, string fn, vector<int>& count)
     return sol;
 }
 
-
+/**
+ * @brief Main entry point for the solution comparison tool
+ *
+ * Compares multiple gap-filling solutions by:
+ * - Reading solution files and computing reaction usage statistics
+ * - Generating visualizations of flux distributions across solutions
+ * - Plotting reaction usage patterns sorted by various criteria (count, cost, flux difference)
+ * - Analyzing and visualizing metabolite balance and production differences
+ * - Creating comparative plots showing objective values and flux magnitudes
+ *
+ * The program produces multiple visualization pages showing different aspects
+ * of the solution comparison, including bubble charts where circle size represents
+ * flux magnitude, bar charts of reaction usage, and metabolite balance plots.
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return Exit status (0 for success, 1 for option processing failure)
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
     string data_fn = "";
     string dig_fn = "plumcmp.dig";

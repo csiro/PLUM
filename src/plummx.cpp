@@ -1,3 +1,15 @@
+/**
+ * @file plummx.cpp
+ * @brief Multi-experiment metabolic gap-filling solver using Large Neighborhood Search
+ *
+ * This program implements an LNS (Large Neighborhood Search) style incremental solver
+ * for multi-experiment metabolic gap-filling problems. It performs flux balance analysis
+ * across multiple experimental conditions to identify minimal sets of reactions needed
+ * to achieve target biomass production while minimizing reaction costs and flux errors.
+ *
+ * The solver supports multiple LP/MIP backends (Gurobi, LPSOLVE, HiGHS) and various
+ * objective function combinations balancing reaction cost, flux error, and tau penalties.
+ */
 
 /*
   LNS style incremental multi-experiment solver
@@ -32,8 +44,16 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
-// Define the OS variable
-const char* 
+/**
+ * @brief Returns a string identifying the operating system
+ *
+ * Detects the compilation platform and returns a human-readable string
+ * representing the operating system name.
+ *
+ * @return const char* String identifying the OS: "Cygwin", "Windows", "Mac OS X",
+ *         "Linux", "Unix", or "Unknown OS"
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -50,8 +70,23 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Main entry point for the plummx gap-filling solver
+ *
+ * Parses command-line arguments, loads metabolic network data and experimental conditions,
+ * configures the LNS solver with specified parameters, executes the gap-filling optimization,
+ * and writes results including selected reactions, flux solutions, pareto fronts, and summary statistics.
+ *
+ * The solver can operate in two modes:
+ * - Standard LNS mode: Iteratively destroys and repairs solution neighborhoods
+ * - Additive mode: Incrementally adds reactions to build feasible solutions
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return int Exit status: 0 for success, 1 for failure
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
     vector<string> flavour_name = {"GRB", "LPS", "HIGHS"};
     

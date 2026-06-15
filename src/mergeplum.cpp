@@ -1,3 +1,13 @@
+/**
+ * @file mergeplum.cpp
+ * @brief Merges two PLUM metabolic network scenarios into a single scenario
+ *
+ * This utility merges two scenario files (.pld format) used in metabolic gap-filling
+ * analysis. It handles the reconciliation of metabolites and reactions between scenarios,
+ * validating stoichiometry consistency and allowing selective preservation of reaction
+ * costs from either source scenario. The merged output maintains metabolic network
+ * integrity while combining unique elements from both inputs.
+ */
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -16,7 +26,7 @@
 #include "lime/sortpairt.h"
 
 #include "mosh/builddate.h" // For _build_date
-#include "mosh/gapsolver.h" 
+#include "mosh/gapsolver.h"
 #include "mosh/params.h"
 
 using namespace std;
@@ -24,7 +34,16 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Detects and returns the operating system platform at compile time
+ *
+ * Uses preprocessor directives to identify the compilation platform and return
+ * a human-readable string representation.
+ *
+ * @return Constant string identifying the OS: "Cygwin", "Windows", "Mac OS X",
+ *         "Linux", "Unix", or "Unknown OS"
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -41,7 +60,23 @@ get_os_string() {
 #endif
 }
 
-
+/**
+ * @brief Main entry point for the mergeplum scenario merging utility
+ *
+ * Merges two PLUM scenario files by combining their metabolites and reactions.
+ * The merge process:
+ * - Validates that reactions with identical names have matching stoichiometry
+ * - Identifies metabolites that appear in both scenarios using name matching
+ * - Uses the -w flag to determine which scenario's scores (reaction costs) to preserve
+ * - Writes unused metabolites and unique reactions from each scenario
+ * - Generates warnings for metabolite full name mismatches
+ * - Generates errors for stoichiometry inconsistencies
+ * - Outputs a merged scenario file and a diagnostic report
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return 0 on successful merge, 1 on command-line parsing failure
+ */
 int
 main (int argc, const char* argv[]) 
 {

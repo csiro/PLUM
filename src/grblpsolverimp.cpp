@@ -1,3 +1,13 @@
+/**
+ * @file grblpsolverimp.cpp
+ * @brief Implementation of Gurobi-based LP solver for metabolic network optimization
+ *
+ * This file provides the concrete implementation of the GrbLPSolverImp class,
+ * which uses the Gurobi optimizer to solve linear and mixed-integer programming
+ * problems for metabolic gap-filling and flux balance analysis. It handles
+ * variable creation for reaction fluxes, metabolite mass-balance constraints,
+ * and optimization of metabolic network models.
+ */
 
 #include <sstream>
 #include <list>
@@ -16,6 +26,21 @@ using namespace lime;
 using namespace mosh;
 
 
+/**
+ * @brief Create a continuous decision variable representing flux through a reaction
+ *
+ * Creates a Gurobi continuous variable for the flux value of a specific reaction
+ * in a given experiment. The variable is stored in the flux_ matrix and indexed
+ * by reaction and experiment number. If this is a biomass reaction, the variable
+ * is also stored in the biomass_ vector for quick access.
+ *
+ * @param react Pointer to the reaction for which to create the flux variable
+ * @param exp Index of the experimental condition
+ * @param name Base name for the variable (will be suffixed with experiment number if multiple experiments)
+ * @param obj_coeff Objective function coefficient for this variable
+ * @param lb Lower bound on the flux value
+ * @param ub Upper bound on the flux value
+ */
 void
 GrbLPSolverImp::make_flux_var (
     const Reaction* react,  size_t exp, string name,
@@ -30,6 +55,20 @@ GrbLPSolverImp::make_flux_var (
         biomass_[exp] = flux_[react->index()][exp];
 }
 
+/**
+ * @brief Create a binary decision variable indicating whether a reaction is used
+ *
+ * Creates a Gurobi binary variable that indicates whether a reaction is active
+ * in the solution (used in mixed-integer formulations for gap-filling). If a
+ * continuous solution is provided, the variable's starting value is initialized
+ * based on whether the reaction was used in that solution to warm-start the MIP.
+ *
+ * @param react Pointer to the reaction for which to create the use variable
+ * @param name Name for the variable
+ * @param obj_coeff Objective function coefficient (typically penalty for adding reactions)
+ * @param lb Lower bound (typically 0 for binary variables)
+ * @param ub Upper bound (typically 1 for binary variables)
+ */
 void
 GrbLPSolverImp::make_use_var (
     const Reaction* react,  string name,
@@ -46,6 +85,21 @@ GrbLPSolverImp::make_use_var (
     }
 }
 
+/**
+ * @brief Add mass-balance constraints for a metabolite in a specific experiment
+ *
+ * Creates linear constraints enforcing the steady-state mass-balance condition
+ * for a metabolite: the sum of fluxes producing the metabolite must equal the
+ * sum of fluxes consuming it. This is implemented as two inequality constraints
+ * (lower and upper bounds) on the net production rate.
+ *
+ * @param met Pointer to the metabolite for which to add constraints
+ * @param exp Index of the experimental condition
+ * @param lb Lower bound on the net production rate (typically 0 for steady-state)
+ * @param ub Upper bound on the net production rate (typically 0 for steady-state)
+ * @param reacts Vector of reactions that involve this metabolite
+ * @param coeffs Vector of stoichiometric coefficients (positive for production, negative for consumption)
+ */
 void
 GrbLPSolverImp::add_met_constraint (
     const Metabolite* met, size_t exp, double lb, double ub,
@@ -53,15 +107,15 @@ GrbLPSolverImp::add_met_constraint (
 )
 {
     GRBLinExpr sum_expr = 0;
-    
+
     for (size_t k = 0; k < reacts.size(); k++) {
         sum_expr += coeffs[k] * flux_[reacts[k]->index()][exp];
     }
-    
+
     string name = met->name();
     if (num_experiments() > 1)
         name += "_" + to_string(exp);
-    
+
     constr_.push_back (
         model_.addConstr (lb <= sum_expr, name + "_LB")
     );
@@ -70,13 +124,24 @@ GrbLPSolverImp::add_met_constraint (
     );
 }
 
+/**
+ * @brief Add indicator constraint linking reaction usage and flux variables
+ *
+ * Creates a logical constraint that forces the flux through a reaction to be
+ * zero when the reaction's use variable is 0. This is implemented as an indicator
+ * constraint: if use[react] = 0, then flux[react][exp] = 0. This constraint type
+ * is used in mixed-integer formulations for gap-filling.
+ *
+ * @param react Pointer to the reaction for which to add the linking constraint
+ * @param exp Index of the experimental condition
+ */
 void
 GrbLPSolverImp::add_react_link_constraint (const Reaction* react, size_t exp)
 {
     string name = react->name();
     if (num_experiments() > 1)
         name += "_" + to_string(exp);
-    
+
     model_.addGenConstrIndicator (
         use_[react->index()],
         0, flux_[react->index()][exp], GRB_EQUAL, 0.0f,
@@ -84,7 +149,18 @@ GrbLPSolverImp::add_react_link_constraint (const Reaction* react, size_t exp)
     );
 }
 
-StatusEnum 
+/**
+ * @brief Solve the optimization problem using Gurobi
+ *
+ * Updates the model and invokes the Gurobi optimizer to solve the LP or MIP.
+ * If the problem is infeasible, computes an Irreducible Inconsistent Subsystem
+ * (IIS) and writes it to a file for debugging. Returns a status code indicating
+ * whether an optimal or sub-optimal solution was found, or if the problem is
+ * infeasible.
+ *
+ * @return StatusEnum indicating the solution status (CTS_OPTIMAL, SUB_OPTIMAL, or INFEASIBLE_)
+ */
+StatusEnum
 GrbLPSolverImp::optimize()
 {
     model_.update();
@@ -108,12 +184,23 @@ GrbLPSolverImp::optimize()
 }
     
 
+/**
+ * @brief Extract solution flux values for a specific experiment from Gurobi model
+ *
+ * Creates a Solution object and populates it with the optimal flux values
+ * obtained from the Gurobi solver for a given experiment. Flux values below
+ * a small threshold (10 * int_feas_tol) are treated as zero to handle
+ * numerical precision issues.
+ *
+ * @param exp Index of the experimental condition to extract solution for
+ * @return SolutionPtr Shared pointer to the Solution object containing flux values
+ */
 SolutionPtr
 GrbLPSolverImp::make_sol(size_t exp)
 {
     SolutionPtr sol =
         make_shared<Solution> (scenario_, params_);
-    
+
     for (size_t k = 0; k < num_reactions(); k++) {
         if (reaction(k)->is_selected()) {
             double this_flux = flux_[k][exp].get(GRB_DoubleAttr_X);
@@ -136,6 +223,17 @@ GrbLPSolverImp::make_sol(size_t exp)
 // Return dual vals for each constraint
 // Constraint 2m   = LB for metabolite m
 // Constraint 2m+1 = UB for metabolite m
+/**
+ * @brief Retrieve dual values (shadow prices) for metabolite mass-balance constraints
+ *
+ * Extracts the dual values from the Gurobi LP solution for all metabolite
+ * constraints. Each metabolite has two constraints (lower and upper bound on
+ * net production), so dual values are retrieved for both. These dual values
+ * represent the shadow prices and can be used for economic analysis or to
+ * identify limiting metabolites.
+ *
+ * @return DualValsPtr Shared pointer to DualVals object containing dual values for all metabolites
+ */
 DualValsPtr
 GrbLPSolverImp::get_dual_vals()
 {
@@ -155,6 +253,18 @@ GrbLPSolverImp::get_dual_vals()
     return vals;
 }
 
+/**
+ * @brief Select reactions with favorable reduced costs for column generation
+ *
+ * Implements a column generation heuristic by computing reduced costs for all
+ * unselected reactions and selecting up to num_to_select reactions with the
+ * best (most negative) reduced costs. These reactions are candidates for adding
+ * to the model in the next iteration. Reactions with reduced cost at or below
+ * the threshold are marked as selected.
+ *
+ * @param num_to_select Maximum number of reactions to select based on reduced cost
+ * @return int Number of reactions newly selected in this call
+ */
 int
 GrbLPSolverImp::select_good_reactions (int num_to_select)
 {
@@ -193,6 +303,17 @@ GrbLPSolverImp::select_good_reactions (int num_to_select)
     return num_selected;
 }
 
+/**
+ * @brief Compute the reduced cost of a reaction in the current LP solution
+ *
+ * Retrieves the reduced cost from Gurobi for the flux variable of the given
+ * reaction. Reduced cost indicates how much the objective function would change
+ * per unit increase in the variable. Negative reduced costs indicate reactions
+ * that could improve the objective if added to the basis.
+ *
+ * @param react Pointer to the reaction for which to compute reduced cost
+ * @return double The reduced cost value from the LP dual solution
+ */
 double
 GrbLPSolverImp::reduced_cost (const Reaction* react)
 {

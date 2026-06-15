@@ -1,3 +1,12 @@
+/**
+ * @file merge.cpp
+ * @brief Tool for merging two metabolic gap-filling scenarios
+ *
+ * This utility merges two scenario files (.pld) by comparing and combining
+ * reactions and metabolites. Reactions with the same name are checked for
+ * equality, and the user can select which scenario's costs/scores are used
+ * when a reaction appears in both scenarios.
+ */
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -16,15 +25,23 @@
 #include "lime/sortpairt.h"
 
 #include "mosh/builddate.h" // For _build_date
-#include "mosh/gapsolver.h" 
+#include "mosh/gapsolver.h"
 #include "mosh/params.h"
 
 using namespace std;
 using namespace lime;
 using namespace mosh;
 
-// Define the OS variable
-const char* 
+/**
+ * @brief Returns a string identifying the operating system at compile time
+ *
+ * Uses preprocessor macros to determine the target operating system
+ * and returns a human-readable string representation.
+ *
+ * @return Constant string describing the operating system ("Cygwin", "Windows",
+ *         "Mac OS X", "Linux", "Unix", or "Unknown OS")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -42,19 +59,38 @@ get_os_string() {
 }
 
 
+/**
+ * @brief Main entry point for the scenario merge tool
+ *
+ * Reads two metabolic gap-filling scenario files, compares their reactions
+ * and metabolites for consistency, and merges them into a single output file.
+ * The tool creates bidirectional translation maps between metabolites in the
+ * two scenarios and validates reaction equivalence.
+ *
+ * @param argc Number of command line arguments
+ * @param argv Array of command line argument strings
+ *             Expected: scen1.pld scen2.pld [out.pld]
+ * @return 0 on success, 1 on failure
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
+    /** @brief Filename for the first scenario input file */
     string scen1_fn = "";
+    /** @brief Filename for the second scenario input file */
     string scen2_fn = "";
+    /** @brief Filename for the merged scenario output file (default: out.pld) */
     string out_fn = "out.pld";
+    /** @brief Debug configuration string for diagnostic output */
     string debug_str = "";
 
-    // Keep scores from which scenario
+    /** @brief Specifies which scenario's scores/costs to use (1 or 2) when reactions appear in both */
     int which_scen = 1;
 
+    /** @brief Parameter configuration object for gap-filling settings */
     Params params;
 
+    /** @brief Command-line options parser for merge tool arguments */
     Opts opts (R"EOF(
     Merge two scenarios.
     - Reactions with the same name are checked for equality
@@ -95,7 +131,9 @@ main (int argc, const char* argv[])
 
     assert (data_fn.length() > 0); // Not optional in Opts
 
+    /** @brief First scenario object containing metabolites, reactions, and constraints */
     Scenario scen1;
+    /** @brief Second scenario object containing metabolites, reactions, and constraints */
     Scenario scen2;
     
     cout << "Reading data from " << scen1_fn << endl;
@@ -106,9 +144,9 @@ main (int argc, const char* argv[])
 
     cout << "Compare" << endl;
 
-    // Translation from scen1 metabolite to scen2
+    /** @brief Translation map from scenario 1 metabolite indices to scenario 2 metabolite pointers */
     vector<const Metabolite*> xlate_met_12 (scen1.num_metabolites());
-    // Translation from scen2 metabolite to scen1
+    /** @brief Translation map from scenario 2 metabolite indices to scenario 1 metabolite pointers */
     vector<const Metabolite*> xlate_met_21 (scen2.num_metabolites());
 
     for (auto& met1 : scen1.metabolites()) {

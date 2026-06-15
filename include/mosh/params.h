@@ -1,3 +1,11 @@
+/**
+ * @file params.h
+ * @brief Algorithm parameters container for metabolic gap-filling optimization
+ *
+ * This file defines the Params class which holds all configurable parameters
+ * used in metabolic network gap-filling algorithms including flux balance analysis,
+ * mixed-integer programming, simulated annealing, and tabu search heuristics.
+ */
 #pragma once
 
 /** A recepticle for all algorithm parameters - calculated and passed
@@ -11,18 +19,47 @@
 #include "lime/numutil.h"
 #include "lime/config.h"
 
+/**
+ * @namespace mosh
+ * @brief Namespace for metabolic optimization and simulation heuristics
+ */
 namespace mosh
 {
     // Algorithm parameters. All fields are public
     // This is where to assign defaults (which will be standard across modules)
     
+    /** @brief Forward declaration of Scenario class */
     class Scenario;
+    /** @brief Forward declaration of Metabolite class */
     class Metabolite;
+    /** @brief Forward declaration of Reaction class */
     class Reaction;
   
+    /**
+     * @class Params
+     * @brief Container for all algorithm parameters used in metabolic gap-filling optimization
+     *
+     * This class serves as a centralized repository for all configurable parameters
+     * used across the metabolic optimization algorithms. It includes parameters for:
+     * - Mixed-integer programming (MIP) solver settings
+     * - Biomass production constraints and search strategies
+     * - Metaheuristic algorithms (tabu search, simulated annealing)
+     * - Flux thresholds and reaction cost settings
+     * - Dummy reaction handling and error detection
+     *
+     * All member variables are public to allow direct access. Default values are
+     * assigned in the constructor and can be overridden via configuration files.
+     */
     class Params : public lime::Displayable
     {
     public:
+        /**
+         * @brief Default constructor initializing all parameters to standard default values
+         *
+         * Sets default values for integer, floating-point, and boolean parameters used
+         * throughout the metabolic optimization algorithms. These defaults are designed
+         * to work across different metabolic network models.
+         */
         Params () :
             seed(0),
             num_threads(8),
@@ -85,10 +122,24 @@ namespace mosh
         {
         }
 
+        /**
+         * @brief Finalizes parameter settings after configuration
+         *
+         * Performs any necessary post-configuration validation or adjustment of parameters.
+         * Currently a placeholder for future validation logic.
+         */
         void finalise ()
         {
         }
             
+        /**
+         * @brief Initializes configuration object with current parameter values
+         *
+         * Populates the provided configuration object with all parameter names and their
+         * current values. This is used for configuration file generation and display.
+         *
+         * @param config Configuration object to populate with parameter values
+         */
         void init_config (lime::Config& config) const
         {
             // Int config
@@ -156,6 +207,14 @@ namespace mosh
             config.addItem ("unit_cost", unit_cost);
         }
 
+        /**
+         * @brief Reads parameter values from configuration object
+         *
+         * Loads all parameter values from the provided configuration object, overriding
+         * default values. Performs validation on certain parameters (e.g., num_intervals >= 1).
+         *
+         * @param config Configuration object containing parameter values to read
+         */
         void read_config (lime::Config& config) 
         {
             // Int config
@@ -262,18 +321,71 @@ namespace mosh
             unit_cost = config.getBool ("unit_cost", unit_cost);
         }
 
+        /**
+         * @brief Determines if a flux value indicates growth
+         *
+         * Compares the flux value against the growth_flux_threshold to classify
+         * whether the flux represents metabolic growth.
+         *
+         * @param flux The flux value to evaluate
+         * @return true if flux >= growth_flux_threshold, false otherwise
+         */
         bool is_growth_flux(double flux) const {
             return flux >= growth_flux_threshold;
         }
+        /**
+         * @brief Determines if a flux value indicates runaway (unbounded) behavior
+         *
+         * Compares the flux value against the runaway_flux_threshold to detect
+         * unrealistic or unbounded flux values in the metabolic network.
+         *
+         * @param flux The flux value to evaluate
+         * @return true if flux >= runaway_flux_threshold, false otherwise
+         */
         bool is_runaway_flux(double flux) const {
             return flux >= runaway_flux_threshold;
         }
+        /**
+         * @brief Determines if a Biolog score indicates growth
+         *
+         * Compares the Biolog phenotype score against the growth_biolog_threshold
+         * to classify whether the phenotype represents growth.
+         *
+         * @param biolog The Biolog phenotype score to evaluate
+         * @return true if biolog >= growth_biolog_threshold, false otherwise
+         */
         bool is_growth_biolog(double biolog) const {
             return biolog >= growth_biolog_threshold;
         }
+        /**
+         * @brief Checks if a reaction is indicated by genomic evidence
+         *
+         * Determines whether a reaction has supporting gene annotation based on
+         * its cost relative to the gene_ind_cost threshold.
+         *
+         * @param react Pointer to the reaction to evaluate
+         * @return true if the reaction is gene-indicated, false otherwise
+         */
         bool is_gene_indicated (const Reaction* react) const;
+        /**
+         * @brief Checks if a reaction's cost exceeds the maximum allowed cost
+         *
+         * Determines whether a reaction should be excluded from the initial selection
+         * based on its cost exceeding max_react_cost.
+         *
+         * @param react Pointer to the reaction to evaluate
+         * @return true if the reaction cost exceeds max_react_cost, false otherwise
+         */
         bool exceeds_max_cost (const Reaction* react) const;
         
+        /**
+         * @brief Displays all parameter values to an output stream
+         *
+         * Overrides the Displayable::display method to output all parameter values
+         * in a human-readable format via the configuration object.
+         *
+         * @param os Output stream to write parameter values (default: std::cout)
+         */
         virtual void display(std::ostream& os = std::cout) const
         {
             lime::Config config;
@@ -283,98 +395,130 @@ namespace mosh
 
 
         // Int params
+        /** @brief Random number generator seed for reproducibility */
         int seed;
+        /** @brief Number of parallel threads for optimization solver */
         int num_threads;
+        /** @brief Maximum time limit in seconds for optimization (0 = no limit) */
         int time_limit;
+        /** @brief Maximum iterations for biomass objective search algorithm */
         int max_biomass_search_iters;
+        /** @brief Maximum iterations for metaheuristic optimization */
         int max_mh_iters;
+        /** @brief Extra combinatorial parameter for search space exploration */
         int comb_extra;
-        // Rank cons type 0 = none, 1 = relative, 2 = absolute
+        /** @brief Rank constraint type: 0 = none, 1 = relative, 2 = absolute */
         int rank_cons_type;
         // plummx params
-        //   Tabu tenure after becoming incumbant (add or delete)
+        /** @brief Tabu tenure after a reaction becomes incumbent (added or deleted) */
         int incumb_tabu_tenure;
-        //   Tabu tenure after failing (no biomass)
+        /** @brief Tabu tenure after a move fails to produce biomass */
         int fail_tabu_tenure;
-        //   Tabu tenure after not improving
+        /** @brief Tabu tenure after a move does not improve objective */
         int ignore_tabu_tenure;
-        //   Number of intervals looking for a target biomass
+        /** @brief Number of intervals for target biomass search partitioning */
         int num_intervals;
+        /** @brief Number of simulated annealing restarts */
         int sa_restarts;
-        // Numer of iters in plummx with no improve (then reset incumb to best)
+        /** @brief Maximum iterations without improvement before resetting incumbent to best solution */
         int max_no_improve;
 
         // Double params
+        /** @brief Percentage wiggle room allowed for biomass constraints */
         double biomass_wiggle_pc;
+        /** @brief Upper bound on biomass production flux */
         double biomass_ub;
+        /** @brief Upper bound on absolute value of objective function */
         double abs_obj_ub;
+        /** @brief Initial multiplier for biomass term in objective function */
         double init_biomass_obj_mult;
+        /** @brief Interval multiplier for biomass scaling during search */
         double biomass_mult_int;
-        // Optimility of biomass for formulation 3
-        // (Biomass is constrained to be >= biomass_opt_mult * max biomass)
+        /** @brief Optimality multiplier for biomass constraint (biomass >= biomass_opt_mult * max_biomass) */
         double biomass_opt_mult;
-        // Amount (multiple) biomass mult is increased in biomass search
+        /** @brief Multiplier for increasing biomass objective during initial search phase */
         double biomass_search_mult1;
-        // Amount (multiple) biomass mult is increased in biomass search after
-        // biomass has been produced
+        /** @brief Multiplier for increasing biomass objective after biomass production is achieved */
         double biomass_search_mult2;
-        // Cost that implies the reaction is "gene-inidicated"
+        /** @brief Cost threshold below which a reaction is considered gene-indicated */
         double gene_ind_cost;
-        // Cost used for dummy reactions
+        /** @brief Penalty cost assigned to dummy reactions in the gap-filling process */
         double dummy_cost;
-        // Max react cost - higher is un-selected at start (-1 = ignore)
+        /** @brief Maximum reaction cost threshold; reactions exceeding this are un-selected at start (-1 = ignore) */
         double max_react_cost;
-        // What is the max flux still classified as "no growth"
+        /** @brief Minimum flux value classified as growth (below this = no growth) */
         double growth_flux_threshold;
-        // What is the flux classified as "runaway"
+        /** @brief Flux value threshold indicating runaway (unbounded) flux behavior */
         double runaway_flux_threshold;
-        // What is the max biolog score still classified as "no growth"
+        /** @brief Minimum Biolog phenotype score classified as growth (below this = no growth) */
         double growth_biolog_threshold;
         // Gurobi params
+        /** @brief Maximum MIP optimality gap tolerance for Gurobi solver */
         double max_mip_gap;
+        /** @brief Feasibility tolerance for constraint satisfaction in Gurobi */
         double feasibility_tol;
+        /** @brief Integer feasibility tolerance for integer variables in Gurobi */
         double int_feas_tol;
+        /** @brief Small epsilon value for numerical comparisons and tolerances */
         double epsilon;
-        // plummx 
-        //   Multiplier to indicate when an experiment is "over target"
+        // plummx
+        /** @brief Multiplier to determine when experimental flux is "over target" */
         double rank_tol_mult;
-        //   Multiplier to indicate when an experiment is "excessively" over
-        //   target
+        /** @brief Multiplier to determine when experimental flux is "excessively" over target */
         double excess_growth_mult;
         //   Simulated Annealing parameters
+        /** @brief Target acceptance rate for simulated annealing temperature adjustment */
         double sa_targ_accept;
+        /** @brief Target acceptance probability for simulated annealing */
         double sa_targ_prob;
+        /** @brief Fraction of iterations with no change triggering simulated annealing termination */
         double sa_frac_no_chg;
         //   Intervals control
+        /** @brief Multiplier for calculating lower bound of target interval */
         double lower_target_mult;
+        /** @brief Target flux value for interval-based search strategies */
         double target_flux;
-        // Multiplier for tau in objectives for plummx
+        /** @brief Multiplier for tau (relaxation parameter) in PLUMMX objective function */
         double tau_mult;
-        // Multiplier for error in objectives for plummx
+        /** @brief Multiplier for error term in PLUMMX objective function */
         double error_mult;
-        // Multiplier for cost in objectives for plummx
+        /** @brief Multiplier for reaction cost term in PLUMMX objective function */
         double cost_mult;
-        // Multiplier for runaways in objectives for plummx
+        /** @brief Multiplier for runaway flux penalty in PLUMMX objective function */
         double runaways_mult;
-        // Multiplier for biomass mult - proportion of extra reactions allowed
+        /** @brief Proportion of extra reactions allowed relative to biomass multiplier */
         double mx_biomass_inflation;
         // Adaptation params - signma values
+        /** @brief Adaptation sigma parameter for new best solution reward */
         double adapt_sigma1; // New best reward
+        /** @brief Adaptation sigma parameter for new incumbent solution */
         double adapt_sigma2; // New incumbant
+        /** @brief Adaptation sigma parameter for new Pareto-optimal solution */
         double adapt_sigma3; // New pareto
+        /** @brief Learning rate for adaptive parameter adjustment */
         double adapt_learn_rate; // New best reward
         
         // Bool params
+        /** @brief Enable absolute value objective function formulation */
         bool use_abs_obj;
+        /** @brief Enable error term in objective function */
         bool use_error;
+        /** @brief Enable dummy reactions for gap-filling */
         bool use_dummy;
+        /** @brief Enable dummy biomass reaction for demand metabolites */
         bool use_dummy_biomass_react_dm;
+        /** @brief Enable dummy biomass reaction for exchange reactions */
         bool use_dummy_biomass_react_ex;
+        /** @brief Enable dummy biomass production for demand metabolites */
         bool use_dummy_biomass_prod_dm;
+        /** @brief Preserve dummy reactions in final solution (don't remove) */
         bool preserve_dummies;
+        /** @brief Enable detection and penalization of runaway fluxes */
         bool detect_runaway;
+        /** @brief Use unit cost (1.0) for all reactions instead of database costs */
         bool unit_cost;
     };
     
+    /** @brief Shared pointer type alias for Params objects */
     using ParamsPtr = std::shared_ptr<Params>;
 }

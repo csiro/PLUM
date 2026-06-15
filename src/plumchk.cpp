@@ -1,3 +1,19 @@
+/**
+ * @file plumchk.cpp
+ * @brief Scenario comparison tool for identifying duplicate and reversed reactions
+ *
+ * This utility compares two metabolic network scenarios to identify:
+ * - Duplicate reactions within each scenario
+ * - Identical reactions across scenarios
+ * - Reversed reactions (reactions running in opposite directions)
+ * - Reactions with same name but different stoichiometry
+ * - Reactions with different names but same stoichiometry
+ *
+ * Can optionally create a merged scenario file containing all reactions from
+ * scenario 1 plus non-duplicate, non-reversed reactions from scenario 2.
+ * Used in metabolic gap-filling and flux balance analysis workflows.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -23,7 +39,16 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Returns a string identifying the operating system at compile time
+ *
+ * Uses preprocessor directives to detect the operating system during compilation
+ * and returns an appropriate descriptive string.
+ *
+ * @return Constant string indicating the operating system ("Cygwin", "Windows",
+ *         "Mac OS X", "Linux", "Unix", or "Unknown OS")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -40,8 +65,42 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Macro for conditional output to both console and file stream
+ *
+ * Outputs the given expression to stdout if verbose mode is enabled,
+ * and to the output file stream if it is non-null.
+ *
+ * @param X Expression to be output (must support stream insertion operator)
+ */
 #define DISPLAY(X) {if (verbose) {cout << X << endl;} if (out != nullptr) { *out << X << endl;}}
 
+/**
+ * @brief Main entry point for the plumchk scenario comparison tool
+ *
+ * Compares two metabolic network scenario files to identify duplicate reactions,
+ * reversed reactions, and reactions with naming or stoichiometry conflicts.
+ * Optionally produces:
+ * - Detailed output file listing all findings
+ * - Merged scenario file with deduplicated reactions
+ * - Summary statistics file
+ *
+ * The tool performs the following analysis steps:
+ * 1. Removes duplicate reactions within scenario 1 (keeping cheaper version by objective coefficient)
+ * 2. Removes duplicate reactions within scenario 2 (keeping cheaper version)
+ * 3. Compares scenarios to find:
+ *    - Identical reactions (same stoichiometry)
+ *    - Reactions with same name but different stoichiometry
+ *    - Reactions with different names but same stoichiometry
+ *    - Reversed reactions (opposite direction)
+ *    - Unexpected reversed reactions (without proper naming convention)
+ * 4. Generates merged scenario containing scenario 1 reactions plus
+ *    non-duplicate, non-reversed reactions from scenario 2
+ *
+ * @param argc Number of command line arguments
+ * @param argv Array of command line argument strings
+ * @return Exit status: 0 on success, 1 on option parsing failure
+ */
 int
 main (int argc, const char* argv[]) 
 {

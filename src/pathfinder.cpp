@@ -1,3 +1,12 @@
+/**
+ * @file pathfinder.cpp
+ * @brief Implementation of PathFinder class for metabolic pathway analysis
+ *
+ * This file implements the PathFinder class which performs shortest path finding,
+ * loop detection, and connectivity analysis in metabolic networks. It supports
+ * gap-filling analysis by identifying biomass precursor accessibility and
+ * detecting metabolic cycles with flux constraints.
+ */
 
 #include <sstream>
 #include <algorithm>
@@ -17,6 +26,15 @@ using namespace mosh;
 
 #define write(X) {cout << X; if (out_ != nullptr) *(out_) << X;}
 
+/**
+ * @brief Find shortest path from source to a target metabolite
+ *
+ * Resets graph costs and computes the shortest path from the source node
+ * to the specified metabolite using Dijkstra's algorithm.
+ *
+ * @param met Target metabolite to find path to
+ * @return true if a valid path exists, false otherwise
+ */
 bool
 PathFinder::find_sp_to (const Metabolite* met)
 {
@@ -24,6 +42,17 @@ PathFinder::find_sp_to (const Metabolite* met)
     return graph_.findPath (source_idx_, met->index());
 }
 
+/**
+ * @brief Check connectivity of biomass reaction precursors
+ *
+ * Analyzes whether metabolites required by the biomass reaction can be
+ * reached from source metabolites. Traces back paths through reactions,
+ * records maximum reaction costs, and builds a graph representation for
+ * visualization. Outputs connectivity statistics and path information.
+ *
+ * @param[in,out] count Total number of metabolites checked (incremented)
+ * @param[in,out] count_ok Number of metabolites with valid paths (incremented)
+ */
 void
 PathFinder::check_biomass (int& count, int& count_ok)
 {
@@ -98,6 +127,16 @@ PathFinder::check_biomass (int& count, int& count_ok)
     );
 }
 
+/**
+ * @brief Perform comprehensive biomass reaction connectivity check
+ *
+ * Similar to check_biomass but with extended analysis. Examines all biomass
+ * precursor metabolites, traces paths back to sources, and builds complete
+ * graph structures including export reactions. Used for detailed gap analysis.
+ *
+ * @param[in,out] count Total number of metabolites checked (incremented)
+ * @param[in,out] count_ok Number of metabolites with valid paths (incremented)
+ */
 void
 PathFinder::full_check_biomass (int& count, int& count_ok)
 {
@@ -145,6 +184,19 @@ PathFinder::full_check_biomass (int& count, int& count_ok)
     }
 }
 
+/**
+ * @brief Build metabolic graph reachable from a carbon source
+ *
+ * Performs forward propagation from a specified carbon source metabolite
+ * to determine which reactions can be activated and which metabolites can
+ * be produced. Uses iterative flood-fill algorithm limited by carbon_depth
+ * to simulate metabolic network expansion from the carbon source. Marks
+ * reactions and metabolites for graph visualization.
+ *
+ * @param carbon_source Starting carbon source metabolite
+ * @param carbon_depth Maximum number of reaction layers to propagate
+ * @param dot Output stream for DOT graph format (currently unused in implementation)
+ */
 void
 PathFinder::carbon_source_graph (
     const Metabolite* carbon_source, int carbon_depth, ostream& dot
@@ -248,7 +300,16 @@ PathFinder::carbon_source_graph (
     
 }
 
-// Find the max flux in the loop from met_idx
+/**
+ * @brief Calculate maximum flux in a metabolic loop
+ *
+ * Traverses a detected loop starting from the given metabolite index and
+ * determines the maximum flux value among all reactions participating in
+ * the loop. The maximum flux represents the loop's capacity.
+ *
+ * @param start_idx Index of metabolite where loop detection starts
+ * @return Maximum flux value found in the loop
+ */
 double
 PathFinder::calc_flux (size_t start_idx)
 {
@@ -271,6 +332,19 @@ PathFinder::calc_flux (size_t start_idx)
     return flux;
 }
 
+/**
+ * @brief Detect and analyze a metabolic loop from a given metabolite
+ *
+ * Searches for a cycle in the metabolic graph starting from the specified
+ * metabolite. If found, calculates the loop's flux and filters out low-flux
+ * loops below the minimum threshold. Records all metabolites and reactions
+ * participating in the loop for visualization and counts unique metabolites.
+ *
+ * @param met Starting metabolite for loop detection
+ * @param min_flux Minimum flux threshold for valid loops
+ * @param[in,out] num_mets Counter for unique metabolites found in loops (incremented)
+ * @return true if a valid high-flux loop is found, false otherwise
+ */
 bool
 PathFinder::find_loop (const Metabolite* met, double min_flux, int& num_mets)
 {
@@ -346,6 +420,18 @@ PathFinder::find_loop (const Metabolite* met, double min_flux, int& num_mets)
     return false;
 }
 
+/**
+ * @brief Find all metabolic loops in the network above flux threshold
+ *
+ * Systematically searches for loops starting from each non-source metabolite
+ * that is not already part of a detected loop. Counts total loops found and
+ * tracks total number of metabolites participating in any loop. Used for
+ * identifying futile cycles and metabolic modules.
+ *
+ * @param min_flux Minimum flux threshold to consider a loop significant
+ * @param[in,out] num_loops Counter for total loops detected (incremented)
+ * @param[in,out] num_mets Counter for total unique metabolites in loops (incremented)
+ */
 void
 PathFinder::find_loops (double min_flux, int& num_loops, int& num_mets)
 {
@@ -366,6 +452,14 @@ PathFinder::find_loops (double min_flux, int& num_loops, int& num_mets)
     }
 }
 
+/**
+ * @brief Perform flood-fill to determine metabolite supply connectivity
+ *
+ * Identifies all metabolites that can be synthesized from available source
+ * metabolites by iteratively activating reactions whose substrates are all
+ * available. Continues until no new reactions can be activated. This forward
+ * propagation analysis determines network connectivity and identifies gaps.
+ */
 void
 PathFinder::flood()
 {
@@ -431,6 +525,18 @@ PathFinder::flood()
     }
 }
 
+/**
+ * @brief Generate DOT format graph for visualization
+ *
+ * Outputs metabolic network graph in GraphViz DOT format including all
+ * metabolites and reactions collected during analysis. Supports optional
+ * explosion modes that expand edges to show all reaction substrates/products
+ * or all reactions using specific metabolites.
+ *
+ * @param dot Output stream to write DOT format graph
+ * @param explode_react If true, add explicit edges for all reaction inputs/outputs
+ * @param explode_met If true, add all reactions using each metabolite in dot_mets_
+ */
 void
 PathFinder::write_dot (ostream& dot, bool explode_react, bool explode_met)
 {

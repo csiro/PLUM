@@ -1,3 +1,12 @@
+/**
+ * @file incrsolver.cpp
+ * @brief Implementation of the IncrSolver class for incremental metabolic gap-filling
+ *
+ * This file contains the implementation of the incremental solver that progressively
+ * adds reactions to a metabolic network model in order of increasing cost until a
+ * feasible solution producing biomass is found. The solver propagates metabolite
+ * availability through the network and handles cycle-breaking metabolites.
+ */
 #include <sstream>
 #include <list>
 #include <iomanip>
@@ -16,6 +25,16 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/**
+ * @brief Initialize the incremental solver with bootstrap reactions and source metabolites
+ *
+ * This method sets up the initial state by:
+ * - Enabling all dummy reactions without propagation
+ * - Selecting and propagating reactions with cost <= min_cost as bootstrap
+ * - Building the set of remaining reaction costs to explore
+ * - Computing source metabolites and marking them as available
+ * - Propagating metabolite availability from bootstrap reactions
+ */
 void
 IncrSolver::init()
 {
@@ -66,6 +85,16 @@ IncrSolver::init()
     }
 }
 
+/**
+ * @brief Main solve method implementing the incremental gap-filling algorithm
+ *
+ * Progressively adds reactions in order of increasing objective coefficient (cost)
+ * until a feasible solution with positive biomass flux and zero dummy flux is found.
+ * If return_int_sol_ is true, follows up with an integer solver for the final solution.
+ *
+ * @return SolutionPtr Pointer to the solution if feasible, nullptr if infeasible
+ * @throws limeCrash if number of experiments != 1
+ */
 SolutionPtr
 IncrSolver::solve ()
 {
@@ -124,6 +153,17 @@ IncrSolver::solve ()
     return sol;
 }
 
+/**
+ * @brief Process all reactions at a given cost level through multiple propagation levels
+ *
+ * Iteratively adds enabled reactions at the current cost, propagating metabolite
+ * availability and checking for feasibility. When no more reactions can be added,
+ * attempts to break cycles by adding cycle metabolites that can be both supplied
+ * and required at this cost level.
+ *
+ * @param val The objective coefficient (cost) threshold for reactions to consider
+ * @return SolutionPtr Pointer to solution if found at this cost, nullptr otherwise
+ */
 SolutionPtr
 IncrSolver::cost_iter (double val)
 {
@@ -155,6 +195,14 @@ IncrSolver::cost_iter (double val)
     return nullptr;
 }
 
+/**
+ * @brief Solve the LP with currently selected reactions and check feasibility criteria
+ *
+ * Invokes the LP solver and validates that the solution has positive biomass flux
+ * and zero dummy flux (indicating no artificial reactions were needed).
+ *
+ * @return SolutionPtr Valid solution if feasibility criteria met, nullptr otherwise
+ */
 SolutionPtr
 IncrSolver::do_solve ()
 {
@@ -176,6 +224,15 @@ IncrSolver::do_solve ()
     return nullptr;
 }
 
+/**
+ * @brief Check if all reactant metabolites of a reaction are currently available
+ *
+ * A reaction is considered enabled if all of its input metabolites have been
+ * produced by previously selected reactions or are source metabolites.
+ *
+ * @param react Pointer to the reaction to check
+ * @return bool True if all reactants are available, false otherwise
+ */
 // Are the reactants for this reaction available?
 bool
 IncrSolver::is_enabled (const Reaction* react)
@@ -187,6 +244,16 @@ IncrSolver::is_enabled (const Reaction* react)
     return true;
 }
 
+/**
+ * @brief Check if reaction produces a carbon source without consuming one
+ *
+ * Determines if a reaction produces a carbon source metabolite that is not already
+ * a source, without using an existing source metabolite as input. This prevents
+ * invalid carbon source generation.
+ *
+ * @param react Pointer to the reaction to check
+ * @return bool True if reaction produces carbon source invalidly, false otherwise
+ */
 // Do the products of this reaction include a carbon source?
 bool
 IncrSolver::makes_carbon (const Reaction* react)
@@ -215,6 +282,15 @@ IncrSolver::makes_carbon (const Reaction* react)
     return makes_c;
 }
 
+/**
+ * @brief Mark all product metabolites of a reaction as available
+ *
+ * Updates the available_ vector to indicate that all output metabolites of the
+ * given reaction can now be used as reactants by other reactions. Logs the
+ * propagation to the selected reaction file if open.
+ *
+ * @param react Pointer to the reaction whose products to propagate
+ */
 // Make the products of this reaction available
 void
 IncrSolver::propagate (const Reaction* react)
@@ -233,6 +309,17 @@ IncrSolver::propagate (const Reaction* react)
 }
 
 
+/**
+ * @brief Add all enabled reactions at the current cost level
+ *
+ * Scans through all unselected reactions with cost <= the given threshold,
+ * selects those that are enabled (have available reactants) and do not
+ * invalidly produce carbon sources. Propagates their products for the next level.
+ *
+ * @param cost The objective coefficient threshold for reactions to consider
+ * @param level The current propagation level (for logging purposes)
+ * @return bool True if at least one reaction was added, false otherwise
+ */
 bool
 IncrSolver::level_iter (double cost, int level)
 {
@@ -274,6 +361,17 @@ IncrSolver::level_iter (double cost, int level)
     return count > 0;
 }
 
+/**
+ * @brief Add a cycle-breaking metabolite to enable deadlocked reactions
+ *
+ * When no reactions can be added at the current cost level, identifies metabolites
+ * that are both required (waited for) and can be supplied by reactions at this cost,
+ * indicating a cycle dependency. Randomly selects one such cycle metabolite and
+ * marks it as available to break the deadlock.
+ *
+ * @param cost The objective coefficient threshold for reactions to consider
+ * @return bool True if a cycle metabolite was added, false if none available
+ */
 // Add a metabolite that someone is waiting for, that can be supplied
 // by someone else (i.e. that is in a cycle)
 bool
@@ -351,6 +449,15 @@ IncrSolver::add_cycle_met (double cost)
 }
 
 
+/**
+ * @brief Generate a summary string of solver statistics and parameters
+ *
+ * Creates a summary containing the minimum cost, maximum cost used, number of
+ * cost iterations, level iterations, cycle metabolites added, and delegates to
+ * the LP solver summary.
+ *
+ * @return std::string Summary of solver execution statistics
+ */
 string
 IncrSolver::summary()
 {

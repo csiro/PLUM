@@ -1,11 +1,14 @@
-/* LNS style multi-experiment solver
-
-   - Reactions with lowest cost are assumed to be "in the model"
-   - Find the set of reactions to match a set of experiments.
-
+/**
+ * @file lnsmxsolver.cpp
+ * @brief Large Neighborhood Search (LNS) multi-experiment solver for metabolic gap-filling
+ *
+ * This file implements an LNS-style solver that finds the minimal set of reactions needed
+ * to match a set of experimental growth conditions. The solver uses adaptive choice methods,
+ * simulated annealing, tabu search, and Pareto front tracking to explore the solution space.
+ * Reactions with lowest cost are assumed to be "in the model" and the solver aims to find
+ * reactions that best match experimental flux balance analysis results.
  */
 
- 
 #include <list>
 #include <set>
 #include <chrono>
@@ -33,6 +36,18 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/**
+ * @brief Constructor for LNS multi-experiment solver
+ *
+ * @param scenario Pointer to the metabolic scenario containing reactions, metabolites, and experiments
+ * @param params Solver parameters controlling behavior
+ * @param flavour LP solver backend to use (GUROBI, LP_SOLVE, or HIGHS)
+ * @param which_obj Objective function type to optimize
+ * @param seed Random seed for reproducibility
+ * @param max_iters Maximum number of iterations
+ * @param make_all_unit Whether to force all reaction costs to unit cost
+ * @param progname Program name for display
+ */
 LnsMxSolver::LnsMxSolver (
     Scenario* scenario, Params* params, Flavour flavour, WhichObj which_obj,
     int seed, int max_iters, bool make_all_unit, string progname
@@ -161,14 +176,28 @@ LnsMxSolver::LnsMxSolver (
     adapt_choice_.setWeight (    MAKE_UNIT, 50.0f / 250.0f);
 }
 
-// Are two doubles close enough, relatively speaking
+/**
+ * @brief Check if two doubles are relatively equal within a tolerance
+ *
+ * @param a First value to compare
+ * @param b Second value to compare
+ * @param close Relative tolerance threshold
+ * @return true if values are within relative tolerance, false otherwise
+ */
 bool rel_equal (double a, double b, double close)
 {
     double base = limeMax (fabs(a), fabs(b));
     return (fabs (a - b) <= close * base);
 }
 
-SolutionPtr 
+/**
+ * @brief Main entry point to solve the multi-experiment gap-filling problem
+ *
+ * Performs initial solve and then iteratively improves the solution using LNS methods.
+ *
+ * @return Pointer to the best solution found
+ */
+SolutionPtr
 LnsMxSolver::solve ()
 {
     if (quiet_ == 2)
@@ -197,7 +226,16 @@ LnsMxSolver::solve ()
     return improve();
 }
 
-SolutionPtr 
+/**
+ * @brief Iteratively improve the current solution using LNS heuristics
+ *
+ * This is the main improvement loop that selects reactions to add/remove/modify,
+ * evaluates solutions, and uses adaptive choice, simulated annealing, and tabu search
+ * to explore the solution space.
+ *
+ * @return Pointer to the best solution found
+ */
+SolutionPtr
 LnsMxSolver::improve ()
 {
     int num_unselected = 0;
@@ -708,7 +746,15 @@ LnsMxSolver::improve ()
     return best_sol_->sol();
 }
 
-SolutionPtr 
+/**
+ * @brief Solve by iteratively adding reactions in order of increasing cost
+ *
+ * Alternative solving strategy that starts with only gene-indicated reactions
+ * and incrementally adds the cheapest available reactions until a solution is found.
+ *
+ * @return Pointer to the best solution found
+ */
+SolutionPtr
 LnsMxSolver::solve_by_add ()
 {
     if (quiet_ == 2)
@@ -1046,6 +1092,11 @@ LnsMxSolver::solve_by_add ()
     return improve();
 }
 
+/**
+ * @brief Disable all non-gene-indicated reactions
+ *
+ * @param num_unselected Output parameter tracking count of unselected reactions
+ */
 void
 LnsMxSolver::unselect_non_gene_ind(int& num_unselected)
 {
@@ -1064,6 +1115,12 @@ LnsMxSolver::unselect_non_gene_ind(int& num_unselected)
 }
 
 
+/**
+ * @brief Attempt to convert all non-unit cost reactions to unit cost
+ *
+ * Iteratively tries to make reactions have unit cost while maintaining solution quality.
+ * Reactions that cannot be made unit cost without degrading solution quality are marked.
+ */
 void
 LnsMxSolver::make_all_unit_cost()
 {
@@ -1294,6 +1351,12 @@ LnsMxSolver::make_all_unit_cost()
     }
 }
 
+/**
+ * @brief Initialize the solver and find an initial feasible solution
+ *
+ * Performs the initial solve for all experiments, calculates target fluxes,
+ * identifies non-unit reactions, and sets up objective multipliers.
+ */
 void
 LnsMxSolver::init_solve()
 {
@@ -1411,6 +1474,12 @@ LnsMxSolver::init_solve()
     }
 }
 
+/**
+ * @brief Solve LP for all experiments
+ *
+ * @param first_time If true, performs full solve; if false, uses faster do_solve
+ * @return MultiSol pointer containing solutions for all experiments
+ */
 MultiSolPtr
 LnsMxSolver::solve_all (bool first_time)
 {
@@ -1462,8 +1531,15 @@ LnsMxSolver::solve_all (bool first_time)
     return sol;
 }
 
-// Run all solvers
-// 
+/**
+ * @brief Execute LP solves for all experiments with current reaction set
+ *
+ * Runs solvers for all experiments in order of biological rank. Checks for growth
+ * mismatches, runaway reactions, and other failure conditions. Returns null if any
+ * critical constraint is violated.
+ *
+ * @return MultiSol pointer if all experiments solved successfully, nullptr otherwise
+ */
 MultiSolPtr
 LnsMxSolver::do_solve ()
 {
@@ -1591,10 +1667,13 @@ LnsMxSolver::do_solve ()
     return ok ? sol : nullptr;
 }
 
-/** Calculate the Kendall Tau rank score, compared to
-    the biolog ranking
-*/
-// Return sign of x, or sign of y if x == 0
+/**
+ * @brief Return the sign of x, or sign of y if x is zero
+ *
+ * @param x First value
+ * @param y Fallback value if x is zero
+ * @return -1.0 if negative, 1.0 if positive
+ */
 double sign (double x, double y)
 {
     if (limeIsZero (x)) {
@@ -1603,6 +1682,15 @@ double sign (double x, double y)
     return x < 0.0 ? -1.0f : 1.0f; 
 }
 
+/**
+ * @brief Calculate Kendall Tau rank correlation coefficient
+ *
+ * Compares the ranking of experimental biomass fluxes in the solution
+ * to the biological ranking from the experimental data.
+ *
+ * @param sol Solution to evaluate
+ * @return Kendall Tau correlation value between -1 and 1
+ */
 double
 LnsMxSolver::calc_kendall_tau (MultiSolPtr sol) const
 {
@@ -1629,6 +1717,12 @@ LnsMxSolver::calc_kendall_tau (MultiSolPtr sol) const
     return val;
 }
 
+/**
+ * @brief Calculate mean squared error between achieved and target fluxes
+ *
+ * @param sol Solution to evaluate
+ * @return Mean squared error across all experiments
+ */
 double
 LnsMxSolver::mean_squared_error (MultiSolPtr sol) const
 {
@@ -1644,7 +1738,12 @@ LnsMxSolver::mean_squared_error (MultiSolPtr sol) const
     return sum / num_exp();
 }
 
-int 
+/**
+ * @brief Count number of reactions used in best solution
+ *
+ * @return Number of reactions with non-zero flux in best solution
+ */
+int
 LnsMxSolver::num_used () const
 {
     int count = 0;
@@ -1657,6 +1756,11 @@ LnsMxSolver::num_used () const
     return count;
 }
 
+/**
+ * @brief Enable a reaction in all LP solvers
+ *
+ * @param react Reaction to enable
+ */
 void
 LnsMxSolver::enable_reaction (Reaction* react)
 {
@@ -1667,6 +1771,11 @@ LnsMxSolver::enable_reaction (Reaction* react)
     }
 }
 
+/**
+ * @brief Disable a reaction in all LP solvers
+ *
+ * @param react Reaction to disable
+ */
 void
 LnsMxSolver::disable_reaction (Reaction* react)
 {
@@ -1676,6 +1785,12 @@ LnsMxSolver::disable_reaction (Reaction* react)
     }
 }
 
+/**
+ * @brief Set the objective coefficient (cost) for a reaction in all experiments
+ *
+ * @param react Reaction to modify
+ * @param cost New cost value
+ */
 void
 LnsMxSolver::set_react_cost (Reaction* react, double cost)
 {
@@ -1684,6 +1799,13 @@ LnsMxSolver::set_react_cost (Reaction* react, double cost)
     }
 }
 
+/**
+ * @brief Save a new best solution
+ *
+ * Updates best_sol_, tracks iteration found, and optionally writes to output files.
+ *
+ * @param sol Solution attributes to save as new best
+ */
 void
 LnsMxSolver::save_best (SolAttributesPtr sol)
 {
@@ -1734,6 +1856,11 @@ LnsMxSolver::save_best (SolAttributesPtr sol)
     }
 }
 
+/**
+ * @brief Write list of unselected reactions in best solution to output stream
+ *
+ * @param out Output stream
+ */
 void
 LnsMxSolver::write_best_unselected (std::ostream& out)
 {
@@ -1744,6 +1871,11 @@ LnsMxSolver::write_best_unselected (std::ostream& out)
 }
 
 
+/**
+ * @brief Write best solution details including fluxes to output stream
+ *
+ * @param out Output stream
+ */
 void
 LnsMxSolver::write_best_sol (std::ostream& out)
 {
@@ -1761,6 +1893,14 @@ LnsMxSolver::write_best_sol (std::ostream& out)
 }
 
 
+/**
+ * @brief Select reactions to remove from the model using specified method
+ *
+ * @param num_to_remove Number of reactions to select
+ * @param method Selection method (BIAS_SEL, COST_SEL, FLUX_SEL, etc.)
+ * @param remove_list Output list of selected reactions
+ * @return true if reactions were selected, false otherwise
+ */
 bool
 LnsMxSolver::select_reactions_to_remove (
     int num_to_remove, Method method, ReactList& remove_list
@@ -1841,6 +1981,14 @@ LnsMxSolver::select_reactions_to_remove (
     return remove_list.size() > 0;
 }
 
+/**
+ * @brief Select reactions to add to the model
+ *
+ * @param num_to_add Number of reactions to select
+ * @param method Selection method (ADD_COST or ADD_RAND)
+ * @param add_list Output list of selected reactions
+ * @return true if reactions were selected, false otherwise
+ */
 bool
 LnsMxSolver::select_reactions_to_add (
     int num_to_add, Method method, ReactList& add_list
@@ -1908,6 +2056,16 @@ LnsMxSolver::select_reactions_to_add (
     return add_list.size() > 0;
 }
 
+/**
+ * @brief Select cheapest reactions from a candidate list to add
+ *
+ * Selects from reactions within 5% of the cheapest available reaction cost.
+ *
+ * @param reacts_to_add List of candidate reactions (modified to remove selected)
+ * @param num_to_add Number of reactions to select
+ * @param add_list Output list of selected reactions
+ * @return true if reactions were selected, false otherwise
+ */
 bool
 LnsMxSolver::select_cheap_reactions_to_add (
     ReactList& reacts_to_add,
@@ -1954,6 +2112,14 @@ LnsMxSolver::select_cheap_reactions_to_add (
     return add_list.size() > 0;
 }
 
+/**
+ * @brief Select non-unit cost reactions currently in use to convert to unit cost
+ *
+ * @param num_to_change Number of reactions to select
+ * @param method Selection method
+ * @param unit_list Output list of selected reactions
+ * @return true if reactions were selected, false otherwise
+ */
 bool
 LnsMxSolver::select_reactions_to_make_unit (
     int num_to_change, Method method, ReactList& unit_list
@@ -1999,6 +2165,13 @@ LnsMxSolver::select_reactions_to_make_unit (
     return unit_list.size() > 0;
 }
 
+/**
+ * @brief Select non-unit cost reactions (possibly unused) to convert to unit cost
+ *
+ * @param num_to_change Number of reactions to select
+ * @param unit_list Output list of selected reactions
+ * @return true if reactions were selected, false otherwise
+ */
 bool
 LnsMxSolver::select_unused_reactions_to_make_unit (
     int num_to_change, ReactList& unit_list
@@ -2043,7 +2216,14 @@ LnsMxSolver::select_unused_reactions_to_make_unit (
     return unit_list.size() > 0;
 }
 
-/** Set up react_chooser_ with biased weights */
+/**
+ * @brief Set up reaction chooser with biased weights based on target experiment
+ *
+ * Selects reactions used by over-target experiments while avoiding reactions
+ * used by under-target or on-target experiments.
+ *
+ * @param target_exp Index of experiment to target for removal
+ */
 void
 LnsMxSolver::remove_reactions_biased (size_t target_exp)
 {
@@ -2199,7 +2379,11 @@ LnsMxSolver::remove_reactions_biased (size_t target_exp)
     );
 }
 
-/** Set up react_chooser_ with weights based only on cost */
+/**
+ * @brief Set up reaction chooser with weights based only on reaction cost
+ *
+ * Higher cost reactions are more likely to be selected for removal.
+ */
 void
 LnsMxSolver::remove_reactions_cost ()
 {
@@ -2227,7 +2411,11 @@ LnsMxSolver::remove_reactions_cost ()
     );
 }
 
-/** Set up react_chooser_ with weights based on flux*/
+/**
+ * @brief Set up reaction chooser with weights based on flux values
+ *
+ * Reactions with higher flux are more likely to be selected for removal.
+ */
 void
 LnsMxSolver::remove_reactions_flux ()
 {
@@ -2255,9 +2443,11 @@ LnsMxSolver::remove_reactions_flux ()
     );
 }
 
-/** Set up react_chooser_ with weights based on cost * flux
-     - we want the most expensive reaction that is used a lot
-       this is useful particularly when we have runaway reactions.
+/**
+ * @brief Set up reaction chooser with weights based on cost times flux
+ *
+ * Targets expensive reactions that are used heavily, particularly useful
+ * for eliminating runaway reactions.
  */
 void
 LnsMxSolver::remove_reactions_cost_flux ()
@@ -2291,7 +2481,9 @@ LnsMxSolver::remove_reactions_cost_flux ()
     );
 }
 
-/** Set up react_chooser_ with uniform weights */
+/**
+ * @brief Set up reaction chooser with uniform weights for random selection
+ */
 void
 LnsMxSolver::remove_reactions_rand ()
 {
@@ -2319,7 +2511,11 @@ LnsMxSolver::remove_reactions_rand ()
     );
 }
 
-/** Set up react_chooser_ from bad_reacts list */
+/**
+ * @brief Set up reaction chooser from list of bad reactions
+ *
+ * Selects from reactions that previously caused problems when made unit cost.
+ */
 void
 LnsMxSolver::remove_reactions_bad ()
 {
@@ -2333,7 +2529,11 @@ LnsMxSolver::remove_reactions_bad ()
     );
 }
 
-/** Remove the oldest tabu  */
+/**
+ * @brief Remove the oldest tabu entry to allow reaction to be reconsidered
+ *
+ * @return true if a tabu entry was cleared, false if no tabu entries exist
+ */
 bool
 LnsMxSolver::remove_tabu ()
 {
@@ -2361,6 +2561,12 @@ LnsMxSolver::remove_tabu ()
 }
 
 
+/**
+ * @brief Write model containing reactions and metabolites from a solution
+ *
+ * @param out Output stream
+ * @param sol Solution containing reactions to include
+ */
 void
 LnsMxSolver::write_model(std::ostream& out, MultiSolPtr sol)
 {
@@ -2396,6 +2602,11 @@ LnsMxSolver::write_model(std::ostream& out, MultiSolPtr sol)
     }
 }
 
+/**
+ * @brief Write model for best solution to output stream
+ *
+ * @param out Output stream
+ */
 void
 LnsMxSolver::write_model(std::ostream& out)
 {
@@ -2404,6 +2615,13 @@ LnsMxSolver::write_model(std::ostream& out)
     write_model (out, best_sol_->sol());
 }
 
+/**
+ * @brief Write Pareto front solutions to output stream and files
+ *
+ * @param out Output stream for summary
+ * @param pareto_fn Base filename for individual Pareto solution files
+ * @param header Header text to include in files
+ */
 void
 LnsMxSolver::write_pareto (ostream& out, string pareto_fn, string header)
 {
@@ -2427,6 +2645,14 @@ LnsMxSolver::write_pareto (ostream& out, string pareto_fn, string header)
     }
 }
 
+/**
+ * @brief Write detailed description of best solution and solver statistics
+ *
+ * Includes summary statistics, per-experiment details, reactions that could not
+ * be made unit cost, and list of all used reactions.
+ *
+ * @param out Output stream
+ */
 void
 LnsMxSolver::write_descr(std::ostream& out)
 {

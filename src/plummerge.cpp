@@ -1,3 +1,15 @@
+/**
+ * @file plummerge.cpp
+ * @brief Merges two metabolic network scenarios for flux balance analysis
+ *
+ * This utility merges two PLUM scenario files (.pld) by combining their
+ * metabolites and reactions. It handles differences in metabolite descriptions,
+ * checks reaction stoichiometry consistency, and provides options to control
+ * which scenario's data is preferred. The tool is designed for metabolic
+ * gap-filling workflows where multiple network reconstructions need to be
+ * combined.
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -16,15 +28,22 @@
 #include "lime/sortpairt.h"
 
 #include "mosh/builddate.h" // For _build_date
-#include "mosh/gapsolver.h" 
+#include "mosh/gapsolver.h"
 #include "mosh/params.h"
 
 using namespace std;
 using namespace lime;
 using namespace mosh;
 
-// Define the OS variable
-const char* 
+/**
+ * @brief Returns the operating system name as a string
+ *
+ * Uses preprocessor directives to detect the compilation platform and
+ * returns the corresponding OS name.
+ *
+ * @return Constant string indicating the operating system (e.g., "Linux", "Windows", "Mac OS X")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -41,7 +60,19 @@ get_os_string() {
 #endif
 }
 
-// Return a "standardised" name from a string
+/**
+ * @brief Standardizes a metabolite or reaction name for comparison
+ *
+ * Converts the input string to lowercase and normalizes brackets and underscores
+ * to create a standardized representation. This enables consistent comparison of
+ * names that may have minor formatting differences.
+ * - Converts '[' to '('
+ * - Converts ']' to ')'
+ * - Converts '_' to '-'
+ *
+ * @param str The input string to standardize
+ * @return Standardized lowercase string with normalized characters
+ */
 string std_name (string str)
 {
     string name = toLower (str);
@@ -55,6 +86,26 @@ string std_name (string str)
     return name;
 }
 
+/**
+ * @brief Main entry point for the plummerge utility
+ *
+ * Merges two metabolic network scenarios by:
+ * 1. Reading two input .pld scenario files
+ * 2. Comparing metabolites and reactions between scenarios
+ * 3. Handling naming conflicts and stoichiometry differences
+ * 4. Optionally excluding exchange (EX) and demand (DM) reactions
+ * 5. Writing the merged scenario to an output file
+ * 6. Generating a report of errors and warnings
+ *
+ * The merge process checks for:
+ * - Metabolite full name differences
+ * - Reaction stoichiometry consistency
+ * - Conflicting definitions requiring unique name generation
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return 0 on success, 1 on failure
+ */
 int
 main (int argc, const char* argv[]) 
 {
