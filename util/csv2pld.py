@@ -1,4 +1,28 @@
 #!/usr/bin/env python3
+"""Convert metabolic network CSV files to PLD format for flux balance analysis.
+
+This module converts reaction and metabolite CSV files from metabolic models
+into PLD (Prolog-like Data) format, which can be used for metabolic gap-filling
+and flux balance analysis. The converter filters biomass reactions and optionally
+handles exchange (EX) and demand (DM) reactions.
+
+The PLD format represents metabolic networks with MET and REACTION entries,
+where each reaction specifies stoichiometry and objective values for optimization.
+
+Examples
+--------
+>>> # Command line usage:
+>>> # python csv2pld.py reactions.csv metabolites.csv output.pld
+>>> # python csv2pld.py -v 1500 +ex +dm reactions.csv metabolites.csv
+
+Notes
+-----
+- Biomass reactions are automatically excluded from output
+- Exchange reactions (no reactants) are excluded by default
+- Demand reactions (no products) are excluded by default
+- Special characters in identifiers are encoded (e.g., '[' becomes '__91__')
+- Reversible reactions are split into forward and reverse entries
+"""
 import sys
 import os
 import fileinput
@@ -12,19 +36,44 @@ include_ex = False
 include_dm = False
 
 def die (message):
+    """Print error message to stderr and exit with status 1.
+
+    Parameters
+    ----------
+    message : str
+        Error message to display before terminating.
+
+    Examples
+    --------
+    >>> die("File not found: data.csv")
+    """
     print (message, file=sys.stderr)
     exit (1)
 
 def usage (msg = ""):
+    """Display usage information and exit.
+
+    Prints command-line syntax, argument descriptions, and available switches
+    to stdout, then exits with status 1.
+
+    Parameters
+    ----------
+    msg : str, optional
+        Additional message to display before usage information, by default "".
+
+    Examples
+    --------
+    >>> usage("Error: Missing required file")
+    """
     global obj_value
-    
+
     print (msg)
     print (sys.argv[0], end=' ')
     print ('''[-v #] react.csv met.csv [out.pld]
-        Convert csv files into a PLD file. 
+        Convert csv files into a PLD file.
         (removes biomass reactions)
     Args
-        react.csv: CSV file with reactions 
+        react.csv: CSV file with reactions
           met.csv: CSV file with metabolites
           out.pld: output file [''' + default_out_fn + ''']
     Switches
@@ -35,6 +84,35 @@ def usage (msg = ""):
     exit (1)
     
 def fix_name (name):
+    """Encode special characters in metabolite and reaction identifiers.
+
+    Converts special characters to double-underscore-encoded ASCII values
+    to ensure identifiers are compatible with PLD format requirements.
+
+    Parameters
+    ----------
+    name : str
+        Original identifier containing special characters.
+
+    Returns
+    -------
+    str
+        Encoded identifier with special characters replaced.
+
+    Notes
+    -----
+    Character mappings:
+    - '[' -> '__91__'
+    - ']' -> '__93__'
+    - '(' -> '__40__'
+    - ')' -> '__41__'
+    - '-' -> '__45__'
+
+    Examples
+    --------
+    >>> fix_name("glucose-6-phosphate[c]")
+    'glucose__45__6__45__phosphate__91__c__93__'
+    """
     name = name.replace ("[", "__91__")
     name = name.replace ("]", "__93__")
     name = name.replace ("(", "__40__")
@@ -43,6 +121,25 @@ def fix_name (name):
     return name
 
 def is_float (string):
+    """Check if a string can be converted to a float.
+
+    Parameters
+    ----------
+    string : str
+        String to test for float conversion.
+
+    Returns
+    -------
+    bool
+        True if string can be converted to float, False otherwise.
+
+    Examples
+    --------
+    >>> is_float("3.14")
+    True
+    >>> is_float("glucose")
+    False
+    """
     try:
         v = float(string)
         return True
@@ -52,6 +149,70 @@ def is_float (string):
 
 
 def main():
+    """Parse command-line arguments and convert CSV files to PLD format.
+
+    Main entry point that orchestrates the conversion process:
+    1. Parse command-line arguments for input files and options
+    2. Read and validate reaction and metabolite CSV files
+    3. Process reactions, filtering by type and direction
+    4. Generate PLD format output with metabolites and reactions
+    5. Report statistics on conversion results
+
+    Command-line Arguments
+    ----------------------
+    react.csv : str
+        Path to CSV file containing reaction definitions with columns:
+        - Reaction name (column 0)
+        - Reaction ID (column 1)
+        - Stoichiometry string (column 2)
+    met.csv : str
+        Path to CSV file containing metabolite definitions with columns:
+        - Metabolite name (column 1)
+        - Metabolite ID (column 2)
+        - Chemical formula (column 3)
+    out.pld : str, optional
+        Output PLD file path, by default "out.pld".
+
+    Options
+    -------
+    -v # : float
+        Objective value for reactions, by default 2000.
+    +ex : flag
+        Include exchange reactions (no reactants), by default excluded.
+    +dm : flag
+        Include demand reactions (no products), by default excluded.
+
+    Raises
+    ------
+    IOError
+        If input files cannot be opened for reading or output file cannot
+        be opened for writing.
+    SystemExit
+        If required arguments are missing or invalid arguments are provided.
+
+    Notes
+    -----
+    Stoichiometry format in CSV:
+    - Format: "coef1 met1 + coef2 met2 --> coef3 met3 + coef4 met4"
+    - Directions: '-->' (forward), '<--' (reverse), '<=>' (reversible)
+    - Reactants have negative stoichiometry in output
+    - Reversible reactions generate two PLD entries (forward and reverse)
+
+    Filtering rules:
+    - Biomass reactions (ID starts with "biomass") are always excluded
+    - Exchange reactions (num_reactants == 0) excluded unless +ex specified
+    - Demand reactions (num_products == 0) excluded unless +dm specified
+
+    Examples
+    --------
+    Convert with default settings:
+    >>> # sys.argv = ['csv2pld.py', 'reactions.csv', 'metabolites.csv']
+    >>> main()
+
+    Convert with custom objective value and include exchange reactions:
+    >>> # sys.argv = ['csv2pld.py', '-v', '1500', '+ex', 'react.csv', 'met.csv', 'model.pld']
+    >>> main()
+    """
     global obj_value
     global include_ex
     global include_dm
