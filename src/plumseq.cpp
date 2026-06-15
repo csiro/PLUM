@@ -1,3 +1,13 @@
+/**
+ * @file plumseq.cpp
+ * @brief Sequential gap-filling solver for metabolic network reconstruction
+ *
+ * This program solves the metabolic gap-filling problem for microbiome analysis
+ * using various solver strategies (LP, integer programming, combined, heuristic).
+ * It reads metabolic network data, supply/demand constraints, and flux bounds,
+ * then identifies minimal sets of reactions needed to satisfy metabolic requirements
+ * while maintaining mass balance constraints.
+ */
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -32,7 +42,16 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Returns a string identifying the operating system
+ *
+ * Uses preprocessor macros to detect the compilation platform and returns
+ * a human-readable operating system identifier.
+ *
+ * @return Constant string describing the detected operating system
+ *         (Cygwin, Windows, Mac OS X, Linux, Unix, or Unknown OS)
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -49,8 +68,22 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Main entry point for the gap-filling solver
+ *
+ * Parses command-line arguments and configuration files to set up the metabolic
+ * gap-filling problem. Loads metabolic network data, supply/demand constraints,
+ * and flux measurements. Creates the appropriate solver instance (LP, integer,
+ * combined, or heuristic) and solves for the minimal set of reactions needed
+ * to satisfy metabolic requirements. Outputs solution statistics, flux values,
+ * metabolite balances, and graphical representations as requested.
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return Exit code (0 for success, 1 for failure)
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
     int seed = 0;
     int num_threads = 8;

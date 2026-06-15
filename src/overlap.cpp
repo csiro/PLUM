@@ -1,3 +1,13 @@
+/**
+ * @file overlap.cpp
+ * @brief Visualization tool for analyzing overlap between multiple gap-filling solutions
+ *
+ * This utility reads multiple solution files from gap-filling optimization runs and
+ * generates visual comparisons of reaction usage, flux distributions, metabolite balances,
+ * and production across solutions. It produces graphical output using the Dig plotting
+ * library to help identify common reactions and analyze solution variability in metabolic
+ * network reconstruction.
+ */
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -15,7 +25,7 @@
 #include "lime/sortpairt.h"
 
 #include "mosh/builddate.h" // For _build_date
-#include "mosh/gapsolver.h" 
+#include "mosh/gapsolver.h"
 #include "mosh/params.h"
 
 using namespace std;
@@ -23,7 +33,15 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Returns the operating system identification string
+ *
+ * Detects the compilation platform and returns a human-readable string identifying
+ * the operating system (Cygwin, Windows, Mac OS X, Linux, Unix, or Unknown OS).
+ *
+ * @return Constant string identifying the operating system
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -40,6 +58,19 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Reads a solution file and populates flux values into a Solution object
+ *
+ * Parses a solution file containing reaction names and flux values, validates that
+ * reactions exist in the scenario, and increments usage counts for each reaction.
+ * Each line of the input file should contain a reaction name followed by a flux value.
+ *
+ * @param scenario Pointer to the Scenario containing the metabolic network structure
+ * @param fn Filename of the solution file to read
+ * @param count Vector tracking the number of solutions using each reaction (incremented)
+ * @return Shared pointer to the populated Solution object
+ * @throws Error if a reaction name in the file is not found in the scenario
+ */
 SolutionPtr
 read_file (Scenario* scenario, string fn, vector<int>& count)
 {
@@ -64,7 +95,27 @@ read_file (Scenario* scenario, string fn, vector<int>& count)
     return sol;
 }
 
-
+/**
+ * @brief Main entry point for the overlap visualization tool
+ *
+ * Reads multiple gap-filling solution files and generates comparative visualizations:
+ * - Solution overlap plots showing which reactions are used across solutions
+ * - Flux distribution comparisons organized by reaction
+ * - Flux distributions sorted by maximum difference between solutions
+ * - Metabolite balance comparisons across solutions
+ * - Metabolite production flux comparisons across solutions
+ *
+ * Command-line arguments:
+ * - -g: Output dig filename (default: overlap.dig)
+ * - -d: Debug string for debugging output
+ * - -j: Biomass objective multiplier
+ * - data.pld: Input metabolic network data file (required)
+ * - sol.out...: One or more solution files to compare (required)
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return Exit status (0 for success, 1 for failure)
+ */
 int
 main (int argc, const char* argv[]) 
 {

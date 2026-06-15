@@ -1,3 +1,13 @@
+/**
+ * @file intsolver.cpp
+ * @brief Integer linear programming solver implementation for metabolic gap-filling
+ *
+ * This file implements the IntSolver class which formulates and solves integer linear
+ * programming (ILP) problems for metabolic network gap-filling. It supports multiple
+ * formulations for optimizing reaction selection while maintaining flux balance constraints
+ * and biomass production requirements.
+ */
+
 #include <list>
 #include <sstream>
 #include <iomanip>
@@ -18,6 +28,20 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/**
+ * @brief Formulates the integer linear programming problem for gap-filling
+ *
+ * Constructs the ILP formulation including:
+ * - Flux variables for biomass and metabolic reactions
+ * - Binary use variables for reaction selection
+ * - Metabolite balance constraints
+ * - Reaction linking constraints
+ *
+ * The specific formulation depends on which_formulation_:
+ * - Formulation 1: Optimizes biomass with multiplier
+ * - Formulation 2: Fixes lower bound for biomass flux from continuous solution
+ * - Formulation 3: Minimizes reaction cost then flux with cost multiplier
+ */
 void
 IntSolver::formulate ()
 {
@@ -185,6 +209,19 @@ IntSolver::formulate ()
     imp_->finalise_formulation();
 }
 
+/**
+ * @brief Solves the integer linear programming problem
+ *
+ * Performs the complete solving workflow:
+ * 1. Calculates biomass multiplier for formulation 1
+ * 2. Formulates the ILP problem
+ * 3. Writes model to file if debug mode enabled
+ * 4. Optimizes using the LP solver implementation
+ * 5. Fixes rounding issues in the solution
+ * 6. Creates and returns solution object
+ *
+ * @return SolutionPtr Pointer to solution object, or nullptr if infeasible or no continuous solution
+ */
 SolutionPtr
 IntSolver::solve ()
 {
@@ -236,6 +273,16 @@ IntSolver::solve ()
     return imp_->make_sol();
 }
 
+/**
+ * @brief Calculates the biomass objective coefficient multiplier for formulation 1
+ *
+ * Computes a multiplier to scale the biomass reaction objective coefficient to ensure
+ * it dominates the objective function. The multiplier is based on the absolute objective
+ * value from the continuous solution or parameter settings, and is further scaled by
+ * a heuristic integer factor to avoid slow phase transition zones.
+ *
+ * Uses the maximum multiplier required across all experiments.
+ */
 void
 IntSolver::calc_biomass_mult()
 {
@@ -271,6 +318,19 @@ IntSolver::calc_biomass_mult()
 }
 
 
+/**
+ * @brief Fixes rounding errors in the integer solution
+ *
+ * Post-processes the integer solution to handle fractional binary variables that
+ * should be 0 or 1. This method is currently commented out but would iteratively
+ * identify reactions with non-zero flux but fractional use variables, then test
+ * forcing them up or down to find the best integer-feasible solution.
+ *
+ * The commented implementation uses a heuristic approach that:
+ * - Identifies reactions with fractional use variables
+ * - Tests forcing each variable up (to 1) or down (to 0)
+ * - Selects the forcing direction that yields better objective and flux
+ */
 void
 IntSolver::fix_rounding ()
 {
@@ -479,8 +539,14 @@ IntSolver::fix_rounding ()
 */
 }
 
+/**
+ * @brief Generates a summary string of the solver results
+ *
+ * @return std::string Summary containing biomass objective multiplier, MIP gap,
+ *         and number of rounding iterations
+ */
 string
-IntSolver::summary() 
+IntSolver::summary()
 {
     stringstream str;
     str <<

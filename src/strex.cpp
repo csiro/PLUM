@@ -1,9 +1,21 @@
-/*
-  String extractor
-  - Read agora model dump (0/1 for reaciton in/out of model
-  - construct the model
-  - find the shortest path 
-*/
+/**
+ * @file strex.cpp
+ * @brief String extractor for metabolic network path analysis
+ *
+ * This tool reads metabolic model data and performs path analysis operations:
+ * - Reads AGORA model dump (0/1 for reactions in/out of model)
+ * - Constructs the metabolic model
+ * - Finds shortest paths between metabolites
+ * - Identifies loops in reaction networks
+ * - Traces paths to biomass reactants for gap-filling analysis
+ *
+ * The tool supports two main modes:
+ * - Loop mode (default): Identifies cycles in the reaction network
+ * - Biomass mode: Finds paths from supply metabolites to all biomass reactants
+ *
+ * Optional flux constraints can be applied to consider only reactions with
+ * non-zero flux in a provided solution.
+ */
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -31,7 +43,16 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Returns the operating system name as a string
+ *
+ * Uses preprocessor directives to detect the compilation platform
+ * and returns the corresponding OS name.
+ *
+ * @return Constant string identifying the operating system ("Cygwin", "Windows",
+ *         "Mac OS X", "Linux", "Unix", or "Unknown OS")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -48,6 +69,30 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Main entry point for the string extractor metabolic path analysis tool
+ *
+ * Processes command line arguments to configure and execute metabolic network
+ * path analysis. The tool can operate in two modes:
+ *
+ * Loop mode (default):
+ * - Identifies loops (cycles) in the reaction network
+ * - Reports number of loops and metabolites involved
+ *
+ * Biomass mode (-b flag):
+ * - Finds paths from supply metabolites to biomass reactants
+ * - Reports coverage of biomass requirements for gap-filling
+ *
+ * The analysis can be constrained by:
+ * - Supply/demand constraints from file(s)
+ * - Flux solution (only reactions with non-zero flux)
+ * - Random seed for reproducibility
+ *
+ * @param argc Number of command line arguments
+ * @param argv Array of command line argument strings
+ *
+ * @return Exit status: 0 on success, 1 on error
+ */
 int
 main (int argc, const char* argv[]) 
 {

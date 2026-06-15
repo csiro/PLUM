@@ -1,3 +1,12 @@
+/**
+ * @file plum.cpp
+ * @brief Main entry point for the PLUM metabolic gap-filling solver
+ *
+ * This file implements the PLUM (Probabilistic modeling for metabolomics) application,
+ * which solves metabolic gap-filling problems for microbiome analysis using various
+ * optimization approaches including continuous (CTS), integer (INT), and incremental
+ * (INCR) solvers with flux balance analysis (FBA) techniques.
+ */
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -42,7 +51,11 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Detects and returns the operating system name
+ * @return C-string representing the current operating system (e.g., "Linux", "Mac OS X", "Windows")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -59,9 +72,34 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Specifies which set of reactions to include in output model
+ * @enum WhichReactions
+ */
+/** @var WhichReactions::USED
+ * Only reactions with non-zero flux in the solution
+ */
+/** @var WhichReactions::GENE_IND
+ * Gene-indicated reactions including those with minimum cost
+ */
+/** @var WhichReactions::SELECTED
+ * All selected reactions regardless of flux
+ */
 enum WhichReactions {USED, GENE_IND, SELECTED};
+/**< String names corresponding to WhichReactions enum values */
 vector<const char*> whichName = {"USED", "GENE_IND", "SELECTED"};
 
+/**
+ * @brief Writes a metabolic model to file with optional reactions included
+ * @param fn Output filename for the model
+ * @param which Specifies which reactions to include (USED, GENE_IND, or SELECTED)
+ * @param react_cost_one If true, set all reaction costs to 1 in output
+ * @param scenario Pointer to the metabolic scenario containing network data
+ * @param params Pointer to parameter configuration
+ * @param sol Shared pointer to the solution containing flux values
+ * @param progname Program name string for file header
+ * @param summary Summary string with run statistics for file header
+ */
 void
 write_model (
     string fn, WhichReactions which, bool react_cost_one,
@@ -108,9 +146,54 @@ write_model (
     }
 }
 
+/**
+ * @brief Main entry point for PLUM gap-filling solver
+ *
+ * Parses command-line arguments, reads metabolic network data, configures and runs
+ * the selected solver (CTS, INT, INCR, etc.), and outputs results including flux
+ * distributions, models, and metabolite balances.
+ *
+ * @param argc Argument count
+ * @param argv Argument vector containing command-line parameters
+ * @return Exit status (0 for success, 1 for error)
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
+    /**
+     * @brief Available solver types for metabolic gap-filling optimization
+     * @enum SolverType
+     */
+    /** @var SolverType::CTS
+     * Continuous solver (linear programming)
+     */
+    /** @var SolverType::CTS2
+     * Two-stage continuous solver with target flux
+     */
+    /** @var SolverType::INT
+     * Integer solver (mixed-integer programming)
+     */
+    /** @var SolverType::INT2
+     * Integer solver variant 2
+     */
+    /** @var SolverType::INT3
+     * Integer solver variant 3
+     */
+    /** @var SolverType::INCR
+     * Incremental solver that progressively adds reactions
+     */
+    /** @var SolverType::INCR_INT
+     * Incremental solver with integer programming
+     */
+    /** @var SolverType::COMB
+     * Combinatorial solver (not currently implemented)
+     */
+    /** @var SolverType::MH
+     * Math-heuristic solver (not currently implemented)
+     */
+    /** @var SolverType::DUMMY
+     * Dummy solver for testing purposes
+     */
     enum SolverType {
         CTS, CTS2, INT, INT2, INT3, INCR, INCR_INT, COMB, MH, DUMMY
     };

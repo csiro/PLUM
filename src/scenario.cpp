@@ -1,3 +1,12 @@
+/**
+ * @file scenario.cpp
+ * @brief Implementation of metabolic network scenario management for flux balance analysis
+ *
+ * This file implements the Scenario class which manages metabolic networks including
+ * metabolites, reactions, experiments, and various operations for gap-filling and
+ * flux balance analysis. It handles reading network data, managing dummy reactions,
+ * calculating reachability, and supporting Dijkstra-based pathway analysis.
+ */
 
 #include <sstream>
 #include <algorithm>
@@ -23,12 +32,22 @@ using namespace lime;
 
 namespace mosh
 {
-    bool 
+    /**
+     * @brief Checks if a value represents a "don't care" marker
+     * @param val The value to check
+     * @return true if the value equals DONT_CARE constant, false otherwise
+     */
+    bool
     isDontCare (double val)
     {
         return (int) val == DONT_CARE;
     }
     
+    /**
+     * @brief Checks if a value should be ignored in calculations
+     * @param val The value to check
+     * @return true if the value equals IGNORE constant, false otherwise
+     */
     bool
     isIgnoreVal (double val)
     {
@@ -38,6 +57,15 @@ namespace mosh
     
 using namespace mosh;
 
+/**
+ * @brief Reads metabolic network data from a file
+ * @param data_fn Path to the data file containing metabolite and reaction definitions
+ *
+ * Parses a network definition file containing MET (metabolite) and REACTION lines.
+ * Each metabolite has a name and full name. Each reaction has a name, objective coefficient,
+ * flux upper bound, and list of participating metabolites with stoichiometric coefficients.
+ * Initializes the scenario with all reactions selected.
+ */
 void
 Scenario::read_data (std::string data_fn)
 {
@@ -152,6 +180,14 @@ Scenario::read_data (std::string data_fn)
     select_all();
 }
 
+/**
+ * @brief Finalizes scenario setup by applying parameter-based modifications
+ * @param params Pointer to parameters controlling dummy reaction addition, cost settings, and bounds
+ *
+ * Applies various post-processing steps including adding dummy reactions for mass balance,
+ * filtering reactions by cost threshold, preserving existing dummies, setting unit costs,
+ * and adjusting biomass flux upper bounds.
+ */
 void
 Scenario::finalise (Params* params)
 {
@@ -177,7 +213,14 @@ Scenario::finalise (Params* params)
         biomass_react_->set_flux_ub (params->biomass_ub);
 }
 
-// Add dummay reactions for all mets.
+/**
+ * @brief Adds dummy supply and demand reactions for all metabolites
+ * @param dummy_cost Objective coefficient to assign to dummy reactions
+ *
+ * Creates two dummy reactions per metabolite: a supply reaction (positive coefficient)
+ * and a demand reaction (negative coefficient). These enable mass balance in the network
+ * by allowing metabolites to be produced or consumed artificially at a penalty cost.
+ */
 void
 Scenario::add_dummy_reactions (double dummy_cost)
 {
@@ -223,7 +266,12 @@ Scenario::add_dummy_reactions (double dummy_cost)
     cout << " Now " << reaction_.size() << " reactions with dummies" << endl;
 }
 
-// Select existing dummies, identified by their name
+/**
+ * @brief Selects existing dummy reactions identified by naming convention
+ *
+ * Scans all reactions and selects those containing "-dummy-" in their name
+ * that are currently unselected. Used to preserve dummy reactions from previous runs.
+ */
 void
 Scenario::preserve_dummies ()
 {
@@ -241,7 +289,14 @@ Scenario::preserve_dummies ()
     cout << "Preserved " << count << " '-dummy-' reactions" << endl;
 }
 
-// Add dummy DM reactions for biomass reactants 
+/**
+ * @brief Adds dummy DM (demand) reactions for biomass reactants and products
+ * @param params Pointer to parameters controlling which types of biomass dummies to add
+ *
+ * Based on parameter flags, adds dummy reactions for biomass reactants (demand or supply)
+ * and biomass products (demand). These help balance the biomass equation by allowing
+ * excess reactants to be consumed or missing reactants to be supplied.
+ */
 void
 Scenario::add_dummy_biomass_dm (Params* params)
 {
@@ -338,6 +393,14 @@ Scenario::add_dummy_biomass_dm (Params* params)
         endl;
 }
 
+/**
+ * @brief Reads known flux values from a file
+ * @param flux_fn Path to flux file containing reaction names and flux values
+ *
+ * Reads flux measurements for reactions. Each line contains a reaction ID, flux value,
+ * and optional error bound. Sets reactions with zero flux as inactive and stores
+ * known flux values with error bounds. Ignores reactions with uncertain flux (marked with IGNORE).
+ */
 void
 Scenario::read_flux (std::string flux_fn)
 {
@@ -397,8 +460,16 @@ Scenario::read_flux (std::string flux_fn)
     }
 }
 
-// Read, updating according to policy.
-// Note: those wil gene-indicated cost remain gene-indicated
+/**
+ * @brief Reads and applies reaction costs from a file according to a policy
+ * @param react_cost_fn Path to file containing reaction names and cost values
+ * @param params Pointer to parameters including gene-indicated cost
+ * @param policy Policy for updating costs (USEMIN, USEMAX, or REPLACE)
+ *
+ * Updates reaction objective coefficients based on the specified policy.
+ * Skips gene-indicated reactions and biomass reactions. Policy determines whether
+ * to use minimum, maximum, or always replace existing costs.
+ */
 void
 Scenario::read_react_cost (
     string react_cost_fn, const Params* params, ReactCostPolicy policy
@@ -479,6 +550,13 @@ Scenario::read_react_cost (
     cout << "Updated cost on " << count << " reactions" << endl;
 }
 
+/**
+ * @brief Reads carbon source metabolites from a file
+ * @param c_source_fn Path to file listing carbon source metabolite names
+ *
+ * Marks metabolites as carbon sources. Each line contains a metabolite name.
+ * Carbon sources are typically nutrients that provide carbon for biosynthesis.
+ */
 void
 Scenario::read_c_sources (string c_source_fn)
 {
@@ -506,6 +584,13 @@ Scenario::read_c_sources (string c_source_fn)
     }
 }
 
+/**
+ * @brief Reads metabolites involved in metabolic cycles
+ * @param cycle_met_fn Path to file listing cycle metabolite names
+ *
+ * Marks metabolites as cycle metabolites. These are metabolites that participate
+ * in metabolic cycles and may require special handling in pathway analysis.
+ */
 void
 Scenario::read_cycle_mets (string cycle_met_fn)
 {
@@ -533,6 +618,16 @@ Scenario::read_cycle_mets (string cycle_met_fn)
     }
 }
 
+/**
+ * @brief Reads supply and demand constraints for metabolites in an experiment
+ * @param supply_demand_fn Path to file defining metabolite supply/demand ranges
+ * @param params Pointer to parameters including biolog growth thresholds
+ *
+ * Creates an experiment from the supply/demand file. Each metabolite line specifies
+ * lower and upper bounds for supply (positive) or demand (negative), and optionally
+ * marks carbon sources. The file may also contain a biolog growth score for the experiment.
+ * Experiments are sorted by biolog score in descending order.
+ */
 void
 Scenario::read_supply_demand (string supply_demand_fn, const Params* params)
 {
@@ -624,6 +719,13 @@ Scenario::read_supply_demand (string supply_demand_fn, const Params* params)
     }
 }
 
+/**
+ * @brief Reads base flux values for experiments
+ * @param base_flux_fn Path to file containing experiment names and base flux values
+ *
+ * Assigns base flux values to experiments for use in rank constraint calculations.
+ * Each line contains an experiment filename and corresponding base flux value.
+ */
 void
 Scenario::read_base_flux (string base_flux_fn)
 {
@@ -666,6 +768,14 @@ Scenario::read_base_flux (string base_flux_fn)
     }
 }
 
+/**
+ * @brief Calculates target flux values for all experiments based on rank 0 flux
+ * @param target Output vector to store calculated target flux for each experiment
+ * @param rank0_flux Flux value for the highest-ranked (rank 0) experiment
+ *
+ * Scales target flux for each experiment proportionally to its biolog score
+ * relative to the rank 0 experiment. Optionally clamps values at base flux.
+ */
 void
 Scenario::calc_target_flux (vector<double>& target, double rank0_flux)
 {
@@ -690,6 +800,13 @@ Scenario::calc_target_flux (vector<double>& target, double rank0_flux)
     }
 }
 
+/**
+ * @brief Calculates the reachability depth of the metabolic network
+ * @return Maximum depth required to reach all reachable metabolites and reactions
+ *
+ * Uses experiment 0 as the reference. Depth represents the number of reaction
+ * steps needed to produce all reachable metabolites from available supplies.
+ */
 int
 Scenario::depth ()
 {
@@ -709,6 +826,13 @@ Scenario::depth ()
     return depth;
 }
 
+/**
+ * @brief Calculates reachability depth for a specific solution
+ * @param sol Pointer to solution defining which reactions are active with non-zero flux
+ * @return Maximum depth considering only reactions present in the solution
+ *
+ * Similar to depth() but restricted to reactions with non-zero flux in the given solution.
+ */
 int
 Scenario::sol_depth (Solution* sol)
 {
@@ -728,9 +852,15 @@ Scenario::sol_depth (Solution* sol)
 }
 
 /**
-   Counts the number of reactions, metabolites and metabolites with
-   residuals that *cannot* be reached
-*/
+ * @brief Counts unreachable elements in the metabolic network
+ * @param exp_idx Index of the experiment to analyze
+ * @param reactions Output: number of unreachable reactions
+ * @param mets Output: number of unreachable metabolites
+ * @param residuals Output: number of unreachable residual metabolites
+ *
+ * Performs reachability analysis and counts reactions and metabolites that
+ * cannot be reached from available supplies in the specified experiment.
+ */
 void
 Scenario::count_reachability (
     size_t exp_idx, int& reactions, int& mets, int& residuals
@@ -765,9 +895,24 @@ Scenario::count_reachability (
     DEBUG ('P', "Reachable count is " << reactions);
 }
 
+/**
+ * @brief Calculates detailed reachability information for a metabolic network
+ * @param exp_idx Index of experiment defining supply and residual constraints
+ * @param react_depth Output: depth at which each reaction becomes enabled
+ * @param avail Output: availability status of each metabolite
+ * @param enabled_by Output: reaction index that enabled each metabolite (-1 for supply, -2 for unavailable)
+ * @param residual_depth Output: depth at which all residual metabolites are satisfied
+ * @param never Output: constant value representing unreachable depth
+ * @param sol Optional solution to restrict analysis to reactions with non-zero flux
+ * @return Maximum depth achieved in the reachability analysis
+ *
+ * Performs iterative forward propagation through the network, tracking when reactions
+ * become enabled as their input metabolites become available. Optionally considers
+ * flux amounts when a solution is provided.
+ */
 int
 Scenario::calc_reachability (
-    size_t exp_idx, 
+    size_t exp_idx,
     vector<int>& react_depth, vector<bool>& avail, vector<int>& enabled_by,
     int& residual_depth, int& never, Solution* sol // can be null
 )
@@ -924,6 +1069,15 @@ Scenario::calc_reachability (
     return curr_depth;
 }
 
+/**
+ * @brief Constructs a Dijkstra graph for shortest path analysis
+ * @param graph Output: Dijkstra graph structure to populate
+ * @param params Parameters controlling reaction selection (e.g., max cost)
+ * @return Index of the dummy source node
+ *
+ * Creates a graph with metabolites as nodes and reactions as edges. Assumes all
+ * metabolites are available (to handle cycles). Used for finding minimum-cost pathways.
+ */
 size_t
 Scenario::make_dijkstra (
     lime::Dijkstra<double>& graph, const Params* params
@@ -937,6 +1091,18 @@ Scenario::make_dijkstra (
     return make_dijkstra (graph, params, avail, supplied_by);
 }
 
+/**
+ * @brief Constructs a Dijkstra graph with custom availability constraints
+ * @param graph Output: Dijkstra graph structure to populate
+ * @param params Parameters controlling reaction selection (e.g., max cost)
+ * @param avail Input/output: availability status of metabolites
+ * @param supplied_by Output: tracks which reaction supplies each metabolite
+ * @return Index of the dummy source node
+ *
+ * Creates a graph where edges connect input metabolites to output metabolites
+ * through reactions. Edge weights are reaction objective coefficients. Iteratively
+ * selects reactions whose inputs are available and makes their outputs available.
+ */
 size_t
 Scenario::make_dijkstra (
     lime::Dijkstra<double>& graph, const Params* params,
@@ -1043,6 +1209,16 @@ Scenario::make_dijkstra (
     return dummy_source;
 }
 
+/**
+ * @brief Visualizes network reachability using a Dig plotting object
+ * @param dig Pointer to Dig object for creating visualization
+ * @param sol Optional solution to restrict visualization to active reactions
+ *
+ * Creates a visual representation showing when reactions become enabled and
+ * how metabolites become available. X-axis shows reactions ordered by depth,
+ * Y-axis shows metabolites. Color coding indicates supply (blue), residual (red),
+ * and enabling connections (green lines).
+ */
 void
 Scenario::draw_reachability (Dig* dig, Solution* sol)
 {

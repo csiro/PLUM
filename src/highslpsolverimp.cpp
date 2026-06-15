@@ -1,3 +1,13 @@
+/**
+ * @file highslpsolverimp.cpp
+ * @brief Implementation of HiGHS-based LP solver for metabolic network gap-filling
+ *
+ * This file contains the implementation of the HighsLPSolverImp class, which provides
+ * a concrete implementation of the LPSolverImp interface using the HiGHS optimization library.
+ * It handles the formulation and solution of mixed-integer linear programming problems for
+ * metabolic network reconstruction, including flux balance analysis (FBA) constraints,
+ * reaction usage variables, and multi-experiment scenarios.
+ */
 
 #include <sstream>
 #include <list>
@@ -15,6 +25,19 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/**
+ * @brief Create a binary usage variable for a reaction in the optimization model
+ *
+ * Creates an integer variable that indicates whether a reaction is used (active) in the
+ * metabolic network. This variable is shared across all experiments and is used in
+ * linking constraints to enforce that flux can only occur if the reaction is selected.
+ *
+ * @param react Pointer to the reaction for which to create the usage variable
+ * @param name Name identifier for the variable in the model
+ * @param obj_coeff Objective function coefficient (penalty for using this reaction)
+ * @param lb Lower bound for the usage variable (typically 0)
+ * @param ub Upper bound for the usage variable (typically 1)
+ */
 void
 HighsLPSolverImp::make_use_var (
     const Reaction* react, string name, double obj_coeff, double lb, double ub
@@ -40,6 +63,20 @@ HighsLPSolverImp::make_use_var (
     );
 }
 
+/**
+ * @brief Create a flux variable for a reaction in a specific experiment
+ *
+ * Creates a continuous variable representing the flux (reaction rate) through a reaction
+ * in a particular experimental condition. For biomass reactions, the variable ID is also
+ * stored separately for quick access during objective function modifications.
+ *
+ * @param react Pointer to the reaction for which to create the flux variable
+ * @param exp Index of the experimental condition
+ * @param name Base name identifier for the variable (experiment index appended if multiple experiments)
+ * @param obj_coeff Objective function coefficient for this flux variable
+ * @param lb Lower bound for the flux (typically negative for reversible reactions)
+ * @param ub Upper bound for the flux (maximum reaction rate)
+ */
 void
 HighsLPSolverImp::make_flux_var (
     const Reaction* react, size_t exp, string name,
@@ -68,6 +105,21 @@ HighsLPSolverImp::make_flux_var (
     );
 }
 
+/**
+ * @brief Add a metabolite mass balance constraint to the model
+ *
+ * Creates a constraint enforcing steady-state mass balance for a metabolite in a specific
+ * experiment. The constraint ensures that the sum of fluxes producing the metabolite equals
+ * the sum of fluxes consuming it (weighted by stoichiometric coefficients), implementing
+ * the fundamental constraint of flux balance analysis.
+ *
+ * @param met Pointer to the metabolite for which to create the constraint
+ * @param exp Index of the experimental condition
+ * @param lb Lower bound for the constraint (typically 0 for strict steady-state)
+ * @param ub Upper bound for the constraint (typically 0 for strict steady-state)
+ * @param reacts Vector of reactions participating in the metabolite's mass balance
+ * @param coeffs Vector of stoichiometric coefficients corresponding to each reaction
+ */
 void
 HighsLPSolverImp::add_met_constraint (
     const Metabolite* met, size_t exp, double lb, double ub,
@@ -93,6 +145,17 @@ HighsLPSolverImp::add_met_constraint (
     );
 }
 
+/**
+ * @brief Add a constraint linking reaction flux to its usage indicator variable
+ *
+ * Creates a big-M constraint that enforces the relationship between a reaction's flux
+ * variable and its binary usage variable. The constraint ensures that flux can only be
+ * non-zero if the usage variable is 1, implementing the logical constraint:
+ * flux <= flux_ub * use, or equivalently: flux - flux_ub * use <= 0
+ *
+ * @param react Pointer to the reaction for which to create the linking constraint
+ * @param exp Index of the experimental condition
+ */
 void
 HighsLPSolverImp::add_react_link_constraint (const Reaction* react, size_t exp)
 {
@@ -113,6 +176,18 @@ HighsLPSolverImp::add_react_link_constraint (const Reaction* react, size_t exp)
     );
 }
 
+/**
+ * @brief Update the flux bounds for a reaction in a specific experiment
+ *
+ * Modifies the lower and upper bounds on a reaction's flux variable for a particular
+ * experimental condition. This is used to enforce experimental constraints, such as
+ * gene knockouts (bounds set to 0) or measured flux ranges.
+ *
+ * @param react Pointer to the reaction whose bounds are being modified
+ * @param exp Index of the experimental condition
+ * @param lb New lower bound for the reaction flux
+ * @param ub New upper bound for the reaction flux
+ */
 void
 HighsLPSolverImp::set_react_bounds (
     const Reaction* react, size_t exp, double lb, double ub
@@ -130,6 +205,17 @@ HighsLPSolverImp::set_react_bounds (
 }
 
 
+/**
+ * @brief Update the objective function coefficient for a reaction flux variable
+ *
+ * Modifies the coefficient of a reaction's flux variable in the objective function
+ * for a specific experiment. This is used to weight different objectives, such as
+ * maximizing biomass production or minimizing total flux.
+ *
+ * @param exp Index of the experimental condition
+ * @param react Pointer to the reaction whose objective coefficient is being modified
+ * @param cost New objective function coefficient for the reaction flux
+ */
 void
 HighsLPSolverImp::set_react_cost (
     size_t exp, const Reaction* react, double cost
@@ -146,6 +232,16 @@ HighsLPSolverImp::set_react_cost (
     );
 }
 
+/**
+ * @brief Update the objective function coefficient for the biomass reaction
+ *
+ * Modifies the coefficient of the biomass flux variable in the objective function
+ * for a specific experiment. This is commonly used to maximize biomass production
+ * during flux balance analysis.
+ *
+ * @param exp Index of the experimental condition
+ * @param mult New objective coefficient multiplier for the biomass flux
+ */
 void
 HighsLPSolverImp::set_biomass_mult (size_t exp, double mult) 
 {
@@ -156,7 +252,19 @@ HighsLPSolverImp::set_biomass_mult (size_t exp, double mult)
     );
 }
 
-StatusEnum 
+/**
+ * @brief Solve the optimization problem using the HiGHS solver
+ *
+ * Invokes the HiGHS solver to optimize the formulated mixed-integer linear program.
+ * The function maps HiGHS status codes to the internal StatusEnum type and handles
+ * various solver outcomes including optimal solutions, time limits, and infeasibility.
+ *
+ * @return StatusEnum indicating the solution status:
+ *         - CTS_OPTIMAL: Optimal solution found
+ *         - SUB_OPTIMAL: Feasible solution found but not proven optimal (e.g., time limit)
+ *         - INFEASIBLE_: Problem is infeasible or solver failed
+ */
+StatusEnum
 HighsLPSolverImp::optimize()
 {
     check_highs_status (
@@ -183,6 +291,17 @@ HighsLPSolverImp::optimize()
     return  (status == HighsModelStatus::kOptimal ? CTS_OPTIMAL : SUB_OPTIMAL);
 }
 
+/**
+ * @brief Extract the solution for a specific experiment from the solver
+ *
+ * Creates a Solution object containing the flux values for all selected reactions
+ * in a particular experimental condition. If the solver did not find a feasible solution,
+ * an empty Solution object is returned. Small flux values below the integrality tolerance
+ * threshold are rounded to zero.
+ *
+ * @param exp Index of the experimental condition for which to extract the solution
+ * @return SolutionPtr Shared pointer to a Solution object containing flux values
+ */
 SolutionPtr
 HighsLPSolverImp::make_sol(size_t exp)
 {

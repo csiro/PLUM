@@ -1,3 +1,16 @@
+/**
+ * @file plumsp.cpp
+ * @brief PLUM shortest path analysis tool for metabolic networks
+ *
+ * This program analyzes metabolic networks to find paths and loops in reactions.
+ * It supports two primary modes:
+ * - Loop mode (default): Identifies loops in the reaction network
+ * - Biomass mode: Finds paths from inputs to all biomass reactants
+ *
+ * The tool can analyze flux balance analysis (FBA) solutions and consider only
+ * reactions with non-zero flux. It supports carbon source graph generation and
+ * metabolic gap-filling analysis.
+ */
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -28,7 +41,15 @@ using namespace lime;
 using namespace mosh;
 
 // Define the OS variable
-const char* 
+/**
+ * @brief Determines the operating system at compile time
+ *
+ * Uses preprocessor macros to identify the target operating system
+ * during compilation.
+ *
+ * @return Constant string identifying the OS ("Cygwin", "Windows", "Mac OS X", "Linux", "Unix", or "Unknown OS")
+ */
+const char*
 get_os_string() {
 #ifdef __CYGWIN__
     return "Cygwin";
@@ -45,30 +66,47 @@ get_os_string() {
 #endif
 }
 
+/**
+ * @brief Main entry point for the PLUM shortest path analysis tool
+ *
+ * Parses command-line arguments, initializes the metabolic network scenario,
+ * and performs path/loop analysis based on the selected mode:
+ * - Loop mode: Identifies reaction loops in the metabolic network
+ * - Biomass mode: Analyzes paths to biomass reactants
+ * - Carbon depth mode: Generates carbon source graphs
+ *
+ * The program can optionally read flux solutions, reaction costs, and
+ * supply/demand constraints to refine the analysis. Results can be written
+ * to output files in various formats including DOT graphs for visualization.
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array of command-line argument strings
+ * @return Exit status (0 for success, 1 for failure)
+ */
 int
-main (int argc, const char* argv[]) 
+main (int argc, const char* argv[])
 {
-    int seed = 0;
-    string data_fn = "";
-    string supply_demand_lis = ""; 
-    string supply_demand_fn = "none";
-    string flux_fn = "none";
-    string react_cost_fn = "none";
-    string react_cost_min_fn = "none";
-    string out_fn = "";
-    string summary_fn = "";
-    string dot_fn = "";
-    string debug_str = "";
-    string met_name = "";
-    int carbon_depth = 0;
-    bool biomass_mode = false;
-    bool explode_react = false;
-    bool explode_met = false;
-    double min_flux = 0.0f;
+    int seed = 0; /**< Random number generator seed (0 = use current time) */
+    string data_fn = ""; /**< Input data filename (metabolic network file) */
+    string supply_demand_lis = ""; /**< File containing list of supply/demand filenames */ 
+    string supply_demand_fn = "none"; /**< Supply/demand constraints filename */
+    string flux_fn = "none"; /**< Flux solution input filename (FBA solution) */
+    string react_cost_fn = "none"; /**< Reaction cost filename for gap-filling optimization */
+    string react_cost_min_fn = "none"; /**< Minimum reaction cost filename */
+    string out_fn = ""; /**< Output filename for analysis results */
+    string summary_fn = ""; /**< Summary filename (results appended) */
+    string dot_fn = ""; /**< DOT format graph output filename for visualization */
+    string debug_str = ""; /**< Debug mode filter string */
+    string met_name = ""; /**< Metabolite name for single-metabolite analysis */
+    int carbon_depth = 0; /**< Depth for carbon source graph traversal */
+    bool biomass_mode = false; /**< Enable biomass mode (find paths to biomass reactants) */
+    bool explode_react = false; /**< Expand reactions in DOT graph visualization */
+    bool explode_met = false; /**< Expand metabolites in DOT graph visualization */
+    double min_flux = 0.0f; /**< Minimum flux threshold for reporting reactions */
 
-    Config config;
+    Config config; /**< Configuration object for parameter management */
 
-    Params params;
+    Params params; /**< Parameters object for metabolic network analysis */
     params.init_config (config);
     
     config.addItem ("seed", seed);
@@ -86,7 +124,7 @@ main (int argc, const char* argv[])
     If solution supplied, then only reactions with a non-zero flux in
     that solution are considered
 )EOF"
-    );
+    ); /**< Command-line options parser with usage description */
 
     // Add a switch with a config alternative
     opts.add_opt ("-b", &biomass_mode, "Use biomass mode", "biomass");
@@ -149,11 +187,11 @@ main (int argc, const char* argv[])
 
     assert (data_fn.length() > 0); // Not optional in Opts 
 
-    Rand rand(seed);
+    Rand rand(seed); /**< Random number generator initialized with seed */
     cerr << "Seed " << rand.getSeed() << endl;
     config.addItem ("seed", rand.getSeed());
 
-    Scenario scenario;
+    Scenario scenario; /**< Metabolic network scenario containing reactions and metabolites */
 
     scenario.read_data (data_fn);
     
@@ -181,11 +219,11 @@ main (int argc, const char* argv[])
         scenario.no_supply_demand();
     }
 
-    std::set<const Metabolite*> dot_mets;
-    std::set<const Reaction*> dot_reacts;
-    std::set<string> dot_edges;
-    
-    PathFinder finder (&scenario, &params);
+    std::set<const Metabolite*> dot_mets; /**< Set of metabolites for DOT graph output */
+    std::set<const Reaction*> dot_reacts; /**< Set of reactions for DOT graph output */
+    std::set<string> dot_edges; /**< Set of edges for DOT graph output */
+
+    PathFinder finder (&scenario, &params); /**< PathFinder object for analyzing paths and loops in the metabolic network */
 
     if (out_fn.length() > 0) {
         ofstream_ptr out = make_shared<ofstream> (out_fn);

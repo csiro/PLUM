@@ -1,3 +1,11 @@
+/**
+ * @file mathheur.cpp
+ * @brief Implementation of the mathematical heuristic solver for metabolic gap-filling
+ *
+ * This file implements the MathHeur class which uses a mathematical programming-based
+ * heuristic approach to solve metabolic network gap-filling problems. The solver iteratively
+ * improves solutions by focusing on individual metabolites and their associated reactions.
+ */
 
 #include <sstream>
 #include <list>
@@ -18,7 +26,17 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
-
+/**
+ * @brief Solves the metabolic gap-filling problem using a mathematical heuristic approach
+ *
+ * This method implements the main solving loop of the mathematical heuristic algorithm.
+ * It starts with an initial solution from a linear programming solver, then iteratively
+ * attempts to improve the solution by randomly selecting metabolites and optimizing
+ * their associated reactions.
+ *
+ * @return SolutionPtr Pointer to the best solution found during the search
+ * @throws lime::Error if the scenario contains more than one experiment (only single experiment supported)
+ */
 SolutionPtr
 MathHeur::solve ()
 {
@@ -50,6 +68,18 @@ MathHeur::solve ()
     return best;
 }
 
+/**
+ * @brief Sets up the Gurobi optimization model with variables and constraints
+ *
+ * This method initializes the mixed-integer programming model by:
+ * - Creating flux variables for each reaction (continuous, bounded by reaction limits)
+ * - Creating binary use variables to indicate whether each reaction is active
+ * - Adding linking constraints between flux and use variables
+ * - Setting up stoichiometric flux balance equations for all metabolites
+ *
+ * The model minimizes the number of reactions used while maintaining steady-state
+ * flux balance for all metabolites in the network.
+ */
 void
 MathHeur::set_up_model()
 {
@@ -107,6 +137,16 @@ MathHeur::set_up_model()
     }
 }
 
+/**
+ * @brief Attempts to improve the current solution by focusing on a specific metabolite
+ *
+ * This method refines the solution by examining all reactions associated with a given
+ * metabolite. Reactions that do not use the metabolite are temporarily fixed to zero,
+ * allowing the solver to focus optimization efforts on the relevant reaction subset.
+ *
+ * @param met Pointer to the metabolite to focus on for improvement
+ * @param sol Reference to the current best solution, updated if improvement is found
+ */
 void
 MathHeur::improve(const Metabolite* met, SolutionPtr& sol)
 {
@@ -128,10 +168,15 @@ MathHeur::improve(const Metabolite* met, SolutionPtr& sol)
         }
     }
 
-    
+
 }
-    
-string 
+
+/**
+ * @brief Generates a summary string of the solver's execution statistics
+ *
+ * @return std::string Summary containing the number of mathematical heuristic iterations performed
+ */
+string
 MathHeur::summary()
 {
     return " mh_iters " + to_string (iter_);

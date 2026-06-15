@@ -1,3 +1,13 @@
+/**
+ * @file lpsolver.cpp
+ * @brief Implementation of linear programming solver for metabolic gap-filling
+ *
+ * This file implements the LPSolver class which performs flux balance analysis
+ * and metabolic gap-filling using linear programming. It handles model formulation,
+ * constraint generation for mass balance, reaction flux variables, and biomass
+ * optimization through iterative objective coefficient adjustment.
+ */
+
 #include <sstream>
 #include <list>
 #include <iomanip>
@@ -15,8 +25,18 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/** @brief Static counter tracking the number of LP model writes to disk for debugging purposes */
 int LPSolver::num_model_writes_ = 0;
 
+/**
+ * @brief Formulate the linear programming model for a given experiment
+ *
+ * Constructs the LP model by creating flux variables for each selected reaction
+ * and adding mass balance constraints for each metabolite. Handles different
+ * formulation modes for biomass optimization and applies experimental flux bounds.
+ *
+ * @param exp Pointer to the experiment containing metabolite bounds and conditions
+ */
 void
 LPSolver::formulate (const Experiment* exp)
 {
@@ -130,6 +150,16 @@ LPSolver::formulate (const Experiment* exp)
     imp_->finalise_formulation();
 }
 
+/**
+ * @brief Switch between different LP formulation modes
+ *
+ * Changes the formulation strategy for biomass optimization:
+ * - Formulation 1: Biomass as weighted objective component
+ * - Formulation 2: Biomass as lower bound constraint with flexible upper bound
+ * - Formulation 3: Biomass fixed at exact target flux value
+ *
+ * @param which_formulation The formulation mode to switch to (1, 2, or 3)
+ */
 void
 LPSolver::set_which_formulation (size_t which_formulation)
 {
@@ -160,6 +190,14 @@ LPSolver::set_which_formulation (size_t which_formulation)
     }
 }
 
+/**
+ * @brief Solve the linear programming problem for the current experiment
+ *
+ * Formulates the LP model for the selected experiment and solves it.
+ * This is the main entry point for obtaining a flux solution.
+ *
+ * @return Shared pointer to the Solution object containing flux values, or nullptr if infeasible
+ */
 SolutionPtr
 LPSolver::solve ()
 {
@@ -168,18 +206,43 @@ LPSolver::solve ()
     return do_solve();
 }
 
+/**
+ * @brief Enable a reaction by setting its flux bounds
+ *
+ * Allows flux through the specified reaction by setting the lower bound to 0
+ * and upper bound to the reaction's maximum flux capacity.
+ *
+ * @param react Pointer to the reaction to enable
+ */
 void
 LPSolver::enable_reaction (const Reaction* react)
 {
     imp_->set_react_bounds (react, which_experiment_, 0.0f, react->flux_ub());
 }
 
+/**
+ * @brief Disable a reaction by constraining its flux to zero
+ *
+ * Prevents any flux through the specified reaction by setting both
+ * lower and upper bounds to 0.
+ *
+ * @param react Pointer to the reaction to disable
+ */
 void
 LPSolver::disable_reaction (const Reaction* react)
 {
     imp_->set_react_bounds (react, which_experiment_, 0.0f, 0.0f);
 }
 
+/**
+ * @brief Execute the LP optimization and optionally perform biomass objective search
+ *
+ * Solves the formulated LP model and optionally performs an iterative search
+ * to maximize biomass flux while minimizing auxiliary dummy fluxes. Handles
+ * model writing for debugging if requested.
+ *
+ * @return Shared pointer to the Solution object with optimized flux values, or nullptr if infeasible
+ */
 SolutionPtr
 LPSolver::do_solve()
 {
@@ -222,7 +285,17 @@ LPSolver::do_solve()
     return sol;
 }
 
-SolutionPtr 
+/**
+ * @brief Iteratively search for optimal biomass objective coefficient multiplier
+ *
+ * Performs a binary search to find the biomass objective coefficient that maximizes
+ * biomass flux while avoiding infeasibility and minimizing dummy flux. Uses bisection
+ * between lower and upper bounds until biomass flux converges or iteration limit is reached.
+ *
+ * @param sol Initial solution from which to start the search
+ * @return Shared pointer to the optimized Solution with best biomass flux and minimal dummy flux
+ */
+SolutionPtr
 LPSolver::biomass_obj_search (SolutionPtr sol)
 {
     DEBUG (
@@ -380,8 +453,16 @@ LPSolver::biomass_obj_search (SolutionPtr sol)
     return sol;
 }
 
+/**
+ * @brief Generate a summary string of the solver state
+ *
+ * Creates a formatted string containing key solver statistics including
+ * the current biomass objective multiplier and number of biomass search iterations.
+ *
+ * @return String containing solver statistics summary
+ */
 string
-LPSolver::summary() 
+LPSolver::summary()
 {
     stringstream str;
     str << " biomass_obj_mult " <<

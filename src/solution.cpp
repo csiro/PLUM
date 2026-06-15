@@ -1,3 +1,16 @@
+/**
+ * @file solution.cpp
+ * @brief Implementation of Solution class for metabolic network flux analysis
+ *
+ * This file contains the implementation of the Solution class which represents
+ * a solution to a flux balance analysis problem. It provides methods for:
+ * - Computing objective function values (absolute and relative)
+ * - Analyzing biomass and dummy reaction fluxes
+ * - Calculating metabolite balances and production rates
+ * - Detecting runaway reactions based on carbon source constraints
+ * - Generating various output formats (text, DOT graphs, visualization)
+ * - Path analysis using Dijkstra's algorithm for metabolic pathways
+ */
 
 #include <sstream>
 #include <algorithm>
@@ -20,6 +33,15 @@ using namespace std;
 using namespace lime;
 using namespace mosh;
 
+/**
+ * @brief Computes the total objective function value for the solution
+ *
+ * Calculates either absolute or relative objective value based on parameters,
+ * and adds the biomass contribution multiplied by the given factor.
+ *
+ * @param biomass_mult Multiplier for biomass reaction contribution
+ * @return Total objective function value
+ */
 double
 Solution::obj_value (double biomass_mult) const
 {
@@ -28,6 +50,14 @@ Solution::obj_value (double biomass_mult) const
     return rel_obj_value() + biomass_obj(biomass_mult);
 }
 
+/**
+ * @brief Computes the relative objective function value
+ *
+ * Sums the weighted flux values for all non-biomass reactions, where each
+ * reaction's contribution is its flux multiplied by its objective coefficient.
+ *
+ * @return Relative objective function value
+ */
 double
 Solution::rel_obj_value () const
 {
@@ -40,6 +70,15 @@ Solution::rel_obj_value () const
     return sum;
 }
 
+/**
+ * @brief Computes the absolute objective function value
+ *
+ * Sums the objective coefficients for all used non-biomass reactions,
+ * regardless of their flux magnitude. This gives a count-like metric
+ * weighted by reaction costs.
+ *
+ * @return Absolute objective function value
+ */
 double
 Solution::abs_obj_value () const
 {
@@ -58,6 +97,11 @@ Solution::abs_obj_value () const
     return sum;
 }
 
+/**
+ * @brief Finds the maximum objective coefficient among used reactions
+ *
+ * @return Maximum objective coefficient value, or 0.0 if no reactions used
+ */
 double
 Solution::max_cost () const
 {
@@ -69,6 +113,11 @@ Solution::max_cost () const
     return the_max;
 }
 
+/**
+ * @brief Counts the number of reactions with non-zero flux
+ *
+ * @return Number of active reactions in the solution
+ */
 size_t
 Solution::num_reactions_used () const
 {
@@ -80,6 +129,11 @@ Solution::num_reactions_used () const
     return count;
 }
 
+/**
+ * @brief Computes the sum of all reaction fluxes
+ *
+ * @return Total flux across all reactions
+ */
 double
 Solution::sum_flux () const
 {
@@ -89,7 +143,14 @@ Solution::sum_flux () const
     return sum;
 }
 
-/** Sum of fluxes over ractions with a -ve obj coeff */
+/**
+ * @brief Gets the flux value of the biomass reaction
+ *
+ * The biomass reaction represents the growth rate or biomass production
+ * in the metabolic network.
+ *
+ * @return Flux through the biomass reaction
+ */
 double
 Solution::biomass_flux () const
 {
@@ -97,7 +158,15 @@ Solution::biomass_flux () const
     return flux(idx);
 }
 
-/** Biomass flux times mult */
+/**
+ * @brief Computes the biomass contribution to the objective function
+ *
+ * Calculates biomass flux multiplied by the given multiplier and the
+ * biomass reaction's objective coefficient.
+ *
+ * @param biomass_mult Multiplier for biomass contribution
+ * @return Biomass objective function contribution
+ */
 double
 Solution::biomass_obj (double biomass_mult) const
 {
@@ -110,7 +179,14 @@ Solution::biomass_obj (double biomass_mult) const
         scenario_->biomass_react()->obj_coeff();
 }
 
-/** Sum of fluxes over dummy reactions */
+/**
+ * @brief Computes the sum of fluxes through dummy reactions
+ *
+ * Dummy reactions are artificial reactions added for gap-filling or
+ * completing metabolic pathways.
+ *
+ * @return Total flux through all dummy reactions
+ */
 double
 Solution::dummy_flux () const
 {
@@ -121,7 +197,14 @@ Solution::dummy_flux () const
     return sum;
 }
 
-/** Cost of dummy reactions */
+/**
+ * @brief Computes the cost contribution of dummy reactions
+ *
+ * Sums the objective coefficients of all used dummy reactions to
+ * quantify the penalty for using artificial reactions.
+ *
+ * @return Total objective cost of dummy reactions
+ */
 double
 Solution::dummy_obj_val () const
 {
@@ -132,7 +215,11 @@ Solution::dummy_obj_val () const
     return sum;
 }
 
-/** Number of dummy reactions used */
+/**
+ * @brief Counts the number of dummy reactions with non-zero flux
+ *
+ * @return Number of active dummy reactions
+ */
 int
 Solution::num_dummy() const
 {
@@ -143,6 +230,15 @@ Solution::num_dummy() const
     return count;
 }
 
+/**
+ * @brief Writes flux values for all used reactions to output stream
+ *
+ * Outputs reaction name, flux value, objective coefficient, and participating
+ * metabolites with their stoichiometric coefficients. Includes known flux
+ * constraints if specified.
+ *
+ * @param out Output stream to write flux data
+ */
 void
 Solution::write_flux (std::ostream& out)
 {
@@ -185,8 +281,14 @@ Solution::write_flux (std::ostream& out)
     */
 }
 
-/* Check if the sol has run-away reactions for any experiment
-*/
+/**
+ * @brief Checks if the solution has runaway reactions in any experiment
+ *
+ * A runaway solution occurs when the biomass flux exceeds the available
+ * carbon sources, indicating an unrealistic or infeasible solution.
+ *
+ * @return true if runaway detected in any experiment, false otherwise
+ */
 bool
 Solution::is_runaway() const
 {
@@ -197,10 +299,15 @@ Solution::is_runaway() const
     return false;
 }
 
-/* Check if the sol has run-away reactions.
-   Does this by checking whether the total flux is more than the
-   available carbon sources
-*/
+/**
+ * @brief Checks if the solution has runaway reactions for a specific experiment
+ *
+ * Compares the total biomass flux against the sum of available carbon sources.
+ * A solution is considered runaway if biomass production exceeds carbon availability.
+ *
+ * @param exp Pointer to the experiment to check
+ * @return true if biomass flux exceeds available carbon sources, false otherwise
+ */
 bool
 Solution::is_runaway(const Experiment* exp) const
 {
@@ -224,6 +331,14 @@ Solution::is_runaway(const Experiment* exp) const
 }
 
 
+/**
+ * @brief Counts the total number of reactions with non-zero flux
+ *
+ * Similar to num_reactions_used() but includes debug output for each
+ * counted reaction.
+ *
+ * @return Number of active reactions
+ */
 int
 Solution::reaction_count () const
 {
@@ -240,6 +355,15 @@ Solution::reaction_count () const
     return count;
 }
 
+/**
+ * @brief Writes the metabolic model including only used reactions
+ *
+ * Outputs all metabolites involved in active reactions, followed by the
+ * reaction definitions with optionally normalized costs.
+ *
+ * @param out Output stream for model data
+ * @param cost_one If true, normalize high costs to a standard value
+ */
 void
 Solution::write_model (std::ostream& out, bool cost_one)
 {
@@ -267,6 +391,14 @@ Solution::write_model (std::ostream& out, bool cost_one)
     }
 }
 
+/**
+ * @brief Generates a DOT format graph of metabolite connections
+ *
+ * Creates a directed graph showing connections between reactions through
+ * shared metabolites. Edges represent metabolite flow between reactions.
+ *
+ * @param out Output stream for DOT graph data
+ */
 void
 Solution::write_met_dot (std::ostream& out)
 {
@@ -303,6 +435,14 @@ Solution::write_met_dot (std::ostream& out)
     out << "}" << endl;
 }
 
+/**
+ * @brief Generates a DOT graph showing paths from carbon sources to biomass
+ *
+ * Traces metabolic pathways from the primary carbon source to biomass
+ * precursors using Dijkstra's shortest path algorithm.
+ *
+ * @param out Output stream for DOT graph data
+ */
 void
 Solution::write_carbon_source_dot (std::ostream& out)
 {
@@ -334,6 +474,14 @@ Solution::write_carbon_source_dot (std::ostream& out)
     plot_paths (out, from_mets, to_mets);
 }
 
+/**
+ * @brief Generates a DOT graph showing paths from all supplies to demands
+ *
+ * Traces metabolic pathways from all supplied metabolites to all residual
+ * (demanded) metabolites using shortest path analysis.
+ *
+ * @param out Output stream for DOT graph data
+ */
 void
 Solution::write_supply_demand_dot (std::ostream& out)
 {
@@ -356,6 +504,17 @@ Solution::write_supply_demand_dot (std::ostream& out)
 }
 
 
+/**
+ * @brief Generates a DOT graph with shortest paths between metabolite sets
+ *
+ * Uses Dijkstra's algorithm to find paths from each source metabolite to each
+ * target metabolite through the reaction network. Visualizes reactions as boxes,
+ * metabolites as circles, and includes flux information on edges.
+ *
+ * @param out Output stream for DOT graph data
+ * @param from_mets Set of source metabolites
+ * @param to_mets Set of target metabolites
+ */
 void
 Solution::plot_paths (
     std::ostream& out,
@@ -403,11 +562,25 @@ Solution::plot_paths (
     // Find a path for each metabolite used in the biomass reaction
     set<const Reaction*> reacts;
     set<const Metabolite*> mets;
+    /**
+     * @struct Edge
+     * @brief Represents a directed edge in the metabolic pathway graph
+     *
+     * Used for storing pathway connections with associated flux values
+     * for visualization purposes.
+     */
     struct Edge
     {
-        string from;
-        string to;
-        double flux;
+        std::string from; /**< Source node name (reaction or metabolite) */
+        std::string to; /**< Destination node name (reaction or metabolite) */
+        double flux; /**< Flux value through this edge */
+        /**
+         * @brief Constructs an Edge with specified source, destination, and flux
+         *
+         * @param from_ Source node name
+         * @param to_ Destination node name
+         * @param flux_ Flux value through the edge
+         */
         Edge (string from_, string to_, double flux_) :
             from(from_), to(to_), flux(flux_) {}
     };
@@ -493,6 +666,15 @@ Solution::plot_paths (
     out << "}" << endl;
 }
 
+/**
+ * @brief Writes metabolite balance for all metabolites
+ *
+ * Outputs the net balance (supply - demand) for each metabolite, with
+ * positive values indicating required supply and negative values indicating
+ * residuals. Metabolites with zero balance are listed last.
+ *
+ * @param out Output stream for metabolite balance data
+ */
 void
 Solution::write_metbal (std::ostream& out)
 {
@@ -521,6 +703,14 @@ Solution::write_metbal (std::ostream& out)
     }
 }
 
+/**
+ * @brief Calculates metabolite balance across all reactions
+ *
+ * Computes the net production/consumption for each metabolite by summing
+ * stoichiometric coefficients times flux for all active non-dummy reactions.
+ *
+ * @param metbal Vector to store metabolite balance values (resized if needed)
+ */
 void
 Solution::calc_metbal (std::vector<double>& metbal)
 {
@@ -538,7 +728,13 @@ Solution::calc_metbal (std::vector<double>& metbal)
     }
 }
 
-/* Calculate the amount of each met produced - i.e. total output
+/**
+ * @brief Calculates total production amount for each metabolite
+ *
+ * Computes the sum of positive (output) flux contributions for each metabolite
+ * across all active non-dummy reactions.
+ *
+ * @param metprod Vector to store metabolite production values (resized if needed)
  */
 void
 Solution::calc_metprod (std::vector<double>& metprod)
@@ -557,6 +753,14 @@ Solution::calc_metprod (std::vector<double>& metprod)
     }
 }
 
+/**
+ * @brief Writes total metabolite usage (supply + production)
+ *
+ * Outputs the sum of supplied amounts and produced amounts for each metabolite.
+ * Includes both external supply and internal production through reactions.
+ *
+ * @param out Output stream for metabolite usage data
+ */
 void
 Solution::write_met_use (std::ostream& out)
 {
@@ -603,6 +807,15 @@ Solution::write_met_use (std::ostream& out)
     }
 }
 
+/**
+ * @brief Draws a visual representation of the gap-fill solution
+ *
+ * Creates a 2D plot with reactions on x-axis and metabolites on y-axis.
+ * Circle sizes represent flux magnitudes, colors indicate production (blue)
+ * vs consumption (red). Includes supply and residual columns.
+ *
+ * @param dig Pointer to Dig visualization object
+ */
 void
 Solution::draw (Dig* dig)
 {
@@ -703,6 +916,15 @@ Solution::draw (Dig* dig)
     }
 }
 
+/**
+ * @brief Draws metabolite balance visualization
+ *
+ * Creates a bar chart showing the net balance for each metabolite with
+ * upper and lower bounds from the experiment. Positive values indicate
+ * required supply, negative values indicate residuals.
+ *
+ * @param dig Pointer to Dig visualization object
+ */
 void
 Solution::draw_metbal (Dig* dig)
 {
@@ -747,6 +969,15 @@ Solution::draw_metbal (Dig* dig)
     dig->labelPoint (0, min_y - 1, "Residual");
 }
 
+/**
+ * @brief Draws reduced cost visualization for reactions
+ *
+ * Creates a chart showing objective costs for used reactions and reduced costs
+ * for unused reactions, sorted by value. Helps identify which unused reactions
+ * are closest to being included in the solution.
+ *
+ * @param dig Pointer to Dig visualization object
+ */
 void
 Solution::draw_reduced_cost (Dig* dig)
 {
