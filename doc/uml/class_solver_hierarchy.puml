@@ -1,0 +1,409 @@
+@startuml class_solver_hierarchy
+!theme plain
+title PLUM Class Diagram - Solver Hierarchy
+subtitle Gap-Filling Solver Framework with LP/MILP Implementations
+
+' ===================================================================
+' Abstract Base Classes and Interfaces
+' ===================================================================
+
+abstract class GapSolver {
+  ' Abstract base for gap-filling solvers
+  # scenario_ : Scenario*
+  # params_ : Params*
+  # quiet_ : bool
+  # rand_ : lime::Rand
+  # status_ : StatusEnum
+  # best_sol_fn_ : string
+  - timer_ : lime::TimeKeeper
+
+  + GapSolver(scenario, params, seed)
+  + num_metabolites() : size_t
+  + metabolite(k) : Metabolite*
+  + num_reactions() : size_t
+  + reaction(k) : Reaction*
+  + num_experiments() : size_t
+  + experiment(k) : Experiment*
+
+  + {abstract} solve() : SolutionPtr
+  + summary() : string
+
+  + elapsed_time_secs() : double
+  + has_time_left() : bool
+  + status() : StatusEnum
+  + status_str() : string
+  + set_quiet(quiet)
+  + on_screen(message)
+}
+
+' ===================================================================
+' Concrete Solver Implementations
+' ===================================================================
+
+class LPSolver {
+  ' Continuous LP solver
+  - which_experiment_ : size_t
+  - which_formulation_ : int
+  - imp_ : LPSolverImpPtr
+  - target_flux_ : double
+  - biomass_search_iters_ : int
+  - biomass_obj_mult_ : double
+
+  + LPSolver(scenario, params, seed, formulation, imp)
+  + which_experiment() : size_t
+  + set_which_experiment(which)
+  + which_formulation() : int
+  + set_which_formulation(which)
+
+  + solve() : SolutionPtr
+  + formulate(exp : Experiment*)
+  + do_solve() : SolutionPtr
+  + set_target_flux(flux)
+  + summary() : string
+}
+
+class IntSolver {
+  ' Integer programming solver
+  - which_formulation_ : int
+  - imp_ : LPSolverImpPtr
+  - cts_sol_ : MultiSolPtr
+  - biomass_obj_mult_ : double
+  - rounding_iters_ : int
+  - mip_gap_ : double
+
+  + IntSolver(scenario, params, seed, formulation, imp, cts_sol)
+  + solve() : SolutionPtr
+  + summary() : string
+
+  - calc_biomass_mult()
+  - formulate()
+  - fix_rounding()
+}
+
+class IncrSolver {
+  ' Incremental solver (adds reactions by cost)
+  - lp_solver_ : LPSolver
+  - imp2_ : LPSolverImpPtr
+  - return_int_sol_ : bool
+  - time_limit_ : int
+  - min_cost_ : double
+  - max_used_cost_ : double
+  - costs_ : set<double>
+  - rand_ : lime::Rand
+  - selected_react_file_ : ofstream&
+  - available_ : vector<bool>
+  - summary_ : string
+  - cost_iters_ : size_t
+  - level_iters_ : size_t
+  - cycle_mets_ : size_t
+
+  + IncrSolver(scenario, params, seed, imp, imp2, min_cost, file)
+  + solve() : SolutionPtr
+  + summary() : string
+
+  - init()
+  - do_solve() : SolutionPtr
+  - cost_iter(cost) : SolutionPtr
+  - level_iter(cost, level) : bool
+  - add_cycle_met(cost) : bool
+  - is_enabled(react) : bool
+  - makes_carbon(react) : bool
+  - propagate(react)
+  - is_available(met) : bool
+}
+
+class DummySolver {
+  ' Dummy solver for testing
+  + DummySolver(scenario, params, seed)
+  + solve() : SolutionPtr
+}
+
+class LnsMxSolver {
+  ' Large Neighborhood Search mixed solver
+  + LnsMxSolver(...)
+  + solve() : SolutionPtr
+}
+
+class MathHeur {
+  ' Math-heuristic solver
+  + MathHeur(...)
+  + solve() : SolutionPtr
+}
+
+' ===================================================================
+' LP/MILP Solver Implementation Interface
+' ===================================================================
+
+abstract class LPSolverImp {
+  ' Abstract LP/MILP backend interface
+  # scenario_ : Scenario*
+  # params_ : Params*
+
+  + LPSolverImp(scenario, params)
+
+  ' Initialization
+  + {abstract} init_cts()
+  + {abstract} init_int(cts_sol : SolutionPtr)
+
+  ' Variable creation
+  + {abstract} make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_flux_vars(react, name, obj_coeff, lb, ub)
+  + {abstract} make_use_var(react, name, obj_coeff, lb, ub)
+
+  ' Constraint creation
+  + {abstract} add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + {abstract} add_react_link_constraint(react, exp)
+  + add_react_link_constraints(react)
+
+  ' Modification
+  + {abstract} set_react_bounds(react, exp, lb, ub)
+  + {abstract} set_react_cost(exp, react, cost)
+  + {abstract} set_biomass_mult(exp, mult)
+  + finalise_formulation()
+
+  ' Solving
+  + {abstract} optimize() : StatusEnum
+
+  ' Solution extraction
+  + make_sol() : SolutionPtr
+  + {abstract} make_sol(which_experiment) : SolutionPtr
+  + {abstract} get_objective() : double
+  + {abstract} get_mip_gap() : double
+
+  ' Utilities
+  + {abstract} write_model(filename)
+  + {abstract} num_vars() : size_t
+  + {abstract} num_constraints() : size_t
+  + num_metabolites() : size_t
+  + num_reactions() : size_t
+  + num_experiments() : size_t
+  + local_set_quiet(quiet)
+}
+
+' ===================================================================
+' Concrete LP/MILP Implementations
+' ===================================================================
+
+class GrbLPSolverImp {
+  ' Gurobi backend implementation
+  - model_ : GRBModel
+  - env_ : GrbEnvPtr
+  - flux_vars_ : map<Reaction*, vector<GRBVar>>
+  - use_vars_ : map<Reaction*, GRBVar>
+  - met_constrs_ : map<Metabolite*, vector<GRBConstr>>
+
+  + GrbLPSolverImp(scenario, params, seed, env)
+  + init_cts()
+  + init_int(cts_sol)
+  + make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_use_var(react, name, obj_coeff, lb, ub)
+  + add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + add_react_link_constraint(react, exp)
+  + set_react_bounds(react, exp, lb, ub)
+  + set_react_cost(exp, react, cost)
+  + set_biomass_mult(exp, mult)
+  + optimize() : StatusEnum
+  + make_sol(which_experiment) : SolutionPtr
+  + get_objective() : double
+  + get_mip_gap() : double
+  + write_model(filename)
+  + num_vars() : size_t
+  + num_constraints() : size_t
+  + local_set_quiet(quiet)
+}
+
+class HighsLPSolverImp {
+  ' HiGHS backend implementation
+  - model_ : Highs
+  - flux_var_idx_ : map<pair<Reaction*, size_t>, int>
+  - use_var_idx_ : map<Reaction*, int>
+  - num_vars_ : int
+  - num_constrs_ : int
+
+  + HighsLPSolverImp(scenario, params, seed)
+  + init_cts()
+  + init_int(cts_sol)
+  + make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_use_var(react, name, obj_coeff, lb, ub)
+  + add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + add_react_link_constraint(react, exp)
+  + set_react_bounds(react, exp, lb, ub)
+  + set_react_cost(exp, react, cost)
+  + set_biomass_mult(exp, mult)
+  + optimize() : StatusEnum
+  + make_sol(which_experiment) : SolutionPtr
+  + get_objective() : double
+  + get_mip_gap() : double
+  + write_model(filename)
+  + num_vars() : size_t
+  + num_constraints() : size_t
+  + local_set_quiet(quiet)
+}
+
+class LpsLPSolverImp {
+  ' lp_solve backend implementation
+  - lp_ : lprec*
+  - flux_var_idx_ : map<pair<Reaction*, size_t>, int>
+  - use_var_idx_ : map<Reaction*, int>
+  - col_count_ : int
+  - row_count_ : int
+
+  + LpsLPSolverImp(scenario, params)
+  + init_cts()
+  + init_int(cts_sol)
+  + make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_use_var(react, name, obj_coeff, lb, ub)
+  + add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + add_react_link_constraint(react, exp)
+  + set_react_bounds(react, exp, lb, ub)
+  + set_react_cost(exp, react, cost)
+  + set_biomass_mult(exp, mult)
+  + optimize() : StatusEnum
+  + make_sol(which_experiment) : SolutionPtr
+  + get_objective() : double
+  + get_mip_gap() : double
+  + write_model(filename)
+  + num_vars() : size_t
+  + num_constraints() : size_t
+  + local_set_quiet(quiet)
+
+  - ~LpsLPSolverImp()
+}
+
+' ===================================================================
+' Relationships: Inheritance
+' ===================================================================
+
+GapSolver <|-- LPSolver : extends
+GapSolver <|-- IntSolver : extends
+GapSolver <|-- IncrSolver : extends
+GapSolver <|-- DummySolver : extends
+GapSolver <|-- LnsMxSolver : extends
+GapSolver <|-- MathHeur : extends
+
+LPSolverImp <|-- GrbLPSolverImp : implements
+LPSolverImp <|-- HighsLPSolverImp : implements
+LPSolverImp <|-- LpsLPSolverImp : implements
+
+' ===================================================================
+' Relationships: Composition/Aggregation
+' ===================================================================
+
+LPSolver *-- LPSolverImp : uses
+IntSolver *-- LPSolverImp : uses
+IncrSolver *-- LPSolver : contains
+IncrSolver *-- LPSolverImp : uses (optional)
+
+GapSolver o-- Scenario : accesses
+GapSolver o-- Params : accesses
+
+LPSolverImp o-- Scenario : accesses
+LPSolverImp o-- Params : accesses
+
+' ===================================================================
+' Design Pattern Notes
+' ===================================================================
+
+note right of GapSolver
+  **Abstract Factory Pattern**
+
+  GapSolver is the abstract base
+  providing common interface for
+  different gap-filling algorithms:
+  - LPSolver: Continuous LP
+  - IntSolver: Integer MILP
+  - IncrSolver: Incremental
+  - DummySolver: Testing
+end note
+
+note right of LPSolverImp
+  **Strategy Pattern**
+
+  LPSolverImp abstracts the
+  LP/MILP solver backend:
+  - GrbLPSolverImp: Gurobi
+  - HighsLPSolverImp: HiGHS
+  - LpsLPSolverImp: lp_solve
+
+  Allows runtime selection of
+  optimization engine.
+end note
+
+note bottom of IncrSolver
+  **Composite Pattern**
+
+  IncrSolver composes an LPSolver
+  internally to solve LP relaxations
+  during incremental reaction addition.
+
+  Demonstrates solver composition
+  for complex algorithms.
+end note
+
+' ===================================================================
+' Key Algorithm Notes
+' ===================================================================
+
+note left of LPSolver
+  **Continuous LP Formulation**
+
+  minimize: Σ(flux * cost)
+  subject to:
+    Sv = 0  (stoichiometry)
+    lb ≤ v ≤ ub  (bounds)
+    v_biomass ≥ target
+
+  Uses flux minimization instead
+  of traditional MILP reaction
+  count minimization.
+end note
+
+note left of IntSolver
+  **Integer Programming**
+
+  minimize: Σ use_i + biomass_penalty
+  subject to:
+    Sv = 0
+    lb * use_i ≤ v_i ≤ ub * use_i
+    use_i ∈ {0, 1}
+
+  use_i indicates if reaction i
+  is in the gap-filled network.
+
+  Two formulations supported.
+end note
+
+note left of IncrSolver
+  **Incremental Algorithm**
+
+  1. Sort reactions by cost
+  2. For each cost level:
+     a. Add reactions at that cost
+     b. Propagate metabolite availability
+     c. Check if biomass producible
+  3. Return when solution found
+
+  Polynomial-time algorithm using
+  reachability analysis.
+end note
+
+legend bottom
+  **Key:**
+  - <<abstract>> : Abstract class/interface
+  - {abstract} method() : Pure virtual method
+  - # : Protected
+  - - : Private
+  - + : Public
+  - *-- : Composition (strong)
+  - o-- : Aggregation (weak)
+  - <|-- : Inheritance
+
+  **Solver Selection:**
+  Command: plum -v <solver> -V <backend> data.pld
+  Examples:
+    -v CTS -V GRB : Continuous with Gurobi
+    -v INT -V HIGHS : Integer with HiGHS
+    -v INCR -V LPS : Incremental with lp_solve
+endlegend
+
+@enduml

@@ -1,0 +1,478 @@
+@startuml class_system_overview
+!theme plain
+title PLUM System Overview - Class Diagram
+subtitle Complete System Architecture with All Major Components
+
+' ===================================================================
+' Package: lime (External Utility Library)
+' ===================================================================
+
+package "lime (Utility Library)" <<Rectangle>> {
+  class Config {
+    + addItem(key, value)
+    + getItem(key) : string
+    + show() : string
+  }
+
+  class Opts {
+    + add_opt(flag, var, help, config_name)
+    + add_arg(name, var, help, config_name)
+    + process(argc, argv, config) : bool
+    + usage(message)
+  }
+
+  class Rand {
+    - seed_ : int
+    + Rand(seed)
+    + getSeed() : int
+    + generateSeed() : int
+    + uniform0n_1(n) : int
+  }
+
+  class TimeKeeper {
+    - start_time_ : time_t
+    - time_limit_ : double
+    + TimeKeeper()
+    + setTimeLimit(limit)
+    + elapsedTimeSecs() : double
+    + hasTimeLeft() : bool
+    + timeLeftSecs() : double
+  }
+
+  class Dig {
+    + Dig(filename)
+    + showMessage(msg)
+    + waitAndWipe()
+  }
+
+  interface Displayable {
+    + {abstract} name() : string
+  }
+}
+
+' ===================================================================
+' Package: Data Model
+' ===================================================================
+
+package "Data Model" <<Rectangle>> {
+  class Scenario {
+    - metabolite_ : vector<MetabolitePtr>
+    - reaction_ : vector<ReactionPtr>
+    - experiment_ : vector<ExperimentPtr>
+    - biomass_react_ : Reaction*
+
+    + read_data(filename)
+    + read_supply_demand(filename, params)
+    + finalise(params)
+    + num_metabolites() : size_t
+    + num_reactions() : size_t
+    + num_experiments() : size_t
+    + metabolite(k) : Metabolite*
+    + reaction(k) : Reaction*
+    + experiment(k) : Experiment*
+    + compute_reachability()
+  }
+
+  class Metabolite {
+    - name_ : string
+    - index_ : size_t
+    - is_source_ : bool
+    - is_c_source_ : bool
+    - is_cycle_met_ : bool
+
+    + name() : string
+    + is_source() : bool
+    + is_c_source() : bool
+    + is_cycle_met() : bool
+  }
+
+  class Reaction {
+    - name_ : string
+    - obj_coeff_ : double
+    - mets_ : vector<Metabolite*>
+    - met_coeff_ : map<Metabolite*, double>
+    - flux_ub_ : double
+    - is_active_ : bool
+    - is_selected_ : bool
+    - is_biomass_ : bool
+
+    + name() : string
+    + obj_coeff() : double
+    + flux_ub() : double
+    + is_active() : bool
+    + is_selected() : bool
+    + is_biomass() : bool
+    + uses(met) : bool
+    + makes(met) : bool
+    + met_coeff(met) : double
+  }
+
+  class Experiment {
+    - name_ : string
+    - supply_residual_ : map<Metabolite*, SupplyResidual>
+    - target_flux_ : double
+
+    + name() : string
+    + supply(met) : double
+    + residual(met) : double
+  }
+
+  class Params {
+    + seed : int
+    + time_limit : double
+    + num_threads : int
+    + use_abs_obj : bool
+    + biomass_ub : double
+    + gene_ind_cost : double
+
+    + read_config(config)
+    + finalise()
+    + is_gene_indicated(react) : bool
+  }
+}
+
+' ===================================================================
+' Package: Solver Framework
+' ===================================================================
+
+package "Solver Framework" <<Rectangle>> {
+  abstract class GapSolver <<abstract>> {
+    # scenario_ : Scenario*
+    # params_ : Params*
+    # rand_ : lime::Rand
+    # status_ : StatusEnum
+    - timer_ : lime::TimeKeeper
+
+    + {abstract} solve() : SolutionPtr
+    + summary() : string
+    + elapsed_time_secs() : double
+    + status() : StatusEnum
+  }
+
+  class LPSolver {
+    - which_experiment_ : size_t
+    - which_formulation_ : int
+    - imp_ : LPSolverImpPtr
+    - target_flux_ : double
+
+    + solve() : SolutionPtr
+    + formulate(exp)
+    + do_solve() : SolutionPtr
+  }
+
+  class IntSolver {
+    - which_formulation_ : int
+    - imp_ : LPSolverImpPtr
+    - cts_sol_ : MultiSolPtr
+    - mip_gap_ : double
+
+    + solve() : SolutionPtr
+    - formulate()
+    - fix_rounding()
+  }
+
+  class IncrSolver {
+    - lp_solver_ : LPSolver
+    - costs_ : set<double>
+    - available_ : vector<bool>
+
+    + solve() : SolutionPtr
+    - cost_iter(cost) : SolutionPtr
+    - level_iter(cost, level) : bool
+    - is_enabled(react) : bool
+  }
+
+  class DummySolver {
+    + solve() : SolutionPtr
+  }
+}
+
+' ===================================================================
+' Package: LP/MILP Implementations
+' ===================================================================
+
+package "LP/MILP Backends" <<Rectangle>> {
+  abstract class LPSolverImp <<abstract>> {
+    # scenario_ : Scenario*
+    # params_ : Params*
+
+    + {abstract} init_cts()
+    + {abstract} init_int(cts_sol)
+    + {abstract} make_flux_var(react, exp, name, obj, lb, ub)
+    + {abstract} make_use_var(react, name, obj, lb, ub)
+    + {abstract} add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+    + {abstract} optimize() : StatusEnum
+    + {abstract} make_sol(exp) : SolutionPtr
+    + {abstract} get_objective() : double
+  }
+
+  class GrbLPSolverImp {
+    - model_ : GRBModel
+    - env_ : GrbEnvPtr
+    - flux_vars_ : map
+    - use_vars_ : map
+
+    + optimize() : StatusEnum
+    + make_sol(exp) : SolutionPtr
+  }
+
+  class HighsLPSolverImp {
+    - model_ : Highs
+    - flux_var_idx_ : map
+    - use_var_idx_ : map
+
+    + optimize() : StatusEnum
+    + make_sol(exp) : SolutionPtr
+  }
+
+  class LpsLPSolverImp {
+    - lp_ : lprec*
+    - flux_var_idx_ : map
+    - use_var_idx_ : map
+
+    + optimize() : StatusEnum
+    + make_sol(exp) : SolutionPtr
+  }
+}
+
+' ===================================================================
+' Package: Solution
+' ===================================================================
+
+package "Solution" <<Rectangle>> {
+  class Solution {
+    # scenario_ : Scenario*
+    # params_ : Params*
+    # flux_ : vector<double>
+
+    + flux(k) : double
+    + set_flux(k, val)
+    + obj_value(biomass_mult) : double
+    + rel_obj_value() : double
+    + abs_obj_value() : double
+    + biomass_flux() : double
+    + reaction_count() : int
+    + sum_flux() : double
+    + write_flux(out)
+    + write_model(out)
+    + write_metbal(out)
+  }
+
+  class MultiSol {
+    - sols_ : vector<SolutionPtr>
+
+    + sol(k) : Solution*
+    + set_sol(k, sol)
+    + flux(react, exp) : double
+  }
+}
+
+' ===================================================================
+' Package: Utilities
+' ===================================================================
+
+package "Utilities" <<Rectangle>> {
+  class PathFinder {
+    - reaction_level_ : vector<int>
+    - metabolite_level_ : vector<int>
+    - max_level_ : int
+
+    + compute()
+    + reaction_level(react) : int
+    + metabolite_level(met) : int
+    + is_reachable(react) : bool
+  }
+
+  class DualVals {
+    - lb_dual_ : vector<double>
+    - ub_dual_ : vector<double>
+
+    + lb_dual(met) : double
+    + ub_dual(met) : double
+  }
+
+  enum StatusEnum {
+    UNSOLVED
+    CTS_OPTIMAL
+    INT_OPTIMAL
+    SUBOPTIMAL
+    INFEASIBLE
+    RANDOM
+  }
+
+  enum Flavour {
+    GUROBI
+    LP_SOLVE
+    HIGHS
+  }
+}
+
+' ===================================================================
+' Inheritance Relationships
+' ===================================================================
+
+Displayable <|.. Metabolite : implements
+Displayable <|.. Reaction : implements
+
+GapSolver <|-- LPSolver
+GapSolver <|-- IntSolver
+GapSolver <|-- IncrSolver
+GapSolver <|-- DummySolver
+
+LPSolverImp <|-- GrbLPSolverImp
+LPSolverImp <|-- HighsLPSolverImp
+LPSolverImp <|-- LpsLPSolverImp
+
+' ===================================================================
+' Composition/Aggregation Relationships
+' ===================================================================
+
+Scenario *-- Metabolite
+Scenario *-- Reaction
+Scenario *-- Experiment
+Scenario o-- Params
+
+Reaction o-- Metabolite
+
+GapSolver o-- Scenario
+GapSolver o-- Params
+GapSolver *-- TimeKeeper
+GapSolver *-- Rand
+
+LPSolver *-- LPSolverImp
+IntSolver *-- LPSolverImp
+IncrSolver *-- LPSolver
+
+LPSolverImp o-- Scenario
+LPSolverImp o-- Params
+
+Solution o-- Scenario
+Solution o-- Params
+
+MultiSol *-- Solution
+
+PathFinder o-- Scenario
+
+' ===================================================================
+' Usage Relationships
+' ===================================================================
+
+GapSolver ..> Solution : creates
+LPSolverImp ..> Solution : creates
+IntSolver ..> MultiSol : uses
+PathFinder ..> Scenario : analyzes
+
+Opts ..> Config : updates
+Params ..> Config : reads
+
+' ===================================================================
+' Notes
+' ===================================================================
+
+note top of "Data Model"
+  **Core Data Structures**
+
+  Central repository for:
+  - Metabolic network (Scenario)
+  - Compounds (Metabolite)
+  - Transformations (Reaction)
+  - Conditions (Experiment)
+  - Configuration (Params)
+
+  Loaded from PLD files
+end note
+
+note top of "Solver Framework"
+  **Strategy Pattern**
+
+  Multiple gap-filling algorithms:
+  - LPSolver: Continuous LP
+  - IntSolver: Integer MILP
+  - IncrSolver: Incremental
+  - DummySolver: Testing
+
+  All implement solve() : SolutionPtr
+end note
+
+note top of "LP/MILP Backends"
+  **Strategy Pattern**
+
+  Abstraction over optimization engines:
+  - Gurobi (commercial)
+  - HiGHS (open source)
+  - lp_solve (open source)
+
+  Runtime selection via -V flag
+end note
+
+note top of "Solution"
+  **Result Container**
+
+  Stores:
+  - Flux distribution
+  - Objective values
+  - Statistics
+
+  Multiple output formats:
+  - Flux values
+  - Model (PLD)
+  - Metabolite balance
+  - DOT graphs
+end note
+
+note right of PathFinder
+  **Reachability Analysis**
+
+  Computes topological levels:
+  - Level 0: Seed metabolites
+  - Level n: Reactions using only
+    metabolites from levels < n
+
+  Used for:
+  - Solution discrimination
+  - Incremental solver
+  - Network validation
+end note
+
+note left of StatusEnum
+  **Solver Status**
+
+  Tracks solution quality:
+  - UNSOLVED: Not yet solved
+  - CTS_OPTIMAL: LP optimal
+  - INT_OPTIMAL: MILP optimal
+  - SUBOPTIMAL: Time/iteration limit
+  - INFEASIBLE: No solution exists
+  - RANDOM: Dummy solver
+end note
+
+' ===================================================================
+' System Flow Legend
+' ===================================================================
+
+legend right
+  **System Data Flow:**
+
+  1. **Input**: PLD files → Scenario
+  2. **Config**: Opts + Config → Params
+  3. **Solver Selection**:
+     - Algorithm: CTS/INT/INCR (GapSolver)
+     - Backend: GRB/HIGHS/LPS (LPSolverImp)
+  4. **Optimization**:
+     - Formulate: Scenario → LPSolverImp
+     - Solve: LPSolverImp.optimize()
+  5. **Output**: Solution → Files
+
+  **Key Design Patterns:**
+  - Strategy: GapSolver, LPSolverImp
+  - Factory: Solution creation
+  - Composite: Scenario aggregation
+  - Facade: GapSolver interface
+
+  **Command-Line:**
+  plum -v <SOLVER> -V <BACKEND> \\
+       -s <SEED> -t <TIME> \\
+       <data.pld> -o <output.sol>
+endlegend
+
+@enduml

@@ -382,9 +382,10 @@ python3 -c "import sys; sys.path.insert(0, 'util'); import csv2pld; help(csv2pld
 **Complete Coverage:**
 - **C/C++ Files**: 58 files (29 headers + 29 source files) with Doxygen documentation
 - **Python Files**: 7 files with numpy-style docstrings
-- **Total Lines**: ~8,800+ lines of professional documentation
-- **Standards**: Doxygen (C++), Numpy/Sphinx (Python), PEP 257 compliant
-- **Coverage**: 100% of source code files
+- **UML Diagrams**: 6 comprehensive diagrams with 5 documentation files
+- **Total Lines**: ~13,400+ lines of professional documentation
+- **Standards**: Doxygen (C++), Numpy/Sphinx (Python), PlantUML (diagrams), PEP 257 compliant
+- **Coverage**: 100% of source code files, complete architecture visualization
 
 **Documentation Benefits:**
 - IDE autocomplete and inline help
@@ -392,6 +393,68 @@ python3 -c "import sys; sys.path.insert(0, 'util'); import csv2pld; help(csv2pld
 - Domain-specific terminology and examples
 - Clear parameter types and return values
 - Practical usage examples throughout
+
+### UML Diagrams
+
+Comprehensive UML diagrams document the PLUM architecture and execution flow from bash script to C++ class level:
+
+**Location**: `doc/uml/`
+
+**Diagram Types:**
+
+1. **Behavioral Diagrams** (Execution Flow):
+   - `reftest_sequence.puml`: Sequence diagram showing temporal execution flow (315 lines)
+   - `reftest_communication.puml`: Communication diagram emphasizing object relationships (239 lines)
+   - `reftest_communication_compact.puml`: High-level architecture overview (188 lines)
+
+2. **Structural Diagrams** (Class Architecture):
+   - `class_solver_hierarchy.puml`: Complete solver framework with GapSolver and LPSolverImp hierarchies (343 lines)
+   - `class_data_model.puml`: Metabolic network data structures (Scenario, Metabolite, Reaction, etc.) (385 lines)
+   - `class_system_overview.puml`: System-wide architecture with 6 logical packages (357 lines)
+
+**Documentation:**
+- `doc/uml/README.md`: Complete user guide with installation and generation instructions
+- `doc/uml/DIAGRAM_GUIDE.md`: In-depth comparison of behavioral diagram types
+- `doc/uml/CLASS_DIAGRAM_GUIDE.md`: Comprehensive class diagram reading guide
+- `doc/uml/INDEX.md`: Quick navigation and diagram index
+- `doc/uml/SUMMARY.md`: Creation story and feasibility analysis
+
+**Generating Diagrams:**
+
+```bash
+# Install PlantUML
+sudo apt-get install plantuml graphviz
+
+# Navigate to UML directory
+cd doc/uml
+
+# Generate PNG images
+plantuml *.puml
+
+# Generate SVG (recommended for documentation)
+plantuml -tsvg *.puml
+
+# Generate PDF (for reports)
+plantuml -tpdf *.puml
+```
+
+**Online Viewing** (no installation):
+1. Visit https://www.plantuml.com/plantuml/uml/
+2. Copy contents of any `.puml` file
+3. Paste and render
+
+**When to Use:**
+- **Sequence diagram**: Debugging, tracing execution, understanding algorithm flow
+- **Communication diagrams**: Architecture review, identifying dependencies, refactoring
+- **Class diagrams**: Understanding structure, implementing features, extending components
+
+**Coverage:**
+- 6 comprehensive diagrams (~1,900 lines of PlantUML)
+- 5 documentation files (~2,700 lines)
+- Total: ~4,600 lines of UML documentation
+- Traces execution from bash script through plum executable to C++ class level
+- Documents 30+ classes, 200+ methods, 150+ attributes
+- Shows design patterns: Strategy, Factory, Composite, Facade
 
 ### Session Exports
 
@@ -416,8 +479,9 @@ These workflows use multi-agent parallel processing to efficiently document larg
 - `include/mosh/`: Header files with full API documentation (Doxygen documented)
 - `util/`: Conversion and preprocessing scripts (Python/Bash with numpy-style docstrings)
 - `test/`: Test data and scripts (Python scripts documented)
-- `reftest/`: Reference tests with expected outputs
+- `reftest/`: Reference tests with expected outputs (reftest.sh annotated with bash documentation)
 - `doc/`: Documentation including `overview/overview.md` (project background)
+  - `doc/uml/`: UML diagrams (sequence, communication, class diagrams with comprehensive guides)
   - `doc/gurobipy/`: Gurobi optimization example code (documented)
 - `data/`: Input data files (not in repository)
 - `lime/`: Submodule dependency (CSIRO utility library)
@@ -469,19 +533,24 @@ doxygen
 # Generate Python API docs
 cd docs && make html
 
+# Generate UML diagrams
+cd doc/uml && plantuml *.puml
+
 # View function help
 pydoc util.csv2pld
 ```
 
 ### Key Files to Understand First
 
-1. **include/mosh/scenario.h** - Core data model for metabolic networks
-2. **include/mosh/reaction.h** - Reaction representation with stoichiometry
-3. **include/mosh/lpsolver.h** - LP solver interface
-4. **src/plum.cpp** - Main executable entry point
-5. **util/csv2pld.py** - Most commonly used data converter
-6. **fileformat.md** - PLD file format specification
-7. **doc/overview/overview.md** - Project background and methodology
+1. **doc/uml/class_system_overview.puml** - Complete system architecture overview (start here!)
+2. **doc/uml/reftest_communication_compact.puml** - High-level execution flow
+3. **include/mosh/scenario.h** - Core data model for metabolic networks
+4. **include/mosh/reaction.h** - Reaction representation with stoichiometry
+5. **include/mosh/lpsolver.h** - LP solver interface
+6. **src/plum.cpp** - Main executable entry point
+7. **util/csv2pld.py** - Most commonly used data converter
+8. **fileformat.md** - PLD file format specification
+9. **doc/overview/overview.md** - Project background and methodology
 
 ### Important Concepts
 
@@ -494,6 +563,10 @@ pydoc util.csv2pld
 
 ### Getting Help
 
+- **Start with UML diagrams** in `doc/uml/` for visual architecture overview
+  - `README.md`: Complete guide to generating and using diagrams
+  - `INDEX.md`: Quick navigation by role or task
+  - Generate with: `cd doc/uml && plantuml *.puml`
 - All C/C++ code has Doxygen comments - generate HTML docs or use IDE hover
 - All Python scripts have numpy-style docstrings - use `pydoc` or `help()`
 - Session documentation in `python_documentation_session.md`
