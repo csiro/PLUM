@@ -1,0 +1,188 @@
+@startuml reftest_communication_compact
+!theme plain
+title PLUM Reference Test Communication Diagram (Compact)\nKey Object Relationships and Message Paths
+
+' Simplified communication diagram emphasizing structure over sequence
+
+package "Test Layer" {
+  [User] as User
+  [reftest.sh] as RefTest
+}
+
+package "Main Executable" {
+  [plum main()] as PlumMain
+}
+
+package "Configuration" {
+  [Opts] as Opts
+  [Config] as Config
+  [Params] as Params
+  [Rand] as Rand
+}
+
+package "Data Model" {
+  [Scenario] as Scenario
+  [Metabolite] as Metabolite
+  [Reaction] as Reaction
+  [Experiment] as Experiment
+}
+
+package "Solver Framework" {
+  [GapSolver\n(interface)] as GapSolver
+  [LPSolver] as LPSolver
+  [IntSolver] as IntSolver
+  [IncrSolver] as IncrSolver
+}
+
+package "LP/MILP Implementation" {
+  [LPSolverImp\n(interface)] as SolverImp
+  [GrbLPSolverImp] as Gurobi
+  [HighsLPSolverImp] as HiGHS
+  [LpsLPSolverImp] as LpSolve
+}
+
+package "Results" {
+  [Solution] as Solution
+  [MultiSol] as MultiSol
+}
+
+' Primary communication paths with aggregated messages
+
+User -down-> RefTest : "1: invoke\n86: results"
+RefTest -right-> PlumMain : "8: execute\n82: exit code"
+
+PlumMain -down-> Opts : "9-11: parse args"
+PlumMain -down-> Config : "13-14: get/set"
+PlumMain -down-> Params : "15-17: configure"
+PlumMain -down-> Rand : "19-21: seed"
+
+Opts -right-> Config : "12: update"
+Config -right-> Params : "18: provide"
+
+PlumMain -down-> Scenario : "22-26: load data"
+
+Scenario -down-> Metabolite : "27-29: create,\nset supply/demand"
+Scenario -down-> Reaction : "30-32: create,\nset costs"
+Scenario -down-> Experiment : "create,\nconfigure"
+
+Metabolite -up-> Scenario : "33-35: supply,\nresidual, balance"
+Reaction -up-> Scenario : "36-38: stoichiometry,\nbounds, coeffs"
+
+PlumMain -down-> SolverImp : "39: create"
+
+SolverImp <|-down- Gurobi : "40: instantiate"
+SolverImp <|-down- HiGHS : "40: instantiate"
+SolverImp <|-down- LpSolve : "40: instantiate"
+
+Gurobi -up-> Scenario : "41-44: access\nnetwork data"
+HiGHS -up-> Scenario : "41-44: access\nnetwork data"
+LpSolve -up-> Scenario : "41-44: access\nnetwork data"
+
+PlumMain -down-> GapSolver : "45-46: create,\nsolve"
+
+GapSolver <|-down- LPSolver : "implement"
+GapSolver <|-down- IntSolver : "implement"
+GapSolver <|-down- IncrSolver : "implement"
+
+LPSolver -right-> Params : "47: get params"
+IntSolver -right-> Params : "47: get params"
+IncrSolver -right-> Params : "47: get params"
+
+LPSolver -left-> Scenario : "48: get network"
+IntSolver -left-> Scenario : "48: get network"
+IncrSolver -left-> Scenario : "48: get network"
+
+LPSolver -down-> Gurobi : "49-53: formulate,\noptimize"
+IntSolver -down-> Gurobi : "49-53: formulate,\noptimize"
+IncrSolver -down-> Gurobi : "49-53: formulate,\noptimize"
+
+Gurobi -down-> Reaction : "54-57: get\nstoichiometry,\nbounds, costs"
+Gurobi -down-> Metabolite : "58-61: get supply,\nresidual,\nconstraints"
+
+Reaction -up-> Gurobi : "55-57: data"
+Metabolite -up-> Gurobi : "59-61: data"
+
+Gurobi -up-> LPSolver : "62-64: fluxes,\nobjective, status"
+Gurobi -up-> IntSolver : "62-64: fluxes,\nobjective, status"
+Gurobi -up-> IncrSolver : "62-64: fluxes,\nobjective, status"
+
+LPSolver -down-> Solution : "65-69: create,\nset fluxes"
+IntSolver -down-> MultiSol : "65-69: create,\nset fluxes"
+IncrSolver -down-> Solution : "65-69: create,\nset fluxes"
+
+Solution -down-> Reaction : "67: set flux"
+Reaction -up-> Solution : "68: stored"
+
+Solution -up-> LPSolver : "69: ready"
+Solution -up-> IncrSolver : "69: ready"
+MultiSol -up-> IntSolver : "69: ready"
+
+LPSolver -up-> PlumMain : "70: SolutionPtr"
+IntSolver -up-> PlumMain : "70: SolutionPtr"
+IncrSolver -up-> PlumMain : "70: SolutionPtr"
+
+PlumMain -down-> Solution : "71-76: get stats,\nwrite outputs"
+
+Solution -down-> Reaction : "77-78: get flux,\nstoichiometry"
+Solution -down-> Metabolite : "79: get balance"
+
+Solution -up-> PlumMain : "80-81: stats,\noutputs"
+
+PlumMain -up-> RefTest : "82: exit(0)"
+
+RefTest -down-> RefTest : "83-85: diff,\ncapture, log"
+
+RefTest -up-> User : "86: results"
+
+note as N1
+  **Key Architectural Patterns**
+
+  **Strategy Pattern:**
+  - GapSolver interface
+  - Multiple algorithms (LP, Int, Incr)
+
+  **Strategy Pattern:**
+  - LPSolverImp interface
+  - Multiple backends (Gurobi, HiGHS, lp_solve)
+
+  **Facade Pattern:**
+  - PlumMain orchestrates subsystems
+  - Hides complexity from RefTest
+
+  **Composite Pattern:**
+  - Scenario aggregates Metabolites, Reactions
+  - MultiSol aggregates Solutions
+end note
+
+note as N2
+  **Communication Flow Summary**
+
+  1. **Test Layer**: User → RefTest → PlumMain
+  2. **Configuration**: PlumMain → Opts/Config/Params
+  3. **Data Loading**: PlumMain → Scenario → Metabolite/Reaction
+  4. **Solver Setup**: PlumMain → SolverImp (Gurobi|HiGHS|LpSolve)
+  5. **Problem Solving**: PlumMain → GapSolver → SolverImp
+  6. **Optimization**: SolverImp ↔ Reaction/Metabolite
+  7. **Results**: GapSolver → Solution → PlumMain
+  8. **Validation**: PlumMain → RefTest → diff → User
+
+  **Total Messages**: 86 (numbered sequentially)
+  **Components**: 20+ objects across 7 packages
+  **Relationships**: Configuration, Data flow, Control flow
+end note
+
+legend bottom
+  **Diagram Notation**
+
+  Arrows: Communication/message paths
+  Numbers: Message sequence (from reftest_sequence.puml)
+  Packages: Logical grouping of related components
+  <|--: Inheritance/implementation relationship
+
+  **Compare with:**
+  - reftest_sequence.puml: Temporal emphasis
+  - reftest_communication.puml: Full message details
+  - This diagram: Structural emphasis
+endlegend
+
+@enduml

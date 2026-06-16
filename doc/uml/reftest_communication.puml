@@ -1,0 +1,239 @@
+@startuml reftest_communication
+!theme plain
+title PLUM Reference Test Communication Diagram\nObject Relationships and Message Flow
+
+' Communication diagram showing structural relationships between components
+' Numbers indicate message sequence (corresponds to reftest_sequence.puml)
+
+object "User" as User {
+}
+
+object ":reftest.sh" as RefTest {
+  role = Bash test harness
+  responsibilities = Execute tests, validate results
+}
+
+object ":plum (main)" as PlumMain {
+  role = Main executable
+  responsibilities = Parse args, setup, orchestrate
+}
+
+object ":Opts" as Opts {
+  role = Argument parser
+  responsibilities = Process command line
+}
+
+object ":Config" as Config {
+  role = Configuration
+  responsibilities = Store settings
+}
+
+object ":Params" as Params {
+  role = Parameters
+  responsibilities = Solver configuration
+}
+
+object ":Rand" as Rand {
+  role = Random generator
+  responsibilities = Seed management
+}
+
+object ":Scenario" as Scenario {
+  role = Network container
+  responsibilities = Metabolites, reactions, experiments
+}
+
+object ":Metabolite" as Metabolite {
+  role = Compound
+  responsibilities = Supply, demand, balance
+}
+
+object ":Reaction" as Reaction {
+  role = Transformation
+  responsibilities = Stoichiometry, flux, cost
+}
+
+object ":LPSolverImp" as SolverImp {
+  role = Solver interface
+  responsibilities = LP/MILP abstraction
+}
+
+object ":GrbLPSolverImp\n:HighsLPSolverImp\n:LpsLPSolverImp" as ConcreteSolverImp {
+  role = Concrete implementation
+  responsibilities = Backend-specific solving
+}
+
+object ":LPSolver\n:IntSolver\n:IncrSolver" as ConcreteSolver {
+  role = Algorithm implementation
+  responsibilities = Problem formulation, solving
+}
+
+object ":Solution" as Solution {
+  role = Result container
+  responsibilities = Flux values, statistics
+}
+
+' Communication links with message sequences
+
+User --> RefTest : "1: ./reftest.sh [testfile]"
+
+RefTest --> RefTest : "2: parse_arguments()\n3: validate_testfile()\n4: init_output()"
+
+RefTest --> RefTest : "5: for each line in testfile\n6: echo_command()\n7: eval(line)"
+
+RefTest --> PlumMain : "8: execute plum -s 1 -v CTS -V GRB\n           data.pld -o out.sol"
+
+PlumMain --> Opts : "9: add_opt(-s, -p, -t, -v, -V, ...)\n10: add_arg(data.pld)\n11: process(argc, argv, config)"
+
+Opts --> Config : "12: update_config(args)"
+
+PlumMain --> Config : "13: create config\n14: get settings"
+
+PlumMain --> Params : "15: init_config(config)\n16: read_config(config)\n17: finalise()"
+
+Config --> Params : "18: provide settings"
+
+PlumMain --> Rand : "19: Rand(seed)\n20: generateSeed()\n21: uniform0n_1()"
+
+PlumMain --> Scenario : "22: read_data(data_fn)\n23: read_flux(flux_fn)\n24: read_react_cost(cost_fn)\n25: read_supply_demand(sd_fn)\n26: finalise(params)"
+
+Scenario --> Metabolite : "27: create metabolites\n28: set supply/demand\n29: get balance"
+
+Scenario --> Reaction : "30: create reactions\n31: set costs\n32: get stoichiometry"
+
+Metabolite --> Scenario : "33: supply rates\n34: residual rates\n35: balance data"
+
+Reaction --> Scenario : "36: stoichiometry\n37: flux bounds\n38: objective coefficients"
+
+PlumMain --> SolverImp : "39: create implementation"
+
+SolverImp --> ConcreteSolverImp : "40: instantiate\n    (GrbLPSolverImp |\n     HighsLPSolverImp |\n     LpsLPSolverImp)"
+
+ConcreteSolverImp --> Scenario : "41: access network data"
+
+Scenario --> ConcreteSolverImp : "42: metabolites\n43: reactions\n44: experiments"
+
+PlumMain --> ConcreteSolver : "45: create solver\n    (LPSolver | IntSolver | IncrSolver)\n46: solve()"
+
+ConcreteSolver --> Params : "47: get parameters"
+
+ConcreteSolver --> Scenario : "48: get network data"
+
+ConcreteSolver --> ConcreteSolverImp : "49: formulate(experiment)\n50: setup_LP_model()\n51: add_constraints()\n52: set_objective()\n53: optimize()"
+
+ConcreteSolverImp --> Reaction : "54: for each reaction:\n    get stoichiometry\n    get bounds\n    get costs"
+
+Reaction --> ConcreteSolverImp : "55: stoichiometry matrix\n56: flux bounds (lb, ub)\n57: objective costs"
+
+ConcreteSolverImp --> Metabolite : "58: for each metabolite:\n    get supply\n    get residual\n    get balance constraints"
+
+Metabolite --> ConcreteSolverImp : "59: supply rates\n60: residual rates\n61: balance constraints"
+
+ConcreteSolverImp --> ConcreteSolver : "62: optimal flux values\n63: objective value\n64: solver status"
+
+ConcreteSolver --> Solution : "65: create solution\n66: set flux values"
+
+Solution --> Reaction : "67: set flux for each reaction"
+
+Reaction --> Solution : "68: flux stored"
+
+Solution --> ConcreteSolver : "69: solution ready"
+
+ConcreteSolver --> PlumMain : "70: SolutionPtr"
+
+PlumMain --> Solution : "71: reaction_count()\n72: biomass_flux()\n73: rel_obj_value()\n74: write_flux(out)\n75: write_model(out)\n76: write_metbal(out)"
+
+Solution --> Reaction : "77: get flux values\n78: get stoichiometry for output"
+
+Solution --> Metabolite : "79: get balance for output"
+
+Solution --> PlumMain : "80: statistics\n81: output written"
+
+PlumMain --> RefTest : "82: exit(0)"
+
+RefTest --> RefTest : "83: eval diff out/test.out ref/test.out\n84: capture output\n85: log results"
+
+RefTest --> User : "86: test results in reftest.out"
+
+note top of RefTest
+  **Bash Layer**
+  - Test orchestration
+  - Command execution (eval)
+  - Result validation (diff)
+end note
+
+note top of PlumMain
+  **Main Executable Layer**
+  - Configuration management
+  - Component initialization
+  - Result aggregation
+end note
+
+note bottom of Scenario
+  **Data Model Layer**
+  - Network representation
+  - Metabolite/Reaction management
+  - Compartment modeling
+end note
+
+note bottom of ConcreteSolver
+  **Solver Layer**
+  - Algorithm implementation
+  - Problem formulation
+  - Optimization orchestration
+end note
+
+note right of ConcreteSolverImp
+  **Implementation Layer**
+  - Backend-specific LP/MILP
+  - Three implementations:
+    * Gurobi (GrbLPSolverImp)
+    * HiGHS (HighsLPSolverImp)
+    * lp_solve (LpsLPSolverImp)
+  - Optimization execution:
+    minimize: Σ(flux * cost)
+    subject to: Sv = 0,
+                lb ≤ v ≤ ub,
+                v_biomass ≥ target
+end note
+
+note right of Solution
+  **Result Layer**
+  - Flux storage
+  - Statistics calculation
+  - Multiple output formats:
+    * Flux values
+    * Model export
+    * Metabolite balance
+    * Graphviz DOT
+end note
+
+legend right
+  **Communication Diagram Key**
+
+  Numbers = Message sequence
+  Arrows = Communication direction
+  Objects = System components
+
+  **Message Flow Phases:**
+  1-7:   Test initialization
+  8-21:  Main setup & configuration
+  22-38: Scenario loading
+  39-44: Solver implementation setup
+  45-64: Problem solving
+  65-81: Solution extraction
+  82-86: Test validation
+
+  **Key Relationships:**
+  - RefTest orchestrates testing
+  - PlumMain coordinates components
+  - Scenario manages network data
+  - ConcreteSolver formulates problem
+  - ConcreteSolverImp executes optimization
+  - Solution captures results
+
+  Compare with reftest_sequence.puml
+  for temporal ordering emphasis.
+endlegend
+
+@enduml

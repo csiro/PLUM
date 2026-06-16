@@ -1,0 +1,315 @@
+@startuml reftest_sequence
+!theme plain
+title PLUM Reference Test Execution Flow\nreftest.sh → plum → C++ Solver Classes
+
+actor User
+participant "reftest.sh\n(bash script)" as RefTest
+participant "plum executable\n(main)" as PlumMain
+participant "Opts\n(lime/opts.h)" as Opts
+participant "Config\n(lime/config.h)" as Config
+participant "Scenario" as Scenario
+participant "Params" as Params
+participant "Rand\n(lime/rand.h)" as Rand
+participant "LPSolverImpPtr" as SolverImp
+participant "GrbLPSolverImp\n|HighsLPSolverImp\n|LpsLPSolverImp" as ConcreteSolverImp
+participant "GapSolver\n(interface)" as GapSolver
+participant "LPSolver\n|IntSolver\n|IncrSolver" as ConcreteSolver
+participant "Solution" as Solution
+participant "Reaction" as Reaction
+participant "Metabolite" as Metabolite
+
+== Test Initialization ==
+User -> RefTest: ./reftest.sh [testfile]
+activate RefTest
+
+RefTest -> RefTest: Parse arguments\n(Usage, Example)
+RefTest -> RefTest: Validate testfile exists
+
+RefTest -> RefTest: Initialize output file\nreftest.out with timestamp
+
+== Test Execution Loop ==
+loop For each line in testfile
+    RefTest -> RefTest: Read line
+
+    alt Empty line
+        RefTest -> RefTest: Write separator\nto output
+    else Command line
+        RefTest -> RefTest: Echo command\n(colour YELLOW)
+        RefTest -> RefTest: eval "$line"
+
+        note right of RefTest
+            Example command:
+            plum -s 1 -v CTS -V GRB \
+            data/PA01.dat -sd data/sd.dat \
+            -o out/test.out
+        end note
+
+        == PLUM Executable Invocation ==
+        RefTest -> PlumMain: Execute plum command
+        activate PlumMain
+
+        PlumMain -> PlumMain: get_os_string()
+        PlumMain -> Opts: Create opts parser
+        activate Opts
+        PlumMain -> Config: Create config
+        activate Config
+        PlumMain -> Params: Create params
+        activate Params
+
+        Params -> Config: init_config()
+        Config --> Params: Configuration items
+
+        PlumMain -> Opts: add_opt() for all switches\n(-s, -p, -t, -v, -V, etc.)
+        PlumMain -> Opts: add_arg() for data file
+
+        PlumMain -> Opts: process(argc, argv, config)
+        Opts -> Opts: Parse command line arguments
+        Opts -> Config: Update config with args
+        Opts --> PlumMain: Success/Failure
+        deactivate Opts
+
+        PlumMain -> Params: read_config(config)
+        Config --> Params: Parameter values
+        PlumMain -> Params: finalise()
+
+        == Random Seed Setup ==
+        PlumMain -> Rand: Create Rand(params.seed)
+        activate Rand
+        Rand -> Rand: Initialize seed\n(0 → current time)
+        Rand --> PlumMain: rand object
+
+        == Scenario Loading ==
+        PlumMain -> Scenario: Create scenario
+        activate Scenario
+
+        PlumMain -> Scenario: read_data(data_fn)
+        Scenario -> Scenario: Parse PLD file:\n- COMPART lines\n- MET lines\n- REACTION lines
+
+        Scenario -> Metabolite: Create metabolites
+        activate Metabolite
+        Metabolite --> Scenario: metabolite objects
+
+        Scenario -> Reaction: Create reactions
+        activate Reaction
+        Reaction --> Scenario: reaction objects
+
+        alt flux_fn provided
+            PlumMain -> Scenario: read_flux(flux_fn)
+        end
+
+        alt react_cost_fn provided
+            PlumMain -> Scenario: read_react_cost(react_cost_fn,\nparams, REPLACE)
+            Scenario -> Reaction: Update cost values
+        end
+
+        alt supply_demand_fn provided
+            PlumMain -> Scenario: read_supply_demand(\nsupply_demand_fn, params)
+            Scenario -> Metabolite: Update supply/demand rates
+        end
+
+        PlumMain -> Scenario: finalise(params)
+        Scenario -> Scenario: Compute reachability\nValidate biomass reaction
+
+        == Solver Setup ==
+        PlumMain -> Rand: uniform0n_1(1000000)
+        Rand --> PlumMain: imp_seed
+
+        alt Solver flavour selection
+            PlumMain -> SolverImp: Create implementation
+            activate SolverImp
+
+            alt Flavour: GUROBI
+                PlumMain -> ConcreteSolverImp: new GrbLPSolverImp(\nscenario, params, seed, grbenv)
+            else Flavour: HIGHS
+                PlumMain -> ConcreteSolverImp: new HighsLPSolverImp(\nscenario, params, seed)
+            else Flavour: LP_SOLVE
+                PlumMain -> ConcreteSolverImp: new LpsLPSolverImp(\nscenario, params)
+            end
+            activate ConcreteSolverImp
+
+            ConcreteSolverImp -> Scenario: Access metabolites/reactions
+            ConcreteSolverImp -> ConcreteSolverImp: Setup LP/MILP model
+            ConcreteSolverImp --> SolverImp: Implementation ready
+        end
+
+        == Solver Type Selection ==
+        alt INT solver (needs CTS solutions first)
+            PlumMain -> GapSolver: Create LPSolver for CTS
+            activate GapSolver
+
+            loop For each experiment
+                GapSolver -> ConcreteSolverImp: Formulate LP problem
+                ConcreteSolverImp -> Reaction: Get stoichiometry
+                ConcreteSolverImp -> Metabolite: Get bounds
+
+                GapSolver -> ConcreteSolverImp: solve()
+                ConcreteSolverImp -> ConcreteSolverImp: Run LP optimization
+                ConcreteSolverImp -> Solution: Create solution
+                activate Solution
+                Solution -> Reaction: Set flux values
+                Solution --> GapSolver: Continuous solution
+            end
+            deactivate GapSolver
+        end
+
+        alt Solver type selection
+            PlumMain -> ConcreteSolver: Create solver
+            activate ConcreteSolver
+
+            alt CTS (Continuous)
+                PlumMain -> ConcreteSolver: new LPSolver(\nscenario, params, seed, 1, imp)
+            else INT (Integer)
+                PlumMain -> ConcreteSolver: new IntSolver(\nscenario, params, seed, variant, imp, cts_sol)
+            else INCR (Incremental)
+                PlumMain -> ConcreteSolver: new IncrSolver(\nscenario, params, seed, imp, imp2, min_cost)
+            else DUMMY
+                PlumMain -> ConcreteSolver: new DummySolver(\nscenario, params, seed)
+            end
+
+            ConcreteSolver -> Params: Access parameters
+            ConcreteSolver -> Scenario: Access network data
+        end
+
+        == Problem Solving ==
+        PlumMain -> ConcreteSolver: solve()
+
+        ConcreteSolver -> ConcreteSolver: formulate()
+        ConcreteSolver -> ConcreteSolverImp: Setup optimization problem
+
+        ConcreteSolverImp -> Reaction: For each reaction:\nGet stoichiometry, bounds, costs
+        loop For each reaction
+            Reaction --> ConcreteSolverImp: Stoichiometry data
+        end
+
+        ConcreteSolverImp -> Metabolite: For each metabolite:\nGet supply, residual, balance constraints
+        loop For each metabolite
+            Metabolite --> ConcreteSolverImp: Metabolite data
+        end
+
+        ConcreteSolverImp -> ConcreteSolverImp: Add objective function:\nMinimize flux or reaction count
+        ConcreteSolverImp -> ConcreteSolverImp: Add constraints:\nStoichiometry, bounds, biomass
+
+        ConcreteSolver -> ConcreteSolverImp: optimize()
+        ConcreteSolverImp -> ConcreteSolverImp: Run LP/MILP solver\n(Gurobi/HiGHS/lp_solve)
+
+        note right of ConcreteSolverImp
+            Optimization:
+            minimize: Σ(flux * cost)
+            subject to:
+            - Stoichiometry: Sv = 0
+            - Flux bounds: lb ≤ v ≤ ub
+            - Biomass: v_biomass ≥ target
+            - Supply/demand constraints
+        end note
+
+        ConcreteSolverImp --> ConcreteSolver: Optimal flux values
+
+        ConcreteSolver -> Solution: Create solution from results
+        Solution -> Reaction: Set flux values for each reaction
+        Reaction --> Solution: Flux stored
+
+        Solution -> Solution: Calculate statistics:\nreaction_count, sum_flux,\nobj_value, biomass_flux
+
+        ConcreteSolver --> PlumMain: SolutionPtr
+        deactivate ConcreteSolver
+
+        == Results Processing ==
+        alt Solution found
+            PlumMain -> Solution: reaction_count()
+            Solution --> PlumMain: Number of reactions used
+
+            PlumMain -> Solution: biomass_flux()
+            Solution --> PlumMain: Biomass production rate
+
+            PlumMain -> Solution: rel_obj_value()
+            Solution --> PlumMain: Relative objective
+
+            PlumMain -> Scenario: sol_depth(sol)
+            Scenario -> Scenario: Compute reachability depth
+            Scenario --> PlumMain: Solution depth
+        end
+
+        PlumMain -> PlumMain: Build summary string:\nseed, data, metrics, config
+
+        == Output Generation ==
+        alt out_fn provided
+            PlumMain -> PlumMain: Open output file
+            PlumMain -> Solution: write_flux(out)
+            Solution -> Reaction: Get flux for each reaction
+            loop For each reaction with flux > 0
+                Reaction --> Solution: Reaction ID and flux
+                Solution --> PlumMain: Flux data written
+            end
+        end
+
+        alt outmodel_fn provided
+            PlumMain -> PlumMain: write_model(outmodel_fn,\nUSED, false, scenario, params, sol)
+            PlumMain -> Solution: write_model(out)
+            Solution -> Reaction: Write reactions with non-zero flux
+            loop For used reactions
+                Reaction --> Solution: Stoichiometry and flux
+            end
+        end
+
+        alt met_bal_fn provided
+            PlumMain -> Solution: write_metbal(out)
+            Solution -> Metabolite: Get balance for each metabolite
+            loop For each metabolite
+                Metabolite --> Solution: Balance data
+            end
+        end
+
+        alt summary_fn provided
+            PlumMain -> PlumMain: Write summary to file\n(with file locking)
+        end
+
+        PlumMain --> RefTest: Exit code 0 (success)\nor 1 (error)
+
+        deactivate Solution
+        deactivate Reaction
+        deactivate Metabolite
+        deactivate ConcreteSolverImp
+        deactivate SolverImp
+        deactivate Scenario
+        deactivate Params
+        deactivate Config
+        deactivate Rand
+        deactivate PlumMain
+
+        == Test Validation ==
+        RefTest -> RefTest: eval "diff out/test.out ref/test.out"
+        RefTest -> RefTest: Capture diff output\nto reftest.out via tee
+
+        alt Diff succeeds (files match)
+            RefTest -> RefTest: Log: No differences
+        else Diff fails (files differ)
+            RefTest -> RefTest: Log: Differences found
+        end
+    end
+end
+
+== Test Completion ==
+RefTest -> RefTest: Write completion message
+RefTest -> RefTest: Display: "Done. Output in reftest.out"
+RefTest --> User: Test results in reftest.out
+
+deactivate RefTest
+
+note over User, Metabolite
+    Key Classes:
+    - **Scenario**: Metabolic network container (metabolites, reactions, experiments)
+    - **Reaction**: Stoichiometric transformation with bounds and costs
+    - **Metabolite**: Compounds with supply/residual rates per compartment
+    - **GapSolver**: Abstract solver interface (solve(), status_str(), summary())
+    - **LPSolver**: Continuous LP formulation (flux minimization)
+    - **IntSolver**: Integer programming formulation (reaction selection)
+    - **IncrSolver**: Incremental solver (progressive reaction addition)
+    - **LPSolverImp**: Abstract LP/MILP implementation interface
+    - **GrbLPSolverImp**: Gurobi implementation
+    - **HighsLPSolverImp**: HiGHS implementation
+    - **LpsLPSolverImp**: lp_solve implementation
+    - **Solution**: Result container (flux values, metrics)
+    - **Params**: Parameter configuration holder
+end note
+
+@enduml

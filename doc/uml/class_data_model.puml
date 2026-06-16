@@ -1,0 +1,508 @@
+@startuml class_data_model
+!theme plain
+title PLUM Class Diagram - Data Model
+subtitle Metabolic Network Representation for Flux Balance Analysis
+
+' ===================================================================
+' Core Data Classes
+' ===================================================================
+
+class Scenario {
+  ' Top-level metabolic network container
+  - metabolite_ : vector<MetabolitePtr>
+  - reaction_ : vector<ReactionPtr>
+  - experiment_ : vector<ExperimentPtr>
+  - biomass_react_ : Reaction*
+  - biolog_rank_ : vector<size_t>
+  - dummy_ex_for_ : map<Metabolite*, Reaction*>
+  - dummy_dm_for_ : map<Metabolite*, Reaction*>
+  - orig_num_reactions_ : size_t
+  - max_react_cost_ : double
+  - has_base_flux_ : bool
+  - met_map_ : StrIdxMap
+  - react_map_ : StrIdxMap
+
+  + Scenario()
+  + num_metabolites() : size_t
+  + metabolite(k) : Metabolite*
+  + metabolites() : vector<MetabolitePtr>&
+  + num_reactions() : size_t
+  + reaction(k) : Reaction*
+  + reactions() : vector<ReactionPtr>&
+  + num_experiments() : size_t
+  + experiment(k) : Experiment*
+  + biomass_react() : Reaction*
+
+  ' File I/O
+  + read_data(filename)
+  + read_flux(filename)
+  + read_react_cost(filename, params, policy)
+  + read_supply_demand(filename, params)
+  + read_cycle_mets(filename)
+  + read_c_sources(filename)
+  + read_base_flux(filename)
+  + no_supply_demand()
+  + finalise(params)
+
+  ' Reachability analysis
+  + compute_reachability()
+  + depth() : int
+  + sol_depth(sol) : int
+  + count_reachability(level, reacts, mets, resids)
+  + draw_reachability(dig, sol)
+
+  ' Dummy reactions
+  + add_dummy_ex_for(met) : Reaction*
+  + add_dummy_dm_for(met) : Reaction*
+  + has_dummy_ex_for(met) : bool
+  + has_dummy_dm_for(met) : bool
+
+  ' Utilities
+  + find_metabolite(name) : Metabolite*
+  + find_reaction(name) : Reaction*
+  + num_selected() : size_t
+  + orig_num_reactions() : size_t
+}
+
+class Metabolite {
+  ' Biochemical compound
+  - name_ : string
+  - full_name_ : string
+  - index_ : size_t
+  - is_source_ : bool
+  - is_cycle_met_ : bool
+  - is_c_source_ : bool
+  - is_dummy_ : bool
+
+  + Metabolite(name, full_name)
+  + name() : string
+  + set_name(name)
+  + full_name() : string
+  + index() : size_t
+  + set_index(index)
+
+  ' Flags
+  + is_source() : bool
+  + set_is_source(is_source)
+  + is_cycle_met() : bool
+  + set_cycle_met(is_cycle_met)
+  + is_c_source() : bool
+  + set_c_source(is_c_source)
+  + is_dummy() : bool
+  + set_is_dummy(is_dummy)
+
+  + write_to(out)
+}
+
+class Reaction {
+  ' Biochemical reaction
+  - name_ : string
+  - full_name_ : string
+  - formula_from_ : string
+  - formula_to_ : string
+  - obj_coeff_ : double
+  - is_biomass_ : bool
+  - is_export_ : bool
+  - mets_ : vector<Metabolite*>
+  - in_mets_ : vector<Metabolite*>
+  - out_mets_ : vector<Metabolite*>
+  - met_coeff_ : map<Metabolite*, double>
+  - flux_ub_ : double
+  - has_known_flux_ : bool
+  - known_flux_ : double
+  - known_flux_error_ : double
+  - is_dummy_ : bool
+  - is_active_ : bool
+  - is_selected_ : bool
+  - reduced_cost_ : double
+
+  + Reaction(name, obj_coeff, flux_ub, is_active, is_selected, is_dummy)
+  + name() : string
+  + set_name(name)
+  + full_name() : string
+  + set_full_name(full_name)
+  + formula() : string
+  + nice_formula() : string
+  + index() : size_t
+  + set_index(index)
+
+  ' Objective and costs
+  + obj_coeff() : double
+  + set_obj_coeff(obj_coeff)
+  + is_biomass() : bool
+  + is_export() : bool
+  + set_is_export(is_export)
+
+  ' Metabolites and stoichiometry
+  + add_metabolite(met, coeff)
+  + num_mets() : size_t
+  + metabolite(k) : Metabolite*
+  + metabolites() : vector<Metabolite*>&
+  + in_metabolites() : vector<Metabolite*>&
+  + out_metabolites() : vector<Metabolite*>&
+  + met_coeff(met) : double
+  + uses(met) : bool
+  + makes(met) : bool
+
+  ' Flux bounds
+  + flux_ub() : double
+  + set_flux_ub(ub)
+  + has_known_flux() : bool
+  + known_flux() : double
+  + set_known_flux(flux, error)
+
+  ' Flags
+  + is_dummy() : bool
+  + set_is_dummy(is_dummy)
+  + is_active() : bool
+  + set_is_active(is_active)
+  + is_selected() : bool
+  + set_is_selected(is_selected)
+
+  ' Utilities
+  + is_reversible() : bool
+  + is_transport() : bool
+  + is_ex() : bool
+  + is_dm() : bool
+  + reduced_cost() : double
+  + set_reduced_cost(cost)
+  + write_to(out)
+}
+
+class Experiment {
+  ' Experimental condition
+  - name_ : string
+  - index_ : size_t
+  - rank_ : size_t
+  - supply_residual_ : map<Metabolite*, SupplyResidual>
+  - target_flux_ : double
+
+  + Experiment(name, rank)
+  + name() : string
+  + index() : size_t
+  + set_index(index)
+  + rank() : size_t
+  + set_rank(rank)
+
+  ' Supply/demand
+  + set_supply_residual(met, supply, residual)
+  + has_supply_residual(met) : bool
+  + supply_residual(met) : SupplyResidual
+  + supply(met) : double
+  + residual(met) : double
+
+  ' Target flux
+  + target_flux() : double
+  + set_target_flux(flux)
+}
+
+class SupplyResidual {
+  ' Supply and residual rates
+  - supply_ : double
+  - residual_ : double
+
+  + SupplyResidual(supply, residual)
+  + supply() : double
+  + residual() : double
+}
+
+' ===================================================================
+' Solution Classes
+' ===================================================================
+
+class Solution {
+  ' Flux distribution solution
+  # scenario_ : Scenario*
+  # params_ : Params*
+  # flux_ : vector<double>
+
+  + Solution(scenario, params)
+  + Solution(other : Solution*)
+  + scenario() : Scenario*
+  + params() : Params*
+
+  ' Flux access
+  + flux(k) : double
+  + flux(react) : double
+  + set_flux(k, val)
+  + set_flux(react, val)
+  + uses_react(k) : bool
+  + uses_react(react) : bool
+  + fill(value)
+
+  ' Objective values
+  + obj_value(biomass_mult) : double
+  + rel_obj_value() : double
+  + abs_obj_value() : double
+  + biomass_flux() : double
+  + dummy_flux() : double
+  + dummy_obj_val() : double
+
+  ' Statistics
+  + reaction_count() : int
+  + sum_flux() : double
+  + max_cost() : double
+  + num_dummy() : int
+
+  ' Output
+  + write_flux(out)
+  + write_model(out, react_cost_one)
+  + write_metbal(out)
+  + write_met_use(out)
+  + write_carbon_source_dot(out)
+  + write_supply_demand_dot(out)
+
+  ' Visualization
+  + draw(dig)
+  + draw_metbal(dig)
+  + draw_reduced_cost(dig)
+
+  ' Analysis
+  + check_metbal(exp, tol) : bool
+  + metbal(met, exp) : double
+}
+
+class MultiSol {
+  ' Multiple experiment solutions
+  - scenario_ : Scenario*
+  - params_ : Params*
+  - sols_ : vector<SolutionPtr>
+
+  + MultiSol(scenario, params)
+  + num_experiments() : size_t
+  + sol(k) : Solution*
+  + set_sol(k, sol)
+
+  ' Aggregated values
+  + flux(react, exp) : double
+  + set_flux(react, exp, val)
+  + uses_react(react, exp) : bool
+
+  ' Output
+  + write_flux(out)
+}
+
+' ===================================================================
+' Configuration Classes
+' ===================================================================
+
+class Params {
+  ' Solver parameters and configuration
+  + seed : int
+  + num_threads : int
+  + time_limit : double
+  + use_abs_obj : bool
+  + use_error : bool
+  + use_dummy : bool
+  + use_dummy_biomass_react_dm : bool
+  + use_dummy_biomass_react_ex : bool
+  + use_dummy_biomass_prod_dm : bool
+  + preserve_dummies : bool
+  + biomass_ub : double
+  + detect_runaway : bool
+  + biomass_wiggle_pc : double
+  + max_react_cost : double
+  + unit_cost : bool
+  + init_biomass_obj_mult : double
+  + biomass_mult_int : double
+  + max_biomass_search_iters : int
+  + max_mh_iters : int
+  + target_flux : double
+  + gene_ind_cost : double
+
+  + Params()
+  + init_config(config)
+  + read_config(config)
+  + finalise()
+  + is_gene_indicated(react) : bool
+}
+
+' ===================================================================
+' Utility Classes
+' ===================================================================
+
+class PathFinder {
+  ' Reachability analysis
+  - scenario_ : Scenario*
+  - params_ : Params*
+  - reaction_level_ : vector<int>
+  - metabolite_level_ : vector<int>
+  - max_level_ : int
+
+  + PathFinder(scenario, params)
+  + compute()
+  + reaction_level(react) : int
+  + metabolite_level(met) : int
+  + max_level() : int
+  + is_reachable(react) : bool
+  + is_reachable(met) : bool
+}
+
+class DualVals {
+  ' Dual values from LP
+  - lb_dual_ : vector<double>
+  - ub_dual_ : vector<double>
+
+  + DualVals(num_mets)
+  + lb_dual(met) : double
+  + ub_dual(met) : double
+  + set_lb_dual(met, val)
+  + set_ub_dual(met, val)
+}
+
+' ===================================================================
+' Relationships
+' ===================================================================
+
+Scenario "1" *-- "many" Metabolite : contains
+Scenario "1" *-- "many" Reaction : contains
+Scenario "1" *-- "many" Experiment : contains
+Scenario "1" o-- "1" Reaction : biomass_react
+
+Reaction "1" o-- "many" Metabolite : uses/makes
+Reaction "1" *-- "many" met_coeff_ : stoichiometry
+
+Experiment "1" *-- "many" SupplyResidual : supply/demand
+
+Solution "1" o-- "1" Scenario : references
+Solution "1" o-- "1" Params : references
+
+MultiSol "1" *-- "many" Solution : aggregates
+MultiSol "1" o-- "1" Scenario : references
+
+PathFinder "1" o-- "1" Scenario : analyzes
+
+' ===================================================================
+' Notes
+' ===================================================================
+
+note right of Scenario
+  **Central Data Container**
+
+  Scenario aggregates all components
+  of a metabolic network:
+  - Metabolites (compounds)
+  - Reactions (transformations)
+  - Experiments (growth conditions)
+
+  Provides:
+  - PLD file I/O
+  - Reachability analysis
+  - Dummy reaction management
+end note
+
+note right of Reaction
+  **Stoichiometric Transformation**
+
+  Represents: aA + bB → cC + dD
+
+  Key properties:
+  - met_coeff_: stoichiometry map
+  - obj_coeff: optimization weight
+  - is_active: in current network?
+  - is_selected: selected by solver?
+
+  Special types:
+  - Biomass (obj_coeff < 0)
+  - Transport (different compartments)
+  - Exchange (EX_): import/export
+  - Demand (DM_): consumption sink
+end note
+
+note right of Metabolite
+  **Biochemical Compound**
+
+  Examples:
+  - glc_D: D-Glucose
+  - atp_c: ATP (cytosol)
+  - h2o_e: Water (external)
+
+  Compartments encoded in name:
+  - _e: External
+  - _p: Periplasm
+  - _c: Cytosol
+  - _o: Output
+
+  Special types:
+  - Source: in growth medium
+  - Carbon source: provides carbon
+  - Cycle metabolite: in cycles
+end note
+
+note left of Solution
+  **Flux Distribution**
+
+  flux_[i] = flux through reaction i
+
+  Objective values:
+  - rel_obj: Σ(flux * cost)
+  - abs_obj: Σ use_i
+  - biomass_flux: growth rate
+
+  Statistics:
+  - reaction_count: # used reactions
+  - sum_flux: total flux magnitude
+  - max_cost: highest cost used
+  - num_dummy: # dummy reactions
+
+  Outputs:
+  - Flux values
+  - Model (PLD format)
+  - Metabolite balance
+  - DOT graphs
+end note
+
+note left of Experiment
+  **Growth Condition**
+
+  Represents:
+  - Growth medium composition
+  - Supply rates (uptake limits)
+  - Residual rates (export requirements)
+
+  Example:
+  - Glucose minimal medium
+  - Rich medium (LB)
+  - Anaerobic conditions
+
+  rank: Priority for optimization
+  (lower rank = higher priority)
+end note
+
+note bottom of Params
+  **Configuration Parameters**
+
+  Controls:
+  - Solver behavior (threads, time limit)
+  - Objective function (abs vs rel)
+  - Dummy reactions (enable/disable)
+  - Biomass constraints (bounds, multipliers)
+  - Costs (gene-indicated, max acceptable)
+
+  Loaded from:
+  - Command-line options
+  - Config files
+  - Default values
+end note
+
+legend bottom
+  **Key:**
+  - *-- : Composition (contains)
+  - o-- : Aggregation (references)
+  - # : Protected member
+  - - : Private member
+  - + : Public member
+
+  **File Formats:**
+  - PLD: PLUM internal format
+    * COMPART: Compartment definitions
+    * MET: Metabolites with supply/residual
+    * REACTION: Stoichiometry and costs
+
+  **Compartment Model:**
+  E (External) ↔ P (Periplasm) ↔ C (Cytosol) ↔ O (Output)
+  Transport reactions move metabolites between adjacent compartments.
+  Non-transport reactions are replicated across compartments.
+endlegend
+
+@enduml
