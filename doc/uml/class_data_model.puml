@@ -1,7 +1,6 @@
 @startuml class_data_model
 !theme plain
 title PLUM Class Diagram - Data Model
-subtitle Metabolic Network Representation for Flux Balance Analysis
 
 ' ===================================================================
 ' Core Data Classes

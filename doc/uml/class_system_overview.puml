@@ -1,7 +1,7 @@
 @startuml class_system_overview
 !theme plain
 title PLUM System Overview - Class Diagram
-subtitle Complete System Architecture with All Major Components
+
 
 ' ===================================================================
 ' Package: lime (External Utility Library)

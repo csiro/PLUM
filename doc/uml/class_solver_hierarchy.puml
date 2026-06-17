@@ -1,7 +1,6 @@
 @startuml class_solver_hierarchy
 !theme plain
 title PLUM Class Diagram - Solver Hierarchy
-subtitle Gap-Filling Solver Framework with LP/MILP Implementations
 
 ' ===================================================================
 ' Abstract Base Classes and Interfaces
