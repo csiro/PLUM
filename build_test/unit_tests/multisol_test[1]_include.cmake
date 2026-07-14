@@ -1,0 +1,5 @@
+if(EXISTS "/home/kubeflow/PLUM/build_test/unit_tests/multisol_test[1]_tests.cmake")
+  include("/home/kubeflow/PLUM/build_test/unit_tests/multisol_test[1]_tests.cmake")
+else()
+  add_test(multisol_test_NOT_BUILT multisol_test_NOT_BUILT)
+endif()

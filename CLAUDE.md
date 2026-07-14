@@ -103,7 +103,221 @@ At least one solver must be configured for linking to succeed.
 
 ## Testing
 
+PLUM has two types of tests: unit tests (Google Test) and reference tests (integration tests).
+
+### Unit Tests (Google Test)
+
+**Overview**: Comprehensive unit tests for core data model classes using the Google Test framework. Tests are organized by class with each test file following the pattern `<class>_test.cpp`.
+
+**Created**: July 14, 2026  
+**Framework**: Google Test v1.14.0 (fetched automatically via CMake FetchContent)  
+**Language**: C++20  
+**Location**: `unit_tests/`
+
+#### Test Suites (83 test cases total)
+
+| Test File | Class | Tests | Coverage |
+|-----------|-------|-------|----------|
+| `metabolite_test.cpp` | Metabolite | 15 | Construction, name/index management, boolean flags (source, cycle_met, c_source, dummy), I/O, edge cases |
+| `reaction_test.cpp` | Reaction | 33 | Construction, stoichiometry, flux bounds, active/selected/dummy flags, metabolite coefficients, formulas, comparison (same_as, reverse_of), EX/DM/export detection, I/O |
+| `scenario_test.cpp` | Scenario | 13 | Construction, adding metabolites/reactions, automatic index assignment, accessors, empty scenario handling |
+| `solution_test.cpp` | Solution | 15 | Construction, flux get/set (by index and reaction), uses_react predicate, fill operation, copy constructor, flux independence |
+| `multisol_test.cpp` | MultiSol | 5 | Construction, solution count, accessors |
+| `params_test.cpp` | Params | 2 | Construction, object creation |
+
+#### Test Structure
+
+Each test file uses the Google Test fixture pattern:
+
+```cpp
+class <Class>Test : public ::testing::Test {
+protected:
+    void SetUp() override {
+        // Initialize test objects
+    }
+    void TearDown() override {
+        // Clean up test objects
+    }
+    // Test member variables
+};
+
+TEST_F(<Class>Test, TestName) {
+    EXPECT_EQ(expected, actual);
+    ASSERT_TRUE(condition);
+}
+```
+
+#### Building Tests
+
+Tests are built automatically with PLUM. To disable:
+
+```bash
+cmake -DBUILD_TESTS=OFF ..
+```
+
+Build process:
+
+```bash
+# Configure and build (tests enabled by default)
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+
+Test executables are created in `build/unit_tests/`:
+- `metabolite_test`
+- `reaction_test`
+- `scenario_test`
+- `solution_test`
+- `multisol_test`
+- `params_test`
+
+#### Running Tests
+
+**Run all tests** (using ctest):
+```bash
+cd build/unit_tests
+ctest
+
+# With verbose output
+ctest --verbose
+
+# Show output only on failure
+ctest --output-on-failure
+```
+
+**Run all tests** (using convenience script):
+```bash
+# From PLUM root directory
+./run_unit_tests.sh
+```
+
+**Run individual test suites**:
+```bash
+cd build/unit_tests
+./metabolite_test
+./reaction_test
+./scenario_test
+./solution_test
+./multisol_test
+./params_test
+```
+
+**Run filtered tests** (Google Test filter syntax):
+```bash
+# Run specific test case
+./reaction_test --gtest_filter=ReactionTest.SetCoefficient
+
+# Run all tests in a fixture
+./reaction_test --gtest_filter=ReactionTest.*
+
+# Run tests matching pattern
+./reaction_test --gtest_filter=*Flux*
+
+# Exclude tests
+./reaction_test --gtest_filter=-*ExchangeReaction*
+
+# Multiple filters (OR)
+./reaction_test --gtest_filter=*Flux*:*Coeff*
+
+# Colorized output
+./metabolite_test --gtest_color=yes
+
+# Repeat tests (for flakiness detection)
+./metabolite_test --gtest_repeat=10
+
+# Shuffle test order with seed
+./metabolite_test --gtest_shuffle --gtest_random_seed=12345
+```
+
+#### Test Coverage
+
+**What's Tested**:
+- ✅ Constructor initialization with various parameter combinations
+- ✅ Getters/setters for all properties (names, indices, coefficients, bounds)
+- ✅ Boolean flags and state management (is_source, is_active, is_selected, is_dummy, etc.)
+- ✅ Complex operations (metabolite coefficient management, formula generation, reaction comparison)
+- ✅ Input/output operations (write_to stream formatting)
+- ✅ Edge cases (empty names, long names, special characters, large/negative values)
+- ✅ Copy constructors and object independence
+- ✅ Collection operations (adding metabolites/reactions, indexing)
+- ✅ Predicates (uses_react, is_ex, is_dm, is_export, is_biomass)
+- ✅ Reaction types (EX: exchange, DM: demand, export, biomass, dummy)
+
+**Not Yet Tested** (future enhancements):
+- ❌ Solver classes (LPSolver, IntSolver, IncrSolver, LnsMxSolver hierarchies)
+- ❌ LP solver implementations (GrbLpSolverImp, HighsLpSolverImp, LpsLpSolverImp)
+- ❌ PathFinder reachability analysis algorithms
+- ❌ Experiment class functionality
+- ❌ File I/O (reading PLD format files)
+- ❌ Multi-compartment metabolic network scenarios
+- ❌ Integration tests with toy problems
+- ❌ Performance benchmarks and timing
+- ❌ Memory leak detection (valgrind integration)
+
+#### Documentation
+
+Comprehensive documentation is provided in the `unit_tests/` directory:
+
+- **`README.md`** (380 lines): Test organization, running tests, filtering, coverage summary, Google Test features, adding new tests, CI/CD integration, troubleshooting
+- **`SETUP.md`** (550 lines): Prerequisites, quick start, build configuration, test structure, troubleshooting (15+ common issues), CI/CD pipeline examples (GitHub Actions, Jenkins), best practices, performance benchmarks, future enhancements
+- **`UNIT_TEST_SETUP_SUMMARY.md`**: Complete summary of what was created, coverage details, file listing
+
+#### CI/CD Integration
+
+Tests are ready for continuous integration. Examples:
+
+**GitHub Actions**:
+```yaml
+- name: Build and Test
+  run: |
+    mkdir build && cd build
+    cmake -DBUILD_TESTS=ON ..
+    cmake --build .
+    cd unit_tests && ctest --output-on-failure
+```
+
+**Jenkins**:
+```groovy
+stage('Test') {
+    steps {
+        sh 'cd build/unit_tests && ctest --output-on-failure'
+    }
+}
+```
+
+#### Files Created
+
+- `unit_tests/CMakeLists.txt` - Test build configuration with FetchContent
+- `unit_tests/README.md` - Comprehensive test documentation
+- `unit_tests/SETUP.md` - Detailed setup and troubleshooting guide
+- `unit_tests/metabolite_test.cpp` - 15 test cases for Metabolite class
+- `unit_tests/reaction_test.cpp` - 33 test cases for Reaction class
+- `unit_tests/scenario_test.cpp` - 13 test cases for Scenario class
+- `unit_tests/solution_test.cpp` - 15 test cases for Solution class
+- `unit_tests/multisol_test.cpp` - 5 test cases for MultiSol class
+- `unit_tests/params_test.cpp` - 2 test cases for Params class
+- `run_unit_tests.sh` - Convenience test runner script
+
+#### Performance
+
+- **Build time**: ~3-5 minutes (with 6 test suites)
+- **Test execution**: < 5 seconds (all 83 tests)
+- **Individual suite**: < 1 second
+
+#### Benefits
+
+1. **Regression Prevention**: Catch bugs early before integration
+2. **Documentation**: Tests serve as usage examples for classes
+3. **Refactoring Confidence**: Safe to refactor with test coverage
+4. **Fast Feedback**: Unit tests run in seconds vs. minutes for integration tests
+5. **Focused Debugging**: Failures pinpoint exact class/method
+6. **Continuous Integration**: Automated testing in CI/CD pipelines
+7. **Code Quality**: Encourages testable, modular design
+
 ### Reference Tests
+
+End-to-end integration tests for PLUM executables.
 
 ```bash
 # Run reference tests
@@ -121,6 +335,7 @@ Reference tests are defined in `reftest/reftest.dat` with bash commands (RUN) an
 
 ### Test Data
 
+- `unit_tests/`: Unit test source files (Google Test)
 - `test/toy/`: Simple test cases with documentation in `test/toy/README.md`
 - `reftest/data/`: Reference test input data
 - Input format documented in `fileformat.md`
@@ -477,6 +692,11 @@ These workflows use multi-agent parallel processing to efficiently document larg
 
 - `src/`: Implementation files for solvers, scenarios, solutions (Doxygen documented)
 - `include/mosh/`: Header files with full API documentation (Doxygen documented)
+- `unit_tests/`: Unit tests using Google Test framework (83 test cases across 6 test suites)
+  - `metabolite_test.cpp`, `reaction_test.cpp`, `scenario_test.cpp`
+  - `solution_test.cpp`, `multisol_test.cpp`, `params_test.cpp`
+  - `README.md`: Test organization and usage guide
+  - `SETUP.md`: Detailed setup and troubleshooting
 - `util/`: Conversion and preprocessing scripts (Python/Bash with numpy-style docstrings)
 - `test/`: Test data and scripts (Python scripts documented)
 - `reftest/`: Reference tests with expected outputs (reftest.sh annotated with bash documentation)
@@ -486,6 +706,7 @@ These workflows use multi-agent parallel processing to efficiently document larg
 - `data/`: Input data files (not in repository)
 - `lime/`: Submodule dependency (CSIRO utility library)
 - `.claude/workflows/`: Saved documentation workflows
+- `run_unit_tests.sh`: Convenience script to run all unit tests
 
 ## Quick Reference
 
@@ -498,7 +719,25 @@ cmake ..
 cmake --build .
 ```
 
-**Testing:**
+**Unit Testing:**
+```bash
+# Build with tests (default)
+mkdir build && cd build
+cmake ..
+cmake --build .
+
+# Run all unit tests
+cd unit_tests && ctest
+# Or use convenience script
+./run_unit_tests.sh
+
+# Run specific test
+cd build/unit_tests
+./metabolite_test
+./reaction_test --gtest_filter=*Flux*
+```
+
+**Reference Testing:**
 ```bash
 cd reftest
 ./reftest.sh
@@ -546,11 +785,14 @@ pydoc util.csv2pld
 2. **doc/uml/reftest_communication_compact.puml** - High-level execution flow
 3. **include/mosh/scenario.h** - Core data model for metabolic networks
 4. **include/mosh/reaction.h** - Reaction representation with stoichiometry
-5. **include/mosh/lpsolver.h** - LP solver interface
-6. **src/plum.cpp** - Main executable entry point
-7. **util/csv2pld.py** - Most commonly used data converter
-8. **fileformat.md** - PLD file format specification
-9. **doc/overview/overview.md** - Project background and methodology
+5. **include/mosh/metabolite.h** - Metabolite representation
+6. **include/mosh/solution.h** - Solution flux distribution
+7. **include/mosh/lpsolver.h** - LP solver interface
+8. **src/plum.cpp** - Main executable entry point
+9. **unit_tests/reaction_test.cpp** - Example usage of Reaction class (33 test cases)
+10. **util/csv2pld.py** - Most commonly used data converter
+11. **fileformat.md** - PLD file format specification
+12. **doc/overview/overview.md** - Project background and methodology
 
 ### Important Concepts
 
@@ -567,8 +809,14 @@ pydoc util.csv2pld
   - `README.md`: Complete guide to generating and using diagrams
   - `INDEX.md`: Quick navigation by role or task
   - Generate with: `cd doc/uml && plantuml *.puml`
+- **Unit test examples** in `unit_tests/` show how to use core classes
+  - `reaction_test.cpp`: 33 examples of using Reaction class
+  - `metabolite_test.cpp`: 15 examples of using Metabolite class
+  - `scenario_test.cpp`: 13 examples of building metabolic networks
+  - Run tests to see expected behavior: `./run_unit_tests.sh`
 - All C/C++ code has Doxygen comments - generate HTML docs or use IDE hover
 - All Python scripts have numpy-style docstrings - use `pydoc` or `help()`
+- Test documentation: `unit_tests/README.md` and `unit_tests/SETUP.md`
 - Session documentation in `python_documentation_session.md`
 - Project overview in `doc/overview/overview.md`
 - File format specification in `fileformat.md`

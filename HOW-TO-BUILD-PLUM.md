@@ -8,17 +8,20 @@ This guide provides complete instructions for building PLUM (Metabolic Gap-Filli
 
 ### Required Software
 
-- **C++ Compiler**: GCC 10+ or Clang 11+ with C++20 support
-- **CMake**: Version 3.15 or higher
-- **Git**: For cloning and submodule management
+- **C++ Compiler**: GCC 10+ or Clang 11+ with C++20 support  
+  -- for kubeflow VSCode Notebook image June 2026; $gcc --version -> 11.4.0 
+- **CMake**: Version 3.15 or higher  
+  -- for kubeflow VSCode Notebook image June 2026; $cmake --version -> cmake version 3.22.1
+- **Git**: For cloning and submodule management  
+  -- for kubeflow VSCode Notebook image June 2026; $git --version -> git version 2.34.1
 
 ### Required LP/MILP Solver (at least one)
 
 PLUM requires at least one of the following LP/MILP solvers:
 
-- **Gurobi**: Commercial optimizer (requires license)
-- **HiGHS**: Open-source LP/MILP solver
-- **lp_solve**: Open-source LP solver
+- [**Gurobi**: Commercial optimizer requires license](https://www.gurobi.com/why-gurobi)
+- [**HiGHS**: Open-source LP/MILP solver](https://ergo-code.github.io/HiGHS/stable/installation/)
+- [**lp_solve**: Open-source LP solver](https://lp-solve.github.io/)
 
 ## Step 1: Clone the Repository
 
@@ -206,7 +209,7 @@ cmake --install . --prefix $HOME/plum-install
 
 After installation, executables will be in `<prefix>/bin/`.
 
-## Step 9: Run Tests (Optional but Recommended)
+## Step 9: Run Tests
 
 Verify the build by running reference tests:
 
