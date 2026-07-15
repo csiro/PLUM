@@ -626,6 +626,7 @@ Comprehensive UML diagrams document the PLUM architecture and execution flow fro
    - `class_solver_hierarchy.puml`: Complete solver framework with GapSolver and LPSolverImp hierarchies (343 lines)
    - `class_data_model.puml`: Metabolic network data structures (Scenario, Metabolite, Reaction, etc.) (385 lines)
    - `class_system_overview.puml`: System-wide architecture with 6 logical packages (357 lines)
+   - `GapSolver-To-HighsLPSolverImp.puml`: Simplified single-path "vertical slice" of the solver hierarchy, isolating just the classes exercised by `plum -v CTS -V HIGHS` (GapSolver → LPSolver → LPSolverImp → HighsLPSolverImp). All sibling solvers and backends are omitted for focus; see `class_solver_hierarchy.puml` for the full picture.
 
 **Documentation:**
 - `doc/uml/README.md`: Complete user guide with installation and generation instructions
@@ -636,22 +637,42 @@ Comprehensive UML diagrams document the PLUM architecture and execution flow fro
 
 **Generating Diagrams:**
 
+The recommended way to render on this machine is the `render.sh` helper, which
+requires **no installation** — it uses the bundled PlantUML jar plus PlantUML's
+built-in pure-Java layout engine (Smetana), so Graphviz/`dot` is **not** needed.
+
 ```bash
-# Install PlantUML
-sudo apt-get install plantuml graphviz
+# Render every *.puml in doc/uml to SVG (output in doc/uml/svg/)
+doc/uml/render.sh
 
-# Navigate to UML directory
-cd doc/uml
-
-# Generate PNG images
-plantuml *.puml
-
-# Generate SVG (recommended for documentation)
-plantuml -tsvg *.puml
-
-# Generate PDF (for reports)
-plantuml -tpdf *.puml
+# Render a single diagram
+doc/uml/render.sh GapSolver-To-HighsLPSolverImp.puml
 ```
+
+How `render.sh` avoids installs:
+- **java**: already present at `/usr/bin/java` (run, not installed)
+- **PlantUML**: the git-ignored `plantuml-*.jar` in the repo root (a jar is run
+  via `java -jar`, not installed); `render.sh` also falls back to
+  `~/apps/plant_uml/plantuml-*.jar`
+- **Graphviz**: bypassed via the `!pragma layout smetana` line near the top of
+  each `.puml`. This pragma is honored by the PlantUML engine regardless of
+  entry point, so the same file also previews in the **VS Code PlantUML
+  extension** with no Graphviz. Note: Smetana produces slightly different box/
+  arrow placement than Graphviz (layout only, not content) and may emit benign
+  "spline routing" warnings on dense diagrams.
+
+Direct invocation (equivalent to what `render.sh` runs):
+
+```bash
+cd doc/uml
+java -jar ../../plantuml-*.jar -tsvg -o svg *.puml    # SVG (recommended)
+java -jar ../../plantuml-*.jar -o svg *.puml          # PNG
+java -jar ../../plantuml-*.jar -tpdf -o svg *.puml    # PDF
+```
+
+If PlantUML and Graphviz are installed system-wide (e.g. `sudo apt-get install
+plantuml graphviz`), plain `plantuml *.puml` also works; the `smetana` pragma is
+still honored and simply skips Graphviz.
 
 **Online Viewing** (no installation):
 1. Visit https://www.plantuml.com/plantuml/uml/
@@ -664,7 +685,7 @@ plantuml -tpdf *.puml
 - **Class diagrams**: Understanding structure, implementing features, extending components
 
 **Coverage:**
-- 6 comprehensive diagrams (~1,900 lines of PlantUML)
+- 7 comprehensive diagrams (~2,100 lines of PlantUML)
 - 5 documentation files (~2,700 lines)
 - Total: ~4,600 lines of UML documentation
 - Traces execution from bash script through plum executable to C++ class level
@@ -772,8 +793,8 @@ doxygen
 # Generate Python API docs
 cd docs && make html
 
-# Generate UML diagrams
-cd doc/uml && plantuml *.puml
+# Generate UML diagrams (no install needed; uses bundled jar + Smetana layout)
+doc/uml/render.sh
 
 # View function help
 pydoc util.csv2pld
@@ -808,7 +829,7 @@ pydoc util.csv2pld
 - **Start with UML diagrams** in `doc/uml/` for visual architecture overview
   - `README.md`: Complete guide to generating and using diagrams
   - `INDEX.md`: Quick navigation by role or task
-  - Generate with: `cd doc/uml && plantuml *.puml`
+  - Generate with: `doc/uml/render.sh` (no install needed; bundled jar + Smetana layout)
 - **Unit test examples** in `unit_tests/` show how to use core classes
   - `reaction_test.cpp`: 33 examples of using Reaction class
   - `metabolite_test.cpp`: 15 examples of using Metabolite class

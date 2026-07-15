@@ -1,0 +1,230 @@
+@startuml GapSolver-To-HighsLPSolverImp
+!pragma layout smetana
+!theme plain
+title PLUM Class Diagram - Single Path: GapSolver -> HighsLPSolverImp
+
+' ===================================================================
+' This is a simplified "vertical slice" through the solver hierarchy,
+' isolating the one path exercised by:  plum -v CTS -V HIGHS data.pld
+'
+'   GapSolver (abstract)  <|--  LPSolver          (the GapSolver you run)
+'   LPSolver              *--   LPSolverImp        (Strategy backend)
+'   LPSolverImp (abstract)<|--  HighsLPSolverImp   (HiGHS implementation)
+'
+' Sibling solvers (IntSolver, IncrSolver, DummySolver, LnsMxSolver,
+' MathHeur) and sibling backends (GrbLPSolverImp, LpsLPSolverImp) are
+' intentionally omitted for focus. See class_solver_hierarchy.puml for
+' the full picture.
+' ===================================================================
+
+' ===================================================================
+' Abstract Base Class
+' ===================================================================
+
+abstract class GapSolver {
+  ' Abstract base for gap-filling solvers
+  # scenario_ : Scenario*
+  # params_ : Params*
+  # quiet_ : bool
+  # rand_ : lime::Rand
+  # status_ : StatusEnum
+  # best_sol_fn_ : string
+  - timer_ : lime::TimeKeeper
+
+  + GapSolver(scenario, params, seed)
+  + num_metabolites() : size_t
+  + metabolite(k) : Metabolite*
+  + num_reactions() : size_t
+  + reaction(k) : Reaction*
+  + num_experiments() : size_t
+  + experiment(k) : Experiment*
+
+  + {abstract} solve() : SolutionPtr
+  + summary() : string
+
+  + elapsed_time_secs() : double
+  + has_time_left() : bool
+  + status() : StatusEnum
+  + status_str() : string
+  + set_quiet(quiet)
+  + on_screen(message)
+}
+
+' ===================================================================
+' Concrete GapSolver on this path: the continuous LP solver
+' ===================================================================
+
+class LPSolver {
+  ' Continuous LP solver
+  - which_experiment_ : size_t
+  - which_formulation_ : int
+  - imp_ : LPSolverImpPtr
+  - target_flux_ : double
+  - biomass_search_iters_ : int
+  - biomass_obj_mult_ : double
+
+  + LPSolver(scenario, params, seed, formulation, imp)
+  + which_experiment() : size_t
+  + set_which_experiment(which)
+  + which_formulation() : int
+  + set_which_formulation(which)
+
+  + solve() : SolutionPtr
+  + formulate(exp : Experiment*)
+  + do_solve() : SolutionPtr
+  + set_target_flux(flux)
+  + summary() : string
+}
+
+' ===================================================================
+' Abstract LP/MILP Solver Implementation Interface (Strategy)
+' ===================================================================
+
+abstract class LPSolverImp {
+  ' Abstract LP/MILP backend interface
+  # scenario_ : Scenario*
+  # params_ : Params*
+
+  + LPSolverImp(scenario, params)
+
+  ' Initialization
+  + {abstract} init_cts()
+  + {abstract} init_int(cts_sol : SolutionPtr)
+
+  ' Variable creation
+  + {abstract} make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_flux_vars(react, name, obj_coeff, lb, ub)
+  + {abstract} make_use_var(react, name, obj_coeff, lb, ub)
+
+  ' Constraint creation
+  + {abstract} add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + {abstract} add_react_link_constraint(react, exp)
+  + add_react_link_constraints(react)
+
+  ' Modification
+  + {abstract} set_react_bounds(react, exp, lb, ub)
+  + {abstract} set_react_cost(exp, react, cost)
+  + {abstract} set_biomass_mult(exp, mult)
+  + finalise_formulation()
+
+  ' Solving
+  + {abstract} optimize() : StatusEnum
+
+  ' Solution extraction
+  + make_sol() : SolutionPtr
+  + {abstract} make_sol(which_experiment) : SolutionPtr
+  + {abstract} get_objective() : double
+  + {abstract} get_mip_gap() : double
+
+  ' Utilities
+  + {abstract} write_model(filename)
+  + {abstract} num_vars() : size_t
+  + {abstract} num_constraints() : size_t
+  + num_metabolites() : size_t
+  + num_reactions() : size_t
+  + num_experiments() : size_t
+  + local_set_quiet(quiet)
+}
+
+' ===================================================================
+' Concrete LP/MILP Implementation on this path: HiGHS backend
+' ===================================================================
+
+class HighsLPSolverImp {
+  ' HiGHS backend implementation
+  - model_ : Highs
+  - flux_var_idx_ : map<pair<Reaction*, size_t>, int>
+  - use_var_idx_ : map<Reaction*, int>
+  - num_vars_ : int
+  - num_constrs_ : int
+
+  + HighsLPSolverImp(scenario, params, seed)
+  + init_cts()
+  + init_int(cts_sol)
+  + make_flux_var(react, exp, name, obj_coeff, lb, ub)
+  + make_use_var(react, name, obj_coeff, lb, ub)
+  + add_met_constraint(met, exp, lb, ub, reacts, coeffs)
+  + add_react_link_constraint(react, exp)
+  + set_react_bounds(react, exp, lb, ub)
+  + set_react_cost(exp, react, cost)
+  + set_biomass_mult(exp, mult)
+  + optimize() : StatusEnum
+  + make_sol(which_experiment) : SolutionPtr
+  + get_objective() : double
+  + get_mip_gap() : double
+  + write_model(filename)
+  + num_vars() : size_t
+  + num_constraints() : size_t
+  + local_set_quiet(quiet)
+}
+
+' ===================================================================
+' Relationships: Inheritance
+' ===================================================================
+
+GapSolver <|-- LPSolver : extends
+LPSolverImp <|-- HighsLPSolverImp : implements
+
+' ===================================================================
+' Relationships: Composition/Aggregation
+' ===================================================================
+
+LPSolver *-- LPSolverImp : uses
+
+GapSolver o-- Scenario : accesses
+GapSolver o-- Params : accesses
+
+LPSolverImp o-- Scenario : accesses
+LPSolverImp o-- Params : accesses
+
+' ===================================================================
+' Design Pattern Notes
+' ===================================================================
+
+note right of LPSolver
+  **Continuous LP Formulation**
+
+  minimize: Σ(flux * cost)
+  subject to:
+    Sv = 0  (stoichiometry)
+    lb ≤ v ≤ ub  (bounds)
+    v_biomass ≥ target
+
+  Uses flux minimization instead
+  of traditional MILP reaction
+  count minimization.
+end note
+
+note right of HighsLPSolverImp
+  **Strategy Pattern (single backend)**
+
+  HighsLPSolverImp is one concrete
+  implementation of the LPSolverImp
+  interface, wrapping the HiGHS
+  optimization engine.
+
+  Selected at runtime with:
+    plum -V HIGHS
+end note
+
+legend bottom
+  **Key:**
+  - <<abstract>> : Abstract class/interface
+  - {abstract} method() : Pure virtual method
+  - # : Protected
+  - - : Private
+  - + : Public
+  - *-- : Composition (strong)
+  - o-- : Aggregation (weak)
+  - <|-- : Inheritance
+
+  **This path:**
+  Command: plum -v CTS -V HIGHS data.pld
+    -v CTS   : Continuous LP  -> LPSolver
+    -V HIGHS : HiGHS backend  -> HighsLPSolverImp
+
+  See class_solver_hierarchy.puml for the full hierarchy
+  with all sibling solvers and backends.
+endlegend
+
+@enduml

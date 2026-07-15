@@ -1,4 +1,5 @@
 @startuml class_solver_hierarchy
+!pragma layout smetana
 !theme plain
 title PLUM Class Diagram - Solver Hierarchy
 

@@ -1,4 +1,5 @@
 @startuml class_data_model
+!pragma layout smetana
 !theme plain
 title PLUM Class Diagram - Data Model
 

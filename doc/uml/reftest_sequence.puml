@@ -1,4 +1,5 @@
 @startuml reftest_sequence
+!pragma layout smetana
 !theme plain
 title PLUM Reference Test Execution Flow\nreftest.sh → plum → C++ Solver Classes
 

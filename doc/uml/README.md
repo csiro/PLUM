@@ -209,6 +209,31 @@ This high-level overview diagram shows all major components and their interactio
 
 ---
 
+#### 7. GapSolver-To-HighsLPSolverImp.puml
+
+**UML Class Diagram: Single-Path Solver Slice**
+
+A simplified "vertical slice" through the solver hierarchy that isolates just
+the classes exercised by one concrete run — `plum -v CTS -V HIGHS`:
+
+```
+GapSolver (abstract)
+   ▲ extends
+LPSolver  ──uses──▶  LPSolverImp (abstract, Strategy)
+                         ▲ implements
+                     HighsLPSolverImp (HiGHS backend)
+```
+
+All sibling solvers (IntSolver, IncrSolver, DummySolver, LnsMxSolver, MathHeur)
+and sibling backends (Gurobi, lp_solve) are intentionally omitted. `Scenario`
+and `Params` are shown as the shared data-model classes both sides reference.
+
+**Best for:** Focusing on one code path when learning or debugging, without the
+visual noise of the full hierarchy. See `class_solver_hierarchy.puml` for the
+complete picture.
+
+---
+
 ## Diagram Comparison
 
 | Aspect | Sequence | Communication | Comm. Compact | Class Diagrams |
@@ -230,94 +255,75 @@ This high-level overview diagram shows all major components and their interactio
 
 ## Generating Diagrams
 
-### Prerequisites
+### Recommended: `render.sh` (no installation required)
 
-Install PlantUML and its dependencies:
+The simplest and most portable way to render these diagrams is the `render.sh`
+helper in this directory. It requires **no installation** — no `apt-get`, no
+Graphviz — because it relies on:
+
+- **java**: already present at `/usr/bin/java` (a jar is *run*, not *installed*)
+- **PlantUML jar**: the git-ignored `plantuml-*.jar` in the PLUM repo root
+  (falls back to `~/apps/plant_uml/plantuml-*.jar`)
+- **Smetana layout**: PlantUML's built-in pure-Java layout engine, selected by
+  the `!pragma layout smetana` line near the top of every `.puml` here. This
+  removes the usual Graphviz/`dot` dependency for class diagrams.
+
+```bash
+# Render every *.puml in doc/uml to SVG (output in doc/uml/svg/)
+doc/uml/render.sh
+
+# Render a single diagram
+doc/uml/render.sh GapSolver-To-HighsLPSolverImp.puml
+```
+
+Output SVGs are written to `doc/uml/svg/`.
+
+> **Note:** Smetana produces slightly different box/arrow placement than
+> Graphviz (layout only — the content is identical) and may emit harmless
+> "spline routing" warnings on dense diagrams.
+
+### Direct invocation
+
+Equivalent to what `render.sh` runs, if you prefer to call PlantUML yourself:
+
+```bash
+cd doc/uml
+java -jar ../../plantuml-*.jar -tsvg -o svg *.puml    # SVG (recommended)
+java -jar ../../plantuml-*.jar -o svg *.puml          # PNG
+java -jar ../../plantuml-*.jar -tpdf -o svg *.puml    # PDF
+```
+
+### Alternative: system-wide PlantUML
+
+If you have permission to install packages, a system-wide PlantUML also works.
+The `!pragma layout smetana` line is still honored and simply skips Graphviz,
+so Graphviz becomes optional:
 
 ```bash
 # Ubuntu/Debian
-sudo apt-get install plantuml
+sudo apt-get install plantuml            # pulls in Java
+sudo apt-get install graphviz            # optional (Smetana pragma skips it)
 
-# Or download PlantUML JAR
-wget https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-1.2024.7.jar
-
-# Requires Java runtime
-sudo apt-get install default-jre
-
-# For better rendering, install Graphviz
-sudo apt-get install graphviz
-```
-
-### Generate PNG Images
-
-Using system PlantUML:
-```bash
 cd doc/uml
-
-# Generate specific diagrams
-plantuml reftest_sequence.puml
-plantuml reftest_communication.puml
-plantuml reftest_communication_compact.puml
-plantuml class_solver_hierarchy.puml
-plantuml class_data_model.puml
-plantuml class_system_overview.puml
+plantuml *.puml                          # PNG
+plantuml -tsvg *.puml                    # SVG
+plantuml -tpdf reftest_sequence.puml     # PDF
 ```
 
-Or generate all at once:
-```bash
-cd doc/uml
-plantuml *.puml
-```
-
-Using PlantUML JAR:
-```bash
-cd doc/uml
-java -jar plantuml-1.2024.7.jar *.puml
-```
-
-This generates:
-- `reftest_sequence.png` (sequence diagram)
-- `reftest_communication.png` (detailed communication diagram)
-- `reftest_communication_compact.png` (compact communication diagram)
-- `class_solver_hierarchy.png` (solver framework class diagram)
-- `class_data_model.png` (data model class diagram)
-- `class_system_overview.png` (system overview class diagram)
-
-### Generate SVG (Scalable Vector Graphics)
-
-```bash
-plantuml -tsvg *.puml
-```
-
-This generates SVG files for all diagrams (recommended for documentation)
-
-### Generate Other Formats
-
-```bash
-# PDF
-plantuml -tpdf reftest_sequence.puml
-
-# LaTeX
-plantuml -tlatex reftest_sequence.puml
-
-# ASCII art (text-based, no graphics needed)
-plantuml -ttxt reftest_sequence.puml
-
-# EPS (for publications)
-plantuml -teps reftest_sequence.puml
-```
-
-### Batch Processing
-
-Generate all diagrams at once:
-```bash
-plantuml doc/uml/*.puml
-```
+The diagrams are:
+- `reftest_sequence` (sequence diagram)
+- `reftest_communication` (detailed communication diagram)
+- `reftest_communication_compact` (compact communication diagram)
+- `class_solver_hierarchy` (solver framework class diagram)
+- `class_data_model` (data model class diagram)
+- `class_system_overview` (system overview class diagram)
+- `GapSolver-To-HighsLPSolverImp` (simplified single-path solver slice)
 
 ### Real-time Preview
 
 Some editors provide PlantUML preview:
-- **VS Code**: Install "PlantUML" extension
+- **VS Code**: Install "PlantUML" extension. The `!pragma layout smetana` line
+  in each `.puml` lets the extension preview class diagrams without Graphviz.
 - **IntelliJ IDEA**: Built-in PlantUML support
 - **Vim**: plantuml-syntax plugin
 - **Emacs**: plantuml-mode
@@ -481,13 +487,19 @@ For complete PlantUML syntax: https://plantuml.com/sequence-diagram
 doc/uml/
 ├── README.md                              # This file
 ├── SUMMARY.md                             # Creation summary and feasibility
+├── INDEX.md                               # Quick navigation index
+├── DIAGRAM_GUIDE.md                       # Behavioral diagram comparison guide
+├── CLASS_DIAGRAM_GUIDE.md                 # Class diagram reading guide
+├── render.sh                              # No-install renderer (jar + Smetana)
 ├── reftest_sequence.puml                  # Sequence diagram (temporal)
 ├── reftest_communication.puml             # Communication diagram (detailed)
 ├── reftest_communication_compact.puml     # Communication diagram (compact)
-├── reftest_sequence.png                   # Generated images (after plantuml)
-├── reftest_communication.png              # ...
-├── reftest_communication_compact.png      # ...
-└── *.svg                                  # SVG versions (after plantuml -tsvg)
+├── class_solver_hierarchy.puml            # Full solver framework class diagram
+├── class_data_model.puml                  # Data model class diagram
+├── class_system_overview.puml             # System overview class diagram
+├── GapSolver-To-HighsLPSolverImp.puml     # Single-path solver slice
+└── svg/                                   # Rendered SVGs (via render.sh)
+    └── *.svg
 ```
 
 ## Additional Resources

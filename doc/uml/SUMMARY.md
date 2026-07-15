@@ -211,37 +211,42 @@ Meta-documentation explaining the creation process and feasibility.
 
 ## Generating the Diagram
 
-### Option 1: Install PlantUML (Recommended)
+### Option 1: `render.sh` (Recommended — no installation)
 ```bash
-# Ubuntu/Debian
+# Uses the bundled PlantUML jar + pure-Java Smetana layout (no Graphviz).
+# Render all diagrams to SVG (output in doc/uml/svg/):
+/home/kubeflow/PLUM/doc/uml/render.sh
+
+# Or a single diagram:
+/home/kubeflow/PLUM/doc/uml/render.sh reftest_sequence.puml
+```
+
+### Option 2: Use the PlantUML JAR directly
+```bash
+# The git-ignored jar already lives in the repo root; Java is already available.
+cd /home/kubeflow/PLUM/doc/uml
+java -jar ../../plantuml-*.jar -tsvg -o svg reftest_sequence.puml
+```
+
+### Option 3: Install PlantUML system-wide (needs package permissions)
+```bash
+# Ubuntu/Debian. Graphviz is optional here because each .puml carries the
+# !pragma layout smetana line, which uses PlantUML's built-in layout engine.
 sudo apt-get update
 sudo apt-get install plantuml graphviz
 
-# Generate PNG
 cd /home/kubeflow/PLUM/doc/uml
 plantuml reftest_sequence.puml
-
-# Generates: reftest_sequence.png
 ```
 
-### Option 2: Use PlantUML JAR
-```bash
-# Download PlantUML
-cd /home/kubeflow/PLUM/doc/uml
-wget https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-1.2024.7.jar
-
-# Generate PNG (Java required - already available on your system)
-java -jar plantuml-1.2024.7.jar reftest_sequence.puml
-```
-
-### Option 3: Online Viewer
+### Option 4: Online Viewer
 1. Open: https://www.plantuml.com/plantuml/uml/
 2. Copy contents of `reftest_sequence.puml`
 3. Paste and view rendered diagram
 4. Download PNG/SVG from the web interface
 
-### Option 4: Editor Integration
-- **VS Code**: Install "PlantUML" extension for live preview
+### Option 5: Editor Integration
+- **VS Code**: Install "PlantUML" extension for live preview (the `!pragma layout smetana` line lets it render class diagrams without Graphviz)
 - **IntelliJ IDEA**: Built-in PlantUML support
 - **Vim**: Use plantuml-syntax plugin
 - **Emacs**: Use plantuml-mode
@@ -409,15 +414,11 @@ The diagram is:
 ### To Generate the Diagram Image
 
 ```bash
-# Install PlantUML (if not available)
-sudo apt-get install plantuml graphviz
+# No installation needed — render.sh uses the bundled jar + Smetana layout
+/home/kubeflow/PLUM/doc/uml/render.sh reftest_sequence.puml
 
-# Generate PNG
-cd /home/kubeflow/PLUM/doc/uml
-plantuml reftest_sequence.puml
-
-# View the generated image
-xdg-open reftest_sequence.png
+# View the generated SVG
+xdg-open /home/kubeflow/PLUM/doc/uml/svg/reftest_sequence.svg
 # or copy to a location where you can view it
 ```
 
@@ -432,10 +433,9 @@ PLUM includes UML sequence diagrams documenting system architecture and executio
 - `doc/uml/reftest_sequence.puml`: Complete execution trace from reftest.sh through plum to C++ solver classes
 - See `doc/uml/README.md` for diagram generation instructions
 
-Generate PNG diagrams:
+Generate diagrams (no install needed):
 ```bash
-cd doc/uml
-plantuml *.puml
+doc/uml/render.sh
 ```
 ```
 
