@@ -60,6 +60,14 @@ This directory contains comprehensive UML diagrams documenting PLUM's reference 
 **Shows**: All major components, 6 logical packages, system data flow  
 **Use for**: System overview, presentations, architectural planning  
 
+#### 7. Class Diagram: Single-Path Solver Slice
+**File**: `GapSolver-To-HighsLPSolverImp.puml`  
+**Generates**: `GapSolver-To-HighsLPSolverImp.svg`
+
+**Focus**: One concrete path — `plum -v CTS -V HIGHS`  
+**Shows**: Only GapSolver → LPSolver → LPSolverImp → HighsLPSolverImp (plus Scenario, Params); all sibling solvers and backends omitted  
+**Use for**: Learning or debugging a single code path without full-hierarchy noise  
+
 ---
 
 ## 📚 Documentation Files
@@ -145,28 +153,26 @@ Contents:
 
 ## 🚀 Quick Start
 
-### Generate All Diagrams
+### Generate All Diagrams (no installation required)
+
+Use the `render.sh` helper — it needs no `apt-get` and no Graphviz. It uses the
+bundled PlantUML jar plus PlantUML's built-in pure-Java Smetana layout engine
+(enabled by the `!pragma layout smetana` line in each `.puml`).
 
 ```bash
-# Install PlantUML (Ubuntu/Debian)
-sudo apt-get update
-sudo apt-get install plantuml graphviz
+# Render every *.puml to SVG (output in doc/uml/svg/)
+/home/kubeflow/PLUM/doc/uml/render.sh
 
-# Navigate to UML directory
-cd /home/kubeflow/PLUM/doc/uml
-
-# Generate PNG images
-plantuml *.puml
-
-# Generate SVG (recommended for documentation)
-plantuml -tsvg *.puml
-
-# Generate PDF (for reports)
-plantuml -tpdf *.puml
+# Render a single diagram
+/home/kubeflow/PLUM/doc/uml/render.sh GapSolver-To-HighsLPSolverImp.puml
 
 # View results
-ls -lh *.png *.svg *.pdf
+ls -lh /home/kubeflow/PLUM/doc/uml/svg/*.svg
 ```
+
+If you have permission to install packages, a system-wide PlantUML also works
+(`sudo apt-get install plantuml graphviz`; then `plantuml -tsvg *.puml`). The
+Smetana pragma is still honored and makes Graphviz optional.
 
 ### View Online (No Installation)
 
@@ -538,7 +544,7 @@ These diagrams and documentation are part of the PLUM project.
 - [🔍 Creation Story](SUMMARY.md)
 - [🏗️ Project Documentation](../../CLAUDE.md)
 
-**Generate diagrams**: `plantuml *.puml`  
+**Generate diagrams**: `doc/uml/render.sh` (no install needed; bundled jar + Smetana)  
 **View online**: https://www.plantuml.com/plantuml/uml/
 
 ---

@@ -455,18 +455,26 @@ Update **only sequence** when:
 
 ### PlantUML Commands
 
-```bash
-# Generate all diagrams
-cd doc/uml
-plantuml *.puml
+Recommended (no installation; bundled jar + pure-Java Smetana layout, so no
+Graphviz needed):
 
-# Generate specific formats
+```bash
+# Render all diagrams to SVG (output in doc/uml/svg/)
+doc/uml/render.sh
+
+# Render one diagram
+doc/uml/render.sh GapSolver-To-HighsLPSolverImp.puml
+```
+
+If PlantUML is installed system-wide, the classic commands also work (the
+`!pragma layout smetana` line in each `.puml` keeps Graphviz optional):
+
+```bash
+cd doc/uml
+plantuml *.puml          # all diagrams (PNG)
 plantuml -tsvg *.puml    # SVG for web
 plantuml -tpng *.puml    # PNG for docs
 plantuml -tpdf *.puml    # PDF for reports
-
-# Generate with custom DPI
-plantuml -DPLANTUML_LIMIT_SIZE=8192 *.puml
 ```
 
 ### Viewing Recommendations

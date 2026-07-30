@@ -1,7 +1,7 @@
 @startuml class_data_model
+!pragma layout smetana
 !theme plain
 title PLUM Class Diagram - Data Model
-subtitle Metabolic Network Representation for Flux Balance Analysis
 
 ' ===================================================================
 ' Core Data Classes

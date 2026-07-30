@@ -1,0 +1,5 @@
+if(EXISTS "/home/kubeflow/PLUM/build_test/unit_tests/params_test[1]_tests.cmake")
+  include("/home/kubeflow/PLUM/build_test/unit_tests/params_test[1]_tests.cmake")
+else()
+  add_test(params_test_NOT_BUILT params_test_NOT_BUILT)
+endif()

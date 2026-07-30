@@ -204,10 +204,21 @@ target_link_libraries(plumcmp plumlib )
 target_link_libraries(plummerge plumlib )
 
 #------------------------------------------------------------------------------#
+# Unit Tests
+
+# Option to enable/disable unit tests (enabled by default)
+option(BUILD_TESTS "Build unit tests" ON)
+
+if(BUILD_TESTS)
+  message(STATUS "Building unit tests")
+  add_subdirectory(unit_tests)
+endif()
+
+#------------------------------------------------------------------------------#
 # Install
 
 install(
-  TARGETS plumsp plumchk plumcmp plum plummerge plummx 
+  TARGETS plumsp plumchk plumcmp plum plummerge plummx
   RUNTIME DESTINATION bin
   )
 

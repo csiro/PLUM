@@ -1,0 +1,5 @@
+if(EXISTS "/home/kubeflow/PLUM/build_test/unit_tests/solution_test[1]_tests.cmake")
+  include("/home/kubeflow/PLUM/build_test/unit_tests/solution_test[1]_tests.cmake")
+else()
+  add_test(solution_test_NOT_BUILT solution_test_NOT_BUILT)
+endif()

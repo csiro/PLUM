@@ -1,4 +1,5 @@
 @startuml reftest_communication
+!pragma layout smetana
 !theme plain
 title PLUM Reference Test Communication Diagram\nObject Relationships and Message Flow
 

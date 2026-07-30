@@ -1,7 +1,8 @@
 @startuml class_system_overview
+!pragma layout smetana
 !theme plain
 title PLUM System Overview - Class Diagram
-subtitle Complete System Architecture with All Major Components
+
 
 ' ===================================================================
 ' Package: lime (External Utility Library)
