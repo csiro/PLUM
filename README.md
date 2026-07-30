@@ -5,6 +5,9 @@ metabolic network with known inputs and outputs, it determines which reactions f
 reaction database should be included to balance the network — or to maximize biomass
 production.
 
+## Repository Status:
+ - ONHOLD 2026-07-30: Need to be rebuild in the proper environment 
+
 ## Why PLUM?
 
 Traditional gap-filling relies on Mixed Integer Linear Programming (MILP), which can take
